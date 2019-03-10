@@ -10,7 +10,7 @@ import UIKit
 
 class EditOrderTVC: UITableViewController {
     
-    var completionHandler:((order) -> Void)?
+    var completionHandler:((Order) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
