@@ -13,7 +13,7 @@
         <!--Information-->
         <scene sceneID="p4Z-GA-YcC">
             <objects>
-                <viewController id="fIA-dQ-dTb" sceneMemberID="viewController">
+                <viewController id="fIA-dQ-dTb" customClass="memberVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vf9-wW-76A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,9 +75,14 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLt-pa-a3s">
-                                <rect key="frame" x="65" y="164" width="245" height="138"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="member" translatesAutoresizingMaskIntoConstraints="NO" id="bLt-pa-a3s">
+                                <rect key="frame" x="108" y="165" width="140" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -96,4 +101,7 @@
             <point key="canvasLocation" x="168.80000000000001" y="79.610194902548727"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="member" width="112.5" height="112.5"/>
+    </resources>
 </document>
