@@ -45,40 +45,40 @@
             </objects>
             <point key="canvasLocation" x="-428" y="72"/>
         </scene>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="Rh5-EG-ypH">
             <objects>
-                <viewController id="cmN-8A-TaB" sceneMemberID="viewController">
+                <viewController id="cmN-8A-TaB" customClass="loginVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cyz-Cs-NhS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="cLD-oU-4uL">
-                                <rect key="frame" x="40" y="412" width="295" height="135"/>
+                                <rect key="frame" x="40" y="445" width="295" height="102"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="帳號" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8It-FE-owq">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="touch:" destination="cmN-8A-TaB" eventType="editingDidEnd" id="Wa6-8Y-pDU"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hlu-Yq-EvS">
                                         <rect key="frame" x="0.0" y="36" width="295" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="touch:" destination="cmN-8A-TaB" eventType="editingDidEnd" id="5JK-pf-Hvk"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAc-cX-txq">
                                         <rect key="frame" x="0.0" y="72" width="295" height="30"/>
                                         <state key="normal" title="登入"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oY-Ae-VU1">
-                                        <rect key="frame" x="0.0" y="108" width="295" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="先去逛逛"/>
                                         <connections>
-                                            <segue destination="HCp-Vj-eJg" kind="show" id="q1T-Fd-JQh"/>
+                                            <action selector="clickLogin:" destination="cmN-8A-TaB" eventType="touchUpInside" id="1AY-hJ-QLc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -96,17 +96,41 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKg-9k-mDa">
+                                <rect key="frame" x="285" y="555" width="50" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="先去逛逛">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <segue destination="HCp-Vj-eJg" kind="show" id="lJB-5T-aa6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="q9l-Px-jnE" firstAttribute="trailing" secondItem="cLD-oU-4uL" secondAttribute="trailing" constant="40" id="SEA-Mj-o8Q"/>
                             <constraint firstItem="q9l-Px-jnE" firstAttribute="bottom" secondItem="cLD-oU-4uL" secondAttribute="bottom" constant="120" id="T6k-dM-IqD"/>
                             <constraint firstItem="cLD-oU-4uL" firstAttribute="leading" secondItem="q9l-Px-jnE" secondAttribute="leading" constant="40" id="bGS-sl-dfd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q9l-Px-jnE"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="B4E-li-J35" appends="YES" id="cXu-si-oRS"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="Hlu-Yq-EvS" id="akW-3F-41p"/>
+                        <outlet property="userTextField" destination="8It-FE-owq" id="JOh-nW-OuJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4u6-wl-hbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="B4E-li-J35">
+                    <connections>
+                        <action selector="tapGesture:" destination="cmN-8A-TaB" id="uvs-f4-ZLC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="405" y="-225"/>
         </scene>
