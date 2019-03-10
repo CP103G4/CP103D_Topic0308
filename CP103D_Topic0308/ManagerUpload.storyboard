@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jJ1-f2-bqW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qpw-Fx-Kqk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,7 +27,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Please key your good name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bqU-yU-fMG">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please key your good name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bqU-yU-fMG">
                                                     <rect key="frame" x="88" y="6" width="199" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
@@ -90,13 +90,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="163.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Please introduce your good" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1r2-Cq-kXQ">
-                                                    <rect key="frame" x="67" y="17" width="240" height="128"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1r2-Cq-kXQ">
+                                                    <rect key="frame" x="67" y="37" width="240" height="108"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please introduce your good" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVI-fb-8yR">
+                                                    <rect key="frame" x="82" y="11" width="210" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -144,7 +152,7 @@
                             <outlet property="delegate" destination="lyn-HX-4GN" id="2xK-gS-SVq"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Upload" id="rtM-cf-OBC"/>
+                    <tabBarItem key="tabBarItem" title="Upload" image="upload" id="Rzt-zb-56y"/>
                     <navigationItem key="navigationItem" title="Upload" id="eL9-0t-fSQ">
                         <barButtonItem key="leftBarButtonItem" systemItem="undo" id="pDO-VN-B05"/>
                         <barButtonItem key="rightBarButtonItem" title="upload" id="Cbo-iW-5dt"/>
@@ -153,26 +161,29 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ma-Xq-w7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1040.8" y="839.73013493253382"/>
+            <point key="canvasLocation" x="1980" y="839.73013493253382"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="qm4-Mx-yEI">
+        <!--Upload-->
+        <scene sceneID="4KR-fE-yYJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jJ1-f2-bqW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="cwl-Nx-MkL"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qpw-Fx-Kqk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Upload" id="czG-gz-PiF"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TNk-Xd-Tgq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2EM-sm-nic">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="lyn-HX-4GN" kind="relationship" relationship="rootViewController" id="GOj-xt-60j"/>
+                        <segue destination="lyn-HX-4GN" kind="relationship" relationship="rootViewController" id="c6S-tr-ef8"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nZj-wb-gZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aT0-Cs-4iw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="102" y="840"/>
+            <point key="canvasLocation" x="1040.8" y="839.73013493253382"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="upload" width="14" height="20"/>
+    </resources>
 </document>

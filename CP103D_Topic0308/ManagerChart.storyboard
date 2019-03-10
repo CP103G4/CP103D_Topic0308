@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ztk-nm-z7s"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chart" id="ged-hJ-pcM"/>
+                    <tabBarItem key="tabBarItem" title="Chart" image="statistics" id="ged-hJ-pcM"/>
                     <navigationItem key="navigationItem" title="Chart" id="eym-dE-1dq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -48,4 +48,7 @@
             <point key="canvasLocation" x="205.79710144927537" y="112.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="statistics" width="20" height="20"/>
+    </resources>
 </document>

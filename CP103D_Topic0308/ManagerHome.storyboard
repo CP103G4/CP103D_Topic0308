@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ZxF-qG-lAe"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="GWN-7R-be9"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="GWN-7R-be9"/>
                     <navigationItem key="navigationItem" title="Home" id="fUB-yI-twe"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -48,4 +48,7 @@
             <point key="canvasLocation" x="37.681159420289859" y="-14.0625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home" width="16" height="15"/>
+    </resources>
 </document>
