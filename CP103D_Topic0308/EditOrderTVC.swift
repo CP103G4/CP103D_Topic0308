@@ -1,16 +1,16 @@
 //
-//  ManagerOrderTVC.swift
+//  EditOrderTVC.swift
 //  CP103D_Topic0308
 //
-//  Created by 方錦泉 on 2019/3/8.
+//  Created by 方錦泉 on 2019/3/10.
 //  Copyright © 2019 min-chia. All rights reserved.
 //
 
 import UIKit
 
-class ManagerOrderTVC: UITableViewController {
+class EditOrderTVC: UITableViewController {
     
-    var orders = [order]()
+    var completionHandler:((order) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,36 +21,33 @@ class ManagerOrderTVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-    
-    @IBAction func searchClick(_ sender: Any) {
-    }
-    
-    
-    @IBAction func editClick(_ sender: Any) {
-    }
-    
 
+    @IBAction func changeClick(_ sender: Any) {
+        
+    }
+    
+    
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return orders.count
-    }
-    
-    
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 0
+//    }
+
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ordersCell", for: indexPath)
-        let order = orders[indexPath.row]
-        cell.textLabel?.text = order.id?.description
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
         return cell
     }
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -87,16 +84,14 @@ class ManagerOrderTVC: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditOrderTVC"{
-            let destinationTVC = segue.destination as! EditOrderTVC
-            destinationTVC.completionHandler = { (order) in self.orders.append(order)}
-        }
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
-    
+    */
 
 }
