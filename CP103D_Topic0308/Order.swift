@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Order : NSObject , NSSecureCoding , Codable {
+class Order : NSObject, NSSecureCoding, Codable {
     static var supportsSecureCoding: Bool{
         return true
     }
@@ -23,14 +23,14 @@ class Order : NSObject , NSSecureCoding , Codable {
         self.status = status
         self.totalPrice = totalPrice
     }
-    
+
     func encode(with aCoder: NSCoder) {
         aCoder.encode(id, forKey: "id")
         aCoder.encode(date, forKey: "data")
         aCoder.encode(status, forKey: "status")
         aCoder.encode(totalPrice, forKey: "price")
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         id = aDecoder.decodeObject(of: NSNumber.self, forKey: "id") as? Int
         date = aDecoder.decodeObject(of: NSNumber.self, forKey: "date") as? Int

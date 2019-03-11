@@ -14,8 +14,7 @@ class ManagerOrderTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let asset = NSDataAsset(name: "order") {
+        if let asset = NSDataAsset(name: "ordersjson") {
             if let orders = try? JSONDecoder().decode([Order].self, from: asset.data) {
                 self.orders = orders
             }
@@ -47,6 +46,7 @@ class ManagerOrderTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ordersCell", for: indexPath)
         let order = orders[indexPath.row]
+//        print(order.id?.description)
         cell.textLabel?.text = order.id?.description
         
         return cell
