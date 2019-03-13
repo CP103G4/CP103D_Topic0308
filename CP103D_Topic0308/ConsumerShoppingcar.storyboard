@@ -70,9 +70,6 @@
                                             <segment title="XL"/>
                                         </segments>
                                         <color key="tintColor" red="0.29411764709999999" green="0.2274509804" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="finishMaterialChanged:" destination="3dz-ow-qFy" eventType="valueChanged" id="rD3-Ff-PfZ"/>
-                                        </connections>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zSR-mX-PkI">
                                         <rect key="frame" x="142" y="432" width="91" height="29"/>
@@ -81,9 +78,6 @@
                                             <segment title="暗色"/>
                                         </segments>
                                         <color key="tintColor" red="0.29411764709999999" green="0.2274509804" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="finishMaterialChanged:" destination="3dz-ow-qFy" eventType="valueChanged" id="fnH-lZ-3r2"/>
-                                        </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Colar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWP-NO-BMu">
                                         <rect key="frame" x="172" y="413" width="31.5" height="18"/>
@@ -106,9 +100,6 @@
                                         <rect key="frame" x="233.5" y="550.5" width="94" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.29411764709999999" green="0.2274509804" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="quantityStepper:" destination="3dz-ow-qFy" eventType="valueChanged" id="1bl-LL-GAk"/>
-                                        </connections>
                                     </stepper>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity: 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NP5-l3-SVo">
                                         <rect key="frame" x="149.5" y="555" width="76" height="20.5"/>
@@ -125,9 +116,6 @@
                                         <state key="normal" title="ADD TO CART">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="addToCart:" destination="3dz-ow-qFy" eventType="touchUpInside" id="kun-Pn-2z6"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp9-li-cVr">
                                         <rect key="frame" x="294" y="413" width="23.5" height="18"/>
@@ -158,17 +146,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="finishSegment" destination="zSR-mX-PkI" id="7HU-IX-J0S"/>
-                        <outlet property="materialSegment" destination="fhN-ne-Svm" id="SMv-L8-XIl"/>
-                        <outlet property="productCategory" destination="ObI-Pp-lvE" id="11H-LN-bAa"/>
-                        <outlet property="productDescription" destination="P4U-aO-wJP" id="dit-fw-waw"/>
-                        <outlet property="productImage" destination="HhG-eT-YlW" id="zW6-GE-3FW"/>
-                        <outlet property="productName" destination="yzK-tW-wfS" id="7Kj-Se-lBb"/>
-                        <outlet property="productPrice" destination="kLn-Ii-fBM" id="EoU-T0-VBT"/>
-                        <outlet property="quantityLabel" destination="NP5-l3-SVo" id="pJe-3n-Hd6"/>
-                        <outlet property="titleBar" destination="8zR-hG-SaX" id="BLF-Pv-DLJ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Br4-DP-iQO" sceneMemberID="firstResponder"/>
             </objects>
@@ -238,9 +215,6 @@
                                 <state key="normal" title="CHECKOUT">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="checkout:" destination="mbG-oA-uJv" eventType="touchUpInside" id="kyM-Zr-W5w"/>
-                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="105" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="jkI-Zf-d23">
                                 <rect key="frame" x="0.0" y="64" width="375" height="371"/>
@@ -339,15 +313,9 @@
                     <navigationItem key="navigationItem" title="CART" id="5Ny-dY-rcz">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="upy-QK-adq">
                             <color key="tintColor" red="0.29411764709999999" green="0.2274509804" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="editTable:" destination="mbG-oA-uJv" id="jf3-er-Xiy"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="editButton" destination="upy-QK-adq" id="W54-Nc-sqi"/>
-                        <outlet property="tableView" destination="jkI-Zf-d23" id="Tcb-A8-JYX"/>
-                        <outlet property="totalLabel" destination="jbe-H2-6q5" id="XIq-gS-dm3"/>
                         <segue destination="pD4-95-ZVo" kind="showDetail" id="llV-cf-bov"/>
                     </connections>
                 </viewController>
@@ -519,9 +487,6 @@
                                         <state key="normal" title="PAY NOW">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="payNow:" destination="GBw-nj-KQ9" eventType="touchUpInside" id="9tS-MK-E4U"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </scrollView>
@@ -533,12 +498,6 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="CHECKOUT" id="COb-JU-lHC"/>
                     <connections>
-                        <outlet property="cardCvv" destination="ciV-B0-ue0" id="EE6-F1-FW2"/>
-                        <outlet property="cardExpiryMonth" destination="p0i-ZU-mg0" id="y76-gS-TdE"/>
-                        <outlet property="cardExpiryYear" destination="X0a-Of-7QI" id="jqM-rh-jeF"/>
-                        <outlet property="cardNumber" destination="w64-B6-mcd" id="KUw-4q-INx"/>
-                        <outlet property="labelTotalPrice" destination="jvf-5L-buX" id="gEt-wW-NlQ"/>
-                        <outlet property="tableViewOrderDetails" destination="H6l-aA-dJf" id="xrr-KG-KFl"/>
                         <segue destination="oQY-MH-AY9" kind="showDetail" id="uUE-4h-U5b"/>
                     </connections>
                 </viewController>

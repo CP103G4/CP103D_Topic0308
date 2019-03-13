@@ -26,6 +26,7 @@
 		1D8C69CF2234EA9F00C1BE4A /* EditOrderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8C69CE2234EA9F00C1BE4A /* EditOrderTVC.swift */; };
 		1DC451FC22326FA5003BD747 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC451FB22326FA5003BD747 /* Order.swift */; };
 		1DC451FE22326FFB003BD747 /* ManagerOrderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC451FD22326FFB003BD747 /* ManagerOrderTVC.swift */; };
+		CE8F625E2238F6E800AD89DF /* G87ConsumerInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F625D2238F6E800AD89DF /* G87ConsumerInformationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		1D8C69CE2234EA9F00C1BE4A /* EditOrderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOrderTVC.swift; sourceTree = "<group>"; };
 		1DC451FB22326FA5003BD747 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		1DC451FD22326FFB003BD747 /* ManagerOrderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderTVC.swift; sourceTree = "<group>"; };
+		CE8F625D2238F6E800AD89DF /* G87ConsumerInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = G87ConsumerInformationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				1899234D2232436300B9DC1C /* ConsumerMyfavorite.storyboard */,
 				1899234F2232440600B9DC1C /* ConsumerShoppingcar.storyboard */,
 				189923532232452D00B9DC1C /* ConsumerInformation.storyboard */,
+				CE8F625D2238F6E800AD89DF /* G87ConsumerInformationViewController.swift */,
 				11460BA2223547A70046DF35 /* memberVC.swift */,
 				189923552232458D00B9DC1C /* ManagerHome.storyboard */,
 				18992357223245FA00B9DC1C /* ManagerUpload.storyboard */,
@@ -187,6 +190,7 @@
 			files = (
 				1D8C69CF2234EA9F00C1BE4A /* EditOrderTVC.swift in Sources */,
 				1DC451FE22326FFB003BD747 /* ManagerOrderTVC.swift in Sources */,
+				CE8F625E2238F6E800AD89DF /* G87ConsumerInformationViewController.swift in Sources */,
 				11460BA3223547A70046DF35 /* memberVC.swift in Sources */,
 				11460BA522354BCC0046DF35 /* loginVC.swift in Sources */,
 				1135C36222327745002C9C80 /* signupVC.swift in Sources */,
