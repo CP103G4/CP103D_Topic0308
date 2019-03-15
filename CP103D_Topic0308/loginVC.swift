@@ -12,78 +12,99 @@ class loginVC: UIViewController {
     
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    let url_server = URL(string: common_url + "UserServlet")
+    var user: User?
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBAction func clickLogin(_ sender: UIButton) {
+        let username = userTextField.text == nil ? "" : userTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = passwordTextField.text == nil ? "" : passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        // 建立一個提示框
+        if username!.isEmpty || password!.isEmpty {
+            let alertController = UIAlertController(
+                title: "帳號密碼不可以為空白",
+                message: nil,
+                preferredStyle: .alert)
+            
+            // 建立[確認]按鈕
+            let okAction = UIAlertAction(
+                title: "確認",
+                style: .default,
+                handler: {
+                    (action: UIAlertAction!) -> Void in
+                    print()
+            })
+            alertController.addAction(okAction)
+            // 顯示提示框
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+        }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        let user = User(username!, password!)
+        var requestParam = [String: String]()
+        requestParam["param"] = "comparison"
+        requestParam["user"] = try! String(data: JSONEncoder() .encode(user), encoding: .utf8)
         
-        // 取userDefaults的值出來
-        let userDefaults = UserDefaults.standard
-        if let jsonData = userDefaults.data(forKey: "Account") {
-            //取得陣列的值
-            if let account = try? JSONDecoder().decode(Account.self, from: jsonData) {
-                userTextField.text = account.username
-                passwordTextField.text = account.password
+        executeTask(url_server!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    if let result = try? JSONDecoder().decode([String: Bool].self, from: data!) {
+                        // server驗證帳密成功會回傳true
+                        if result["success"]! {
+                            let saved = saveUser(user)
+                            print("saved = \(saved)")
+                            // 開啟下一頁
+                            DispatchQueue.main.async {
+                                self.next()
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                self.showalert()
+                            }
+                        }
+                        print(result)
+                    }
+                }
+            } else {
+                print(error!.localizedDescription)
             }
         }
     }
     
-    @IBAction func clickLogin(_ sender: Any) {
-        if userTextField.text != "" && passwordTextField.text != "" {
-            let username = userTextField.text
-            let password = passwordTextField.text
-            let account = Account(username: username!, password: password!)
-            //還需要比對帳密碼是否正確
-            // Object Array to JSON，編碼器
-            let encoder = JSONEncoder()
-            //把陣列轉成json
-            let jsonData = try! encoder.encode(account)
-            //把json存到userdefault
-            let userDefaults = UserDefaults.standard
-            userDefaults.set(jsonData, forKey: "Account")
-            userDefaults.synchronize()
-            
-        }
+    func showalert(){
+        let alertController = UIAlertController(
+            title: "帳號或密碼錯誤",
+            message: nil,
+            preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(
+            title: "確認",
+            style: .default,
+            handler: {
+                (action: UIAlertAction!) -> Void in
+                print()
+        })
+        alertController.addAction(okAction)
+        // 顯示提示框
+        self.present(alertController, animated: true, completion: nil)
     }
     
-    @objc func keyboardWillShow(notification: Notification) {
-        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardRect = keyboardFrame.cgRectValue
-            let keyboardHeight = keyboardRect.height
-            view.frame.origin.y = -keyboardHeight
-        } else {
-            view.frame.origin.y = -view.frame.height / 3
-        }
+    func next() {
+        let storyboard = UIStoryboard(name: "ConsumerHome", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+        present(controller, animated: true, completion: nil)
+        
     }
     
-    @objc func keyboardWillHide(notification: Notification) {
-        view.frame.origin.y = 0
+    @IBAction func clickClear(_ sender: Any) {
+        clear()
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    func clear() {
+        userTextField.text = ""
+        passwordTextField.text = ""
     }
-    
-    
-    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
-        hideKeyboard()
-    }
-    
-    @IBAction func touch(_ sender: Any) {
-        hideKeyboard()
-    }
-    
-    /** 隱藏鍵盤 */
-    func hideKeyboard() {
-        userTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
-    }
-    
-    
     
 }

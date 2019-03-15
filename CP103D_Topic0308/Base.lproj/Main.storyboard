@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fw6-b3-nv5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fw6-b3-nv5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,26 +61,32 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="touch:" destination="cmN-8A-TaB" eventType="editingDidEnd" id="Wa6-8Y-pDU"/>
-                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hlu-Yq-EvS">
                                         <rect key="frame" x="0.0" y="36" width="295" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                        <connections>
-                                            <action selector="touch:" destination="cmN-8A-TaB" eventType="editingDidEnd" id="5JK-pf-Hvk"/>
-                                        </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAc-cX-txq">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="B3m-X6-SH1">
                                         <rect key="frame" x="0.0" y="72" width="295" height="30"/>
-                                        <state key="normal" title="登入"/>
-                                        <connections>
-                                            <action selector="clickLogin:" destination="cmN-8A-TaB" eventType="touchUpInside" id="1AY-hJ-QLc"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAc-cX-txq">
+                                                <rect key="frame" x="0.0" y="0.0" width="147.5" height="30"/>
+                                                <state key="normal" title="登入"/>
+                                                <connections>
+                                                    <action selector="clickLogin:" destination="cmN-8A-TaB" eventType="touchUpInside" id="lyc-vH-83c"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEz-e9-ebU">
+                                                <rect key="frame" x="147.5" y="0.0" width="147.5" height="30"/>
+                                                <state key="normal" title="取消"/>
+                                                <connections>
+                                                    <action selector="clickClear:" destination="cmN-8A-TaB" eventType="touchUpInside" id="Tbt-KI-nXZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1QA-iY-Lh2">
@@ -126,11 +132,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4u6-wl-hbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="B4E-li-J35">
-                    <connections>
-                        <action selector="tapGesture:" destination="cmN-8A-TaB" id="uvs-f4-ZLC"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="B4E-li-J35"/>
             </objects>
             <point key="canvasLocation" x="405" y="-225"/>
         </scene>
