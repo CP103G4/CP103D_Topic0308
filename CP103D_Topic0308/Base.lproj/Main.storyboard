@@ -314,6 +314,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEA-Pv-rqm">
                                         <rect key="frame" x="0.0" y="481" width="315" height="30"/>
                                         <state key="normal" title="完成"/>
+                                        <connections>
+                                            <action selector="registerClick:" destination="o6Z-Uk-r2f" eventType="touchUpInside" id="7dC-Qv-x0s"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -339,6 +342,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ntt-Dl-HIG"/>
                     </view>
+                    <connections>
+                        <outlet property="scSex" destination="aPM-f9-KAp" id="hOm-QD-PUA"/>
+                        <outlet property="tfEmail" destination="dwF-c2-Hzi" id="hdk-C7-ewg"/>
+                        <outlet property="tfName" destination="jf3-PS-jN4" id="xk6-Pc-47y"/>
+                        <outlet property="tfPassword" destination="eGL-mQ-XqT" id="zhI-aL-LgE"/>
+                        <outlet property="tfPhone" destination="Os8-rO-bNj" id="pXB-oc-BuD"/>
+                        <outlet property="tfUserName" destination="toB-JY-Op4" id="VNm-RB-emR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6AX-Fi-L7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
