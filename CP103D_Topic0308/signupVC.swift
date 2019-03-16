@@ -8,7 +8,7 @@
 
 import UIKit
 
-class signupVC: UIViewController {
+class signupVC: UIViewController , UINavigationControllerDelegate {
     
     let url_server = URL(string: common_url + "UserServlet")
     
@@ -39,11 +39,12 @@ class signupVC: UIViewController {
         let email = tfEmail.text == nil ? "" : tfEmail.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if username!.isEmpty || password!.isEmpty || name!.isEmpty || phone!.isEmpty || email!.isEmpty {
+            showEmptyAlert()
             return
         }
         
         let cellphone = Int(phone!)
-        let user = User(username: username!, password: password!, name: name!, phone: cellphone!, email: email!, sex: scSex.selectedSegmentIndex)
+        let user = User(userName: username!, password: password!, trueName: name!, phone: cellphone!, email: email!, sex: scSex.selectedSegmentIndex)
         var requestParam = [String: String]()
         requestParam["action"] = "insert"
         requestParam["user"] = try! String(data: JSONEncoder().encode(user), encoding: .utf8)
@@ -55,7 +56,6 @@ class signupVC: UIViewController {
                             DispatchQueue.main.async {
                                 if count != 0 {
                                     self.showCorrectAlert()
-                                    self.navigationController?.popViewController(animated: true)
                                 } else {
                                     self.showErrorAlert()
                                 }
@@ -71,8 +71,16 @@ class signupVC: UIViewController {
     
     @IBAction func doneItem(_ sender: Any) {
         
-        
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func showEmptyAlert(){
+        let emptyAlert = UIAlertController(title: "Register Fail!", message: "Please check your informatiom is correct format.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        emptyAlert.addAction(okAction)
+        present(emptyAlert, animated: true, completion: nil)
+        
     }
     
     func showErrorAlert(){
@@ -87,7 +95,7 @@ class signupVC: UIViewController {
     func showCorrectAlert(){
         let correctAlert = UIAlertController(title: "Register Success!", message: "Now you can login and enjoy shopping.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Great!", style: .default) { (_) in
-            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }
         correctAlert.addAction(okAction)
         present(correctAlert, animated: true, completion: nil)

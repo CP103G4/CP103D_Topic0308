@@ -44,7 +44,7 @@ class loginVC: UIViewController {
         
         let user = User(username!, password!)
         var requestParam = [String: String]()
-        requestParam["param"] = "comparison"
+        requestParam["action"] = "comparison"
         requestParam["user"] = try! String(data: JSONEncoder() .encode(user), encoding: .utf8)
         
         executeTask(url_server!, requestParam) { (data, response, error) in
@@ -92,9 +92,10 @@ class loginVC: UIViewController {
     }
     
     func next() {
-        let storyboard = UIStoryboard(name: "ConsumerHome", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "HomeVC")
-        present(controller, animated: true, completion: nil)
+//        let storyboard = UIStoryboard(name: "ConsumerHome", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+//        present(controller, animated: true, completion: nil)
+        performSegue(withIdentifier: "toMainPage", sender: nil)
         
     }
     
