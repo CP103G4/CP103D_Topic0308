@@ -84,6 +84,9 @@
                                     <segment title="Woman"/>
                                     <segment title="Man"/>
                                 </segments>
+                                <connections>
+                                    <action selector="mainclassSegmentAction:" destination="LdS-dY-40A" eventType="valueChanged" id="0Q5-2i-Vsg"/>
+                                </connections>
                             </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6U9-km-CPs">
                                 <rect key="frame" x="0.0" y="56" width="375" height="562"/>
@@ -138,6 +141,9 @@
                                     <constraint firstItem="SHZ-fu-KJw" firstAttribute="leading" secondItem="6U9-km-CPs" secondAttribute="leading" id="gkc-MF-QVd"/>
                                     <constraint firstItem="Vgf-4p-19C" firstAttribute="height" secondItem="6U9-km-CPs" secondAttribute="height" id="vc9-9u-1Ja"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="LdS-dY-40A" id="CJQ-vy-sTh"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -154,6 +160,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="6TN-CR-5iR"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mainclassSegment" destination="eGH-jC-tjc" id="YM8-ti-QYv"/>
+                        <outlet property="scrollView" destination="6U9-km-CPs" id="r4R-nd-RYz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNh-w7-dsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

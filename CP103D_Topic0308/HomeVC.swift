@@ -8,15 +8,37 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var mainclassSegment: UISegmentedControl!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        mainclassSegment.selectedSegmentIndex = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
+    }
+    
+    @IBAction func mainclassSegmentAction(_ sender: Any) {
+        switch mainclassSegment.selectedSegmentIndex {
+        case 0:
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            break
+        case 1:
+            scrollView.setContentOffset(CGPoint(x: scrollView.bounds.size.width, y: 0), animated: true)
+            break
+        case 2:
+            scrollView.setContentOffset(CGPoint(x: scrollView.bounds.size.width * 2, y: 0), animated: true)
+            break
+        default:
+            break
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
