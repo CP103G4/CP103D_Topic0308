@@ -100,6 +100,16 @@ class loginVC: UIViewController {
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // 取userDefaults的值出來
+        user = loadUser()
+        userTextField.text = user?.userName
+        passwordTextField.text = user?.password
+
+    }
+    
+    
     @IBAction func clickClear(_ sender: Any) {
         clear()
     }
