@@ -93,9 +93,10 @@ class loginVC: UIViewController {
     
     func next() {
 //        let storyboard = UIStoryboard(name: "ConsumerHome", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "HomeVC")
-//        present(controller, animated: true, completion: nil)
-        performSegue(withIdentifier: "toMainPage", sender: nil)
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "TabBar") {
+        present(controller, animated: true, completion: nil)
+        }
+        //performSegue(withIdentifier: "toMainPage", sender: nil)
         
     }
     
