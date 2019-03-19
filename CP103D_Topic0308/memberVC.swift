@@ -15,18 +15,25 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
 
     }
     
-
+    @IBAction func clickcamera(_ sender: UIButton) {
+        photo()
+    }
+    
     
     @IBAction func clickImage(_ sender: Any) {
+        photo()
+    }
+    
+    func photo(){
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let camera = UIAlertAction(title: "相機", style: .default, handler: { (_) in
-        let imagePicker = UIImagePickerController()
-        /* 將UIImagePickerControllerDelegate、UINavigationControllerDelegate物件指派給UIImagePickerController */
-        imagePicker.delegate = self
-        /* 照片來源為相機 */
-        imagePicker.sourceType = .camera
-        self.present(imagePicker, animated: true, completion: nil)
+            let imagePicker = UIImagePickerController()
+            /* 將UIImagePickerControllerDelegate、UINavigationControllerDelegate物件指派給UIImagePickerController */
+            imagePicker.delegate = self
+            /* 照片來源為相機 */
+            imagePicker.sourceType = .camera
+            self.present(imagePicker, animated: true, completion: nil)
         })
         controller.addAction(camera)
         
@@ -42,7 +49,6 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         controller.addAction(cancelAction)
         present(controller, animated: true, completion: nil)
     }
-    
     
     
 

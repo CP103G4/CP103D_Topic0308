@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="biH-1j-53d"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ShoppingCar" id="Idb-0Q-Ijx"/>
+                    <tabBarItem key="tabBarItem" title="ShoppingCar" image="shopping" id="Idb-0Q-Ijx"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myO-af-d9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -602,5 +602,6 @@
     <resources>
         <image name="cart" width="16" height="16"/>
         <image name="delivery.png" width="16" height="16"/>
+        <image name="shopping" width="30" height="30"/>
     </resources>
 </document>
