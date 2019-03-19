@@ -113,19 +113,23 @@
         <!--Home-->
         <scene sceneID="SLJ-wj-gyd">
             <objects>
-                <viewController title="Home" id="g6r-b5-qIG" sceneMemberID="viewController">
+                <viewController title="Home" id="g6r-b5-qIG" customClass="memberVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qmr-xo-H5H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="562"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="member" translatesAutoresizingMaskIntoConstraints="NO" id="OvY-v0-3Jo">
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="member" translatesAutoresizingMaskIntoConstraints="NO" id="OvY-v0-3Jo">
                                 <rect key="frame" x="117" y="92" width="140" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="70"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="1Fh-4p-2ky" appends="YES" id="Dlj-Mk-iGN"/>
+                                </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WQm-fR-vX4">
                                 <rect key="frame" x="40" y="288" width="295" height="194"/>
@@ -168,6 +172,11 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffC-Ul-wnL">
+                                <rect key="frame" x="227" y="202" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="photo"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -179,13 +188,17 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XP-dH-rjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="1Fh-4p-2ky">
+                    <connections>
+                        <action selector="clickImage:" destination="g6r-b5-qIG" id="jSu-fA-doP"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2405.5999999999999" y="890.55472263868069"/>
         </scene>
         <!--Woman-->
         <scene sceneID="eiO-ji-ifS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LcY-x1-5T6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Woman" id="Cay-bk-dx2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O8q-YF-I8q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="562"/>
@@ -239,6 +252,7 @@
                         <viewLayoutGuide key="safeArea" id="F8V-Tt-3vq"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LcY-x1-5T6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3485.5999999999999" y="891.45427286356824"/>
         </scene>
@@ -348,5 +362,6 @@
     </scenes>
     <resources>
         <image name="member" width="225" height="225"/>
+        <image name="photo" width="60" height="60"/>
     </resources>
 </document>

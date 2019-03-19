@@ -8,15 +8,41 @@
 
 import UIKit
 
-class memberVC: UIViewController {
+class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
 
+    
+    @IBAction func clickImage(_ sender: Any) {
+        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let camera = UIAlertAction(title: "相機", style: .default, handler: { (_) in
+        let imagePicker = UIImagePickerController()
+        /* 將UIImagePickerControllerDelegate、UINavigationControllerDelegate物件指派給UIImagePickerController */
+        imagePicker.delegate = self
+        /* 照片來源為相機 */
+        imagePicker.sourceType = .camera
+        self.present(imagePicker, animated: true, completion: nil)
+        })
+        controller.addAction(camera)
+        
+        let pickphoto = UIAlertAction(title: "從相簿選取照片", style: .default) { (_) in
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.sourceType = .photoLibrary
+            imagePickerController.delegate = self
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
+        controller.addAction(pickphoto)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        controller.addAction(cancelAction)
+        present(controller, animated: true, completion: nil)
+    }
+    
     
     
 

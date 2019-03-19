@@ -160,7 +160,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H06-ww-Gmi"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="6TN-CR-5iR"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="6TN-CR-5iR"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mainclassSegment" destination="eGH-jC-tjc" id="YM8-ti-QYv"/>
@@ -223,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Sb-yn-DJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3556" y="893"/>
+            <point key="canvasLocation" x="3927" y="878"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ej8-fm-UDI">
@@ -238,6 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxm-Qk-Ied" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="4302" y="109"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7cy-X5-9Z2">
@@ -252,6 +253,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUH-zg-M8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2543" y="94"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home" width="16" height="15"/>
+    </resources>
 </document>
