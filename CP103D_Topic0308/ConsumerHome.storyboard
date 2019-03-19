@@ -11,6 +11,67 @@
     </dependencies>
     <scenes>
         <!--Home-->
+        <scene sceneID="wKH-rP-azg">
+            <objects>
+                <tableViewController title="Home" id="3dP-DS-Dhe" customClass="HomeTableViewController" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NLY-Og-y9X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="562"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeTableViewCell" id="Vrc-8I-YRY" customClass="HomeTableViewCell" customModule="CP103D_Topic0308" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="150"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vrc-8I-YRY" id="amG-Ys-dd2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZC3-vB-eqf">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jdm-ag-25T">
+                                                <size key="itemSize" width="150" height="149.5"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="homeTVCellCollectionViewCell" id="icw-tc-wGb" customClass="HomeTVCellCollectionViewCell" customModule="CP103D_Topic0308" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="149.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="149.5"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                    </view>
+                                                    <color key="backgroundColor" red="1" green="0.95092147390000004" blue="0.63383881090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </collectionViewCell>
+                                            </cells>
+                                            <connections>
+                                                <outlet property="dataSource" destination="Vrc-8I-YRY" id="NdT-bs-VgJ"/>
+                                                <outlet property="delegate" destination="Vrc-8I-YRY" id="L2e-a9-yVf"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="ZC3-vB-eqf" secondAttribute="bottom" id="TkT-rv-T2R"/>
+                                        <constraint firstItem="ZC3-vB-eqf" firstAttribute="leading" secondItem="amG-Ys-dd2" secondAttribute="leading" id="VZT-Q2-6CH"/>
+                                        <constraint firstItem="ZC3-vB-eqf" firstAttribute="top" secondItem="amG-Ys-dd2" secondAttribute="top" id="VeO-B1-O7a"/>
+                                        <constraint firstAttribute="trailing" secondItem="ZC3-vB-eqf" secondAttribute="trailing" id="i8P-2h-fNc"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3dP-DS-Dhe" id="74q-B8-UvL"/>
+                            <outlet property="delegate" destination="3dP-DS-Dhe" id="SHc-9h-Tvg"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VN2-82-VdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1983" y="892"/>
+        </scene>
+        <!--Home-->
         <scene sceneID="yCL-lF-Kvv">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="LdS-dY-40A" customClass="HomeVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,7 +99,7 @@
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vgf-4p-19C" userLabel="Home View">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="562"/>
                                                 <connections>
-                                                    <segue destination="g6r-b5-qIG" kind="embed" id="gsM-dQ-SkM"/>
+                                                    <segue destination="3dP-DS-Dhe" kind="embed" id="sc8-OL-FSH"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jrw-MP-hwQ" userLabel="Girl View">
@@ -109,33 +170,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNh-w7-dsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3487.1999999999998" y="137.18140929535232"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="SLJ-wj-gyd">
-            <objects>
-                <viewController title="Home" id="g6r-b5-qIG" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qmr-xo-H5H">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="562"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vm2-3E-gom">
-                                <rect key="frame" x="153" y="258.5" width="69" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.50196078430000002" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="Vm2-3E-gom" firstAttribute="centerX" secondItem="qmr-xo-H5H" secondAttribute="centerX" id="FKw-qa-zHU"/>
-                            <constraint firstItem="Vm2-3E-gom" firstAttribute="centerY" secondItem="qmr-xo-H5H" secondAttribute="centerY" id="gxs-f2-wth"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="WkY-6I-RiW"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6XP-dH-rjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1934" y="895"/>
         </scene>
         <!--Woman-->
         <scene sceneID="eiO-ji-ifS">

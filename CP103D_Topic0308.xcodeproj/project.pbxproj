@@ -13,6 +13,9 @@
 		11460BA522354BCC0046DF35 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11460BA422354BCC0046DF35 /* loginVC.swift */; };
 		115832072239078900C4522C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115832062239078900C4522C /* Common.swift */; };
 		11583209223A344900C4522C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11583208223A344900C4522C /* User.swift */; };
+		185620202240E0F80016EB44 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1856201F2240E0F80016EB44 /* HomeTableViewController.swift */; };
+		185620222240E1940016EB44 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185620212240E1940016EB44 /* HomeTableViewCell.swift */; };
+		185620242240E2AC0016EB44 /* HomeTVCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185620232240E2AC0016EB44 /* HomeTVCellCollectionViewCell.swift */; };
 		1899233A22323DBD00B9DC1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899233922323DBD00B9DC1C /* AppDelegate.swift */; };
 		1899233F22323DBD00B9DC1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1899233D22323DBD00B9DC1C /* Main.storyboard */; };
 		1899234122323DBE00B9DC1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1899234022323DBE00B9DC1C /* Assets.xcassets */; };
@@ -39,6 +42,9 @@
 		11460BA422354BCC0046DF35 /* loginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
 		115832062239078900C4522C /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		11583208223A344900C4522C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1856201F2240E0F80016EB44 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		185620212240E1940016EB44 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		185620232240E2AC0016EB44 /* HomeTVCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		1899233622323DBD00B9DC1C /* CP103D_Topic0308.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP103D_Topic0308.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1899233922323DBD00B9DC1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1899233E22323DBD00B9DC1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +77,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1856201E2240E0AF0016EB44 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1899234B2232425600B9DC1C /* ConsumerHome.storyboard */,
+				1137EC90223B584A00F03C4E /* HomeVC.swift */,
+				1856201F2240E0F80016EB44 /* HomeTableViewController.swift */,
+				185620212240E1940016EB44 /* HomeTableViewCell.swift */,
+				185620232240E2AC0016EB44 /* HomeTVCellCollectionViewCell.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 		1899232D22323DBD00B9DC1C = {
 			isa = PBXGroup;
 			children = (
@@ -100,8 +118,7 @@
 				1135C36122327745002C9C80 /* signupVC.swift */,
 				11460BA422354BCC0046DF35 /* loginVC.swift */,
 				115832062239078900C4522C /* Common.swift */,
-				1899234B2232425600B9DC1C /* ConsumerHome.storyboard */,
-				1137EC90223B584A00F03C4E /* HomeVC.swift */,
+				1856201E2240E0AF0016EB44 /* Home */,
 				1899234D2232436300B9DC1C /* ConsumerMyfavorite.storyboard */,
 				1899234F2232440600B9DC1C /* ConsumerShoppingcar.storyboard */,
 				189923532232452D00B9DC1C /* ConsumerInformation.storyboard */,
@@ -207,12 +224,15 @@
 			files = (
 				1D8C69CF2234EA9F00C1BE4A /* EditOrderTVC.swift in Sources */,
 				1137EC91223B584A00F03C4E /* HomeVC.swift in Sources */,
+				185620222240E1940016EB44 /* HomeTableViewCell.swift in Sources */,
 				1DC451FE22326FFB003BD747 /* ManagerOrderTVC.swift in Sources */,
 				CE8F625E2238F6E800AD89DF /* G87ConsumerInformationViewController.swift in Sources */,
 				1D5FC0DC223CDAF90065C308 /* ManagerOrderCell.swift in Sources */,
 				11460BA3223547A70046DF35 /* memberVC.swift in Sources */,
 				11460BA522354BCC0046DF35 /* loginVC.swift in Sources */,
 				115832072239078900C4522C /* Common.swift in Sources */,
+				185620242240E2AC0016EB44 /* HomeTVCellCollectionViewCell.swift in Sources */,
+				185620202240E0F80016EB44 /* HomeTableViewController.swift in Sources */,
 				11583209223A344900C4522C /* User.swift in Sources */,
 				1135C36222327745002C9C80 /* signupVC.swift in Sources */,
 				1DC451FC22326FA5003BD747 /* Order.swift in Sources */,
