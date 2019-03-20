@@ -13,11 +13,11 @@ class Order : NSObject, NSSecureCoding, Codable {
         return true
     }
     let id:Int?
-    let date:Int?
+    let date:Date?
     let status:Int?
     let totalPrice:Int?
     
-    init(id:Int , date:Int , status:Int , totalPrice:Int ) {
+    init(id:Int , date:Date , status:Int , totalPrice:Int ) {
         self.id = id
         self.date = date
         self.status = status
@@ -33,9 +33,19 @@ class Order : NSObject, NSSecureCoding, Codable {
 
     required init?(coder aDecoder: NSCoder) {
         id = aDecoder.decodeObject(of: NSNumber.self, forKey: "id") as? Int
-        date = aDecoder.decodeObject(of: NSNumber.self, forKey: "date") as? Int
+        date = aDecoder.decodeObject(of: NSNumber.self, forKey: "date") as? Date
         status = aDecoder.decodeObject(of: NSNumber.self, forKey: "status") as? Int
         totalPrice = aDecoder.decodeObject(of: NSNumber.self, forKey: "totalPrice") as? Int
+    }
+    
+    var dateStr: String {
+        if date != nil {
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            return format.string(from: date!)
+        } else {
+            return ""
+        }
     }
     
     

@@ -11,16 +11,63 @@ import UIKit
 class ManagerOrderTVC: UITableViewController {
     
     var orders = [Order]()
+    let url_server = URL(string: common_url + "OrderServlet")
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if let asset = NSDataAsset(name: "ordersjson") {
-            if let orders = try? JSONDecoder().decode([Order].self, from: asset.data) {
-                self.orders = orders
-            }
-        }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        if let asset = NSDataAsset(name: "ordersjson") {
+//            if let orders = try? JSONDecoder().decode([Order].self, from: asset.data) {
+//                self.orders = orders
+//            }
+//        }
+//    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableViewAddRefreshControl()
+        showAllOrders()
     }
     
+    func tableViewAddRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(showAllOrders), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
+    }
+    
+    @objc func showAllOrders(){
+        let requestParam = ["action" : "getAll"]
+        executeTask(url_server!, requestParam) { (data, response, error) in
+            
+            let decoder = JSONDecoder()
+            // JSON含有日期時間，解析必須指定日期時間格式
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            decoder.dateDecodingStrategy = .formatted(format)
+            
+            if error == nil {
+                if data != nil {
+                    print("input: \(String(data: data!, encoding: .utf8)!)")
+                    
+                    if let result = try? decoder.decode([Order].self, from: data!) {
+                        self.orders = result
+                        DispatchQueue.main.async {
+                            if let control = self.tableView.refreshControl {
+                                if control.isRefreshing {
+                                    // 停止下拉更新動作
+                                    control.endRefreshing()
+                                }
+                            }
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+        
+    }
     
     @IBAction func searchClick(_ sender: Any) {
     }
@@ -51,7 +98,33 @@ class ManagerOrderTVC: UITableViewController {
         })
         edit.backgroundColor = UIColor.lightGray
         
-        return [edit]
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
+            // 尚未刪除server資料
+            var requestParam = [String: Any]()
+            requestParam["action"] = "orderDelete"
+            requestParam["orderId"] = self.orders[indexPath.row].id
+            executeTask(self.url_server!, requestParam
+                , completionHandler: { (data, response, error) in
+                    if error == nil {
+                        if data != nil {
+                            if let result = String(data: data!, encoding: .utf8) {
+                                if let count = Int(result) {
+                                    // 確定server端刪除資料後，才將client端資料刪除
+                                    if count != 0 {
+                                        self.orders.remove(at: indexPath.row)
+                                        DispatchQueue.main.async {
+                                            tableView.deleteRows(at: [indexPath], with: .fade)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        print(error!.localizedDescription)
+                    }
+            })
+        })
+        return [delete, edit]
         
     }
     
@@ -62,7 +135,7 @@ class ManagerOrderTVC: UITableViewController {
         let order = orders[indexPath.row]
         
         cell.lbOrderId.text = order.id?.description
-        cell.lbOrderDate.text = order.date?.description
+        cell.lbOrderDate.text = order.dateStr
         cell.lbOrderStatus.text = statusDescription(stayusCode: order.status!
         )
         cell.lbOrderTotalPrice.text = order.totalPrice?.description
