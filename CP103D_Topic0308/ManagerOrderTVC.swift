@@ -91,7 +91,7 @@ class ManagerOrderTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let edit = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-            let editOrderTVC = self.storyboard?.instantiateViewController(withIdentifier: "editOrderTVC") as! EditOrderTVC
+            let editOrderTVC = self.storyboard?.instantiateViewController(withIdentifier: "editOrderTVC") as! ManagerOrderEditTVC
             let order = self.orders[indexPath.row]
             editOrderTVC.order = order
             self.navigationController?.pushViewController(editOrderTVC, animated: true)
@@ -136,24 +136,13 @@ class ManagerOrderTVC: UITableViewController {
         
         cell.lbOrderId.text = order.id?.description
         cell.lbOrderDate.text = order.dateStr
-        cell.lbOrderStatus.text = statusDescription(stayusCode: order.status!
+        cell.lbOrderStatus.text = order.statusDescription(stayusCode: order.status!
         )
         cell.lbOrderTotalPrice.text = order.totalPrice?.description
         
         return cell
     }
     
-    func statusDescription(stayusCode:Int) -> (String) {
-        if stayusCode == 0 {
-            return "未出貨"
-        } else if stayusCode == 1 {
-            return "已出貨"
-        } else if stayusCode == 2 {
-            return "已退貨"
-        } else {
-            return "已取消"
-        }
-    }
     
     /*
      // Override to support conditional editing of the table view.
@@ -196,12 +185,12 @@ class ManagerOrderTVC: UITableViewController {
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditOrderTVC"{
-            let destinationTVC = segue.destination as! EditOrderTVC
-            destinationTVC.completionHandler = { (order) in self.orders.append(order)}
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "EditOrderTVC"{
+//            let destinationTVC = segue.destination as! EditOrderTVC
+//            destinationTVC.completionHandler = { (order) in self.orders.append(order)}
+//        }
+//    }
     
     
 }

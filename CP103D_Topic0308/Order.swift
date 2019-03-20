@@ -14,8 +14,8 @@ class Order : NSObject, NSSecureCoding, Codable {
     }
     let id:Int?
     let date:Date?
-    let status:Int?
-    let totalPrice:Int?
+    var status:Int?
+    var totalPrice:Int?
     
     init(id:Int , date:Date , status:Int , totalPrice:Int ) {
         self.id = id
@@ -36,6 +36,18 @@ class Order : NSObject, NSSecureCoding, Codable {
         date = aDecoder.decodeObject(of: NSNumber.self, forKey: "date") as? Date
         status = aDecoder.decodeObject(of: NSNumber.self, forKey: "status") as? Int
         totalPrice = aDecoder.decodeObject(of: NSNumber.self, forKey: "totalPrice") as? Int
+    }
+    
+    func statusDescription(stayusCode:Int) -> (String) {
+        if stayusCode == 0 {
+            return "未出貨"
+        } else if stayusCode == 1 {
+            return "已出貨"
+        } else if stayusCode == 2 {
+            return "已退貨"
+        } else {
+            return "已取消"
+        }
     }
     
     var dateStr: String {
