@@ -8,7 +8,7 @@
 
 import UIKit
 
-class G87ConsumerInformationViewController: UIViewController,UIScrollViewDelegate {
+class G87ConsumerInformationViewController: UIViewController,UIScrollViewDelegate{
 
     @IBOutlet weak var continer1: UIView!
     @IBOutlet weak var continer2: UIView!
@@ -23,9 +23,8 @@ class G87ConsumerInformationViewController: UIViewController,UIScrollViewDelegat
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let w = scrollView.frame.size.width
-        let page = scrollView.contentOffset.x/w
-        segment.selectedSegmentIndex = Int(page)
+      
+        segment.selectedSegmentIndex = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
     }
     
     
@@ -40,9 +39,9 @@ class G87ConsumerInformationViewController: UIViewController,UIScrollViewDelegat
             Scrollcontroll.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             
         case 1:
-            Scrollcontroll.setContentOffset(CGPoint(x: 348, y: 0), animated: true)
+            Scrollcontroll.setContentOffset(CGPoint(x: Scrollcontroll.bounds.size.width, y: 0), animated: true)
         case 2:
-            Scrollcontroll.setContentOffset(CGPoint(x: 696, y: 0), animated: true)
+            Scrollcontroll.setContentOffset(CGPoint(x: Scrollcontroll.bounds.size.width * 2, y: 0), animated: true)
         default:
             break;
         }
