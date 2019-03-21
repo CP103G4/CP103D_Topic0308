@@ -14,7 +14,6 @@
 		11460BA522354BCC0046DF35 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11460BA422354BCC0046DF35 /* loginVC.swift */; };
 		115832072239078900C4522C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115832062239078900C4522C /* Common.swift */; };
 		11583209223A344900C4522C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11583208223A344900C4522C /* User.swift */; };
-		184B69F8224388C6002EBA56 /* Good.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184B69F7224388C6002EBA56 /* Good.swift */; };
 		185620202240E0F80016EB44 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1856201F2240E0F80016EB44 /* HomeTableViewController.swift */; };
 		185620222240E1940016EB44 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185620212240E1940016EB44 /* HomeTableViewCell.swift */; };
 		185620242240E2AC0016EB44 /* HomeTVCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185620232240E2AC0016EB44 /* HomeTVCellCollectionViewCell.swift */; };
@@ -48,7 +47,6 @@
 		11460BA422354BCC0046DF35 /* loginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
 		115832062239078900C4522C /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		11583208223A344900C4522C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		184B69F7224388C6002EBA56 /* Good.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Good.swift; sourceTree = "<group>"; };
 		1856201F2240E0F80016EB44 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		185620212240E1940016EB44 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		185620232240E2AC0016EB44 /* HomeTVCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				1856201F2240E0F80016EB44 /* HomeTableViewController.swift */,
 				185620212240E1940016EB44 /* HomeTableViewCell.swift */,
 				185620232240E2AC0016EB44 /* HomeTVCellCollectionViewCell.swift */,
-				184B69F7224388C6002EBA56 /* Good.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -247,7 +244,6 @@
 			files = (
 				CE79C2F32241FB83004FA4F5 /* G87orderViewController.swift in Sources */,
 				1137EC91223B584A00F03C4E /* HomeVC.swift in Sources */,
-				184B69F8224388C6002EBA56 /* Good.swift in Sources */,
 				18CEAEB02242491B00023B7E /* G87ConsumerInformationViewController.swift in Sources */,
 				185620222240E1940016EB44 /* HomeTableViewCell.swift in Sources */,
 				1DC451FE22326FFB003BD747 /* ManagerOrderTVC.swift in Sources */,
