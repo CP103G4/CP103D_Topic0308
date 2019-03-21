@@ -114,6 +114,11 @@ class loginVC: UIViewController {
         clear()
     }
     
+    @IBAction func clickshopping(_ sender: Any) {
+        clearUser()
+    }
+    
+    
     func clear() {
         userTextField.text = ""
         passwordTextField.text = ""

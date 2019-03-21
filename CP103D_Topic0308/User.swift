@@ -3,7 +3,7 @@ class User: Codable {
     var userName = ""
     var password = ""
     var trueName = ""
-    var phone = -1
+    var phone = ""
     var email = ""
     var sex = -1
     
@@ -12,7 +12,7 @@ class User: Codable {
         self.password = password
     }
     
-    init(userName: String, password: String, trueName: String, phone:Int, email:String , sex: Int) {
+    init(userName: String, password: String, trueName: String, phone:String, email:String , sex: Int) {
         self.userName = userName
         self.password = password
         self.trueName = trueName

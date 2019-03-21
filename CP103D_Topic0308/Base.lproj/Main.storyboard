@@ -110,6 +110,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
+                                    <action selector="clickshopping:" destination="cmN-8A-TaB" eventType="touchUpInside" id="APz-CB-mlw"/>
                                     <segue destination="HCp-Vj-eJg" kind="show" identifier="toMainPage" id="lJB-5T-aa6"/>
                                 </connections>
                             </button>

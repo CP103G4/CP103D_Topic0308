@@ -43,8 +43,8 @@ class signupVC: UIViewController , UINavigationControllerDelegate {
             return
         }
         
-        let cellphone = Int(phone!)
-        let user = User(userName: username!, password: password!, trueName: name!, phone: cellphone!, email: email!, sex: scSex.selectedSegmentIndex)
+
+        let user = User(userName: username!, password: password!, trueName: name!, phone: phone!, email: email!, sex: scSex.selectedSegmentIndex)
         var requestParam = [String: String]()
         requestParam["action"] = "insert"
         requestParam["user"] = try! String(data: JSONEncoder().encode(user), encoding: .utf8)

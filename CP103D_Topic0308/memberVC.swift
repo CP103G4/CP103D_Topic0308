@@ -9,16 +9,24 @@
 import UIKit
 
 class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    
+    var user: User?
+    let url_server = URL(string: common_url + "UserServlet")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        user = loadUser()
+        showInfo()
     }
     
     @IBAction func clickcamera(_ sender: UIButton) {
         photo()
     }
-    
     
     @IBAction func clickImage(_ sender: Any) {
         photo()
@@ -51,15 +59,29 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func showInfo(){
+        var requestParam = [String: String]()
+        requestParam["action"] = "findByUser"
+        requestParam["user"] = try! String(data: JSONEncoder() .encode(user), encoding: .utf8)
+        
+        executeTask(self.url_server!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                       if let user = try? JSONDecoder().decode(User.self, from: data!) {
+                        
+                        DispatchQueue.main.async {
+                            self.nameLabel.text = user.userName
+                            self.phoneLabel.text = user.phone
+                            self.emailLabel.text = user.email
+                        }
+                    }
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
     }
-    */
-
+    
+    
+    
 }

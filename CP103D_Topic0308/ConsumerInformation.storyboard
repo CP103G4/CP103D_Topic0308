@@ -203,6 +203,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WkY-6I-RiW"/>
                     </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="p3k-GI-dnL" id="OKu-TS-THU"/>
+                        <outlet property="nameLabel" destination="8IB-Ja-P9O" id="6Lo-p5-Bls"/>
+                        <outlet property="phoneLabel" destination="D3b-bz-OFb" id="Xrz-Dw-Xt2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XP-dH-rjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="1Fh-4p-2ky">
