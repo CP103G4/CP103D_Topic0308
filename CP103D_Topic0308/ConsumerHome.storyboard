@@ -27,7 +27,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZC3-vB-eqf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="149.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jdm-ag-25T">
                                                 <size key="itemSize" width="100" height="100"/>
@@ -43,19 +43,19 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLb-bS-qJn">
-                                                                <rect key="frame" x="29" y="39.5" width="42" height="21"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Good" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLb-bS-qJn">
+                                                                <rect key="frame" x="29" y="79" width="42" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="eEg-ZV-Qkm">
+                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            </imageView>
                                                         </subviews>
                                                     </view>
-                                                    <color key="backgroundColor" red="1" green="0.95092147390000004" blue="0.63383881090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstItem="oLb-bS-qJn" firstAttribute="centerX" secondItem="icw-tc-wGb" secondAttribute="centerX" id="22p-F2-YH6"/>
-                                                        <constraint firstItem="oLb-bS-qJn" firstAttribute="centerY" secondItem="icw-tc-wGb" secondAttribute="centerY" id="gw7-tg-364"/>
-                                                    </constraints>
                                                     <connections>
                                                         <outlet property="collectionViewLabel" destination="oLb-bS-qJn" id="WLM-mS-st8"/>
                                                     </connections>
@@ -87,7 +87,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VN2-82-VdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1983" y="892"/>
+            <point key="canvasLocation" x="1981.5999999999999" y="891.45427286356824"/>
         </scene>
         <!--Home-->
         <scene sceneID="yCL-lF-Kvv">
@@ -214,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LcY-x1-5T6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2762" y="894"/>
+            <point key="canvasLocation" x="2746" y="891"/>
         </scene>
         <!--Man-->
         <scene sceneID="pqL-Yn-puY">
@@ -241,10 +241,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Sb-yn-DJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3927" y="878"/>
+            <point key="canvasLocation" x="3487" y="891"/>
         </scene>
     </scenes>
     <resources>
         <image name="home" width="16" height="15"/>
+        <image name="noImage" width="300" height="183"/>
     </resources>
 </document>
