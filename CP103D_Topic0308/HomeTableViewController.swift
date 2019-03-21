@@ -9,7 +9,9 @@
 import UIKit
 
 class HomeTableViewController: UITableViewController {
-
+    let goods = [[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,20 +26,17 @@ class HomeTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 4
+        return goods.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 1
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeTableViewCell", for: indexPath) as! HomeTableViewCell
-
-        // Configure the cell...
-
+        cell.collectionviewOutlet.tag = indexPath.section
+        cell.collectionviewOutlet.reloadData()
         return cell
     }
     
@@ -87,4 +86,17 @@ class HomeTableViewController: UITableViewController {
     }
     */
 
+}
+extension HomeTableViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return goods[collectionView.tag].count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeTVCellCollectionViewCell", for: indexPath) as! HomeTVCellCollectionViewCell
+        let goodselement = goods[collectionView.tag]
+        cell.collectionViewLabel.text = goodselement[indexPath.row].description
+        return cell
+    }
+    
 }

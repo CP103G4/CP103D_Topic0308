@@ -10,4 +10,5 @@ import UIKit
 
 class HomeTVCellCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var collectionViewLabel: UILabel!
 }

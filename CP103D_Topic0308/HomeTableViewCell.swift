@@ -8,15 +8,9 @@
 
 import UIKit
 
-class HomeTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
+class HomeTableViewCell: UITableViewCell{
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeTVCellCollectionViewCell", for: indexPath)
-        return cell
-    }
+    @IBOutlet weak var collectionviewOutlet: UICollectionView!
     
 
     override func awakeFromNib() {
@@ -29,5 +23,4 @@ class HomeTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
 
         // Configure the view for the selected state
     }
-
 }
