@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1135C36222327745002C9C80 /* signupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1135C36122327745002C9C80 /* signupVC.swift */; };
 		1137EC91223B584A00F03C4E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137EC90223B584A00F03C4E /* HomeVC.swift */; };
+		1137ECD322436F6100F03C4E /* MemberUpdataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137ECD222436F6100F03C4E /* MemberUpdataVC.swift */; };
 		11460BA3223547A70046DF35 /* memberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11460BA2223547A70046DF35 /* memberVC.swift */; };
 		11460BA522354BCC0046DF35 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11460BA422354BCC0046DF35 /* loginVC.swift */; };
 		115832072239078900C4522C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115832062239078900C4522C /* Common.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		1135C36122327745002C9C80 /* signupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signupVC.swift; sourceTree = "<group>"; };
 		1137EC90223B584A00F03C4E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		1137ECD222436F6100F03C4E /* MemberUpdataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberUpdataVC.swift; sourceTree = "<group>"; };
 		11460BA2223547A70046DF35 /* memberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memberVC.swift; sourceTree = "<group>"; };
 		11460BA422354BCC0046DF35 /* loginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
 		115832062239078900C4522C /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				CE79C2F42241FF2E004FA4F5 /* G87ConsumerInformationViewController.swift */,
 				CE79C2EF2241F9D0004FA4F5 /* ConsumerOrder */,
 				11460BA2223547A70046DF35 /* memberVC.swift */,
+				1137ECD222436F6100F03C4E /* MemberUpdataVC.swift */,
 				189923552232458D00B9DC1C /* ManagerHome.storyboard */,
 				18992357223245FA00B9DC1C /* ManagerUpload.storyboard */,
 				1899235B223246FC00B9DC1C /* ManagerChart.storyboard */,
@@ -257,6 +260,7 @@
 				1DC451FC22326FA5003BD747 /* Order.swift in Sources */,
 				1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */,
 				1899233A22323DBD00B9DC1C /* AppDelegate.swift in Sources */,
+				1137ECD322436F6100F03C4E /* MemberUpdataVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
