@@ -41,7 +41,6 @@
 		CE79C2F7224207D5004FA4F5 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79C2F6224207D5004FA4F5 /* OrderTableViewCell.swift */; };
 		CEB3595B2243A258006A574F /* OrderdetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB3595A2243A257006A574F /* OrderdetailTableViewCell.swift */; };
 		CEF5196822439B3F006A72C3 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5196722439B3F006A72C3 /* Cart.swift */; };
-		CEF5196A22439B54006A72C3 /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5196922439B54006A72C3 /* Goods.swift */; };
 		CEF5196C22439B7C006A72C3 /* ShoppingcartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5196B22439B7C006A72C3 /* ShoppingcartViewController.swift */; };
 		CEF5196E22439B8D006A72C3 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5196D22439B8D006A72C3 /* CheckViewController.swift */; };
 /* End PBXBuildFile section */
@@ -85,7 +84,6 @@
 		CE79C2F6224207D5004FA4F5 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		CEB3595A2243A257006A574F /* OrderdetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderdetailTableViewCell.swift; path = CP103D_Topic0308/OrderdetailTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		CEF5196722439B3F006A72C3 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
-		CEF5196922439B54006A72C3 /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
 		CEF5196B22439B7C006A72C3 /* ShoppingcartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingcartViewController.swift; sourceTree = "<group>"; };
 		CEF5196D22439B8D006A72C3 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				CEF5196722439B3F006A72C3 /* Cart.swift */,
-				CEF5196922439B54006A72C3 /* Goods.swift */,
 				CEF5196B22439B7C006A72C3 /* ShoppingcartViewController.swift */,
 				CEF5196D22439B8D006A72C3 /* CheckViewController.swift */,
 			);
@@ -346,7 +343,6 @@
 				1DFD222A22446AFF00223598 /* Good.swift in Sources */,
 				18CEAEB02242491B00023B7E /* G87ConsumerInformationViewController.swift in Sources */,
 				185620222240E1940016EB44 /* HomeTableViewCell.swift in Sources */,
-				CEF5196A22439B54006A72C3 /* Goods.swift in Sources */,
 				1DC451FE22326FFB003BD747 /* ManagerOrderTVC.swift in Sources */,
 				CE79C2F22241FB83004FA4F5 /* G87orderdetailViewController.swift in Sources */,
 				CE79C2F7224207D5004FA4F5 /* OrderTableViewCell.swift in Sources */,
