@@ -180,7 +180,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ak0-di-qPo" kind="show" id="19C-1v-5vw"/>
+                                    <segue destination="ak0-di-qPo" kind="show" identifier="userupdata" id="IJu-WH-Teb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffC-Ul-wnL">
@@ -281,21 +281,11 @@
         <!--Member UpdataVC-->
         <scene sceneID="2Om-ev-h6a">
             <objects>
-                <viewController id="ak0-di-qPo" customClass="MemberUpdataVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemberUpdataVC" id="ak0-di-qPo" customClass="MemberUpdataVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w0Q-bY-mHE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="518"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="member" translatesAutoresizingMaskIntoConstraints="NO" id="9sR-pq-bz5">
-                                <rect key="frame" x="117" y="43" width="140" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="70"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xQx-Tu-6Bc">
                                 <rect key="frame" x="40" y="221" width="295" height="212"/>
                                 <subviews>
@@ -345,18 +335,22 @@
                                     <action selector="clickcamera:" destination="g6r-b5-qIG" eventType="touchUpInside" id="AaP-e2-yCB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atp-hh-Emh">
-                                <rect key="frame" x="130" y="458" width="115" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atp-hh-Emh">
+                                <rect key="frame" x="130" y="605" width="115" height="30"/>
                                 <color key="backgroundColor" red="0.66882138319999995" green="0.66882138319999995" blue="0.66882138319999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="修改">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="clickUpdata:" destination="ak0-di-qPo" eventType="touchUpInside" id="Hc6-GW-ade"/>
-                                    <action selector="clickUpdate:" destination="ak0-di-qPo" eventType="touchUpInside" id="h8D-NN-bCU"/>
+                                    <action selector="clickUpdata:" destination="ak0-di-qPo" eventType="touchUpInside" id="gdb-K3-R8D"/>
                                 </connections>
                             </button>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="member" translatesAutoresizingMaskIntoConstraints="NO" id="9sR-pq-bz5">
+                                <rect key="frame" x="117" y="57" width="140" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -371,13 +365,14 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="lsL-Nu-QHT" id="qbI-Tb-s6e"/>
+                        <outlet property="myImage" destination="9sR-pq-bz5" id="IKL-C2-qOf"/>
                         <outlet property="nameTextField" destination="2ww-bw-k3V" id="AIA-s3-e4H"/>
                         <outlet property="phoneTextField" destination="Tbk-CU-vqs" id="D49-VW-zET"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djY-wK-XE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2398" y="1523"/>
+            <point key="canvasLocation" x="2397.5999999999999" y="1522.9385307346329"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="RwB-BL-xKw">

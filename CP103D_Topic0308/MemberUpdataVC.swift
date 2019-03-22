@@ -9,26 +9,39 @@
 import UIKit
 
 class MemberUpdataVC: UIViewController {
-
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var myImage: UIImageView!
+    
     let url_server = URL(string: common_url + "UserServlet")
     var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //showUser()
+        
+        //圓角
+        myImage.layer.cornerRadius = myImage.frame.size.width/2
+        myImage.clipsToBounds = true
+        
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        showUser()
+    }
+    
+    
     @IBAction func clickUpdata(_ sender: Any) {
         user.trueName = nameTextField.text == nil ? "" : nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        user.phone = phoneTextField.text == nil ? "" : phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         user.email = emailTextField.text == nil ? "" : emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         var requestParam = [String: String]()
         requestParam["action"] = "update"
-        requestParam["user"] = try! String(data: JSONEncoder().encode(self.user), encoding: .utf8)
+        requestParam["user"] = try! String(data: JSONEncoder().encode(user), encoding: .utf8)
         
         executeTask(self.url_server!, requestParam) { (data, response, error) in
             if error == nil {
@@ -70,10 +83,12 @@ class MemberUpdataVC: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    
+    
     func showUser(){
         nameTextField.text = user.trueName
+        phoneTextField.text = user.phone
         emailTextField.text = user.email
     }
     
-
 }

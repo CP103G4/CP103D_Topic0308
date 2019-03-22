@@ -21,6 +21,10 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         super.viewDidLoad()
         
         user = loadUser()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         showInfo()
     }
     
@@ -68,9 +72,9 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             if error == nil {
                 if data != nil {
                        if let user = try? JSONDecoder().decode(User.self, from: data!) {
-                        
+                        self.user = user
                         DispatchQueue.main.async {
-                            self.nameLabel.text = user.userName
+                            self.nameLabel.text = user.trueName
                             self.phoneLabel.text = user.phone
                             self.emailLabel.text = user.email
                         }
@@ -79,6 +83,14 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             } else {
                 print(error!.localizedDescription)
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "userupdata"{
+            let user = self.user
+            let updataVC = segue.destination as! MemberUpdataVC
+            updataVC.user = user
         }
     }
     
