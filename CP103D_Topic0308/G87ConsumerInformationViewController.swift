@@ -10,10 +10,9 @@ import UIKit
 
 class G87ConsumerInformationViewController: UIViewController,UIScrollViewDelegate{
 
-    @IBOutlet weak var continer1: UIView!
-    @IBOutlet weak var continer2: UIView!
-    @IBOutlet weak var continer3: UIView!
+   
     @IBOutlet weak var segment: UISegmentedControl!
+   
     @IBOutlet weak var Scrollcontroll: UIScrollView!
     
     override func viewDidLoad() {
@@ -29,10 +28,7 @@ class G87ConsumerInformationViewController: UIViewController,UIScrollViewDelegat
     
     
     
-    
-    
-    @IBAction func pagesegment(_ sender: UISegmentedControl) {
-        
+    @IBAction func pagesegment(_ sender: Any) {
         switch segment.selectedSegmentIndex
         {
         case 0:
@@ -45,7 +41,7 @@ class G87ConsumerInformationViewController: UIViewController,UIScrollViewDelegat
         default:
             break;
         }
-    }
     
+    }
 
 }
