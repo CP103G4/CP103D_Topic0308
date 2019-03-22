@@ -143,6 +143,7 @@
                             <color key="tintColor" red="0.29411764709999999" green="0.2274509804" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Br4-DP-iQO" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,6 +154,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EJF-Ee-2CI" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DF0-kR-hSw">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -179,16 +181,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gK9-pS-pyW">
-                                <rect key="frame" x="0.0" y="443" width="375" height="171"/>
+                                <rect key="frame" x="0.0" y="418.5" width="375" height="146.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZO-1l-4b3">
-                                        <rect key="frame" x="16" y="99" width="112" height="70"/>
+                                        <rect key="frame" x="16" y="74.5" width="112" height="70"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="51"/>
                                         <color key="textColor" red="0.29411764709999999" green="0.2274509804" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbe-H2-6q5">
-                                        <rect key="frame" x="251" y="106" width="108" height="63"/>
+                                        <rect key="frame" x="251" y="81.5" width="108" height="63"/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="46"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -203,7 +205,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ty8-dd-y37">
-                                <rect key="frame" x="0.0" y="622" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="573" width="375" height="45"/>
                                 <color key="backgroundColor" red="0.29411764709999999" green="0.2274509804" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="wuM-kZ-k5c"/>
@@ -214,7 +216,7 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="105" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="jkI-Zf-d23">
-                                <rect key="frame" x="0.0" y="64" width="375" height="371"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="346.5"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartCell" rowHeight="105" id="hw5-1r-HNL" customClass="CartCell" customModule="CP103D_Topic0308" customModuleProvider="target">
@@ -288,6 +290,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="mbG-oA-uJv" id="Vdf-Km-zvI"/>
+                                    <outlet property="delegate" destination="mbG-oA-uJv" id="Eo8-mM-qMI"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -306,12 +312,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fbo-mB-qJt"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="ShoppingCar" image="shopping" id="YVL-Kd-Jwx"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="CART" id="5Ny-dY-rcz">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="upy-QK-adq">
                             <color key="tintColor" red="0.29411764709999999" green="0.2274509804" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="carttableview" destination="jkI-Zf-d23" id="bkj-cZ-KFb"/>
                         <outlet property="carttotalprice" destination="jbe-H2-6q5" id="AJO-V5-D8X"/>
@@ -327,6 +335,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JzT-9A-dXa" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cfM-L2-cUK">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -453,6 +462,10 @@
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
                                                 </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="GBw-nj-KQ9" id="V13-gf-MUj"/>
+                                                    <outlet property="delegate" destination="GBw-nj-KQ9" id="ux2-Rq-uVw"/>
+                                                </connections>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udc-GZ-HlN">
                                                 <rect key="frame" x="16" y="148" width="112" height="70"/>
