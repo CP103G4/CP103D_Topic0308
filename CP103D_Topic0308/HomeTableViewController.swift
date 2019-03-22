@@ -10,6 +10,8 @@ import UIKit
 
 class HomeTableViewController: UITableViewController {
     let goods = [[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]
+//    let goods = [Good(id: 0, name: "goodA", descrip: "goodAdescrip", price: 100.0, mainclass: "Man", subclass: "cloth", shelf: "yes", date: Date.init(), evulation: 0)]
+    
     
     
     override func viewDidLoad() {
