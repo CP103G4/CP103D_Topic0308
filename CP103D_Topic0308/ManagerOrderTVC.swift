@@ -30,7 +30,7 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         clearSearchSet()
         showAllOrders()
     }
@@ -97,11 +97,12 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
     }
     
     func clearSearchSet() {
-        searchController?.dismiss(animated: false, completion: nil)
+        searchController?.isActive = false
         navigationItem.searchController = nil
         ordersId.removeAll()
         searchOrderById.removeAll()
         selectOrders.removeAll()
+        tableView.reloadData()
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -124,7 +125,11 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
     
     @IBAction func searchClick(_ sender: Any) {
         if  navigationItem.searchController == nil {
-            searchController = UISearchController(searchResultsController: nil)
+            if searchController == nil {
+                searchController = UISearchController(searchResultsController: nil)
+            } else{
+                searchController?.isActive = true
+            }
             navigationItem.hidesSearchBarWhenScrolling = false
             navigationItem.searchController = searchController
             searchController?.searchResultsUpdater = self
@@ -138,9 +143,10 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
     }
     
     func settingSearchController(){
-        searchController?.definesPresentationContext = true
+        //        searchController?.definesPresentationContext = true
         searchController?.searchBar.placeholder = "Search Order By Id"
         searchController?.searchBar.searchBarStyle = .prominent
+        self.definesPresentationContext = true
     }
     
     
@@ -177,32 +183,32 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
         })
         edit.backgroundColor = UIColor.lightGray
         
-//        let delete = UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
-//            // 尚未刪除server資料
-//            var requestParam = [String: Any]()
-//            requestParam["action"] = "orderDelete"
-//            requestParam["orderId"] = self.orders[indexPath.row].id
-//            executeTask(self.url_server!, requestParam
-//                , completionHandler: { (data, response, error) in
-//                    if error == nil {
-//                        if data != nil {
-//                            if let result = String(data: data!, encoding: .utf8) {
-//                                if let count = Int(result) {
-//                                    // 確定server端刪除資料後，才將client端資料刪除
-//                                    if count != 0 {
-//                                        self.orders.remove(at: indexPath.row)
-//                                        DispatchQueue.main.async {
-//                                            tableView.deleteRows(at: [indexPath], with: .fade)
-//                                        }
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    } else {
-//                        print(error!.localizedDescription)
-//                    }
-//            })
-//        })
+        //        let delete = UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
+        //            // 尚未刪除server資料
+        //            var requestParam = [String: Any]()
+        //            requestParam["action"] = "orderDelete"
+        //            requestParam["orderId"] = self.orders[indexPath.row].id
+        //            executeTask(self.url_server!, requestParam
+        //                , completionHandler: { (data, response, error) in
+        //                    if error == nil {
+        //                        if data != nil {
+        //                            if let result = String(data: data!, encoding: .utf8) {
+        //                                if let count = Int(result) {
+        //                                    // 確定server端刪除資料後，才將client端資料刪除
+        //                                    if count != 0 {
+        //                                        self.orders.remove(at: indexPath.row)
+        //                                        DispatchQueue.main.async {
+        //                                            tableView.deleteRows(at: [indexPath], with: .fade)
+        //                                        }
+        //                                    }
+        //                                }
+        //                            }
+        //                        }
+        //                    } else {
+        //                        print(error!.localizedDescription)
+        //                    }
+        //            })
+        //        })
         return [edit]
         
     }
@@ -240,10 +246,10 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
     
     
     // Override to support editing the table view.
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        orders.remove(at: indexPath.row)
-//        tableView.reloadData()
-//    }
+    //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //        orders.remove(at: indexPath.row)
+    //        tableView.reloadData()
+    //    }
     
     //    // Override to support conditional editing of the table view.
     //    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -271,12 +277,12 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "EditOrderTVC"{
-//            let destinationTVC = segue.destination as! EditOrderTVC
-//            destinationTVC.completionHandler = { (order) in self.orders.append(order)}
-//        }
-//    }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == "EditOrderTVC"{
+    //            let destinationTVC = segue.destination as! EditOrderTVC
+    //            destinationTVC.completionHandler = { (order) in self.orders.append(order)}
+    //        }
+    //    }
     override func viewWillDisappear(_ animated: Bool) {
         if navigationItem.searchController?.isActive == true {
             //讓searchController按下cancel
@@ -285,6 +291,5 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
             print("leave")
         }
     }
-    
     
 }
