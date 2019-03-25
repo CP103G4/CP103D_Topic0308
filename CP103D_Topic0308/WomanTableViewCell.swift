@@ -8,9 +8,9 @@
 
 import UIKit
 
-class HomeTableViewCell: UITableViewCell{
+class WomanTableViewCell: UITableViewCell{
     
-    @IBOutlet weak var collectionviewOutlet: UICollectionView!
+    @IBOutlet weak var womanCollectionviewOutlet: UICollectionView!
     
 
     override func awakeFromNib() {
