@@ -12,6 +12,10 @@
 		1137ECD322436F6100F03C4E /* MemberUpdataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137ECD222436F6100F03C4E /* MemberUpdataVC.swift */; };
 		1137ECD7224479BB00F03C4E /* FavoriteTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137ECD6224479BB00F03C4E /* FavoriteTVC.swift */; };
 		1137ECD92244CB1C00F03C4E /* Good.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137ECD82244CB1400F03C4E /* Good.swift */; };
+		1137ECFB2248ACB500F03C4E /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137ECFA2248ACB500F03C4E /* MapVC.swift */; };
+		1137ECFE2248AE4200F03C4E /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137ECFD2248AE4200F03C4E /* Spot.swift */; };
+		1137ED002248B0C300F03C4E /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137ECFF2248B0C300F03C4E /* DetailVC.swift */; };
+		1137ED032248B44D00F03C4E /* shulin.png in Resources */ = {isa = PBXBuildFile; fileRef = 1137ED022248B44D00F03C4E /* shulin.png */; };
 		11460BA3223547A70046DF35 /* memberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11460BA2223547A70046DF35 /* memberVC.swift */; };
 		11460BA522354BCC0046DF35 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11460BA422354BCC0046DF35 /* loginVC.swift */; };
 		115832072239078900C4522C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115832062239078900C4522C /* Common.swift */; };
@@ -53,6 +57,10 @@
 		1137ECD222436F6100F03C4E /* MemberUpdataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberUpdataVC.swift; sourceTree = "<group>"; };
 		1137ECD6224479BB00F03C4E /* FavoriteTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTVC.swift; sourceTree = "<group>"; };
 		1137ECD82244CB1400F03C4E /* Good.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Good.swift; sourceTree = "<group>"; };
+		1137ECFA2248ACB500F03C4E /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		1137ECFD2248AE4200F03C4E /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
+		1137ECFF2248B0C300F03C4E /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		1137ED022248B44D00F03C4E /* shulin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shulin.png; path = ../../shulin.png; sourceTree = "<group>"; };
 		11460BA2223547A70046DF35 /* memberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memberVC.swift; sourceTree = "<group>"; };
 		11460BA422354BCC0046DF35 /* loginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
 		115832062239078900C4522C /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -104,6 +112,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1137ECFC2248ACE500F03C4E /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				189923532232452D00B9DC1C /* ConsumerInformation.storyboard */,
+				1137ECFD2248AE4200F03C4E /* Spot.swift */,
+				1137ECFA2248ACB500F03C4E /* MapVC.swift */,
+				1137ECFF2248B0C300F03C4E /* DetailVC.swift */,
+				11460BA2223547A70046DF35 /* memberVC.swift */,
+				1137ECD222436F6100F03C4E /* MemberUpdataVC.swift */,
+				CE79C2F42241FF2E004FA4F5 /* G87ConsumerInformationViewController.swift */,
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
+		1137ED012248B3AD00F03C4E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				1137ED022248B44D00F03C4E /* shulin.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		1856201E2240E0AF0016EB44 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +149,7 @@
 		1899232D22323DBD00B9DC1C = {
 			isa = PBXGroup;
 			children = (
+				1137ED012248B3AD00F03C4E /* Image */,
 				1899233822323DBD00B9DC1C /* CP103D_Topic0308 */,
 				1899233722323DBD00B9DC1C /* Products */,
 				B3B42284E493F10EDB128532 /* Pods */,
@@ -150,13 +181,10 @@
 				115832062239078900C4522C /* Common.swift */,
 				1899234D2232436300B9DC1C /* ConsumerMyfavorite.storyboard */,
 				1137ECD6224479BB00F03C4E /* FavoriteTVC.swift */,
-				189923532232452D00B9DC1C /* ConsumerInformation.storyboard */,
-				CE79C2F42241FF2E004FA4F5 /* G87ConsumerInformationViewController.swift */,
+				1137ECFC2248ACE500F03C4E /* Information */,
 				CE592A532244D08700DF552F /* ShoppingCart */,
 				1856201E2240E0AF0016EB44 /* Home */,
 				CE79C2EF2241F9D0004FA4F5 /* ConsumerOrder */,
-				11460BA2223547A70046DF35 /* memberVC.swift */,
-				1137ECD222436F6100F03C4E /* MemberUpdataVC.swift */,
 				189923552232458D00B9DC1C /* ManagerHome.storyboard */,
 				18992357223245FA00B9DC1C /* ManagerUpload.storyboard */,
 				1899235B223246FC00B9DC1C /* ManagerChart.storyboard */,
@@ -280,6 +308,7 @@
 				189923562232458D00B9DC1C /* ManagerHome.storyboard in Resources */,
 				1899234122323DBE00B9DC1C /* Assets.xcassets in Resources */,
 				1899235C223246FD00B9DC1C /* ManagerChart.storyboard in Resources */,
+				1137ED032248B44D00F03C4E /* shulin.png in Resources */,
 				1899233F22323DBD00B9DC1C /* Main.storyboard in Resources */,
 				1899234E2232436300B9DC1C /* ConsumerMyfavorite.storyboard in Resources */,
 				1899235A2232469D00B9DC1C /* ManagerOrder.storyboard in Resources */,
@@ -360,8 +389,11 @@
 				11460BA522354BCC0046DF35 /* loginVC.swift in Sources */,
 				CE592A4F2244D07F00DF552F /* Cart.swift in Sources */,
 				115832072239078900C4522C /* Common.swift in Sources */,
+				1137ECFB2248ACB500F03C4E /* MapVC.swift in Sources */,
+				1137ED002248B0C300F03C4E /* DetailVC.swift in Sources */,
 				185620242240E2AC0016EB44 /* HomeTVCellCollectionViewCell.swift in Sources */,
 				185620202240E0F80016EB44 /* HomeTableViewController.swift in Sources */,
+				1137ECFE2248AE4200F03C4E /* Spot.swift in Sources */,
 				11583209223A344900C4522C /* User.swift in Sources */,
 				1135C36222327745002C9C80 /* signupVC.swift in Sources */,
 				1DC451FC22326FA5003BD747 /* Order.swift in Sources */,
