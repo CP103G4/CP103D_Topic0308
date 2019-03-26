@@ -19,6 +19,9 @@
 		11460BA522354BCC0046DF35 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11460BA422354BCC0046DF35 /* loginVC.swift */; };
 		115832072239078900C4522C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115832062239078900C4522C /* Common.swift */; };
 		11583209223A344900C4522C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11583208223A344900C4522C /* User.swift */; };
+		1841177D224A17BE00D878D5 /* ManTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841177A224A17BE00D878D5 /* ManTableViewCell.swift */; };
+		1841177E224A17BE00D878D5 /* ManCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841177B224A17BE00D878D5 /* ManCollectionViewCell.swift */; };
+		1841177F224A17BE00D878D5 /* ManTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841177C224A17BE00D878D5 /* ManTableViewController.swift */; };
 		185620202240E0F80016EB44 /* WomanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1856201F2240E0F80016EB44 /* WomanTableViewController.swift */; };
 		185620222240E1940016EB44 /* WomanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185620212240E1940016EB44 /* WomanTableViewCell.swift */; };
 		185620242240E2AC0016EB44 /* WomanCollectionviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185620232240E2AC0016EB44 /* WomanCollectionviewCell.swift */; };
@@ -34,9 +37,6 @@
 		18992358223245FA00B9DC1C /* ManagerUpload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18992357223245FA00B9DC1C /* ManagerUpload.storyboard */; };
 		1899235A2232469D00B9DC1C /* ManagerOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189923592232469D00B9DC1C /* ManagerOrder.storyboard */; };
 		1899235C223246FD00B9DC1C /* ManagerChart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1899235B223246FC00B9DC1C /* ManagerChart.storyboard */; };
-		18B22C522248F48500AE2DDF /* ManTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B22C4F2248F48500AE2DDF /* ManTableViewController.swift */; };
-		18B22C532248F48500AE2DDF /* ManCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B22C502248F48500AE2DDF /* ManCollectionViewCell.swift */; };
-		18B22C542248F48500AE2DDF /* ManTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B22C512248F48500AE2DDF /* ManTableViewCell.swift */; };
 		18CEAEB02242491B00023B7E /* G87ConsumerInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79C2F42241FF2E004FA4F5 /* G87ConsumerInformationViewController.swift */; };
 		1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */; };
 		1D5FC0DC223CDAF90065C308 /* ManagerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */; };
@@ -66,6 +66,9 @@
 		11460BA422354BCC0046DF35 /* loginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
 		115832062239078900C4522C /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		11583208223A344900C4522C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1841177A224A17BE00D878D5 /* ManTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManTableViewCell.swift; sourceTree = "<group>"; };
+		1841177B224A17BE00D878D5 /* ManCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManCollectionViewCell.swift; sourceTree = "<group>"; };
+		1841177C224A17BE00D878D5 /* ManTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManTableViewController.swift; sourceTree = "<group>"; };
 		1856201F2240E0F80016EB44 /* WomanTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WomanTableViewController.swift; sourceTree = "<group>"; };
 		185620212240E1940016EB44 /* WomanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WomanTableViewCell.swift; sourceTree = "<group>"; };
 		185620232240E2AC0016EB44 /* WomanCollectionviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WomanCollectionviewCell.swift; sourceTree = "<group>"; };
@@ -83,9 +86,6 @@
 		18992357223245FA00B9DC1C /* ManagerUpload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerUpload.storyboard; sourceTree = "<group>"; };
 		189923592232469D00B9DC1C /* ManagerOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerOrder.storyboard; sourceTree = "<group>"; };
 		1899235B223246FC00B9DC1C /* ManagerChart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerChart.storyboard; sourceTree = "<group>"; };
-		18B22C4F2248F48500AE2DDF /* ManTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManTableViewController.swift; path = ../../../iOSTopic/CP103D_Topic0308/CP103D_Topic0308/ManTableViewController.swift; sourceTree = "<group>"; };
-		18B22C502248F48500AE2DDF /* ManCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManCollectionViewCell.swift; path = ../../../iOSTopic/CP103D_Topic0308/CP103D_Topic0308/ManCollectionViewCell.swift; sourceTree = "<group>"; };
-		18B22C512248F48500AE2DDF /* ManTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManTableViewCell.swift; path = ../../../iOSTopic/CP103D_Topic0308/CP103D_Topic0308/ManTableViewCell.swift; sourceTree = "<group>"; };
 		1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderEditTVC.swift; sourceTree = "<group>"; };
 		1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderCell.swift; sourceTree = "<group>"; };
 		1DC451FB22326FA5003BD747 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -138,9 +138,9 @@
 				1856201F2240E0F80016EB44 /* WomanTableViewController.swift */,
 				185620212240E1940016EB44 /* WomanTableViewCell.swift */,
 				185620232240E2AC0016EB44 /* WomanCollectionviewCell.swift */,
-				18B22C502248F48500AE2DDF /* ManCollectionViewCell.swift */,
-				18B22C512248F48500AE2DDF /* ManTableViewCell.swift */,
-				18B22C4F2248F48500AE2DDF /* ManTableViewController.swift */,
+				1841177B224A17BE00D878D5 /* ManCollectionViewCell.swift */,
+				1841177A224A17BE00D878D5 /* ManTableViewCell.swift */,
+				1841177C224A17BE00D878D5 /* ManTableViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -371,7 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1137ECD92244CB1C00F03C4E /* Good.swift in Sources */,
-				18B22C532248F48500AE2DDF /* ManCollectionViewCell.swift in Sources */,
+				1841177E224A17BE00D878D5 /* ManCollectionViewCell.swift in Sources */,
 				CE79C2F32241FB83004FA4F5 /* G87orderViewController.swift in Sources */,
 				1137EC91223B584A00F03C4E /* HomeVC.swift in Sources */,
 				18CEAEB02242491B00023B7E /* G87ConsumerInformationViewController.swift in Sources */,
@@ -381,22 +381,22 @@
 				CE79C2F22241FB83004FA4F5 /* G87orderdetailViewController.swift in Sources */,
 				CE592A512244D07F00DF552F /* CheckViewController.swift in Sources */,
 				CE79C2F7224207D5004FA4F5 /* OrderTableViewCell.swift in Sources */,
-				18B22C522248F48500AE2DDF /* ManTableViewController.swift in Sources */,
 				1D5FC0DC223CDAF90065C308 /* ManagerOrderCell.swift in Sources */,
 				11460BA3223547A70046DF35 /* memberVC.swift in Sources */,
 				CE592A522244D07F00DF552F /* ShoppingcartViewController.swift in Sources */,
 				11460BA522354BCC0046DF35 /* loginVC.swift in Sources */,
-				18B22C542248F48500AE2DDF /* ManTableViewCell.swift in Sources */,
 				CE592A4F2244D07F00DF552F /* Cart.swift in Sources */,
 				115832072239078900C4522C /* Common.swift in Sources */,
 				1137ECFB2248ACB500F03C4E /* MapVC.swift in Sources */,
 				1137ED002248B0C300F03C4E /* DetailVC.swift in Sources */,
+				1841177D224A17BE00D878D5 /* ManTableViewCell.swift in Sources */,
 				185620242240E2AC0016EB44 /* WomanCollectionviewCell.swift in Sources */,
 				185620202240E0F80016EB44 /* WomanTableViewController.swift in Sources */,
 				1137ECFE2248AE4200F03C4E /* Spot.swift in Sources */,
 				11583209223A344900C4522C /* User.swift in Sources */,
 				1135C36222327745002C9C80 /* signupVC.swift in Sources */,
 				1DC451FC22326FA5003BD747 /* Order.swift in Sources */,
+				1841177F224A17BE00D878D5 /* ManTableViewController.swift in Sources */,
 				CE592A502244D07F00DF552F /* CartCell.swift in Sources */,
 				1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */,
 				1899233A22323DBD00B9DC1C /* AppDelegate.swift in Sources */,
