@@ -16,14 +16,14 @@ class ManTableViewController: UITableViewController {
     func tableViewAddRefreshControl() { //  refresh
         let refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(showGoods), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(showManGoods), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
     }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableViewAddRefreshControl()
-        showGoods()
+        showManGoods()
     }
 
     // MARK: - Table view data source
@@ -91,7 +91,7 @@ class ManTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @objc func showGoods(){
+    @objc func showManGoods(){
         var requestParam = [String: String]()
         requestParam["param"] = "Man"
         executeTask(url_server!, requestParam) { (data, response, error) in

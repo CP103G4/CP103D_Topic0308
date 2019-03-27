@@ -16,7 +16,7 @@ class WomanTableViewController: UITableViewController {
     func tableViewAddRefreshControl() { //  refresh
         let refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(showGoods), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(showWomanGoods), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
     }
     
@@ -24,7 +24,7 @@ class WomanTableViewController: UITableViewController {
         super.viewDidLoad()
 
         tableViewAddRefreshControl()
-        showGoods()
+        showWomanGoods()
     }
 
     // MARK: - Table view data source
@@ -91,7 +91,7 @@ class WomanTableViewController: UITableViewController {
     }
     */
 
-    @objc func showGoods(){
+    @objc func showWomanGoods(){
         var requestParam = [String: String]()
         requestParam["param"] = "Woman"
         executeTask(url_server!, requestParam) { (data, response, error) in

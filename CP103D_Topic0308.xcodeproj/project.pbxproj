@@ -22,6 +22,8 @@
 		1841177D224A17BE00D878D5 /* ManTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841177A224A17BE00D878D5 /* ManTableViewCell.swift */; };
 		1841177E224A17BE00D878D5 /* ManCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841177B224A17BE00D878D5 /* ManCollectionViewCell.swift */; };
 		1841177F224A17BE00D878D5 /* ManTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841177C224A17BE00D878D5 /* ManTableViewController.swift */; };
+		18411781224B0C4800D878D5 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18411780224B0C4800D878D5 /* HomeCollectionViewController.swift */; };
+		18411785224B135D00D878D5 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18411784224B135D00D878D5 /* HomeCollectionViewCell.swift */; };
 		185620202240E0F80016EB44 /* WomanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1856201F2240E0F80016EB44 /* WomanTableViewController.swift */; };
 		185620222240E1940016EB44 /* WomanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185620212240E1940016EB44 /* WomanTableViewCell.swift */; };
 		185620242240E2AC0016EB44 /* WomanCollectionviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185620232240E2AC0016EB44 /* WomanCollectionviewCell.swift */; };
@@ -69,6 +71,8 @@
 		1841177A224A17BE00D878D5 /* ManTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManTableViewCell.swift; sourceTree = "<group>"; };
 		1841177B224A17BE00D878D5 /* ManCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManCollectionViewCell.swift; sourceTree = "<group>"; };
 		1841177C224A17BE00D878D5 /* ManTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManTableViewController.swift; sourceTree = "<group>"; };
+		18411780224B0C4800D878D5 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		18411784224B135D00D878D5 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		1856201F2240E0F80016EB44 /* WomanTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WomanTableViewController.swift; sourceTree = "<group>"; };
 		185620212240E1940016EB44 /* WomanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WomanTableViewCell.swift; sourceTree = "<group>"; };
 		185620232240E2AC0016EB44 /* WomanCollectionviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WomanCollectionviewCell.swift; sourceTree = "<group>"; };
@@ -135,12 +139,38 @@
 			children = (
 				1899234B2232425600B9DC1C /* ConsumerHome.storyboard */,
 				1137EC90223B584A00F03C4E /* HomeVC.swift */,
+				188A8F38224B422300F68CA6 /* Woman */,
+				188A8F39224B423000F68CA6 /* Man */,
+				188A8F3A224B424500F68CA6 /* Home */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		188A8F38224B422300F68CA6 /* Woman */ = {
+			isa = PBXGroup;
+			children = (
 				1856201F2240E0F80016EB44 /* WomanTableViewController.swift */,
 				185620212240E1940016EB44 /* WomanTableViewCell.swift */,
 				185620232240E2AC0016EB44 /* WomanCollectionviewCell.swift */,
+			);
+			name = Woman;
+			sourceTree = "<group>";
+		};
+		188A8F39224B423000F68CA6 /* Man */ = {
+			isa = PBXGroup;
+			children = (
 				1841177B224A17BE00D878D5 /* ManCollectionViewCell.swift */,
 				1841177A224A17BE00D878D5 /* ManTableViewCell.swift */,
 				1841177C224A17BE00D878D5 /* ManTableViewController.swift */,
+			);
+			name = Man;
+			sourceTree = "<group>";
+		};
+		188A8F3A224B424500F68CA6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				18411780224B0C4800D878D5 /* HomeCollectionViewController.swift */,
+				18411784224B135D00D878D5 /* HomeCollectionViewCell.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -373,6 +403,7 @@
 				1137ECD92244CB1C00F03C4E /* Good.swift in Sources */,
 				1841177E224A17BE00D878D5 /* ManCollectionViewCell.swift in Sources */,
 				CE79C2F32241FB83004FA4F5 /* G87orderViewController.swift in Sources */,
+				18411781224B0C4800D878D5 /* HomeCollectionViewController.swift in Sources */,
 				1137EC91223B584A00F03C4E /* HomeVC.swift in Sources */,
 				18CEAEB02242491B00023B7E /* G87ConsumerInformationViewController.swift in Sources */,
 				185620222240E1940016EB44 /* WomanTableViewCell.swift in Sources */,
@@ -396,6 +427,7 @@
 				11583209223A344900C4522C /* User.swift in Sources */,
 				1135C36222327745002C9C80 /* signupVC.swift in Sources */,
 				1DC451FC22326FA5003BD747 /* Order.swift in Sources */,
+				18411785224B135D00D878D5 /* HomeCollectionViewCell.swift in Sources */,
 				1841177F224A17BE00D878D5 /* ManTableViewController.swift in Sources */,
 				CE592A502244D07F00DF552F /* CartCell.swift in Sources */,
 				1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */,
@@ -549,7 +581,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X725M6FRD5;
 				INFOPLIST_FILE = CP103D_Topic0308/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -569,7 +601,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X725M6FRD5;
 				INFOPLIST_FILE = CP103D_Topic0308/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
