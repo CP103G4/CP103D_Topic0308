@@ -12,6 +12,7 @@ class ManTableViewController: UITableViewController {
     var goods = [Good]()
     var goodsSubclass = [Good]()
     let url_server = URL(string: common_url + "GoodsServlet1")
+    var collectionIndex = IndexPath(row: -1, section: -1)
     
     func tableViewAddRefreshControl() { //  refresh
         let refreshControl = UIRefreshControl()
@@ -82,15 +83,16 @@ class ManTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let controller = segue.destination as! GooddetailViewController
+        controller.goodDetail = sender as! Good
     }
-    */
+    
+ 
     @objc func showManGoods(){
         var requestParam = [String: String]()
         requestParam["param"] = "Man"
@@ -129,7 +131,6 @@ extension ManTableViewController: UICollectionViewDelegate, UICollectionViewData
         goodsSubclass = goods.filter { (good) -> Bool in    //用filter將子分類篩選
             good.subclass == collectionView.tag.description
         }
-        
         return (goodsSubclass.count)
     }
     
@@ -160,5 +161,13 @@ extension ManTableViewController: UICollectionViewDelegate, UICollectionViewData
         cell.manCollectionviewLabel.text = goodsSubclass[indexPath.row].name
         return cell
     }
-    
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionIndex = IndexPath(row: indexPath.row, section: collectionView.tag)
+        print(collectionIndex.description)
+        let goodDetail = goods.filter({ (good) -> Bool in
+            good.subclass == collectionIndex.section.description
+        })[collectionIndex.row]
+        performSegue(withIdentifier: "manSegue", sender: goodDetail)
+    }
 }

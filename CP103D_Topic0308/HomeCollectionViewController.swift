@@ -12,6 +12,8 @@ private let reuseIdentifier = "homeCollectionViewCell"
 
 class HomeCollectionViewController: UICollectionViewController {
     var goods = [Good]()
+    var goodDetail = Good.init(id: -1, name: "-1", descrip: "-1", price: -1, mainclass: "-1", subclass: "-1", shelf: "-1", date: Date.init(), evulation: -1, color1: "-1", color2: "-1", size1: "-1", size2: "-1", specialPrice: -1, quatity: -1)
+    
     let url_server = URL(string: common_url + "GoodsServlet1")
     
     func tableViewAddRefreshControl() { //  refresh
@@ -41,15 +43,18 @@ class HomeCollectionViewController: UICollectionViewController {
         layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        let controller = segue.destination as! GooddetailViewController
+        let indexPath = self.collectionView.indexPath(for: sender as! UICollectionViewCell)
+        controller.goodDetail = goods[(indexPath?.row)!]
     }
-    */
+ 
 
     // MARK: UICollectionViewDataSource
 
@@ -88,38 +93,11 @@ class HomeCollectionViewController: UICollectionViewController {
             }
         }
         cell.homecellLabel.text = goods[indexPath.row].name
+        goodDetail = goods[indexPath.row]
         return cell    }
 
     // MARK: UICollectionViewDelegate
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
     @objc func showAllGoods(){
         var requestParam = [String: String]()
         requestParam["param"] = "getAll"

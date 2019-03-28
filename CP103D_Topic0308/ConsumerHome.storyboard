@@ -71,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="2479" y="1554"/>
         </scene>
-        <!--View Controller-->
+        <!--Gooddetail View Controller-->
         <scene sceneID="ute-ao-T0I">
             <objects>
-                <viewController id="ARd-ge-Jir" sceneMemberID="viewController">
+                <viewController id="ARd-ge-Jir" customClass="GooddetailViewController" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eN1-Sc-jri">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="562"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,21 +130,21 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="gW2-lX-9jK">
                                         <rect key="frame" x="0.0" y="57" width="96" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="尺寸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="929-3n-Laa">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="尺寸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="929-3n-Laa">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=" L " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kp-8J-PCh">
-                                                <rect key="frame" x="48" y="0.0" width="18.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text=" L " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kp-8J-PCh">
+                                                <rect key="frame" x="44" y="0.0" width="18.5" height="20.5"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="XL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOg-ZY-bUO">
-                                                <rect key="frame" x="75.5" y="0.0" width="20.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOg-ZY-bUO">
+                                                <rect key="frame" x="71.5" y="0.0" width="24.5" height="20.5"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -179,6 +179,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eli-6S-1Mw"/>
                     </view>
+                    <connections>
+                        <outlet property="color1Label" destination="A9R-5o-jux" id="GUh-9W-RGu"/>
+                        <outlet property="color2Label" destination="IBC-T0-a8y" id="09r-vE-hmB"/>
+                        <outlet property="imageview" destination="nKy-qG-J9g" id="PT9-C0-Z0K"/>
+                        <outlet property="priceLabel" destination="Zvn-MO-owZ" id="5z5-dI-Mlz"/>
+                        <outlet property="size1Label" destination="1Kp-8J-PCh" id="Gt6-Pl-Apf"/>
+                        <outlet property="size2Label" destination="qOg-ZY-bUO" id="06F-V4-r9Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIa-XS-yDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -224,16 +232,19 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="eEg-ZV-Qkm">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="eEg-ZV-Qkm">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                         </subviews>
                                                     </view>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="eEg-ZV-Qkm" secondAttribute="trailing" id="agv-UV-Oxm"/>
+                                                        <constraint firstItem="eEg-ZV-Qkm" firstAttribute="top" secondItem="icw-tc-wGb" secondAttribute="top" id="cm5-ab-B5h"/>
+                                                        <constraint firstItem="eEg-ZV-Qkm" firstAttribute="leading" secondItem="icw-tc-wGb" secondAttribute="leading" id="uAx-Aq-ul8"/>
+                                                    </constraints>
                                                     <connections>
                                                         <outlet property="womancollectionViewLabel" destination="oLb-bS-qJn" id="WLM-mS-st8"/>
                                                         <outlet property="womancollectionviewImageview" destination="eEg-ZV-Qkm" id="yr0-ML-IGS"/>
-                                                        <segue destination="ARd-ge-Jir" kind="show" id="8H7-mj-sAX"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -261,6 +272,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="e3Y-Ec-Ubi"/>
+                    <connections>
+                        <segue destination="ARd-ge-Jir" kind="show" identifier="womanSegue" id="SrA-cA-pzj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VN2-82-VdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -415,7 +429,6 @@
                                                     <connections>
                                                         <outlet property="manCollectionviewImageview" destination="WSt-qb-KGZ" id="3Xq-Qj-7GP"/>
                                                         <outlet property="manCollectionviewLabel" destination="8JV-eF-DkD" id="HSf-Qv-TWA"/>
-                                                        <segue destination="ARd-ge-Jir" kind="show" id="buA-UP-emK"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -443,6 +456,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="0t1-lI-P5Z"/>
+                    <connections>
+                        <segue destination="ARd-ge-Jir" kind="show" identifier="manSegue" id="0NL-yh-Ija"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="znH-ah-09C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -17,7 +17,14 @@ class Good: Codable {
     var shelf: String //上架
     var date:Date //日期
     var evulation: Int //評價
-    init(id: Int, name: String, descrip: String, price: Double, mainclass: String, subclass: String, shelf: String, date: Date, evulation: Int) {
+    var color1: String
+    var color2: String
+    var size1: String
+    var size2: String
+    var specialPrice: Double
+    var quatity: Int
+
+    init(id: Int, name: String, descrip: String, price: Double, mainclass: String, subclass: String, shelf: String, date: Date, evulation: Int, color1: String, color2: String, size1:String, size2:String, specialPrice: Double, quatity: Int) {
         self.id = id
         self.name = name
         self.descrip = descrip
@@ -27,5 +34,11 @@ class Good: Codable {
         self.shelf = shelf
         self.date = date
         self.evulation = evulation
+        self.color1 = color1
+        self.color2 = color2
+        self.size1 = size1
+        self.size2 = size2
+        self.specialPrice = specialPrice
+        self.quatity = quatity
     }
 }
