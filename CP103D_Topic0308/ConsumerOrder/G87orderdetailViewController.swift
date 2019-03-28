@@ -9,8 +9,9 @@
 import UIKit
 
 class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
+    
     var order: Order?
+    //    var good: Good?
     var goods = [Good]()
     let url_server = URL(string: common_url + "GoodsServlet")
     @IBOutlet weak var Status: UILabel!
@@ -21,7 +22,7 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableViewAddRefreshControl()
+        //        tableViewAddRefreshControl()
         showAllOrders()
         // Do any additional setup after loading the view.
         if let order = order {
@@ -105,6 +106,8 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
         let good = goods[indexPath.row]
         cell.name.text = good.name.description
         cell.price.text = good.price.description
+        cell.colar.text = good.mainclass.description
+        cell.size.text = good.subclass.description
         
         
         return cell
@@ -112,15 +115,23 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
     
     
     
-   
+    
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //
+    //
+    //        if let row = orderdetailtableview.indexPathForSelectedRow?.row, let controller = segue.destination as? G87orderdetailViewController {
+    //
+    //            controller.good = goods[row]
+    //        }
+    //    }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
