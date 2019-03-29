@@ -15,11 +15,11 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
     
     //    var order: Order?
     
-    var goods = [Good]()
+    var carts = [Cart]()
     //    let url_server = URL(string: common_url + "ShoppingCartServlet")
     
     //    var orders = [Order]()
-    let url_server = URL(string: common_url + "GoodsServlet")
+    let url_server = URL(string: common_url + "ShoppingCartServlet")
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,10 +41,10 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
         self.carttotalprice.text = "$" + String( calculateCartTotal())
     }
     
-    func calculateCartTotal() -> Double{
-        var total = 0.0
-        for good in goods {
-            total += good.price
+    func calculateCartTotal() -> Int{
+        var total = 0
+        for cart in carts {
+            total += cart.totalprice
         }
         //        for index in 0...self.goods.count - 1 {
         //            total += goods[index].price
@@ -68,8 +68,8 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
                 if data != nil {
                     print("input: \(String(data: data!, encoding: .utf8)!)")
                     
-                    if let result = try? decoder.decode([Good].self, from: data!) {
-                        self.goods = result
+                    if let result = try? decoder.decode([Cart].self, from: data!) {
+                        self.carts = result
                         DispatchQueue.main.async {
                             self.displayTotal()
                             if let control = self.carttableview.refreshControl {
@@ -97,7 +97,7 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return goods.count
+        return carts.count
     }
     
     
@@ -105,9 +105,12 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartCell
         
         // Configure the cell...
-        let good = goods[indexPath.row]
-        cell.nameLabel.text = good.id.description
-        cell.priceLabel.text = good.price.description
+        let cart = carts[indexPath.row]
+        cell.nameLabel.text = cart.goods_goodsid.description
+        cell.priceLabel.text = cart.totalprice.description
+        cell.colarLabel.text = cart.color.description
+        cell.sizeLabel.text = cart.size.description
+        cell.quantityLabel.text = cart.amount.description
         
         
         return cell
@@ -165,7 +168,7 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
      }
      */
     @IBAction func checkout(_ sender: UIButton) {
-        if goods.count == 0 {
+        if carts.count == 0 {
             let alert = UIAlertController.init(title: "Your cart is empty", message: "Please add an item in your cart before you checkout.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Browse items", style: .default, handler: { _ in
                 self.performSegue(withIdentifier: "List", sender: sender)

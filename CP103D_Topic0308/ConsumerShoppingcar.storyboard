@@ -214,6 +214,9 @@
                                 <state key="normal" title="CHECKOUT">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="checkout:" destination="mbG-oA-uJv" eventType="touchUpInside" id="xrK-O9-gEY"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="105" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="jkI-Zf-d23">
                                 <rect key="frame" x="0.0" y="64" width="375" height="346.5"/>
@@ -323,7 +326,7 @@
                     <connections>
                         <outlet property="carttableview" destination="jkI-Zf-d23" id="bkj-cZ-KFb"/>
                         <outlet property="carttotalprice" destination="jbe-H2-6q5" id="AJO-V5-D8X"/>
-                        <segue destination="pD4-95-ZVo" kind="showDetail" id="llV-cf-bov"/>
+                        <segue destination="pD4-95-ZVo" kind="showDetail" identifier="Checkout" id="llV-cf-bov"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Zm-Mz-5B1" sceneMemberID="firstResponder"/>

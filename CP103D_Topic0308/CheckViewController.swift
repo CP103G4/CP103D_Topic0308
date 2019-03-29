@@ -21,13 +21,13 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     @IBOutlet var labelTotalPrice: UILabel!
     var orders = [Order]()
-    var goods = [Good]()
+    var carts = [Cart]()
     
     
     //    let url_server = URL(string: common_url + "ShoppingCartServlet")
     
     //    var orders = [Order]()
-    let url_server = URL(string: common_url + "GoodsServlet")
+    let url_server = URL(string: common_url + "ShoppingCartServlet")
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,10 +49,10 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         self.labelTotalPrice.text = "$" + String( calculateCartTotal())
     }
     
-    func calculateCartTotal() -> Double{
-        var total = 0.0
-        for good in goods {
-            total += good.price
+    func calculateCartTotal() -> Int{
+        var total = 0
+        for cart in carts {
+            total += cart.totalprice
         }
         //        for index in 0...self.goods.count - 1 {
         //            total += goods[index].price
@@ -76,8 +76,8 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                 if data != nil {
                     print("input: \(String(data: data!, encoding: .utf8)!)")
                     
-                    if let result = try? decoder.decode([Good].self, from: data!) {
-                        self.goods = result
+                    if let result = try? decoder.decode([Cart].self, from: data!) {
+                        self.carts = result
                         DispatchQueue.main.async {
                             self.displayTotal()
                             if let control = self.tableViewOrderDetails.refreshControl {
@@ -105,7 +105,7 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return goods.count
+        return carts.count
     }
     
     
@@ -113,11 +113,11 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CheckTableViewCell
         
         // Configure the cell...
-        let good = goods[indexPath.row]
-        cell.name.text = good.name.description
-        cell.color.text = good.mainclass.description
-        cell.size.text = good.subclass.description
-        cell.amount.text = good.price.description
+        let cart = carts[indexPath.row]
+        cell.name.text = cart.goods_goodsid.description
+        cell.color.text = cart.color.description
+        cell.size.text = cart.size.description
+        cell.amount.text = cart.amount.description
         
         
         return cell
