@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fw6-b3-nv5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fw6-b3-nv5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,26 +18,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tya-mm-FJv">
-                                <rect key="frame" x="153" y="421" width="109" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <state key="normal" title="消費者"/>
-                                <connections>
-                                    <segue destination="cmN-8A-TaB" kind="show" id="abm-Kp-I30"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v30-dP-KYj">
-                                <rect key="frame" x="153" y="484" width="109" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <state key="normal" title="管理者"/>
-                                <connections>
-                                    <segue destination="0gZ-s0-Csy" kind="presentation" id="qwv-3n-fx0"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3DF-fU-3fn">
+                                <rect key="frame" x="133" y="274.5" width="109" height="118"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tya-mm-FJv">
+                                        <rect key="frame" x="0.0" y="0.0" width="109" height="55"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <state key="normal" title="消費者"/>
+                                        <connections>
+                                            <segue destination="cmN-8A-TaB" kind="show" id="abm-Kp-I30"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v30-dP-KYj">
+                                        <rect key="frame" x="0.0" y="63" width="109" height="55"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <state key="normal" title="管理者"/>
+                                        <connections>
+                                            <segue destination="0gZ-s0-Csy" kind="presentation" id="qwv-3n-fx0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3DF-fU-3fn" firstAttribute="centerX" secondItem="RyO-gg-tBD" secondAttribute="centerX" id="h84-uN-fto"/>
+                            <constraint firstItem="3DF-fU-3fn" firstAttribute="centerY" secondItem="RyO-gg-tBD" secondAttribute="centerY" id="jvl-mQ-qtY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GSw-vz-gcl"/>
                     </view>
                 </viewController>
@@ -102,9 +109,8 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKg-9k-mDa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKg-9k-mDa">
                                 <rect key="frame" x="285" y="555" width="50" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="先去逛逛">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -118,7 +124,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="q9l-Px-jnE" firstAttribute="trailing" secondItem="cKg-9k-mDa" secondAttribute="trailing" constant="40" id="Bob-A2-330"/>
                             <constraint firstItem="q9l-Px-jnE" firstAttribute="trailing" secondItem="cLD-oU-4uL" secondAttribute="trailing" constant="40" id="SEA-Mj-o8Q"/>
+                            <constraint firstItem="cKg-9k-mDa" firstAttribute="top" secondItem="cLD-oU-4uL" secondAttribute="bottom" constant="8" id="Seo-rJ-RPe"/>
                             <constraint firstItem="q9l-Px-jnE" firstAttribute="bottom" secondItem="cLD-oU-4uL" secondAttribute="bottom" constant="120" id="T6k-dM-IqD"/>
                             <constraint firstItem="cLD-oU-4uL" firstAttribute="leading" secondItem="q9l-Px-jnE" secondAttribute="leading" constant="40" id="bGS-sl-dfd"/>
                         </constraints>
