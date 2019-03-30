@@ -1,16 +1,17 @@
 //
-//  HomeCollectionViewController.swift
+//  ManagerHomeCollectionViewController.swift
 //  CP103D_Topic0308
 //
-//  Created by min-chia on 2019/3/27.
+//  Created by min-chia on 2019/3/30.
 //  Copyright © 2019 min-chia. All rights reserved.
 //
 
 import UIKit
 
-private let reuseIdentifier = "homeCollectionViewCell"
+private let reuseIdentifier = "managerHomeCollectionViewCell"
 
-class HomeCollectionViewController: UICollectionViewController {
+class ManagerHomeCollectionViewController: UICollectionViewController {
+    
     var goods = [Good]()
     var goodDetail = Good.init(id: -1, name: "-1", descrip: "-1", price: -1, mainclass: "-1", subclass: "-1", shelf: "-1", evulation: -1, color1: "-1", color2: "-1", size1: "-1", size2: "-1", specialPrice: -1, quatity: -1)
     
@@ -22,7 +23,7 @@ class HomeCollectionViewController: UICollectionViewController {
         refreshControl.addTarget(self, action: #selector(showAllGoods), for: .valueChanged)
         self.collectionView.refreshControl = refreshControl
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setCellsize()
@@ -45,32 +46,32 @@ class HomeCollectionViewController: UICollectionViewController {
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        let controller = segue.destination as! GooddetailViewController
+        let controller = segue.destination as! ManagerGooddetailViewController
         let indexPath = self.collectionView.indexPath(for: sender as! UICollectionViewCell)
         controller.goodDetail = goods[(indexPath?.row)!]
     }
- 
-
+    
+    
     // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
-
+    
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return goods.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! HomeCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ManagerHomeCollectionViewCell
         
         // 尚未取得圖片，另外開啟task請求
         var requestParam = [String: Any]()
@@ -87,17 +88,18 @@ class HomeCollectionViewController: UICollectionViewController {
                 if image == nil {
                     image = UIImage(named: "noImage.jpg")
                 }
-                DispatchQueue.main.async { cell.homecellImageview.image = image }
+                DispatchQueue.main.async { cell.managerhomeImageview.image = image }
             } else {
                 print(error!.localizedDescription)
             }
         }
-        cell.homecellLabel.text = goods[indexPath.row].name
+        cell.managerhomeLabel.text = goods[indexPath.row].name
         goodDetail = goods[indexPath.row]
-        return cell    }
-
+        return cell
+    }
+    
     // MARK: UICollectionViewDelegate
-
+    
     @objc func showAllGoods(){
         var requestParam = [String: String]()
         requestParam["param"] = "getAll"

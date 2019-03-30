@@ -28,6 +28,17 @@
 		185620222240E1940016EB44 /* WomanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185620212240E1940016EB44 /* WomanTableViewCell.swift */; };
 		185620242240E2AC0016EB44 /* WomanCollectionviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185620232240E2AC0016EB44 /* WomanCollectionviewCell.swift */; };
 		188A8F3C224B748A00F68CA6 /* GooddetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F3B224B748A00F68CA6 /* GooddetailViewController.swift */; };
+		188A8F5D224FB6F200F68CA6 /* ManagerGooddetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F5B224FB6F100F68CA6 /* ManagerGooddetailViewController.swift */; };
+		188A8F5E224FB6F200F68CA6 /* ManagerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F5C224FB6F100F68CA6 /* ManagerHomeViewController.swift */; };
+		188A8F67224FB72300F68CA6 /* ManagerHomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F5F224FB72300F68CA6 /* ManagerHomeCollectionViewController.swift */; };
+		188A8F68224FB72300F68CA6 /* ManagerWomanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F60224FB72300F68CA6 /* ManagerWomanCollectionViewCell.swift */; };
+		188A8F69224FB72300F68CA6 /* ManagerManTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F61224FB72300F68CA6 /* ManagerManTableViewController.swift */; };
+		188A8F6A224FB72300F68CA6 /* ManagerHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F62224FB72300F68CA6 /* ManagerHomeCollectionViewCell.swift */; };
+		188A8F6B224FB72300F68CA6 /* ManagerManTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F63224FB72300F68CA6 /* ManagerManTableViewCell.swift */; };
+		188A8F6C224FB72300F68CA6 /* ManagerManCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F64224FB72300F68CA6 /* ManagerManCollectionViewCell.swift */; };
+		188A8F6D224FB72300F68CA6 /* ManagerWomanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F65224FB72300F68CA6 /* ManagerWomanTableViewCell.swift */; };
+		188A8F6E224FB72300F68CA6 /* ManagerWomanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F66224FB72300F68CA6 /* ManagerWomanTableViewController.swift */; };
+		188A8F73224FB7F500F68CA6 /* ManagerUploadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F72224FB7F500F68CA6 /* ManagerUploadTableViewController.swift */; };
 		1899233A22323DBD00B9DC1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899233922323DBD00B9DC1C /* AppDelegate.swift */; };
 		1899233F22323DBD00B9DC1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1899233D22323DBD00B9DC1C /* Main.storyboard */; };
 		1899234122323DBE00B9DC1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1899234022323DBE00B9DC1C /* Assets.xcassets */; };
@@ -79,6 +90,17 @@
 		185620212240E1940016EB44 /* WomanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WomanTableViewCell.swift; sourceTree = "<group>"; };
 		185620232240E2AC0016EB44 /* WomanCollectionviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WomanCollectionviewCell.swift; sourceTree = "<group>"; };
 		188A8F3B224B748A00F68CA6 /* GooddetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooddetailViewController.swift; sourceTree = "<group>"; };
+		188A8F5B224FB6F100F68CA6 /* ManagerGooddetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerGooddetailViewController.swift; sourceTree = "<group>"; };
+		188A8F5C224FB6F100F68CA6 /* ManagerHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerHomeViewController.swift; sourceTree = "<group>"; };
+		188A8F5F224FB72300F68CA6 /* ManagerHomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerHomeCollectionViewController.swift; sourceTree = "<group>"; };
+		188A8F60224FB72300F68CA6 /* ManagerWomanCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerWomanCollectionViewCell.swift; sourceTree = "<group>"; };
+		188A8F61224FB72300F68CA6 /* ManagerManTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerManTableViewController.swift; sourceTree = "<group>"; };
+		188A8F62224FB72300F68CA6 /* ManagerHomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerHomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		188A8F63224FB72300F68CA6 /* ManagerManTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerManTableViewCell.swift; sourceTree = "<group>"; };
+		188A8F64224FB72300F68CA6 /* ManagerManCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerManCollectionViewCell.swift; sourceTree = "<group>"; };
+		188A8F65224FB72300F68CA6 /* ManagerWomanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerWomanTableViewCell.swift; sourceTree = "<group>"; };
+		188A8F66224FB72300F68CA6 /* ManagerWomanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerWomanTableViewController.swift; sourceTree = "<group>"; };
+		188A8F72224FB7F500F68CA6 /* ManagerUploadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerUploadTableViewController.swift; sourceTree = "<group>"; };
 		1899233622323DBD00B9DC1C /* CP103D_Topic0308.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP103D_Topic0308.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1899233922323DBD00B9DC1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1899233E22323DBD00B9DC1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,7 +160,7 @@
 			path = Information;
 			sourceTree = "<group>";
 		};
-		1856201E2240E0AF0016EB44 /* Home */ = {
+		1856201E2240E0AF0016EB44 /* ConsumerHome */ = {
 			isa = PBXGroup;
 			children = (
 				1899234B2232425600B9DC1C /* ConsumerHome.storyboard */,
@@ -148,7 +170,7 @@
 				188A8F3A224B424500F68CA6 /* Home */,
 				188A8F3B224B748A00F68CA6 /* GooddetailViewController.swift */,
 			);
-			name = Home;
+			name = ConsumerHome;
 			sourceTree = "<group>";
 		};
 		188A8F38224B422300F68CA6 /* Woman */ = {
@@ -178,6 +200,57 @@
 				18411784224B135D00D878D5 /* HomeCollectionViewCell.swift */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		188A8F5A224FB56800F68CA6 /* ManagerHome */ = {
+			isa = PBXGroup;
+			children = (
+				188A8F5B224FB6F100F68CA6 /* ManagerGooddetailViewController.swift */,
+				188A8F5C224FB6F100F68CA6 /* ManagerHomeViewController.swift */,
+				189923552232458D00B9DC1C /* ManagerHome.storyboard */,
+				188A8F6F224FB73600F68CA6 /* ManagerHome */,
+				188A8F70224FB74A00F68CA6 /* ManagerMan */,
+				188A8F71224FB75500F68CA6 /* ManagerWoman */,
+			);
+			name = ManagerHome;
+			sourceTree = "<group>";
+		};
+		188A8F6F224FB73600F68CA6 /* ManagerHome */ = {
+			isa = PBXGroup;
+			children = (
+				188A8F62224FB72300F68CA6 /* ManagerHomeCollectionViewCell.swift */,
+				188A8F5F224FB72300F68CA6 /* ManagerHomeCollectionViewController.swift */,
+			);
+			name = ManagerHome;
+			sourceTree = "<group>";
+		};
+		188A8F70224FB74A00F68CA6 /* ManagerMan */ = {
+			isa = PBXGroup;
+			children = (
+				188A8F64224FB72300F68CA6 /* ManagerManCollectionViewCell.swift */,
+				188A8F63224FB72300F68CA6 /* ManagerManTableViewCell.swift */,
+				188A8F61224FB72300F68CA6 /* ManagerManTableViewController.swift */,
+			);
+			name = ManagerMan;
+			sourceTree = "<group>";
+		};
+		188A8F71224FB75500F68CA6 /* ManagerWoman */ = {
+			isa = PBXGroup;
+			children = (
+				188A8F60224FB72300F68CA6 /* ManagerWomanCollectionViewCell.swift */,
+				188A8F65224FB72300F68CA6 /* ManagerWomanTableViewCell.swift */,
+				188A8F66224FB72300F68CA6 /* ManagerWomanTableViewController.swift */,
+			);
+			name = ManagerWoman;
+			sourceTree = "<group>";
+		};
+		188A8F74224FB80100F68CA6 /* ManagerUpload */ = {
+			isa = PBXGroup;
+			children = (
+				18992357223245FA00B9DC1C /* ManagerUpload.storyboard */,
+				188A8F72224FB7F500F68CA6 /* ManagerUploadTableViewController.swift */,
+			);
+			name = ManagerUpload;
 			sourceTree = "<group>";
 		};
 		1899232D22323DBD00B9DC1C = {
@@ -217,9 +290,9 @@
 				1137ECFC2248ACE500F03C4E /* Information */,
 				CE79C2EF2241F9D0004FA4F5 /* ConsumerOrder */,
 				CE592A532244D08700DF552F /* ShoppingCart */,
-				1856201E2240E0AF0016EB44 /* Home */,
-				189923552232458D00B9DC1C /* ManagerHome.storyboard */,
-				18992357223245FA00B9DC1C /* ManagerUpload.storyboard */,
+				1856201E2240E0AF0016EB44 /* ConsumerHome */,
+				188A8F5A224FB56800F68CA6 /* ManagerHome */,
+				188A8F74224FB80100F68CA6 /* ManagerUpload */,
 				1899235B223246FC00B9DC1C /* ManagerChart.storyboard */,
 				1D5FC0D1223CD3370065C308 /* ManagerOrder */,
 			);
@@ -408,17 +481,24 @@
 			files = (
 				1137ECD92244CB1C00F03C4E /* Good.swift in Sources */,
 				1841177E224A17BE00D878D5 /* ManCollectionViewCell.swift in Sources */,
+				188A8F6E224FB72300F68CA6 /* ManagerWomanTableViewController.swift in Sources */,
 				CE79C2F32241FB83004FA4F5 /* G87orderViewController.swift in Sources */,
 				18411781224B0C4800D878D5 /* HomeCollectionViewController.swift in Sources */,
 				188A8F3C224B748A00F68CA6 /* GooddetailViewController.swift in Sources */,
 				1137EC91223B584A00F03C4E /* HomeVC.swift in Sources */,
 				18CEAEB02242491B00023B7E /* G87ConsumerInformationViewController.swift in Sources */,
+				188A8F6B224FB72300F68CA6 /* ManagerManTableViewCell.swift in Sources */,
 				185620222240E1940016EB44 /* WomanTableViewCell.swift in Sources */,
 				1DC451FE22326FFB003BD747 /* ManagerOrderTVC.swift in Sources */,
+				188A8F5E224FB6F200F68CA6 /* ManagerHomeViewController.swift in Sources */,
 				1137ECD7224479BB00F03C4E /* FavoriteTVC.swift in Sources */,
 				CE79C2F22241FB83004FA4F5 /* G87orderdetailViewController.swift in Sources */,
 				CE592A512244D07F00DF552F /* CheckViewController.swift in Sources */,
+				188A8F73224FB7F500F68CA6 /* ManagerUploadTableViewController.swift in Sources */,
 				CE9A1B56224D7E5E000263A0 /* CheckTableViewCell.swift in Sources */,
+				188A8F6C224FB72300F68CA6 /* ManagerManCollectionViewCell.swift in Sources */,
+				188A8F69224FB72300F68CA6 /* ManagerManTableViewController.swift in Sources */,
+				188A8F5D224FB6F200F68CA6 /* ManagerGooddetailViewController.swift in Sources */,
 				CE79C2F7224207D5004FA4F5 /* OrderTableViewCell.swift in Sources */,
 				1D5FC0DC223CDAF90065C308 /* ManagerOrderCell.swift in Sources */,
 				11460BA3223547A70046DF35 /* memberVC.swift in Sources */,
@@ -428,6 +508,7 @@
 				115832072239078900C4522C /* Common.swift in Sources */,
 				1137ECFB2248ACB500F03C4E /* MapVC.swift in Sources */,
 				1137ED002248B0C300F03C4E /* DetailVC.swift in Sources */,
+				188A8F67224FB72300F68CA6 /* ManagerHomeCollectionViewController.swift in Sources */,
 				1841177D224A17BE00D878D5 /* ManTableViewCell.swift in Sources */,
 				185620242240E2AC0016EB44 /* WomanCollectionviewCell.swift in Sources */,
 				185620202240E0F80016EB44 /* WomanTableViewController.swift in Sources */,
@@ -438,10 +519,13 @@
 				18411785224B135D00D878D5 /* HomeCollectionViewCell.swift in Sources */,
 				1841177F224A17BE00D878D5 /* ManTableViewController.swift in Sources */,
 				CE592A502244D07F00DF552F /* CartCell.swift in Sources */,
+				188A8F68224FB72300F68CA6 /* ManagerWomanCollectionViewCell.swift in Sources */,
+				188A8F6A224FB72300F68CA6 /* ManagerHomeCollectionViewCell.swift in Sources */,
 				1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */,
 				1899233A22323DBD00B9DC1C /* AppDelegate.swift in Sources */,
 				1137ECD322436F6100F03C4E /* MemberUpdataVC.swift in Sources */,
 				CE592A572244E40600DF552F /* OrderdetailTableViewCell.swift in Sources */,
+				188A8F6D224FB72300F68CA6 /* ManagerWomanTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
