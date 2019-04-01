@@ -17,6 +17,7 @@
 		1137ED002248B0C300F03C4E /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137ECFF2248B0C300F03C4E /* DetailVC.swift */; };
 		11460BA3223547A70046DF35 /* memberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11460BA2223547A70046DF35 /* memberVC.swift */; };
 		11460BA522354BCC0046DF35 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11460BA422354BCC0046DF35 /* loginVC.swift */; };
+		1152F3B5224A2BE000C96CCF /* Map2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152F3B4224A2BE000C96CCF /* Map2VC.swift */; };
 		115832072239078900C4522C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115832062239078900C4522C /* Common.swift */; };
 		11583209223A344900C4522C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11583208223A344900C4522C /* User.swift */; };
 		1841177D224A17BE00D878D5 /* ManTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841177A224A17BE00D878D5 /* ManTableViewCell.swift */; };
@@ -79,6 +80,7 @@
 		1137ECFF2248B0C300F03C4E /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		11460BA2223547A70046DF35 /* memberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memberVC.swift; sourceTree = "<group>"; };
 		11460BA422354BCC0046DF35 /* loginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
+		1152F3B4224A2BE000C96CCF /* Map2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map2VC.swift; sourceTree = "<group>"; };
 		115832062239078900C4522C /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		11583208223A344900C4522C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1841177A224A17BE00D878D5 /* ManTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManTableViewCell.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				189923532232452D00B9DC1C /* ConsumerInformation.storyboard */,
 				1137ECFD2248AE4200F03C4E /* Spot.swift */,
 				1137ECFA2248ACB500F03C4E /* MapVC.swift */,
+				1152F3B4224A2BE000C96CCF /* Map2VC.swift */,
 				1137ECFF2248B0C300F03C4E /* DetailVC.swift */,
 				11460BA2223547A70046DF35 /* memberVC.swift */,
 				1137ECD222436F6100F03C4E /* MemberUpdataVC.swift */,
@@ -510,6 +513,7 @@
 				1137ED002248B0C300F03C4E /* DetailVC.swift in Sources */,
 				188A8F67224FB72300F68CA6 /* ManagerHomeCollectionViewController.swift in Sources */,
 				1841177D224A17BE00D878D5 /* ManTableViewCell.swift in Sources */,
+				1152F3B5224A2BE000C96CCF /* Map2VC.swift in Sources */,
 				185620242240E2AC0016EB44 /* WomanCollectionviewCell.swift in Sources */,
 				185620202240E0F80016EB44 /* WomanTableViewController.swift in Sources */,
 				1137ECFE2248AE4200F03C4E /* Spot.swift in Sources */,
