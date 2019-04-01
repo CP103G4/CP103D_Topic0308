@@ -64,6 +64,7 @@
                                                     <state key="normal" title="Button" image="photo"/>
                                                     <connections>
                                                         <action selector="photoButton:" destination="thu-EH-lne" eventType="touchUpInside" id="gzb-Z3-qa9"/>
+                                                        <action selector="takePicture:" destination="thu-EH-lne" eventType="touchUpInside" id="Yfk-ha-Gvf"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

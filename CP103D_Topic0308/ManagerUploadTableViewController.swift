@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ImageIO
 
 class ManagerUploadTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let url_server = URL(string: common_url + "GoodsServlet1")
@@ -24,6 +25,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     @IBOutlet weak var quatityTextfield: UITextField!   //庫存
     @IBOutlet weak var shelfSwitch: UISwitch!   //上架
     @IBOutlet weak var gooddescriptTextview: UITextView!
+    var image: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         let color2 = color2Switch.isOn.description == "true" ? "1" : (color2Switch.isOn.description == "false" ? "0" : "1")
         let sizeL = sizeLswitch.isOn.description == "true" ? "1" : (sizeLswitch.isOn.description == "false" ? "0" : "1")
         let sizeXL = sizeXLswitch.isOn.description == "true" ? "1" : (sizeXLswitch.isOn.description == "false" ? "0" : "1")
-        let sex = sexSegment.selectedSegmentIndex.description == "0" ? "Woman" : (sizeXLswitch.isOn.description == "1" ? "Man" : "Woman")
+        let sex = sexSegment.selectedSegmentIndex.description == "0" ? "Woman" : (sexSegment.selectedSegmentIndex.description == "1" ? "Man" : "Woman")
         let subclass = subclassSegment.selectedSegmentIndex.description
         let goodprice = goodpriceTextfield.text == "" ? "-1" : goodpriceTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let specialprice = specialPriceTextfield.text == "" ? "-1" : goodpriceTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -65,7 +67,13 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         let goodDetail = Good(id: -1, name: goodname!, descrip: gooddescript!, price: Double(goodprice!)!, mainclass: sex, subclass: subclass, shelf: shelf, evulation: -1, color1: color1, color2: color2, size1: sizeL, size2: sizeXL, specialPrice: Double(specialprice!)!, quatity: Int(quatity!)!)
         var requestParam = [String: String]()
         requestParam["param"] = "insert"
+        
         requestParam["goodinsert"] = try! String(data: JSONEncoder().encode(goodDetail), encoding: .utf8)
+        // 有圖才上傳
+        if self.image != nil {
+            requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
+        }
+        
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
@@ -110,7 +118,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     }
     
     func next(){ //成功轉跳Home頁面
-        if let controller = storyboard?.instantiateViewController(withIdentifier: "managerHomeViewController") {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "managertabbar") {
             present(controller, animated: true, completion: nil)
         }
     }
@@ -140,7 +148,46 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         controller.addAction(cancelAction)
         present(controller, animated: true, completion: nil)
     }
-
+    
+    @IBAction func takePicture(_ sender: Any) {
+        imagePicker(type: .camera)
+    }
+    
+    func imagePicker(type: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = type
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let goodImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            ////////////////
+            let maxlength = max(goodImage.size.width, goodImage.size.height)
+            let newscale = maxlength / 256
+            
+            let size = CGSize(width: goodImage.size.width/newscale, height: goodImage.size.height/newscale)
+            
+            let hasAlpha = false
+            let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+            
+            UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+            goodImage.draw(in: CGRect(origin: CGPoint.zero, size: size))
+            
+            let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            ////////////////
+            
+            image = scaledImage
+            goodImageview.image = scaledImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
