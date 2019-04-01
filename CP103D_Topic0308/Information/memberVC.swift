@@ -10,6 +10,7 @@ import UIKit
 
 class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -62,6 +63,12 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         present(controller, animated: true, completion: nil)
     }
     
+    /* 實作UIImagePickerControllerDelegate */
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        imageView.image = selectedImage
+        dismiss(animated: true, completion: nil)
+    }
     
     func showInfo(){
         var requestParam = [String: String]()
