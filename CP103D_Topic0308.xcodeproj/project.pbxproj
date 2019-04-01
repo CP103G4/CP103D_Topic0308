@@ -67,6 +67,8 @@
 		CE79C2F32241FB83004FA4F5 /* G87orderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79C2F12241FB83004FA4F5 /* G87orderViewController.swift */; };
 		CE79C2F7224207D5004FA4F5 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79C2F6224207D5004FA4F5 /* OrderTableViewCell.swift */; };
 		CE9A1B56224D7E5E000263A0 /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A1B55224D7E5E000263A0 /* CheckTableViewCell.swift */; };
+		CE9A1B5C2252388E000263A0 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A1B5B2252388E000263A0 /* ConfirmationViewController.swift */; };
+		CE9A1B5E225238C4000263A0 /* Orderdetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A1B5D225238C4000263A0 /* Orderdetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +136,8 @@
 		CE79C2F42241FF2E004FA4F5 /* G87ConsumerInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = G87ConsumerInformationViewController.swift; sourceTree = "<group>"; };
 		CE79C2F6224207D5004FA4F5 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		CE9A1B55224D7E5E000263A0 /* CheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTableViewCell.swift; sourceTree = "<group>"; };
+		CE9A1B5B2252388E000263A0 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
+		CE9A1B5D225238C4000263A0 /* Orderdetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orderdetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +289,7 @@
 				11583208223A344900C4522C /* User.swift */,
 				1137ECD82244CB1400F03C4E /* Good.swift */,
 				1DC451FB22326FA5003BD747 /* Order.swift */,
+				CE9A1B5D225238C4000263A0 /* Orderdetail.swift */,
 				1135C36122327745002C9C80 /* signupVC.swift */,
 				11460BA422354BCC0046DF35 /* loginVC.swift */,
 				115832062239078900C4522C /* Common.swift */,
@@ -339,6 +344,7 @@
 				CE592A4D2244D07E00DF552F /* CheckViewController.swift */,
 				CE592A4E2244D07E00DF552F /* ShoppingcartViewController.swift */,
 				CE9A1B55224D7E5E000263A0 /* CheckTableViewCell.swift */,
+				CE9A1B5B2252388E000263A0 /* ConfirmationViewController.swift */,
 			);
 			name = ShoppingCart;
 			sourceTree = "<group>";
@@ -495,6 +501,7 @@
 				1DC451FE22326FFB003BD747 /* ManagerOrderTVC.swift in Sources */,
 				188A8F5E224FB6F200F68CA6 /* ManagerHomeViewController.swift in Sources */,
 				1137ECD7224479BB00F03C4E /* FavoriteTVC.swift in Sources */,
+				CE9A1B5E225238C4000263A0 /* Orderdetail.swift in Sources */,
 				CE79C2F22241FB83004FA4F5 /* G87orderdetailViewController.swift in Sources */,
 				CE592A512244D07F00DF552F /* CheckViewController.swift in Sources */,
 				188A8F73224FB7F500F68CA6 /* ManagerUploadTableViewController.swift in Sources */,
@@ -503,6 +510,7 @@
 				188A8F69224FB72300F68CA6 /* ManagerManTableViewController.swift in Sources */,
 				188A8F5D224FB6F200F68CA6 /* ManagerGooddetailViewController.swift in Sources */,
 				CE79C2F7224207D5004FA4F5 /* OrderTableViewCell.swift in Sources */,
+				CE9A1B5C2252388E000263A0 /* ConfirmationViewController.swift in Sources */,
 				1D5FC0DC223CDAF90065C308 /* ManagerOrderCell.swift in Sources */,
 				11460BA3223547A70046DF35 /* memberVC.swift in Sources */,
 				CE592A522244D07F00DF552F /* ShoppingcartViewController.swift in Sources */,

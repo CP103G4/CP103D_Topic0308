@@ -22,12 +22,14 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     @IBOutlet var labelTotalPrice: UILabel!
     var orders = [Order]()
     var carts = [Cart]()
+    var orderdrtail = [Orderdetail]()
     
     
-    //    let url_server = URL(string: common_url + "ShoppingCartServlet")
+    
+    let url_server1 = URL(string: common_url + "ShoppingCartServlet")
     
     //    var orders = [Order]()
-    let url_server = URL(string: common_url + "ShoppingCartServlet")
+    let url_server2 = URL(string: common_url + "OrderServlet")
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,7 +66,7 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     @objc func showAllOrders(){
         let requestParam = ["action" : "getAll"]
-        executeTask(url_server!, requestParam) { (data, response, error) in
+        executeTask(url_server1!, requestParam) { (data, response, error) in
             
             let decoder = JSONDecoder()
             // JSON含有日期時間，解析必須指定日期時間格式
@@ -122,5 +124,137 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         return cell
     }
+    
+    
+    @IBAction func payNow(_ sender: Any) {
+        
+        var error = ""
+        
+        
+        if self.carts.count == 0 {
+            error = "Your cart is empty."
+        }
+        else if (self.cardNumber.text?.isEmpty)! {
+            error = "Please enter your card number."
+        }
+        else if (self.cardExpiryMonth.text?.isEmpty)! {
+            error = "Please enter the expiry month of your card."
+        }
+        else if (self.cardExpiryYear.text?.isEmpty)! {
+            error = "Please enter the expiry year of your card."
+        }
+        else if (self.cardCvv.text?.isEmpty)!{
+            error = "Please enter the CVV number of your card."
+        }
+        
+        
+        
+        if error.isEmpty {
+            
+            showAlertMsg("Confirm Purchase", message: "Pay " + labelTotalPrice.text!, style: UIAlertController.Style.actionSheet)
+            
+        }
+        else {
+            showAlertMsg("Error", message: error, style: UIAlertController.Style.alert)
+        }
+        
+    }
+    
+    var alertController: UIAlertController?
+    
+    func showAlertMsg(_ title: String, message: String, style: UIAlertController.Style) {
+        
+        self.alertController = UIAlertController(title: title, message: message, preferredStyle: style)
+        
+        if style == UIAlertController.Style.actionSheet {
+            alertController?.addAction(UIAlertAction(title: "Pay", style: .default, handler: { _ in
+                self.checkout()
+                self.checkoutdetail()
+            }))
+            
+            alertController?.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        } else {
+            alertController?.addAction(UIAlertAction(title: "Okay", style: .default))
+        }
+        
+        self.present(self.alertController!, animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    @objc func checkout(){
+        let requestParam = ["action" : "orderInsert"]
+        executeTask(url_server2!, requestParam) { (data, response, error) in
+            
+            let decoder = JSONDecoder()
+            // JSON含有日期時間，解析必須指定日期時間格式
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            decoder.dateDecodingStrategy = .formatted(format)
+            
+            if error == nil {
+                if data != nil {
+                    print("input: \(String(data: data!, encoding: .utf8)!)")
+                    
+                    if let result = try? decoder.decode([Order].self, from: data!) {
+                        self.orders = result
+                        DispatchQueue.main.async {
+                            if let control = self.tableViewOrderDetails.refreshControl {
+                                if control.isRefreshing {
+                                    // 停止下拉更新動作
+                                    control.endRefreshing()
+                                }
+                            }
+                            self.tableViewOrderDetails.reloadData()
+                            
+                            self.performSegue(withIdentifier: "Thankyou", sender: self)
+                        }
+                    }
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+        
+    }
+    
+    @objc func checkoutdetail(){
+        let requestParam = ["action" : "orderdetailInsert"]
+        executeTask(url_server2!, requestParam) { (data, response, error) in
+            
+            let decoder = JSONDecoder()
+            // JSON含有日期時間，解析必須指定日期時間格式
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            decoder.dateDecodingStrategy = .formatted(format)
+            
+            if error == nil {
+                if data != nil {
+                    print("input: \(String(data: data!, encoding: .utf8)!)")
+                    
+                    if let result = try? decoder.decode([Orderdetail].self, from: data!) {
+                        self.orderdrtail = result
+                        DispatchQueue.main.async {
+                            if let control = self.tableViewOrderDetails.refreshControl {
+                                if control.isRefreshing {
+                                    // 停止下拉更新動作
+                                    control.endRefreshing()
+                                }
+                            }
+                            self.tableViewOrderDetails.reloadData()
+                            
+                            self.performSegue(withIdentifier: "Thankyou", sender: self)
+                        }
+                    }
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+        
+    }
+    
+    
     
 }
