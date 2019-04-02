@@ -107,57 +107,71 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
         // Configure the cell...
         let cart = carts[indexPath.row]
         cell.nameLabel.text = cart.goods_goodsid.description
-        cell.priceLabel.text = cart.totalprice.description
-        cell.colarLabel.text = cart.color.description
-        cell.sizeLabel.text = cart.size.description
-        cell.quantityLabel.text = cart.amount.description
+        cell.priceLabel.text = "價錢： " + cart.totalprice.description
+        cell.colarLabel.text = "顏色： " + cart.color.description
+        cell.sizeLabel.text = "尺寸： " + cart.size.description
+        cell.quantityLabel.text = "數量： " + cart.amount.description
         
         
         return cell
     }
     
-    
+    func statusDescription(stayusCode:Int) -> (String) {
+        if stayusCode == 0 {
+            return "未出貨"
+        } else if stayusCode == 1 {
+            return "已出貨"
+        } else if stayusCode == 2 {
+            return "已退貨"
+        } else {
+            return "已取消"
+        }
+    }
     
     // 左滑修改與刪除資料
-    //    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    //        // 左滑時顯示Edit按鈕
-    //        let edit = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-    //            let spotUpdateVC = self.storyboard?.instantiateViewController(withIdentifier: "spotUpdateVC") as! SpotUpdateVC
-    //            let spot = self.spots[indexPath.row]
-    //            spotUpdateVC.spot = spot
-    //            self.navigationController?.pushViewController(spotUpdateVC, animated: true)
-    //        })
-    //        edit.backgroundColor = UIColor.lightGray
-    //
-    //        // 左滑時顯示Delete按鈕
-    //        let delete = UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
-    //            // 尚未刪除server資料
-    //            var requestParam = [String: Any]()
-    //            requestParam["action"] = "spotDelete"
-    //            requestParam["spotId"] = self.spots[indexPath.row].id
-    //            executeTask(self.url_server!, requestParam
-    //                , completionHandler: { (data, response, error) in
-    //                    if error == nil {
-    //                        if data != nil {
-    //                            if let result = String(data: data!, encoding: .utf8) {
-    //                                if let count = Int(result) {
-    //                                    // 確定server端刪除資料後，才將client端資料刪除
-    //                                    if count != 0 {
-    //                                        self.spots.remove(at: indexPath.row)
-    //                                        DispatchQueue.main.async {
-    //                                            tableView.deleteRows(at: [indexPath], with: .fade)
-    //                                        }
-    //                                    }
-    //                                }
-    //                            }
-    //                        }
-    //                    } else {
-    //                        print(error!.localizedDescription)
-    //                    }
-    //            })
-    //        })
-    //        return [delete, edit]
-    //    }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        //            // 左滑時顯示Edit按鈕
+        //            let edit = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
+        //                let spotUpdateVC = self.storyboard?.instantiateViewController(withIdentifier: "spotUpdateVC") as! SpotUpdateVC
+        //                let spot = self.spots[indexPath.row]
+        //                spotUpdateVC.spot = spot
+        //                self.navigationController?.pushViewController(spotUpdateVC, animated: true)
+        //            })
+        //            edit.backgroundColor = UIColor.lightGray
+        
+        // 左滑時顯示Delete按鈕
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
+            // 尚未刪除server資料
+            var requestParam = [String: Any]()
+            requestParam["action"] = "shoppingCartDelete"
+            requestParam["shoppingCart"] = self.carts[indexPath.row].id
+            executeTask(self.url_server!, requestParam
+                , completionHandler: { (data, response, error) in
+                    if error == nil {
+                        if data != nil {
+                            print("output: \(String(data: data!, encoding: .utf8)!)")
+                            
+                            if let result = String(data: data!, encoding: .utf8) {
+                                if let count = Int(result) {
+                                    // 確定server端刪除資料後，才將client端資料刪除
+                                    if count != 0 {
+                                        self.carts.remove(at: indexPath.row)
+                                        DispatchQueue.main.async {
+                                            self.displayTotal()
+                                            
+                                            tableView.deleteRows(at: [indexPath], with: .fade)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        print(error!.localizedDescription)
+                    }
+            })
+        })
+        return [delete]
+    }
     /*
      // MARK: - Navigation
      
@@ -169,10 +183,7 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
      */
     @IBAction func checkout(_ sender: UIButton) {
         if carts.count == 0 {
-            let alert = UIAlertController.init(title: "Your cart is empty", message: "Please add an item in your cart before you checkout.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Browse items", style: .default, handler: { _ in
-                self.performSegue(withIdentifier: "List", sender: sender)
-            }))
+            let alert = UIAlertController.init(title: "沒有商品", message: "請將商品加入購物車", preferredStyle: .alert)
             alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel))
             self.present(alert, animated: true, completion: nil)
         }
