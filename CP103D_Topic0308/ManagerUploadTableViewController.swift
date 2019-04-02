@@ -72,6 +72,8 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         // 有圖才上傳
         if self.image != nil {
             requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
+        }else{//named: "noImage.jpg"
+            requestParam["imageBase64"] = UIImage(named: "noImage.jpg")?.jpegData(compressionQuality: 1.0)!.base64EncodedString()
         }
         
         executeTask(url_server!, requestParam) { (data, response, error) in
@@ -80,6 +82,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
                     if let result = String(data: data!, encoding: .utf8) {
                         if let count = Int(result) {
                             DispatchQueue.main.async {
+                                print(count.description)
                                 if count != 0 {
                                     self.showCorrectAlert()
                                 } else {
@@ -111,16 +114,19 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     func showCorrectAlert(){
         let correctAlert = UIAlertController(title: "上傳成功", message: "上傳成功", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Great!", style: .default) { (_) in
-            self.next()
+            self.next()            
         }
         correctAlert.addAction(okAction)
         present(correctAlert, animated: true, completion: nil)
     }
     
-    func next(){ //成功轉跳Home頁面
-        if let controller = storyboard?.instantiateViewController(withIdentifier: "managertabbar") {
-            present(controller, animated: true, completion: nil)
-        }
+    func next(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "managertabbar") {
+//            present(controller, animated: true, completion: nil)
+//        }
+        let controller = storyboard.instantiateViewController(withIdentifier: "managertabbar")
+        present(controller, animated: true, completion: nil)
     }
     
     func photo(){
