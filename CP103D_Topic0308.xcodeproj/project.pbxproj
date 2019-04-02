@@ -40,6 +40,7 @@
 		188A8F6D224FB72300F68CA6 /* ManagerWomanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F65224FB72300F68CA6 /* ManagerWomanTableViewCell.swift */; };
 		188A8F6E224FB72300F68CA6 /* ManagerWomanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F66224FB72300F68CA6 /* ManagerWomanTableViewController.swift */; };
 		188A8F73224FB7F500F68CA6 /* ManagerUploadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F72224FB7F500F68CA6 /* ManagerUploadTableViewController.swift */; };
+		188E5C2622537EBB009A166D /* ManagerUpdateGoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E5C2522537EBB009A166D /* ManagerUpdateGoodTableViewController.swift */; };
 		1899233A22323DBD00B9DC1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899233922323DBD00B9DC1C /* AppDelegate.swift */; };
 		1899233F22323DBD00B9DC1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1899233D22323DBD00B9DC1C /* Main.storyboard */; };
 		1899234122323DBE00B9DC1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1899234022323DBE00B9DC1C /* Assets.xcassets */; };
@@ -105,6 +106,7 @@
 		188A8F65224FB72300F68CA6 /* ManagerWomanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerWomanTableViewCell.swift; sourceTree = "<group>"; };
 		188A8F66224FB72300F68CA6 /* ManagerWomanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerWomanTableViewController.swift; sourceTree = "<group>"; };
 		188A8F72224FB7F500F68CA6 /* ManagerUploadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerUploadTableViewController.swift; sourceTree = "<group>"; };
+		188E5C2522537EBB009A166D /* ManagerUpdateGoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerUpdateGoodTableViewController.swift; sourceTree = "<group>"; };
 		1899233622323DBD00B9DC1C /* CP103D_Topic0308.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP103D_Topic0308.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1899233922323DBD00B9DC1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1899233E22323DBD00B9DC1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			children = (
 				188A8F5B224FB6F100F68CA6 /* ManagerGooddetailViewController.swift */,
 				188A8F5C224FB6F100F68CA6 /* ManagerHomeViewController.swift */,
+				188E5C2522537EBB009A166D /* ManagerUpdateGoodTableViewController.swift */,
 				189923552232458D00B9DC1C /* ManagerHome.storyboard */,
 				188A8F6F224FB73600F68CA6 /* ManagerHome */,
 				188A8F70224FB74A00F68CA6 /* ManagerMan */,
@@ -534,6 +537,7 @@
 				188A8F68224FB72300F68CA6 /* ManagerWomanCollectionViewCell.swift in Sources */,
 				188A8F6A224FB72300F68CA6 /* ManagerHomeCollectionViewCell.swift in Sources */,
 				1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */,
+				188E5C2622537EBB009A166D /* ManagerUpdateGoodTableViewController.swift in Sources */,
 				1899233A22323DBD00B9DC1C /* AppDelegate.swift in Sources */,
 				1137ECD322436F6100F03C4E /* MemberUpdataVC.swift in Sources */,
 				CE592A572244E40600DF552F /* OrderdetailTableViewCell.swift in Sources */,

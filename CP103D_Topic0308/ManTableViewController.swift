@@ -96,7 +96,6 @@ class ManTableViewController: UITableViewController {
         controller.goodDetail = sender as! Good
     }
     
- 
     @objc func downloadManGoods(){
         var requestParam = [String: String]()
         requestParam["param"] = "Man"
@@ -145,7 +144,8 @@ class ManTableViewController: UITableViewController {
     }
 }
 extension ManTableViewController: UICollectionViewDelegate, UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {        var count = 0
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var count = 0
         switch collectionView.tag.description {
         case "0":
             count = goodsSubclassCloth.count
