@@ -8,8 +8,8 @@
 
 import Foundation
 class Orderdetail: Codable {
-    var id: Int
-    var price: Double
+//    var id: Int
+    var price: Int
     var amount: Int
     var color: String
     var size: String
@@ -17,8 +17,8 @@ class Orderdetail: Codable {
     var Order_id: Int
     var goods_goodsid: Int
     
-    init(id: Int ,goods_goodsid:Int,  color: String , size:String, amount: Int, Order_id: Int, price: Double) {
-        self.id = id
+    init(Order_id: Int,goods_goodsid:Int,  color: String , size:String, amount: Int, price: Int) {
+//        self.id = id
         self.price = price
         self.amount = amount
         self.color = color

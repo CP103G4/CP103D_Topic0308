@@ -11,9 +11,8 @@ import UIKit
 class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var order: Order?
-    //    var good: Good?
-    var goods = [Good]()
-    let url_server = URL(string: common_url + "GoodsServlet")
+    var orderdetail = [Orderdetail]()
+    let url_server = URL(string: common_url + "OrderdetailServlet")
     @IBOutlet weak var Status: UILabel!
     @IBOutlet weak var totalprice: UILabel!
     
@@ -23,9 +22,11 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         //        tableViewAddRefreshControl()
-        showAllOrders()
+        
         // Do any additional setup after loading the view.
         if let order = order {
+            showAllOrders()
+
             Status.text = statusDescription(stayusCode: order.status!
             )
             
@@ -54,7 +55,12 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
     }
     
     @objc func showAllOrders(){
-        let requestParam = ["action" : "getAll"]
+//        let requestParam = ["action" : "getAll"]
+        var requestParam = [String: Any]()
+        requestParam["action"] = "findById"
+        requestParam["Order_id"] = order?.id
+        print(order?.id)
+        requestParam["orderdetail"] = try! String(data: JSONEncoder() .encode(orderdetail), encoding: .utf8)
         executeTask(url_server!, requestParam) { (data, response, error) in
             
             let decoder = JSONDecoder()
@@ -65,11 +71,15 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
             
             if error == nil {
                 if data != nil {
-                    print("input: \(String(data: data!, encoding: .utf8)!)")
+                    print("detailinput: \(String(data: data!, encoding: .utf8)!)")
                     
-                    if let result = try? decoder.decode([Good].self, from: data!) {
-                        self.goods = result
+                    if let result = try? decoder.decode([Orderdetail].self, from: data!) {
+                        print(result)
+
+                        self.orderdetail = result
+                        print(result)
                         DispatchQueue.main.async {
+                            
                             if let control = self.orderdetailtableview.refreshControl {
                                 if control.isRefreshing {
                                     // 停止下拉更新動作
@@ -95,7 +105,7 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return goods.count
+        return orderdetail.count
     }
     
     
@@ -103,11 +113,11 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderdetailCell", for: indexPath) as! OrderdetailTableViewCell
         
         // Configure the cell...
-        let good = goods[indexPath.row]
-        cell.name.text = good.name.description
+        let good = orderdetail[indexPath.row]
+        cell.name.text = good.goods_goodsid.description
         cell.price.text = good.price.description
-        cell.colar.text = good.mainclass.description
-        cell.size.text = good.subclass.description
+        cell.colar.text = good.color.description
+        cell.size.text = good.size.description
         
         
         return cell
