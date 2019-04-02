@@ -11,13 +11,17 @@ import UIKit
 class WomanTableViewController: UITableViewController {
     var goods = [Good]()
     var goodsSubclass = [Good]()
+    var goodsSubclassCloth = [Good]()
+    var goodsSubclassPants = [Good]()
+    var goodsSubclassUnderwear = [Good]()
+    var goodsSubclassOther = [Good]()
     let url_server = URL(string: common_url + "GoodsServlet1")
     var collectionIndex = IndexPath(row: -1, section: -1)
     
     func tableViewAddRefreshControl() { //  refresh
         let refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(showWomanGoods), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(downloadWomanGoods), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
     }
     
@@ -25,7 +29,7 @@ class WomanTableViewController: UITableViewController {
         super.viewDidLoad()
 
         tableViewAddRefreshControl()
-        showWomanGoods()
+        downloadWomanGoods()
     }
 
     // MARK: - Table view data source
@@ -90,7 +94,7 @@ class WomanTableViewController: UITableViewController {
         controller.goodDetail = sender as! Good
     }
 
-    @objc func showWomanGoods(){
+    @objc func downloadWomanGoods(){
         var requestParam = [String: String]()
         requestParam["param"] = "Woman"
         executeTask(url_server!, requestParam) { (data, response, error) in
@@ -104,6 +108,20 @@ class WomanTableViewController: UITableViewController {
                     print("input: \(String(data: data!, encoding: .utf8)!)")
                     do{
                         self.goods = try decoder.decode([Good].self, from: data!)
+                        self.goodsSubclassCloth = self.goods.filter { (good) -> Bool in    //用filter將子分類篩選
+                            good.subclass == "0"
+                        }
+                        self.goodsSubclassPants = self.goods.filter { (good) -> Bool in    //用filter將子分類篩選
+                            good.subclass == "1"
+                        }
+                        
+                        self.goodsSubclassUnderwear = self.goods.filter { (good) -> Bool in    //用filter將子分類篩選
+                            good.subclass == "2"
+                        }
+                        
+                        self.goodsSubclassOther = self.goods.filter { (good) -> Bool in    //用filter將子分類篩選
+                            good.subclass == "3"
+                        }
                         DispatchQueue.main.async {
                             if let control = self.tableView.refreshControl {
                                 if control.isRefreshing {
@@ -125,16 +143,37 @@ class WomanTableViewController: UITableViewController {
 }
 extension WomanTableViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        goodsSubclass = goods.filter { (good) -> Bool in    //用filter將子分類篩選
-            good.subclass == collectionView.tag.description
+        var count = 0
+        switch collectionView.tag.description {
+        case "0":
+            count = goodsSubclassCloth.count
+        case "1":
+            count = goodsSubclassPants.count
+        case "2":
+            count = goodsSubclassUnderwear.count
+        case "3":
+            count = goodsSubclassOther.count
+        default:
+            count = 0
         }
-        
-        return (goodsSubclass.count)
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "womanCollectionViewCell", for: indexPath) as! WomanCollectionviewCell
-        
+       
+        switch collectionView.tag.description {
+        case "0":
+            goodsSubclass = goodsSubclassCloth
+        case "1":
+            goodsSubclass = goodsSubclassPants
+        case "2":
+            goodsSubclass = goodsSubclassUnderwear
+        case "3":
+            goodsSubclass = goodsSubclassOther
+        default:
+            goodsSubclass = [Good]()
+        }
         // 尚未取得圖片，另外開啟task請求
         var requestParam = [String: Any]()
         requestParam["param"] = "getImage"
