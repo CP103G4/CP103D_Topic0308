@@ -834,6 +834,9 @@
                                                     <state key="normal" title="商品刪除">
                                                         <color key="titleColor" red="1" green="0.18423828079999999" blue="0.18251946450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="deleteGoodClick:" destination="Mjc-7w-MlG" eventType="touchUpInside" id="feQ-4f-XV1"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -851,7 +854,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="修改" id="gbH-AZ-pah">
-                        <barButtonItem key="leftBarButtonItem" title="取消" id="0bH-Gj-BBb"/>
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="0bH-Gj-BBb">
+                            <connections>
+                                <action selector="cancelClick:" destination="Mjc-7w-MlG" id="gyb-De-dhx"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="完成" id="Rjn-6i-HgF">
                             <connections>
                                 <action selector="saveAction:" destination="Mjc-7w-MlG" id="ti8-P8-cyi"/>

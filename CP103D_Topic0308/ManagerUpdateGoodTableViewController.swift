@@ -26,11 +26,44 @@ class ManagerUpdateGoodTableViewController: UITableViewController {
     @IBOutlet weak var quatityTextfield: UITextField!   //庫存
     @IBOutlet weak var shelfSwitch: UISwitch!   //上架
     @IBOutlet weak var gooddescriptTextview: UITextView!
-    var image: UIImage?
+//    var image: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         goodnameTextfield.text = goodDetail.name
+        color1Switch.isOn = goodDetail.color1 == "1" ? true : false//true = 1
+        color2Switch.isOn = goodDetail.color2 == "1" ? true : false
+        sizeLswitch.isOn = goodDetail.size1 == "1" ? true : false
+        sizeXLswitch.isOn = goodDetail.size2 == "1" ? true : false
+        sexSegment.selectedSegmentIndex = goodDetail.mainclass == "Woman" ? 0 : 1
+        subclassSegment.selectedSegmentIndex = Int(goodDetail.subclass)!
+        goodpriceTextfield.text = goodDetail.price.description
+        specialPriceTextfield.text = goodDetail.specialPrice.description
+        quatityTextfield.text = goodDetail.quatity.description
+        shelfSwitch.isOn = Bool(goodDetail.shelf)!
+        gooddescriptTextview.text = goodDetail.descrip
+        
+        // 尚未取得圖片，另外開啟task請求
+        var requestParam = [String: Any]()
+        requestParam["param"] = "getImage"
+        requestParam["id"] = goodDetail.id
+        // 圖片寬度為tableViewCell的1/4，ImageView的寬度也建議在storyboard加上比例設定的constraint
+        requestParam["imageSize"] = UIScreen.main.bounds.width / 4
+        var image: UIImage?
+        executeTask(url_server!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    image = UIImage(data: data!)
+                }
+                if image == nil {
+                    image = UIImage(named: "noImage.jpg")
+                }
+                DispatchQueue.main.async { self.goodImageview.image = image }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+
     }
     
     @IBAction func saveAction(_ sender: Any) {
@@ -66,14 +99,14 @@ class ManagerUpdateGoodTableViewController: UITableViewController {
             
             return
         }
-        let goodDetail = Good(id: -1, name: goodname!, descrip: gooddescript!, price: Double(goodprice!)!, mainclass: sex, subclass: subclass, shelf: shelf, evulation: -1, color1: color1, color2: color2, size1: sizeL, size2: sizeXL, specialPrice: Double(specialprice!)!, quatity: Int(quatity!)!)
+        let updateGooddetail = Good(id: goodDetail.id, name: goodname!, descrip: gooddescript!, price: Double(goodprice!)!, mainclass: sex, subclass: subclass, shelf: shelf, evulation: -1, color1: color1, color2: color2, size1: sizeL, size2: sizeXL, specialPrice: Double(specialprice!)!, quatity: Int(quatity!)!)
         var requestParam = [String: String]()
-        requestParam["param"] = "insert"
+        requestParam["param"] = "update"
         
-        requestParam["goodinsert"] = try! String(data: JSONEncoder().encode(goodDetail), encoding: .utf8)
+        requestParam["goodinsert"] = try! String(data: JSONEncoder().encode(updateGooddetail), encoding: .utf8)
         // 有圖才上傳
-        if self.image != nil {
-            requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
+        if self.goodImageview.image != nil {
+            requestParam["imageBase64"] = self.goodImageview.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
         }else{//named: "noImage.jpg"
             requestParam["imageBase64"] = UIImage(named: "noImage.jpg")?.jpegData(compressionQuality: 1.0)!.base64EncodedString()
         }
@@ -187,7 +220,7 @@ class ManagerUpdateGoodTableViewController: UITableViewController {
             UIGraphicsEndImageContext()
             ////////////////
             
-            image = scaledImage
+//            var image = scaledImage
             goodImageview.image = scaledImage
         }
         dismiss(animated: true, completion: nil)
@@ -196,6 +229,37 @@ class ManagerUpdateGoodTableViewController: UITableViewController {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func cancelClick(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func deleteGoodClick(_ sender: Any) {
+        var requestParam = [String: String]()
+        requestParam["param"] = "delete"
+        requestParam["goodId"] = goodDetail.id.description
+        executeTask(url_server!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    if let result = String(data: data!, encoding: .utf8) {
+                        if let count = Int(result) {
+                            DispatchQueue.main.async {
+                                print(count.description)
+                                if count != 0 {
+                                    self.showCorrectAlert()
+                                } else {
+                                    self.showErrorAlert()
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+    
     /*
      // MARK: - Navigation
      
