@@ -171,7 +171,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
             
             ////////////////
             let maxlength = max(goodImage.size.width, goodImage.size.height)
-            let newscale = maxlength / 256
+            let newscale = maxlength / 512
             
             let size = CGSize(width: goodImage.size.width/newscale, height: goodImage.size.height/newscale)
             

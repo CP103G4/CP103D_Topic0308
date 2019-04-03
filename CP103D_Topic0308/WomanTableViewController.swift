@@ -96,7 +96,8 @@ class WomanTableViewController: UITableViewController {
 
     @objc func downloadWomanGoods(){
         var requestParam = [String: String]()
-        requestParam["param"] = "Woman"
+        requestParam["param"] = "consumerWoman"
+        requestParam["mainclass"] = "Woman"
         executeTask(url_server!, requestParam) { (data, response, error) in
             let decoder = JSONDecoder()
             // JSON含有日期時間，解析必須指定日期時間格式
