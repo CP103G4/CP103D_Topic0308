@@ -56,6 +56,7 @@
 		18CEAEB02242491B00023B7E /* G87ConsumerInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79C2F42241FF2E004FA4F5 /* G87ConsumerInformationViewController.swift */; };
 		1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */; };
 		1D5FC0DC223CDAF90065C308 /* ManagerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */; };
+		1D6CAC592255AF1300BF05CB /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6CAC582255AF1300BF05CB /* ChartVC.swift */; };
 		1DC451FC22326FA5003BD747 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC451FB22326FA5003BD747 /* Order.swift */; };
 		1DC451FE22326FFB003BD747 /* ManagerOrderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC451FD22326FFB003BD747 /* ManagerOrderTVC.swift */; };
 		535D7E0CF8024CC84323D27D /* Pods_CP103D_Topic0308.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33DD1E65671F363C3E58EE15 /* Pods_CP103D_Topic0308.framework */; };
@@ -123,6 +124,7 @@
 		1899235B223246FC00B9DC1C /* ManagerChart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerChart.storyboard; sourceTree = "<group>"; };
 		1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderEditTVC.swift; sourceTree = "<group>"; };
 		1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderCell.swift; sourceTree = "<group>"; };
+		1D6CAC582255AF1300BF05CB /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		1DC451FB22326FA5003BD747 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		1DC451FD22326FFB003BD747 /* ManagerOrderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderTVC.swift; sourceTree = "<group>"; };
 		3062F7E4DB298F68FFBB86D0 /* Pods-CP103D_Topic0308.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CP103D_Topic0308.release.xcconfig"; path = "Target Support Files/Pods-CP103D_Topic0308/Pods-CP103D_Topic0308.release.xcconfig"; sourceTree = "<group>"; };
@@ -304,7 +306,7 @@
 				1856201E2240E0AF0016EB44 /* ConsumerHome */,
 				188A8F5A224FB56800F68CA6 /* ManagerHome */,
 				188A8F74224FB80100F68CA6 /* ManagerUpload */,
-				1899235B223246FC00B9DC1C /* ManagerChart.storyboard */,
+				1D6CAC572255ABE300BF05CB /* ＭanagerChart */,
 				1D5FC0D1223CD3370065C308 /* ManagerOrder */,
 			);
 			path = CP103D_Topic0308;
@@ -319,6 +321,15 @@
 				1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */,
 			);
 			name = ManagerOrder;
+			sourceTree = "<group>";
+		};
+		1D6CAC572255ABE300BF05CB /* ＭanagerChart */ = {
+			isa = PBXGroup;
+			children = (
+				1899235B223246FC00B9DC1C /* ManagerChart.storyboard */,
+				1D6CAC582255AF1300BF05CB /* ChartVC.swift */,
+			);
+			name = "ＭanagerChart";
 			sourceTree = "<group>";
 		};
 		5F274AE4A866159813A68669 /* Frameworks */ = {
@@ -510,6 +521,7 @@
 				188A8F73224FB7F500F68CA6 /* ManagerUploadTableViewController.swift in Sources */,
 				CE9A1B56224D7E5E000263A0 /* CheckTableViewCell.swift in Sources */,
 				188A8F6C224FB72300F68CA6 /* ManagerManCollectionViewCell.swift in Sources */,
+				1D6CAC592255AF1300BF05CB /* ChartVC.swift in Sources */,
 				188A8F69224FB72300F68CA6 /* ManagerManTableViewController.swift in Sources */,
 				188A8F5D224FB6F200F68CA6 /* ManagerGooddetailViewController.swift in Sources */,
 				CE79C2F7224207D5004FA4F5 /* OrderTableViewCell.swift in Sources */,
