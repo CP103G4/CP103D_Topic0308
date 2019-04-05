@@ -8,10 +8,11 @@
 
 import UIKit
 import ImageIO
+import Starscream
 
-class ManagerUploadTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ManagerUploadTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WebSocketDelegate {
+    
     let url_server = URL(string: common_url + "GoodsServlet1")
-
     @IBOutlet weak var goodnameTextfield: UITextField!
     @IBOutlet weak var goodImageview: UIImageView!
     @IBOutlet weak var color1Switch: UISwitch!
@@ -20,17 +21,26 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     @IBOutlet weak var sizeXLswitch: UISwitch!
     @IBOutlet weak var sexSegment: UISegmentedControl!
     @IBOutlet weak var subclassSegment: UISegmentedControl!
-    @IBOutlet weak var goodpriceTextfield: UITextField!    
+    @IBOutlet weak var goodpriceTextfield: UITextField!
     @IBOutlet weak var specialPriceTextfield: UITextField!
     @IBOutlet weak var quatityTextfield: UITextField!   //庫存
     @IBOutlet weak var shelfSwitch: UISwitch!   //上架
     @IBOutlet weak var gooddescriptTextview: UITextView!
     var image: UIImage?
+    var socket: WebSocket!
+    let tag = "AllChatVC"
+    let username = "manager"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let url_WebSocketserver = URL(string: wscommon_url + "websocketAll/" + username)
+        socket = WebSocket(url: url_WebSocketserver!)
+        socket.delegate = self
+        socket.connect()
     }
-
+    
     @IBAction func saveAction(_ sender: Any) {
         let goodname = goodnameTextfield.text == "" ? "" : goodnameTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let color1 = color1Switch.isOn.description == "true" ? "1" : (color1Switch.isOn.description == "false" ? "0" : "1") //true = 1
@@ -61,7 +71,6 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
             alertController.addAction(okAction)
             // 顯示提示框
             self.present(alertController, animated: true, completion: nil)
-            
             return
         }
         let goodDetail = Good(id: -1, name: goodname!, descrip: gooddescript!, price: Double(goodprice!)!, mainclass: sex, subclass: subclass, shelf: shelf, evulation: -1, color1: color1, color2: color2, size1: sizeL, size2: sizeXL, specialPrice: Double(specialprice!)!, quatity: Int(quatity!)!)
@@ -74,6 +83,22 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
             requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
         }else{//named: "noImage.jpg"
             requestParam["imageBase64"] = UIImage(named: "noImage.jpg")?.jpegData(compressionQuality: 1.0)!.base64EncodedString()
+        }        
+        
+        //推播訊息
+        if shelfSwitch.isOn == true {
+            do {
+                var dictionary = [String: String]()
+                dictionary["userName"] = username
+                dictionary["message"] = goodname! + "上架啦～～～"
+                let jsonData = try JSONEncoder().encode(dictionary)
+                let text = String(data: jsonData, encoding: .utf8)
+                socket.write(string: text!)
+                print("傳送推播訊息\(dictionary["message"]!)")
+//                socket.disconnect()
+            }catch{
+                print(error.localizedDescription)
+            }
         }
         
         executeTask(url_server!, requestParam) { (data, response, error) in
@@ -96,6 +121,8 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
                 print(error!.localizedDescription)
             }
         }
+        
+        
     }
     
     @IBAction func photoButton(_ sender: Any) {
@@ -122,9 +149,6 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     
     func next(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "managertabbar") {
-//            present(controller, animated: true, completion: nil)
-//        }
         let controller = storyboard.instantiateViewController(withIdentifier: "managertabbar")
         present(controller, animated: true, completion: nil)
     }
@@ -194,13 +218,34 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("websocket is connected")
     }
-    */
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("websocket is disconnected: \(error?.localizedDescription ?? "")")
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        if let result = try? JSONDecoder().decode([String: String].self, from: text.data(using: .utf8)!) {
+            print("\(result["userName"]!): \(result["message"]!)")
+            //這邊要彈出通知視窗
+        }
+        print("\(self.tag) got some text: \(text)")
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        print("\(self.tag) got some data: \(data.count)")
+    }
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }
