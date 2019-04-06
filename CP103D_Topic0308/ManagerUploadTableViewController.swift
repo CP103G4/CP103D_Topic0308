@@ -10,7 +10,7 @@ import UIKit
 import ImageIO
 import Starscream
 
-class ManagerUploadTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WebSocketDelegate {
+class ManagerUploadTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, WebSocketDelegate {
     
     let url_server = URL(string: common_url + "GoodsServlet1")
     @IBOutlet weak var goodnameTextfield: UITextField!
@@ -39,6 +39,10 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         socket = WebSocket(url: url_WebSocketserver!)
         socket.delegate = self
         socket.connect()
+        
+        //透過手勢隱藏鍵盤
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        self.view.addGestureRecognizer(tap)
     }
     
     @IBAction func saveAction(_ sender: Any) {
@@ -239,6 +243,29 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         print("\(self.tag) got some data: \(data.count)")
     }
     
+    @IBAction func undoClick(_ sender: Any) {
+        goodnameTextfield.text = ""
+        goodImageview.image = UIImage(named: "noImage.jpg")
+        color1Switch.isOn = false
+        color2Switch.isOn = false
+        sizeLswitch.isOn = false
+        sizeXLswitch.isOn = false
+        sexSegment.selectedSegmentIndex = 0
+        subclassSegment.selectedSegmentIndex = 0
+        goodpriceTextfield.text = ""
+        specialPriceTextfield.text = ""
+        quatityTextfield.text = ""
+        shelfSwitch.isOn = false
+        gooddescriptTextview.text = "請輸入商品介紹"
+    }
+    
+    @IBAction func hidekeyboard(_ sender: Any) {
+        //按下return收鍵盤
+    }
+    
+    @objc func dismissKeyBoard() {//透過手勢隱藏鍵盤
+        self.view.endEditing(true)
+    }
     /*
      // MARK: - Navigation
      

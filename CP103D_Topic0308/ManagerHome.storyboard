@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O8n-0h-3hw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qF4-3w-ZIl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -99,6 +99,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="coI-F8-YXN"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" landscapeImage="home" id="jDJ-vI-5oh"/>
                     <navigationItem key="navigationItem" title="管理端首頁" id="cVQ-x6-X15"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -108,25 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3A-J0-6kb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5365.6000000000004" y="137.18140929535232"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="itL-hW-1lg">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O8n-0h-3hw" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gue-7y-cMn">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="KzL-jI-HDy" kind="relationship" relationship="rootViewController" id="by0-0o-mZ9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WED-C4-Rbn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4426.3999999999996" y="137.18140929535232"/>
+            <point key="canvasLocation" x="6304.8000000000002" y="137.18140929535232"/>
         </scene>
         <!--Home-->
         <scene sceneID="BCp-7e-4C8">
@@ -887,8 +870,29 @@
             </objects>
             <point key="canvasLocation" x="5366" y="2450"/>
         </scene>
+        <!--Home-->
+        <scene sceneID="muY-YH-Zts">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qF4-3w-ZIl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" selectedImage="home" id="aWE-hb-W07"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ehs-Lj-VGt"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DNt-Qf-9mb">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KzL-jI-HDy" kind="relationship" relationship="rootViewController" id="rtr-Zh-IOJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gGR-Aw-1Pt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5365.6000000000004" y="137.18140929535232"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="home" width="16" height="15"/>
         <image name="noImage" width="300" height="183"/>
         <image name="photo" width="60" height="60"/>
     </resources>
