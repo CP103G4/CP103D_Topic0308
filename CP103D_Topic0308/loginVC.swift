@@ -138,10 +138,17 @@ class loginVC: UIViewController {
                 if error == nil {
                     if result != nil && !result!.isCancelled {
                         print("Logged in!")
+                        self.next()
                     }
                 }
             })
         }
     }
+    
+    
+    @IBAction func clickFBLogout(_ sender: Any) {
+        loginManager?.logOut()
+    }
+    
     
 }

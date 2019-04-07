@@ -128,6 +128,14 @@
                                     <action selector="clickFBLogin:" destination="cmN-8A-TaB" eventType="touchUpInside" id="NOY-tv-7ic"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeC-IP-LYL">
+                                <rect key="frame" x="40" y="590" width="147" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="FB登出"/>
+                                <connections>
+                                    <action selector="clickFBLogout:" destination="cmN-8A-TaB" eventType="touchUpInside" id="6qb-Lf-wCr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
