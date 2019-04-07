@@ -120,6 +120,14 @@
                                     <segue destination="HCp-Vj-eJg" kind="show" identifier="toMainPage" id="lJB-5T-aa6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o07-5P-fFU">
+                                <rect key="frame" x="40" y="552" width="147" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="使用FB登入"/>
+                                <connections>
+                                    <action selector="clickFBLogin:" destination="cmN-8A-TaB" eventType="touchUpInside" id="NOY-tv-7ic"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -143,7 +151,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4u6-wl-hbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="B4E-li-J35"/>
             </objects>
-            <point key="canvasLocation" x="405" y="-225"/>
+            <point key="canvasLocation" x="404" y="-225.33733133433284"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="J5p-fI-303">

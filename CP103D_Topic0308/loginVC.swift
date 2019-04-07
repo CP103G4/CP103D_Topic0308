@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class loginVC: UIViewController {
     
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var loginManager: FBSDKLoginManager?
     let url_server = URL(string: common_url + "UserServlet")
     var user: User?
     
     
+    override func viewDidLoad() {
+        loginManager = FBSDKLoginManager()
+        loginManager?.loginBehavior = FBSDKLoginBehavior.web
+    }
     
     @IBAction func clickLogin(_ sender: UIButton) {
         let username = userTextField.text == nil ? "" : userTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -122,6 +129,19 @@ class loginVC: UIViewController {
     func clear() {
         userTextField.text = ""
         passwordTextField.text = ""
+    }
+    
+    
+    @IBAction func clickFBLogin(_ sender: Any) {
+        if FBSDKAccessToken.current() == nil {
+            loginManager?.logIn(withReadPermissions: ["email"], from: self, handler: { (result, error) in
+                if error == nil {
+                    if result != nil && !result!.isCancelled {
+                        print("Logged in!")
+                    }
+                }
+            })
+        }
     }
     
 }
