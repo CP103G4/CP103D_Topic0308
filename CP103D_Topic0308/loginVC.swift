@@ -10,8 +10,15 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class loginVC: UIViewController {
+
+
+
+class loginVC: UIViewController,FBSDKLoginButtonDelegate {
     
+    
+    
+    
+    @IBOutlet weak var facebookButton: FBSDKLoginButton!
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     var loginManager: FBSDKLoginManager?
@@ -20,6 +27,10 @@ class loginVC: UIViewController {
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        facebookButton.delegate = self
+        facebookButton.readPermissions = ["email"]
         loginManager = FBSDKLoginManager()
         loginManager?.loginBehavior = FBSDKLoginBehavior.web
     }
@@ -132,12 +143,29 @@ class loginVC: UIViewController {
     }
     
     
-    @IBAction func clickFBLogin(_ sender: Any) {
+    
+//    @IBAction func clickFBLogin(_ sender: Any) {
+//        if FBSDKAccessToken.current() == nil {
+//            loginManager?.logIn(withReadPermissions: ["email"], from: self, handler: { (result, error) in
+//                if error == nil {
+//                    if result != nil && !result!.isCancelled {
+//                        self.next()
+//                    }
+//                }
+//            })
+//        }
+//    }
+//
+//
+//    @IBAction func clickFBLogout(_ sender: Any) {
+//        loginManager?.logOut()
+//    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if FBSDKAccessToken.current() == nil {
             loginManager?.logIn(withReadPermissions: ["email"], from: self, handler: { (result, error) in
                 if error == nil {
                     if result != nil && !result!.isCancelled {
-                        print("Logged in!")
                         self.next()
                     }
                 }
@@ -145,9 +173,8 @@ class loginVC: UIViewController {
         }
     }
     
-    
-    @IBAction func clickFBLogout(_ sender: Any) {
-        loginManager?.logOut()
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("登出")
     }
     
     

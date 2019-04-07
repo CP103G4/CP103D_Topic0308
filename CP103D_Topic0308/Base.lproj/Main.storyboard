@@ -136,6 +136,11 @@
                                     <action selector="clickFBLogout:" destination="cmN-8A-TaB" eventType="touchUpInside" id="6qb-Lf-wCr"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUl-tY-Fil" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="230" y="587" width="105" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -152,6 +157,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="facebookButton" destination="QUl-tY-Fil" id="s7f-7Q-61V"/>
                         <outlet property="passwordTextField" destination="Hlu-Yq-EvS" id="akW-3F-41p"/>
                         <outlet property="userTextField" destination="8It-FE-owq" id="JOh-nW-OuJ"/>
                     </connections>
