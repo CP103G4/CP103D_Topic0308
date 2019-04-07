@@ -19,8 +19,8 @@ class ManagerOrderEditTVC: UITableViewController, UINavigationControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lbOrderId.text = order.id?.description
-        scStatus.selectedSegmentIndex = order.status!
+        lbOrderId.text = order.id.description
+        scStatus.selectedSegmentIndex = order.status
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

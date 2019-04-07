@@ -45,7 +45,7 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
     func getAllOrderId() {
         for i in 0...orders.count-1 {
             let orderId = orders[i].id
-            ordersId.append(orderId!.description)
+            ordersId.append(orderId.description)
         }
     }
     
@@ -53,7 +53,7 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
         if searchOrderById.count > 0{
             for i in 0...searchOrderById.count-1 {
                 for j in 0...orders.count-1{
-                    if orders[j].id?.description == searchOrderById[i] {
+                    if orders[j].id.description == searchOrderById[i] {
                         selectOrders.append(orders[j])
                     }
                 }
@@ -220,17 +220,17 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
         let order = orders[indexPath.row]
         if navigationItem.searchController?.isActive == true {
             let selectOrder = selectOrders[indexPath.row]
-            cell.lbOrderId.text = selectOrder.id?.description
+            cell.lbOrderId.text = selectOrder.id.description
             cell.lbOrderDate.text = selectOrder.dateStr
-            cell.lbOrderStatus.text = selectOrder.statusDescription(stayusCode: selectOrder.status!)
-            cell.lbOrderTotalPrice.text = selectOrder.totalPrice?.description
+            cell.lbOrderStatus.text = selectOrder.statusDescription(stayusCode: selectOrder.status)
+            cell.lbOrderTotalPrice.text = selectOrder.address
             
         } else {
-            cell.lbOrderId.text = order.id?.description
+            cell.lbOrderId.text = order.id.description
             cell.lbOrderDate.text = order.dateStr
-            cell.lbOrderStatus.text = order.statusDescription(stayusCode: order.status!
+            cell.lbOrderStatus.text = order.statusDescription(stayusCode: order.status
             )
-            cell.lbOrderTotalPrice.text = order.totalPrice?.description
+            cell.lbOrderTotalPrice.text = order.address
         }
         return cell
     }

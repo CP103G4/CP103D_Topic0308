@@ -27,10 +27,10 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
         if let order = order {
             showAllOrders()
 
-            Status.text = statusDescription(stayusCode: order.status!
+            Status.text = statusDescription(stayusCode: order.status
             )
             
-            totalprice.text = " $ \(order.totalPrice!.description)"
+            totalprice.text = " $ \(order.address)"
         }
     }
     

@@ -80,11 +80,11 @@ class G87orderViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
         // Configure the cell...
         let order = orders[indexPath.row]
-        cell.orderid.text = order.id?.description
+        cell.orderid.text = order.id.description
         cell.orderdate.text = order.dateStr
-        cell.orderstatus.text = statusDescription(stayusCode: order.status!
+        cell.orderstatus.text = statusDescription(stayusCode: order.status
         )
-        cell.ordertotalprice.text = order.totalPrice?.description
+        cell.ordertotalprice.text = order.address
 
 
         return cell
