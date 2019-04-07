@@ -12,12 +12,19 @@ class Order : NSObject, NSSecureCoding, Codable {
     static var supportsSecureCoding: Bool{
         return true
     }
-    let id:Int
-    var status:Int
-    let date:Date?
-    var payment:Int
-    var address:String
-    let userId:Int
+    var id:Int?
+    var status:Int?
+    var totalPrice:String?
+
+    var date:Date?
+    var payment:Int?
+    var address:String?
+    var userId:Int?
+    
+    init (_ totalprice : String, _ address : String){
+        self.totalPrice = totalprice
+        self.address = address
+    }
     
     init(id:Int , status:Int , date:Date , payment:Int , address:String , userId:Int ) {
         self.id = id

@@ -26,11 +26,11 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
         // Do any additional setup after loading the view.
         if let order = order {
             showAllOrders()
-
-            Status.text = statusDescription(stayusCode: order.status
+            
+            Status.text = statusDescription(stayusCode: order.status!
             )
             
-            totalprice.text = " $ \(order.address)"
+//            totalprice.text = " $ \(order.totalPrice!.description)"
         }
     }
     
@@ -55,7 +55,7 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
     }
     
     @objc func showAllOrders(){
-//        let requestParam = ["action" : "getAll"]
+        //        let requestParam = ["action" : "getAll"]
         var requestParam = [String: Any]()
         requestParam["action"] = "findById"
         requestParam["Order_id"] = order?.id
@@ -75,7 +75,7 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
                     
                     if let result = try? decoder.decode([Orderdetail].self, from: data!) {
                         print(result)
-
+                        
                         self.orderdetail = result
                         print(result)
                         DispatchQueue.main.async {
@@ -114,10 +114,10 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
         
         // Configure the cell...
         let good = orderdetail[indexPath.row]
-        cell.name.text = good.goods_goodsid.description
-        cell.price.text = good.price.description
-        cell.colar.text = good.color.description
-        cell.size.text = good.size.description
+        cell.name.text = good.goods_goodsid?.description
+        cell.price.text = good.price?.description
+        cell.colar.text = good.color?.description
+        cell.size.text = good.size?.description
         
         
         return cell

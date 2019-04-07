@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Fa-nj-DM7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Fa-nj-DM7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,6 +13,7 @@
         <!--資訊-->
         <scene sceneID="yCL-lF-Kvv">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BNh-w7-dsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="HomeVC" id="LdS-dY-40A" customClass="G87ConsumerInformationViewController" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rwf-HA-0SQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -106,13 +107,13 @@
                         <outlet property="segment" destination="eGH-jC-tjc" id="bgX-2h-9Cf"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BNh-w7-dsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3486" y="136"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="PrM-jJ-8fX">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1kv-HN-kPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="VHC-pv-OV0" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="p4p-Th-mjz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="518"/>
@@ -178,13 +179,18 @@
                         </connections>
                     </tableView>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1kv-HN-kPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4357.6000000000004" y="890.55472263868069"/>
         </scene>
         <!--Home-->
         <scene sceneID="SLJ-wj-gyd">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6XP-dH-rjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="1Fh-4p-2ky">
+                    <connections>
+                        <action selector="clickImage:" destination="g6r-b5-qIG" id="jSu-fA-doP"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <viewController title="Home" id="g6r-b5-qIG" customClass="memberVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qmr-xo-H5H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="518"/>
@@ -286,18 +292,13 @@
                         <outlet property="phoneLabel" destination="D3b-bz-OFb" id="Xrz-Dw-Xt2"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6XP-dH-rjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="1Fh-4p-2ky">
-                    <connections>
-                        <action selector="clickImage:" destination="g6r-b5-qIG" id="jSu-fA-doP"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2405.5999999999999" y="890.55472263868069"/>
         </scene>
         <!--Order-->
         <scene sceneID="eiO-ji-ifS">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LcY-x1-5T6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Order" id="Cay-bk-dx2" customClass="G87orderViewController" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O8q-YF-I8q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="518"/>
@@ -393,13 +394,13 @@
                         <outlet property="ordertableview" destination="OQi-lt-3Jg" id="zPS-Rh-ndD"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LcY-x1-5T6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3485.5999999999999" y="891.45427286356824"/>
         </scene>
         <!--Member UpdataVC-->
         <scene sceneID="2Om-ev-h6a">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djY-wK-XE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MemberUpdataVC" id="ak0-di-qPo" customClass="MemberUpdataVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w0Q-bY-mHE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="518"/>
@@ -487,13 +488,13 @@
                         <outlet property="phoneTextField" destination="Tbk-CU-vqs" id="D49-VW-zET"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="djY-wK-XE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2397.5999999999999" y="1522.9385307346329"/>
         </scene>
         <!--7orderdetail View Controller-->
         <scene sceneID="RwB-BL-xKw">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oDJ-8p-wKy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="xq8-rs-CMS" customClass="G87orderdetailViewController" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nxN-1f-8sO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="518"/>
@@ -617,13 +618,13 @@
                         <outlet property="totalprice" destination="FJy-YT-BnD" id="J2K-p4-WRR"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oDJ-8p-wKy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3485.5999999999999" y="1522.9385307346329"/>
         </scene>
         <!--MapVC-->
         <scene sceneID="7jL-fE-9uH">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Nr-fN-DpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="MG4-nt-hAA" customClass="MapVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n79-3M-DIk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="518"/>
@@ -646,13 +647,13 @@
                         <outlet property="mapView" destination="3bA-ua-lyN" id="epj-Uq-MED"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Nr-fN-DpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4357.6000000000004" y="1508.5457271364319"/>
         </scene>
         <!--Map2VC-->
         <scene sceneID="bSh-jk-glL">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P7O-g2-QuZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="cP6-xv-Rcb" customClass="Map2VC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jec-g3-gLy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="518"/>
@@ -675,13 +676,13 @@
                         <outlet property="MapView" destination="Uau-Bt-FS3" id="koc-Rg-T0r"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P7O-g2-QuZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5268" y="1509"/>
         </scene>
         <!--DetailVC-->
         <scene sceneID="8lh-lW-Lvi">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="25Q-bv-4uO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="DetailVC" id="Lmz-Fz-JEy" customClass="DetailVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="auP-Dn-B9q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -735,13 +736,13 @@
                         <outlet property="timeLabel" destination="Pck-gD-HZA" id="Mt9-cn-SM4"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="25Q-bv-4uO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4358" y="2212"/>
         </scene>
         <!--Information-->
         <scene sceneID="Wcw-cu-JsQ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Clj-rH-RFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Fa-nj-DM7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Information" image="member2" id="6TN-CR-5iR"/>
                     <toolbarItems/>
@@ -754,16 +755,15 @@
                         <segue destination="LdS-dY-40A" kind="relationship" relationship="rootViewController" id="N8b-Ty-OuZ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Clj-rH-RFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2628" y="137"/>
         </scene>
     </scenes>
     <resources>
-        <image name="member" width="112.5" height="112.5"/>
+        <image name="member" width="225" height="225"/>
         <image name="member2" width="30" height="30"/>
         <image name="photo" width="60" height="60"/>
         <image name="shulin" width="721" height="480"/>
-        <image name="京站" width="640" height="480"/>
+        <image name="京站" width="1280" height="960"/>
     </resources>
 </document>

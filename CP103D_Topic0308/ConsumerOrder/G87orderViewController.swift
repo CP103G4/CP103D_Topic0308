@@ -9,15 +9,15 @@
 import UIKit
 
 class G87orderViewController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
-
+    
     var orders = [Order]()
     let url_server = URL(string: common_url + "OrderServlet")
-
-     @IBOutlet weak var ordertableview: UITableView!
-
- 
-
-
+    
+    @IBOutlet weak var ordertableview: UITableView!
+    
+    
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         tableViewAddRefreshControl()
         showAllOrders()
@@ -62,31 +62,31 @@ class G87orderViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }
         
     }
-
-
- func numberOfSections(in tableView: UITableView) -> Int {
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return orders.count
     }
-
-
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
-
+        
         // Configure the cell...
         let order = orders[indexPath.row]
-        cell.orderid.text = order.id.description
+        cell.orderid.text = order.id?.description
         cell.orderdate.text = order.dateStr
-        cell.orderstatus.text = statusDescription(stayusCode: order.status
+        cell.orderstatus.text = statusDescription(stayusCode: order.status!
         )
-        cell.ordertotalprice.text = order.address
-
-
+        cell.ordertotalprice.text = order.totalPrice?.description
+        
+        
         return cell
     }
     
@@ -104,10 +104,10 @@ class G87orderViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-
+        
+        
         if let row = ordertableview.indexPathForSelectedRow?.row, let controller = segue.destination as? G87orderdetailViewController {
-
+            
             controller.order = orders[row]
         }
     }
