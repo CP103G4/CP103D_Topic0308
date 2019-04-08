@@ -149,7 +149,7 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
                 , completionHandler: { (data, response, error) in
                     if error == nil {
                         if data != nil {
-                            print("output: \(String(data: data!, encoding: .utf8)!)")
+                            print("deleteoutput: \(String(data: data!, encoding: .utf8)!)")
                             
                             if let result = String(data: data!, encoding: .utf8) {
                                 if let count = Int(result) {

@@ -21,9 +21,13 @@ class Order : NSObject, NSSecureCoding, Codable {
     var address:String?
     var userId:Int?
     
-    init (_ totalprice : String, _ address : String){
-        self.totalPrice = totalprice
+    init (_ status : Int ,_ payment : Int,_ userId : Int,_ address : String ){
+        self.status = status
+        self.payment = payment
+        self.userId = userId
         self.address = address
+        
+        //        self.totalPrice = totalprice
     }
     
     init(id:Int , status:Int , date:Date , payment:Int , address:String , userId:Int ) {

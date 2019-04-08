@@ -10,7 +10,7 @@ import Foundation
 
 class Cart: Codable {
     var id: Int
-    var User_id: Int
+    var user_id: Int
     var goods_goodsid: Int
     var color: String
     var size: String
@@ -19,9 +19,9 @@ class Cart: Codable {
     var price : Int
     
     
-    init(id: Int,goods_goodsid: Int,color: String,size: String,amount: Int,price: Int, User_id: Int,totalprice : Int){
+    init(id: Int,goods_goodsid: Int,color: String,size: String,amount: Int,price: Int, user_id: Int,totalprice : Int){
         self.id = id
-        self.User_id = User_id
+        self.user_id = user_id
         self.goods_goodsid = goods_goodsid
         self.color = color
         self.size = size
