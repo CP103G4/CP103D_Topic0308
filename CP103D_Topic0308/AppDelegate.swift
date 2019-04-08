@@ -70,10 +70,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let goodName = response.notification.request.content.body
+        
         if let gooddetailViewController = UIStoryboard(name: "ConsumerHome", bundle:nil).instantiateViewController(withIdentifier: "gooddetailViewController") as? GooddetailViewController {
-            gooddetailViewController.goodName = "content.body"
+            gooddetailViewController.goodName = goodName
             self.window = UIWindow(frame: UIScreen.main.bounds)
-            self.window?.rootViewController = gooddetailViewController
+            let navBarOnModal: UINavigationController = UINavigationController(rootViewController: gooddetailViewController)
+            self.window?.rootViewController = navBarOnModal            
             self.window?.makeKeyAndVisible()
         }
     }
