@@ -6,8 +6,9 @@ target 'CP103D_Topic0308' do
   use_frameworks!
 
 pod 'Starscream', '~> 3.0.2'
-project '/Users/chiachenwu/Desktop/IOS/project/CP103D_Topic0308/CP103D_Topic0308.xcodeproj'
+project 'CP103D_Topic0308'
 pod 'FBSDKLoginKit'
 pod 'FacebookCore'
 pod 'FacebookLogin'
+pod 'Charts'
 end

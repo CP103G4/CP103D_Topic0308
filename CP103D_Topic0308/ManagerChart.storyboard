@@ -114,29 +114,37 @@
             </objects>
             <point key="canvasLocation" x="205.79710144927537" y="112.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Last Month ChartVC-->
         <scene sceneID="5GL-yK-wbL">
             <objects>
-                <viewController id="VKd-KZ-6PL" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jGg-EN-8f7">
+                <viewController id="VKd-KZ-6PL" customClass="LastMonthChartVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jGg-EN-8f7" customClass="PieChartView" customModule="Charts">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="526"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="XRM-69-O4r"/>
                     </view>
+                    <connections>
+                        <outlet property="chartView" destination="jGg-EN-8f7" id="Nhj-T1-Gws"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EF2-hd-BIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="110" y="837"/>
         </scene>
-        <!--View Controller-->
+        <!--This Month ChartVC-->
         <scene sceneID="JKe-wt-Wxp">
             <objects>
-                <viewController id="Fxd-N8-ZIJ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="sbN-Sj-6hJ">
+                <viewController id="Fxd-N8-ZIJ" customClass="ThisMonthChartVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sbN-Sj-6hJ" customClass="PieChartView" customModule="Charts">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="526"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="83Q-Oj-bAD"/>
                     </view>
+                    <connections>
+                        <outlet property="chartView" destination="sbN-Sj-6hJ" id="Zk8-zO-ve1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pg5-3D-w4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
