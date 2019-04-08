@@ -95,6 +95,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
                 var dictionary = [String: String]()
                 dictionary["userName"] = username
                 dictionary["message"] = goodname! + "上架啦～～～"
+                dictionary["goodName"] = goodname!
                 let jsonData = try JSONEncoder().encode(dictionary)
                 let text = String(data: jsonData, encoding: .utf8)
                 socket.write(string: text!)

@@ -18,6 +18,8 @@ class GooddetailViewController: UIViewController {
     @IBOutlet weak var color2Label: UILabel!
     @IBOutlet weak var size1Label: UILabel!
     @IBOutlet weak var size2Label: UILabel!
+    var goodName = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,4 +62,5 @@ class GooddetailViewController: UIViewController {
     }
     */
 
+    
 }

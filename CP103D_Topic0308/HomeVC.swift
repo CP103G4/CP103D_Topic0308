@@ -8,6 +8,7 @@
 
 import UIKit
 import Starscream
+import UserNotifications
 
 class HomeVC: UIViewController, UIScrollViewDelegate {
 
@@ -67,11 +68,13 @@ extension HomeVC: WebSocketDelegate{
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        
         if let result = try? JSONDecoder().decode([String: String].self, from: text.data(using: .utf8)!) {
             let textmessage = "\(result["userName"]!): \(result["message"]!)"
             print(textmessage)
             //這邊要彈出通知視窗
-            showCorrectAlert("\(result["message"]!)")
+            
+            onClickCreateNotificationBtn(result["goodName"]!)
         }
         print("got some text: \(text)")
     }
@@ -79,20 +82,26 @@ extension HomeVC: WebSocketDelegate{
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
 //        print("\(self.tag) got some data: \(data.count)")
     }
-    
-    func showCorrectAlert(_ inputmessage : String){
-        let correctAlert = UIAlertController(title: "新貨上架！！！", message: inputmessage, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Great!", style: .default) { (_) in
-            self.next()
-        }
-        correctAlert.addAction(okAction)
-        present(correctAlert, animated: true, completion: nil)
-    }
 
     func next(){
         let storyboard = UIStoryboard(name: "ConsumerHome", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "comsumerHome")
         present(controller, animated: true, completion: nil)
+    }
+    
+    func onClickCreateNotificationBtn(_ goodname:String) {
+        let content = UNMutableNotificationContent()
+        content.title = "新貨上架通知"
+        content.subtitle = "商品名稱" + goodname
+        content.body = goodname
+        content.badge = 1
+        content.sound = UNNotificationSound.default
+        
+        let request = UNNotificationRequest(identifier: "notification", content: content, trigger: nil)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: {error in
+//            print("成功建立通知...")
+        })
     }
 }
 

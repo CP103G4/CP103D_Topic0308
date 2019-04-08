@@ -74,7 +74,7 @@
         <!--Gooddetail View Controller-->
         <scene sceneID="ute-ao-T0I">
             <objects>
-                <viewController id="ARd-ge-Jir" customClass="GooddetailViewController" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gooddetailViewController" id="ARd-ge-Jir" customClass="GooddetailViewController" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eN1-Sc-jri">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="518"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
