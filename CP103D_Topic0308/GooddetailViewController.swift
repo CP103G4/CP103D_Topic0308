@@ -18,6 +18,8 @@ class GooddetailViewController: UIViewController {
     @IBOutlet weak var color2Label: UILabel!
     @IBOutlet weak var size1Label: UILabel!
     @IBOutlet weak var size2Label: UILabel!
+    @IBOutlet weak var gooddescriptTextview: UITextView!
+    
     var goodName = "-1"
     
     override func viewDidLoad() {
@@ -35,6 +37,7 @@ class GooddetailViewController: UIViewController {
             color2Label.alpha = (goodDetail.color2 == "1") ? 1 : 0
             size1Label.alpha = (goodDetail.size1 == "1") ? 1 : 0.1
             size2Label.alpha = (goodDetail.size2 == "1") ? 1 : 0.1
+            gooddescriptTextview.text = goodDetail.descrip
         }
         
         
@@ -90,6 +93,8 @@ class GooddetailViewController: UIViewController {
                             self.color2Label.alpha = (self.self.goodDetail.color2 == "1") ? 1 : 0
                             self.size1Label.alpha = (self.self.goodDetail.size1 == "1") ? 1 : 0.1
                             self.size2Label.alpha = (self.goodDetail.size2 == "1") ? 1 : 0.1
+                            self.gooddescriptTextview.text = self.goodDetail.descrip
+
                             /////////
                             // 尚未取得圖片，另外開啟task請求
                             var requestParam = [String: Any]()
