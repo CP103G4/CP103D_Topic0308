@@ -170,6 +170,8 @@ class loginVC: UIViewController,FBSDKLoginButtonDelegate {
                     }
                 }
             })
+        } else {
+             self.next()
         }
     }
     

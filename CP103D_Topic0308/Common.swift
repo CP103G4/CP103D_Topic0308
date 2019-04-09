@@ -9,8 +9,18 @@ let common_url = "http://127.0.0.1:8080/User_MySQL_Web/"
 let wscommon_url = "ws://127.0.0.1:8080/User_MySQL_Web/"
 
 
+struct House: Codable {
+    
+}
+
 func executeTask(_ url_server: URL,_ requestParam: [String: Any], completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
 
+
+    var array = [Data]()
+    var favArray = [House]()
+    
+    UserDefaults.standard.set(array, forKey: "favo")
+    
     // requestParam值為Any就必須使用JSONSerialization.data()，而非JSONEncoder.encode()
     let jsonData = try! JSONSerialization.data(withJSONObject: requestParam)
     var request = URLRequest(url: url_server)
