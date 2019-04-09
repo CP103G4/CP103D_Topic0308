@@ -63,12 +63,12 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         self.labelTotalPrice.text = String( calculateCartTotal())
     }
     
-    func calculateCartTotal() -> Int{
-        var total = 0
+    func calculateCartTotal() -> String{
+        var total = 0.0
         for cart in carts {
-            total += cart.totalprice
+            total += cart.price
         }
-        return total
+        return total.description
     }
     
     
@@ -124,10 +124,10 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         // Configure the cell...
         let cart = carts[indexPath.row]
-        cell.name.text = cart.goods_goodsid.description
-        cell.color.text = cart.color.description
-        cell.size.text = cart.size.description
-        cell.amount.text = cart.amount.description
+        cell.name.text = cart.id.description
+        cell.color.text = cart.color1.description
+        cell.size.text = cart.size1.description
+        cell.amount.text = cart.quatity.description
         
         
         return cell
