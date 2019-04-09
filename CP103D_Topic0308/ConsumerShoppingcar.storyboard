@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JzT-9A-dXa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JzT-9A-dXa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -324,8 +324,8 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="carttableview" destination="jkI-Zf-d23" id="bkj-cZ-KFb"/>
-                        <outlet property="carttotalprice" destination="jbe-H2-6q5" id="AJO-V5-D8X"/>
+                        <outlet property="cartTableView" destination="jkI-Zf-d23" id="FPp-AD-Pwv"/>
+                        <outlet property="cartTotalPrice" destination="jbe-H2-6q5" id="4vk-it-neA"/>
                         <segue destination="xxO-w8-NJb" kind="show" identifier="Checkout" id="p9u-Op-U12"/>
                     </connections>
                 </viewController>
@@ -730,6 +730,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="GAY-DR-jvM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nc2-yR-b2h">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -778,6 +779,6 @@
     <resources>
         <image name="cart" width="16" height="16"/>
         <image name="delivery.png" width="16" height="16"/>
-        <image name="shopping" width="30" height="30"/>
+        <image name="shopping" width="20" height="20"/>
     </resources>
 </document>
