@@ -10,47 +10,79 @@ import UIKit
 
 class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    //    @IBOutlet weak var cellname: UILabel!
-    //
-    //    @IBOutlet weak var cellcolor: UILabel!
-    //
-    //    @IBOutlet weak var cellsize: UILabel!
-    //
-    //    @IBOutlet weak var cellamount: UILabel!
-    
-    
-    
-    
-    @IBOutlet weak var payment: UILabel!
-    
-    @IBOutlet weak var user: UILabel!
-    
-    @IBOutlet weak var address: UITextField!
+    @IBOutlet weak var lbPayment: UILabel!
+    @IBOutlet weak var lbName: UILabel!
+    @IBOutlet weak var tfAddress: UITextField!
     //    @IBOutlet var pickerPickupPoint: UIPickerView!
     
     @IBOutlet var tableViewOrderDetails: UITableView!
     @IBOutlet var labelTotalPrice: UILabel!
-    //    var orders = [Order]()
+
     var carts = [Cart]()
     var orderdrtail = [Orderdetail]()
-    var users = [User]()
-    var userss : User?
+    var user : User?
+    var address : String?
     
-    let url_server1 = URL(string: common_url + "ShoppingCartServlet")
-    //    var orders = [Order]()
+    let url_server1 = URL(string: common_url + "UserServlet")
     let url_server2 = URL(string: common_url + "OrderServlet")
     let url_server3 = URL(string: common_url + "OrderdetailServlet")
     
-    let url_server4 = URL(string: common_url + "UserServlet")
-    
     override func viewWillAppear(_ animated: Bool) {
-        userss = loadUser()
-        showInfo()
-        
-        showAllCarts()
-        payment.text = "1"
+        loadData()
+        user = loadUser()
+        getUser()
+        lbPayment.text = "1"
+        getAddress()
         
         // Do any additional setup after loading the view.
+    }
+    
+    func fileInDocuments(fileName: String) -> URL {
+        let fileManager = FileManager()
+        let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        let fileUrl = urls.first!.appendingPathComponent(fileName)
+        return fileUrl
+    }
+    
+    func loadData() {
+        let fileManager = FileManager()
+        let decoder = JSONDecoder()
+        let dataUrl = fileInDocuments(fileName: "cartData")
+        if fileManager.fileExists(atPath: dataUrl.path) {
+            if let data = try? Data(contentsOf: dataUrl) {
+                if let jsonData = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! Data {
+                    let result = try! decoder.decode([Cart].self, from: jsonData)
+                    carts = result
+                } else {
+                    
+                }
+            }
+        }
+    }
+    
+    func getUser(){
+        var requestParam = [String: String]()
+        requestParam["action"] = "findByUser"
+        requestParam["user"] = try! String(data: JSONEncoder() .encode(user), encoding: .utf8)
+        
+        executeTask(self.url_server1!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    if let user = try? JSONDecoder().decode(User.self, from: data!) {
+                        self.user = user
+                        DispatchQueue.main.async {
+                            self.lbName.text = user.trueName
+                        }
+                    }
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+    
+    func getAddress() {
+         address = tfAddress.text == nil ? "" : tfAddress.text?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -72,40 +104,6 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     
-    @objc func showAllCarts(){
-        let requestParam = ["action" : "getAll"]
-        executeTask(url_server1!, requestParam) { (data, response, error) in
-            
-            let decoder = JSONDecoder()
-            // JSON含有日期時間，解析必須指定日期時間格式
-            let format = DateFormatter()
-            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            decoder.dateDecodingStrategy = .formatted(format)
-            
-            if error == nil {
-                if data != nil {
-                    print("input: \(String(data: data!, encoding: .utf8)!)")
-                    
-                    if let result = try? decoder.decode([Cart].self, from: data!) {
-                        self.carts = result
-                        DispatchQueue.main.async {
-                            self.displayTotal()
-                            if let control = self.tableViewOrderDetails.refreshControl {
-                                if control.isRefreshing {
-                                    // 停止下拉更新動作
-                                    control.endRefreshing()
-                                }
-                            }
-                            self.tableViewOrderDetails.reloadData()
-                        }
-                    }
-                }
-            } else {
-                print(error!.localizedDescription)
-            }
-        }
-        
-    }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -142,9 +140,9 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             showAlertMsg()
             
         }
-        let paymentnum = self.payment.text == nil ? "" : self.payment.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let userid = self.user.text == nil ? "" : self.user.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let address = self.address.text == nil ? "" : self.address.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let paymentnum = self.lbPayment.text == nil ? "" : self.lbPayment.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let userid = self.lbName.text == nil ? "" : self.lbName.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let address = self.tfAddress.text == nil ? "" : self.tfAddress.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         //        let totalprice = self.labelTotalPrice.text == nil ? "" : self.labelTotalPrice.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         //新增訂單
         let order = Order( 1,Int(paymentnum)!,Int(userid)!,address )
@@ -219,29 +217,6 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
     }
     
-    func showInfo(){
-        var requestParam = [String: String]()
-        requestParam["action"] = "findByUserCheck"
-        requestParam["user"] = try! String(data: JSONEncoder() .encode(userss), encoding: .utf8)
-        
-        executeTask(self.url_server4!, requestParam) { (data, response, error) in
-            if error == nil {
-                if data != nil {
-                    if let user = try? JSONDecoder().decode(User.self, from: data!) {
-                        self.userss = user
-                        DispatchQueue.main.async {
-                            self.user.text = user.userName
-                            //                            self.address.text = user.phone
-                            //                            self.emailLabel.text = user.email
-                        }
-                    }
-                }
-            } else {
-                print(error!.localizedDescription)
-            }
-        }
-    }
-    
     func showAlertMsg() {
         
         let errorAlert = UIAlertController(title: "購物車是空的", message: "請到商品頁面購物", preferredStyle: .alert)
@@ -302,37 +277,6 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         //            })
         //        })
         //////////
-        let requestParam = ["action" : "shoppingCartDeleteAll"]
-        executeTask(url_server1!, requestParam) { (data, response, error) in
-            
-            let decoder = JSONDecoder()
-            // JSON含有日期時間，解析必須指定日期時間格式
-            let format = DateFormatter()
-            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            decoder.dateDecodingStrategy = .formatted(format)
-            
-            if error == nil {
-                if data != nil {
-                    print("delete: \(String(data: data!, encoding: .utf8)!)")
-                    
-                    if let result = try? decoder.decode([Cart].self, from: data!) {
-                        self.carts = result
-                        DispatchQueue.main.async {
-                            self.displayTotal()
-                            if let control = self.tableViewOrderDetails.refreshControl {
-                                if control.isRefreshing {
-                                    // 停止下拉更新動作
-                                    control.endRefreshing()
-                                }
-                            }
-                            self.tableViewOrderDetails.reloadData()
-                        }
-                    }
-                }
-            } else {
-                print(error!.localizedDescription)
-            }
-        }
         
     }
     

@@ -8,27 +8,28 @@
 
 import UIKit
 
-class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var cartTableView: UITableView!
     @IBOutlet weak var cartTotalPrice: UILabel!
     
+    var totalPrice = 0.0
     var carts = [Cart]()
     
-    let url_server = URL(string: common_url + "GoodsServlet1")
+//    let url_server = URL(string: common_url + "GoodsServlet1")
     
     override func viewDidLoad() {
-        let cart1 = Cart(id: 1, name: "發熱衣", descrip: "冬天最好的選擇", price: 200.0, mainclass: "Man", subclass: "0", shelf: "true", evulation: 4, color1: "1", color2: "1", size1: "1", size2: "1", specialPrice: 180.0, quatity: 1)
-        let cart2 = Cart(id: 2, name: "牛仔褲", descrip: "丹寧布永不退流行", price: 300.0, mainclass: "Woman", subclass: "1", shelf: "true", evulation: 5, color1: "0", color2: "0", size1: "0", size2: "0", specialPrice: 270.0, quatity: 2)
+        let cart1 = Cart(id: 1, name: "發熱衣", descrip: "冬天最好的選擇", price: 200.0, mainclass: "Man", subclass: "0", shelf: "true", evulation: 4, color1: "0", color2: "1", size1: "0", size2: "1", specialPrice: 180.0, quatity: 1)
+        let cart2 = Cart(id: 2, name: "牛仔褲", descrip: "丹寧布永不退流行", price: 300.0, mainclass: "Woman", subclass: "1", shelf: "true", evulation: 5, color1: "1", color2: "0", size1: "1", size2: "0", specialPrice: 270.0, quatity: 2)
         carts.append(cart1)
         carts.append(cart2)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //        showAllGood()
-        loadData()
+        //        loadData()
         cartTableView.reloadData()
-        displayTotal()
-        saveData(carts: carts)
+        //        displayTotal()
+        //        saveData(carts: carts)
     }
     
     
@@ -39,7 +40,7 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
     func calculateCartTotal() -> String{
         var total = 0.0
         for cart in carts {
-            total += cart.price
+            total += (cart.price) * Double(cart.quatity)
         }
         return total.description
     }
@@ -147,13 +148,45 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
         
         // Configure the cell...
         let cart = carts[indexPath.row]
+        cell.numberStepper.value = Double(cart.quatity)
         cell.nameLabel.text = cart.name
-        cell.priceLabel.text = "價錢： " + cart.price.description
-        cell.colarLabel.text = "顏色： " + cart.color1
-        cell.sizeLabel.text = "尺寸： " + cart.size1
-        cell.quantityLabel.text = "數量： " + cart.quatity.description
+        cell.priceLabel.text = String(cart.price * Double(cart.quatity))
+        cell.colarLabel.text = cart.color1
+        cell.sizeLabel.text = cart.size1
+        cell.quantityLabel.text = cart.quatity.description
+        
+        let item = carts[indexPath.row] // assuming `dataSource` is the data source array
+        cell.numberStepper.value = Double(item.quatity)
+        cell.quantityLabel.text = "\(item.quatity)"
+        var totalprice = 0.0
+        for cartTmp in self.carts{
+            totalprice += (cartTmp.price * Double(cartTmp.quatity))
+        }
+        cartTotalPrice.text = totalprice.description
+        cell.observation = cell.numberStepper.observe( \.value, options: [.new, .old]) { (stepper, change) in
+            cell.quantityLabel.text = "\(Int(change.newValue!))"
+            cell.priceLabel.text = String(change.newValue! * cart.price)
+            totalprice = Double(self.cartTotalPrice.text!)!
+            totalprice = totalprice + (change.newValue! - change.oldValue!) * cart.price
+            print(change.newValue!.description)
+            print(change.oldValue!.description)
+            self.cartTotalPrice.text = totalprice.description
+            self.carts[indexPath.row].quatity = Int(cell.quantityLabel.text!)!
+        }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        (cell as! CartCell).observation = nil
+    }
+    
+    func stepperButton(sender: CartCell) {
+        if let indexPath = cartTableView.indexPath(for: sender){
+            print(indexPath)
+            let cart = carts[indexPath.row]
+            cart.quatity = Int(sender.numberStepper.value)
+        }
     }
     
     func statusDescription(stayusCode:Int) -> (String) {
@@ -168,50 +201,26 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
         }
     }
     
-    // 左滑修改與刪除資料
-    //    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    //        //            // 左滑時顯示Edit按鈕
-    //        //            let edit = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-    //        //                let spotUpdateVC = self.storyboard?.instantiateViewController(withIdentifier: "spotUpdateVC") as! SpotUpdateVC
-    //        //                let spot = self.spots[indexPath.row]
-    //        //                spotUpdateVC.spot = spot
-    //        //                self.navigationController?.pushViewController(spotUpdateVC, animated: true)
-    //        //            })
-    //        //            edit.backgroundColor = UIColor.lightGray
-    //
-    //        // 左滑時顯示Delete按鈕
-    //        let delete = UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
-    //            // 尚未刪除server資料
-    //            var requestParam = [String: Any]()
-    //            requestParam["action"] = "shoppingCartDelete"
-    //            requestParam["shoppingCart"] = self.carts[indexPath.row].id
-    //            executeTask(self.url_server!, requestParam
-    //                , completionHandler: { (data, response, error) in
-    //                    if error == nil {
-    //                        if data != nil {
-    //                            print("deleteoutput: \(String(data: data!, encoding: .utf8)!)")
-    //
-    //                            if let result = String(data: data!, encoding: .utf8) {
-    //                                if let count = Int(result) {
-    //                                    // 確定server端刪除資料後，才將client端資料刪除
-    //                                    if count != 0 {
-    //                                        self.carts.remove(at: indexPath.row)
-    //                                        DispatchQueue.main.async {
-    //                                            self.displayTotal()
-    //
-    //                                            tableView.deleteRows(at: [indexPath], with: .fade)
-    //                                        }
-    //                                    }
-    //                                }
-    //                            }
-    //                        }
-    //                    } else {
-    //                        print(error!.localizedDescription)
-    //                    }
-    //            })
-    //        })
-    //        return [delete]
-    //    }
+    //     左滑修改與刪除資料
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        //            // 左滑時顯示Edit按鈕
+        //            let edit = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
+        //                let spotUpdateVC = self.storyboard?.instantiateViewController(withIdentifier: "spotUpdateVC") as! SpotUpdateVC
+        //                let spot = self.spots[indexPath.row]
+        //                spotUpdateVC.spot = spot
+        //                self.navigationController?.pushViewController(spotUpdateVC, animated: true)
+        //            })
+        //            edit.backgroundColor = UIColor.lightGray
+        
+        // 左滑時顯示Delete按鈕
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
+            self.carts.remove(at: indexPath.row)
+            self.displayTotal()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+        })
+        return [delete]
+    }
     /*
      // MARK: - Navigation
      
