@@ -20,8 +20,23 @@ class GooddetailViewController: UIViewController {
     @IBOutlet weak var size2Label: UILabel!
     @IBOutlet weak var gooddescriptTextview: UITextView!
     
+    @IBOutlet weak var shoppingView: UIView!
+    @IBOutlet weak var shoppingviewImageview: UIImageView!
+    @IBOutlet weak var shoppingviewPrice: UILabel!
+    @IBOutlet weak var shoppingviewQuality: UILabel!
+    @IBOutlet weak var shoppingviewStepper: UIStepper!
+    @IBOutlet weak var shoppingviewDeepcolorBt: UIButton!
+    @IBOutlet weak var shoppingviewLightBt: UIButton!
+    @IBOutlet weak var shoppingviewSizeLBt: UIButton!
+    @IBOutlet weak var shoppingviewSizeXLBt: UIButton!
+    @IBOutlet weak var navigationbarOutlet: UINavigationItem!
+    @IBOutlet weak var backoutlet: UIBarButtonItem!
+    
+    
     var goodName = "-1"
     
+    var carts = [Cart]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if goodName != "-1" {
@@ -38,6 +53,8 @@ class GooddetailViewController: UIViewController {
             size1Label.alpha = (goodDetail.size1 == "1") ? 1 : 0.1
             size2Label.alpha = (goodDetail.size2 == "1") ? 1 : 0.1
             gooddescriptTextview.text = goodDetail.descrip
+            
+            shoppingviewPrice.text = goodDetail.price.description
         }
         
         
@@ -56,7 +73,10 @@ class GooddetailViewController: UIViewController {
                 if image == nil {
                     image = UIImage(named: "noImage.jpg")
                 }
-                DispatchQueue.main.async { self.imageview.image = image }
+                DispatchQueue.main.async {
+                    self.imageview.image = image
+                    self.shoppingviewImageview.image = image
+                }
             } else {
                 print(error!.localizedDescription)
             }
@@ -135,5 +155,101 @@ class GooddetailViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
- //committest0840
+    @IBAction func openshoppingView(_ sender: Any) {
+        self.navigationController?.navigationBar.alpha = 1
+        backoutlet.isEnabled = false
+        shoppingView.isHidden = false
+        shoppingView.alpha = 0
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+            self.shoppingView.alpha = 1.0
+            self.navigationController?.navigationBar.alpha = 0.7
+        }) { (isCompleted) in
+        }
+        
+        shoppingviewQuality.text = Int(shoppingviewStepper.value).description
+    }
+    @IBAction func hideShoppingviewAction(_ sender: Any) {
+        hideShoppingview()
+    }
+    func hideShoppingview() {
+        backoutlet.isEnabled = true
+        self.navigationController?.navigationBar.alpha = 0.7
+        shoppingView.alpha = 1
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+            self.shoppingView.alpha = 0
+            self.navigationController?.navigationBar.alpha = 1
+        }) { (isCompleted) in
+            self.shoppingView.isHidden = true
+        }
+    }
+    
+    @IBAction func stepperAction(_ sender: Any) {
+        shoppingviewQuality.text = Int(shoppingviewStepper.value).description
+    }
+    @IBAction func deepColorBt(_ sender: Any) {
+        shoppingviewLightBt.isSelected = false
+        shoppingviewDeepcolorBt.isSelected = !shoppingviewDeepcolorBt.isSelected
+    }
+    @IBAction func lightColorBt(_ sender: Any) {
+        shoppingviewDeepcolorBt.isSelected = false
+        shoppingviewLightBt.isSelected = !shoppingviewLightBt.isSelected
+    }
+    @IBAction func sizeLBt(_ sender: Any) {
+        shoppingviewSizeXLBt.isSelected = false
+        shoppingviewSizeLBt.isSelected = !shoppingviewSizeLBt.isSelected
+    }
+    @IBAction func sizeXLBt(_ sender: Any) {
+        shoppingviewSizeLBt.isSelected = false
+        shoppingviewSizeXLBt.isSelected = !shoppingviewSizeXLBt.isSelected
+    }
+    
+    @IBAction func addtoShoppingcar(_ sender: Any) {
+        let shoppitem = Cart(id: goodDetail.id, name: goodDetail.name, descrip: goodDetail.descrip!, price: goodDetail.price, mainclass: goodDetail.mainclass, subclass: goodDetail.subclass, shelf: goodDetail.shelf, evulation: goodDetail.evulation, color1: shoppingviewDeepcolorBt.isSelected == true ? "深色" : "0", color2: shoppingviewLightBt.isSelected == true ? "淺色" : "0", size1: shoppingviewSizeLBt.isSelected == true ? "L" : "0", size2: shoppingviewSizeXLBt.isSelected == false ? "XL" : "0", specialPrice: Double(Int(goodDetail.specialPrice)), quatity: Int(shoppingviewStepper.value))
+        loadData()
+        carts.append(shoppitem)
+        saveData(carts: carts)
+        hideShoppingview()
+        clearShoppingview()
+    }
+    func clearShoppingview() {
+        shoppingviewDeepcolorBt.isSelected = false
+        shoppingviewLightBt.isSelected = false
+        shoppingviewSizeLBt.isSelected = false
+        shoppingviewSizeXLBt.isSelected = false
+    }
+    func fileInDocuments(fileName: String) -> URL {
+        let fileManager = FileManager()
+        let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        let fileUrl = urls.first!.appendingPathComponent(fileName)
+        return fileUrl
+    }
+    func saveData(carts:[Cart]) {
+        let dataUrl = fileInDocuments(fileName: "cartData")
+        let encoder = JSONEncoder()
+        let jsonData = try! encoder.encode(carts)
+        do {
+            /* 如果將requiringSecureCoding設為true，Spot類別必須改遵從NSCoding的子型NSSecureCoding */
+            let cartData = try NSKeyedArchiver.archivedData(withRootObject: jsonData, requiringSecureCoding: true)
+            try cartData.write(to: dataUrl)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    
+    func loadData() {
+        let fileManager = FileManager()
+        let decoder = JSONDecoder()
+        let dataUrl = fileInDocuments(fileName: "cartData")
+        if fileManager.fileExists(atPath: dataUrl.path) {
+            if let data = try? Data(contentsOf: dataUrl) {
+                if let jsonData = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! Data {
+                    let result = try! decoder.decode([Cart].self, from: jsonData)
+                    carts = result
+                } else {
+                    //                    lbFile.text = "no data found error"
+                }
+            }
+        }
+    }
 }
