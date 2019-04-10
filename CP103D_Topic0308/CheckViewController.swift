@@ -21,7 +21,6 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var carts = [Cart]()
     var orderdrtails = [Orderdetail]()
     var user : User?
-    var address : String?
     
     let url_server1 = URL(string: common_url + "UserServlet")
     let url_server2 = URL(string: common_url + "OrderServlet")
@@ -29,9 +28,9 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewWillAppear(_ animated: Bool) {
         loadData()
+        displayTotal()
         user = loadUser()
         getUser()
-        getAddress()
         
     }
     
@@ -79,19 +78,15 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    func getAddress() {
-        address = tfAddress.text == nil ? "" : tfAddress.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-    }
-    
     
     func displayTotal() {
-        self.labelTotalPrice.text = String( calculateCartTotal())
+        self.labelTotalPrice.text = String(calculateCartTotal())
     }
     
     func calculateCartTotal() -> String{
         var total = 0.0
         for cart in carts {
-            total += cart.price
+            total += cart.price * Double(cart.quatity)
         }
         return total.description
     }
@@ -115,26 +110,28 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // Configure the cell...
         let cart = carts[indexPath.row]
-        cell.lbName.text = cart.id.description
+        cell.lbName.text = cart.name
         cell.lbColor.text = cart.color1.description
         cell.lbSize.text = cart.size1.description
         cell.lbNumber.text = cart.quatity.description
+        cell.lbPrice.text = String(cart.price * Double(cart.quatity))
         
         return cell
     }
     
     
     @IBAction func payNow(_ sender: Any) {
-        if self.carts.count == 0 {
+        let address = tfAddress.text == nil ? "" : tfAddress.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if self.carts.count == 0 || address!.isEmpty {
             showAlertMsg()
+            return
         } else {
             let status = 0
             let userId = user?.id
-            let address = self.tfAddress.text == nil ? "" : self.tfAddress.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let payment = scPayment.selectedSegmentIndex
             //        let totalprice = self.labelTotalPrice.text == nil ? "" : self.labelTotalPrice.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             //新增訂單
-            let order = Order(status, payment, userId!, address)
+            let order = Order(status, payment, userId!, address!)
             var requestParam = [String: String]()
             requestParam["action"] = "orderInsert"
             requestParam["order"] = try! String(data: JSONEncoder().encode(order), encoding: .utf8)
@@ -206,7 +203,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func showAlertMsg() {
         
-        let errorAlert = UIAlertController(title: "購物車是空的", message: "請到商品頁面購物", preferredStyle: .alert)
+        let errorAlert = UIAlertController(title: "資料不完整", message: "請確認資料都已填寫", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         
         errorAlert.addAction(okAction)
