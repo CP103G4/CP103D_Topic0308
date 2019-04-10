@@ -28,7 +28,6 @@
 		185620202240E0F80016EB44 /* WomanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1856201F2240E0F80016EB44 /* WomanTableViewController.swift */; };
 		185620222240E1940016EB44 /* WomanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185620212240E1940016EB44 /* WomanTableViewCell.swift */; };
 		185620242240E2AC0016EB44 /* WomanCollectionviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185620232240E2AC0016EB44 /* WomanCollectionviewCell.swift */; };
-		188A8F3C224B748A00F68CA6 /* GooddetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F3B224B748A00F68CA6 /* GooddetailViewController.swift */; };
 		188A8F5D224FB6F200F68CA6 /* ManagerGooddetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F5B224FB6F100F68CA6 /* ManagerGooddetailViewController.swift */; };
 		188A8F5E224FB6F200F68CA6 /* ManagerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F5C224FB6F100F68CA6 /* ManagerHomeViewController.swift */; };
 		188A8F67224FB72300F68CA6 /* ManagerHomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F5F224FB72300F68CA6 /* ManagerHomeCollectionViewController.swift */; };
@@ -54,6 +53,7 @@
 		1899235A2232469D00B9DC1C /* ManagerOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189923592232469D00B9DC1C /* ManagerOrder.storyboard */; };
 		1899235C223246FD00B9DC1C /* ManagerChart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1899235B223246FC00B9DC1C /* ManagerChart.storyboard */; };
 		18CEAEB02242491B00023B7E /* G87ConsumerInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79C2F42241FF2E004FA4F5 /* G87ConsumerInformationViewController.swift */; };
+		18DD68E3225DF39C00C7C969 /* GooddetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F3B224B748A00F68CA6 /* GooddetailViewController.swift */; };
 		1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */; };
 		1D5FC0DC223CDAF90065C308 /* ManagerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */; };
 		1D6CAC592255AF1300BF05CB /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6CAC582255AF1300BF05CB /* ChartVC.swift */; };
@@ -522,10 +522,10 @@
 			files = (
 				1137ECD92244CB1C00F03C4E /* Good.swift in Sources */,
 				1841177E224A17BE00D878D5 /* ManCollectionViewCell.swift in Sources */,
+				18DD68E3225DF39C00C7C969 /* GooddetailViewController.swift in Sources */,
 				188A8F6E224FB72300F68CA6 /* ManagerWomanTableViewController.swift in Sources */,
 				CE79C2F32241FB83004FA4F5 /* G87orderViewController.swift in Sources */,
 				18411781224B0C4800D878D5 /* HomeCollectionViewController.swift in Sources */,
-				188A8F3C224B748A00F68CA6 /* GooddetailViewController.swift in Sources */,
 				1137EC91223B584A00F03C4E /* HomeVC.swift in Sources */,
 				18CEAEB02242491B00023B7E /* G87ConsumerInformationViewController.swift in Sources */,
 				188A8F6B224FB72300F68CA6 /* ManagerManTableViewCell.swift in Sources */,

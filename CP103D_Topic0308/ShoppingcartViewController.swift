@@ -16,10 +16,11 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
     var carts = [Cart]()
     
     override func viewDidLoad() {
-        let cart1 = Cart(id: 1, name: "發熱衣", descrip: "冬天最好的選擇", price: 200.0, mainclass: "Man", subclass: "0", shelf: "true", evulation: 4, color1: "0", color2: "1", size1: "0", size2: "1", specialPrice: 180.0, quatity: 1)
-        let cart2 = Cart(id: 2, name: "牛仔褲", descrip: "丹寧布永不退流行", price: 300.0, mainclass: "Woman", subclass: "1", shelf: "true", evulation: 5, color1: "1", color2: "0", size1: "1", size2: "0", specialPrice: 270.0, quatity: 2)
-        carts.append(cart1)
-        carts.append(cart2)
+//        let cart1 = Cart(id: 1, name: "發熱衣", descrip: "冬天最好的選擇", price: 200.0, mainclass: "Man", subclass: "0", shelf: "true", evulation: 4, color1: "0", color2: "1", size1: "0", size2: "1", specialPrice: 180.0, quatity: 1)
+//        let cart2 = Cart(id: 2, name: "牛仔褲", descrip: "丹寧布永不退流行", price: 300.0, mainclass: "Woman", subclass: "1", shelf: "true", evulation: 5, color1: "1", color2: "0", size1: "1", size2: "0", specialPrice: 270.0, quatity: 2)
+//        carts.append(cart1)
+//        carts.append(cart2)
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
