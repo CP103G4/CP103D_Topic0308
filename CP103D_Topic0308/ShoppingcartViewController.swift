@@ -15,8 +15,6 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
     var totalPrice = 0.0
     var carts = [Cart]()
     
-//    let url_server = URL(string: common_url + "GoodsServlet1")
-    
     override func viewDidLoad() {
         let cart1 = Cart(id: 1, name: "發熱衣", descrip: "冬天最好的選擇", price: 200.0, mainclass: "Man", subclass: "0", shelf: "true", evulation: 4, color1: "0", color2: "1", size1: "0", size2: "1", specialPrice: 180.0, quatity: 1)
         let cart2 = Cart(id: 2, name: "牛仔褲", descrip: "丹寧布永不退流行", price: 300.0, mainclass: "Woman", subclass: "1", shelf: "true", evulation: 5, color1: "1", color2: "0", size1: "1", size2: "0", specialPrice: 270.0, quatity: 2)
@@ -25,25 +23,10 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //        showAllGood()
-        //        loadData()
+//        loadData()
         cartTableView.reloadData()
-        //        displayTotal()
-        //        saveData(carts: carts)
     }
     
-    
-    func displayTotal() {
-        self.cartTotalPrice.text = "$" + calculateCartTotal()
-    }
-    
-    func calculateCartTotal() -> String{
-        var total = 0.0
-        for cart in carts {
-            total += (cart.price) * Double(cart.quatity)
-        }
-        return total.description
-    }
     
     func fileInDocuments(fileName: String) -> URL {
         let fileManager = FileManager()
@@ -75,12 +58,6 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
                 if let jsonData = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! Data {
                     let result = try! decoder.decode([Cart].self, from: jsonData)
                     carts = result
-                    //                    imageView.image = spot!.image
-                    //                    lbName.text = spot!.name
-                    //                    lbAddress.text = spot!.address
-                    //                    lbPhone.text = spot!.phone
-                    //                    let text = "File URL = \(dataUrl)"
-                    //                    lbFile.text = text
                 } else {
                     //                    lbFile.text = "no data found error"
                 }
@@ -88,48 +65,6 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    @IBAction func spNumberChange(_ sender: CartCell) {
-        
-    }
-    
-    
-    
-    //    @objc func showAllGood(){
-    //        let requestParam = ["action" : "getAll"]
-    //        executeTask(url_server!, requestParam) { (data, response, error) in
-    //
-    //            let decoder = JSONDecoder()
-    //            // JSON含有日期時間，解析必須指定日期時間格式
-    //            let format = DateFormatter()
-    //            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
-    //            decoder.dateDecodingStrategy = .formatted(format)
-    //
-    //            if error == nil {
-    //                if data != nil {
-    //                    print("input: \(String(data: data!, encoding: .utf8)!)")
-    //
-    //                    if let result = try? decoder.decode([Cart].self, from: data!) {
-    //                        self.carts = result
-    //                        self.saveData(carts: self.carts)
-    //
-    //                        DispatchQueue.main.async {
-    //                            self.displayTotal()
-    //                            if let control = self.cartTableView.refreshControl {
-    //                                if control.isRefreshing {
-    //                                    // 停止下拉更新動作
-    //                                    control.endRefreshing()
-    //                                }
-    //                            }
-    //                            self.cartTableView.reloadData()
-    //                        }
-    //                    }
-    //                }
-    //            } else {
-    //                print(error!.localizedDescription)
-    //            }
-    //        }
-    //
-    //    }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -215,7 +150,6 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         // 左滑時顯示Delete按鈕
         let delete = UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
             self.carts.remove(at: indexPath.row)
-            self.displayTotal()
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
         })
@@ -239,5 +173,9 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         else {
             self.performSegue(withIdentifier: "Checkout", sender: sender)
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        saveData(carts: carts)
     }
 }

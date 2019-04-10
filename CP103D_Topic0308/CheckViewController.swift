@@ -8,18 +8,18 @@
 
 import UIKit
 
-class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var lbPayment: UILabel!
+    @IBOutlet weak var scPayment: UISegmentedControl!
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var tfAddress: UITextField!
     //    @IBOutlet var pickerPickupPoint: UIPickerView!
     
     @IBOutlet var tableViewOrderDetails: UITableView!
     @IBOutlet var labelTotalPrice: UILabel!
-
+    
     var carts = [Cart]()
-    var orderdrtail = [Orderdetail]()
+    var orderdrtails = [Orderdetail]()
     var user : User?
     var address : String?
     
@@ -31,10 +31,8 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         loadData()
         user = loadUser()
         getUser()
-        lbPayment.text = "1"
         getAddress()
         
-        // Do any additional setup after loading the view.
     }
     
     func fileInDocuments(fileName: String) -> URL {
@@ -82,12 +80,7 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     func getAddress() {
-         address = tfAddress.text == nil ? "" : tfAddress.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        
+        address = tfAddress.text == nil ? "" : tfAddress.text?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     
@@ -118,66 +111,60 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CheckTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "checkCell", for: indexPath) as! CheckTableViewCell
         
         // Configure the cell...
         let cart = carts[indexPath.row]
-        cell.name.text = cart.id.description
-        cell.color.text = cart.color1.description
-        cell.size.text = cart.size1.description
-        cell.amount.text = cart.quatity.description
-        
+        cell.lbName.text = cart.id.description
+        cell.lbColor.text = cart.color1.description
+        cell.lbSize.text = cart.size1.description
+        cell.lbNumber.text = cart.quatity.description
         
         return cell
     }
     
     
     @IBAction func payNow(_ sender: Any) {
-        
-        
-        
         if self.carts.count == 0 {
             showAlertMsg()
+        } else {
+            let status = 0
+            let userId = user?.id
+            let address = self.tfAddress.text == nil ? "" : self.tfAddress.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let payment = scPayment.selectedSegmentIndex
+            //        let totalprice = self.labelTotalPrice.text == nil ? "" : self.labelTotalPrice.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            //新增訂單
+            let order = Order(status, payment, userId!, address)
+            var requestParam = [String: String]()
+            requestParam["action"] = "orderInsert"
+            requestParam["order"] = try! String(data: JSONEncoder().encode(order), encoding: .utf8)
             
-        }
-        let paymentnum = self.lbPayment.text == nil ? "" : self.lbPayment.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let userid = self.lbName.text == nil ? "" : self.lbName.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let address = self.tfAddress.text == nil ? "" : self.tfAddress.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        //        let totalprice = self.labelTotalPrice.text == nil ? "" : self.labelTotalPrice.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        //新增訂單
-        let order = Order( 1,Int(paymentnum)!,Int(userid)!,address )
-        var requestParam = [String: String]()
-        requestParam["action"] = "orderInsert"
-        requestParam["order"] = try! String(data: JSONEncoder().encode(order), encoding: .utf8)
-        //        // 有圖才上傳
-        //        if self.image != nil {
-        //            requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
-        //        }
-        executeTask(self.url_server2!, requestParam) { (data, response, error) in
-            if error == nil {
-                if data != nil {
-                    print("orderinput: \(String(data: data!, encoding: .utf8)!)")
-                    
-                    if let result = String(data: data!, encoding: .utf8) {
-                        if let count = Int(result) {
-                            DispatchQueue.main.async {
-                                // 新增成功則回前頁
-                                if count != 0 {
-                                    //                                    self.showAlertMsgorder()
-                                    self.Delete()
-                                    self.checkoutdetail()
-                                    self.performSegue(withIdentifier: "Thankyou", sender: self)
-                                    
-                                } else {
-                                    //                                    self.label.text = "insert fail"
+            executeTask(self.url_server2!, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                        print("orderinput: \(String(data: data!, encoding: .utf8)!)")
+                        if let result = String(data: data!, encoding: .utf8) {
+                            if let count = Int(result) {
+                                DispatchQueue.main.async {
+                                    // 新增成功則回前頁
+                                    if count != 0 {
+                                        //                                    self.showAlertMsgorder()
+                                        self.checkoutdetail()
+                                        self.delete()
+                                        self.performSegue(withIdentifier: "Thankyou", sender: self)
+                                        
+                                    } else {
+                                        //                                    self.label.text = "insert fail"
+                                    }
                                 }
                             }
                         }
                     }
+                } else {
+                    print(error!.localizedDescription)
                 }
-            } else {
-                print(error!.localizedDescription)
             }
+            
         }
         //                //新增訂單明細
         //                let name = self.cellname.text == nil ? "" : self.cellname.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -239,45 +226,21 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         orderAlert.addAction(okAction)
         present(orderAlert, animated: true, completion: nil)
         
-        
-        
     }
     
     
-    func Delete() {
+    func delete() {
+        //刪除存檔
+        //刪除畫面
+        carts.removeAll()
         
-        //        _ = UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
-        //            // 尚未刪除server資料
-        //            var requestParam = [String: Any]()
-        //            requestParam["action"] = "shoppingCartDeleteAll"
-        //        requestParam["shoppingCart"] = self.carts[indexPath.row]
-        //            executeTask(self.url_server1!, requestParam
-        //                , completionHandler: { (data, response, error) in
-        //                    if error == nil {
-        //                        if data != nil {
-        //                            print("output: \(String(data: data!, encoding: .utf8)!)")
-        //
-        //                            if let result = String(data: data!, encoding: .utf8) {
-        //                                if let count = Int(result) {
-        //                                    // 確定server端刪除資料後，才將client端資料刪除
-        //                                    if count != 0 {
-        //                                        self.carts.remove(at: indexPath.row)
-        //                                        DispatchQueue.main.async {
-        ////                                            self.displayTotal()
-        ////
-        ////                                            self.tableViewOrderDetails.deleteRows(at: [indexPath], with: .fade)
-        //                                        }
-        //                                    }
-        //                                }
-        //                            }
-        //                        }
-        //                    } else {
-        //                        print(error!.localizedDescription)
-        //                    }
-        //            })
-        //        })
-        //////////
-        
+    }
+    
+    func turnOrderdetail () {
+        for cart in carts {
+            let orderdetail = Orderdetail(id: 0, number: cart.quatity, discount: 0, price: cart.price, orderId: 0, goodsid: cart.id, color: cart.color1, size: cart.size1)
+            orderdrtails.append(orderdetail)
+        }
     }
     
     
@@ -311,8 +274,10 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     //
     //    }
     
-    @objc func checkoutdetail(){
-        let requestParam = ["action" : "orderdetailInsert"]
+    @objc func checkoutdetail() {
+        turnOrderdetail()
+        //新增訂單明細
+        let requestParam = ["action" : "Insert"]
         executeTask(url_server3!, requestParam) { (data, response, error) in
             
             let decoder = JSONDecoder()
@@ -325,20 +290,20 @@ class CheckViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                 if data != nil {
                     print("input: \(String(data: data!, encoding: .utf8)!)")
                     
-                    if let result = try? decoder.decode([Orderdetail].self, from: data!) {
-                        self.orderdrtail = result
-                        DispatchQueue.main.async {
-                            if let control = self.tableViewOrderDetails.refreshControl {
-                                if control.isRefreshing {
-                                    // 停止下拉更新動作
-                                    control.endRefreshing()
-                                }
-                            }
-                            self.tableViewOrderDetails.reloadData()
-                            
-                            self.performSegue(withIdentifier: "Thankyou", sender: self)
-                        }
-                    }
+//                    if let result = try? decoder.decode([Orderdetail].self, from: data!) {
+//                        self.orderdrtail = result
+//                        DispatchQueue.main.async {
+//                            if let control = self.tableViewOrderDetails.refreshControl {
+//                                if control.isRefreshing {
+//                                    // 停止下拉更新動作
+//                                    control.endRefreshing()
+//                                }
+//                            }
+//                            self.tableViewOrderDetails.reloadData()
+//
+//                            self.performSegue(withIdentifier: "Thankyou", sender: self)
+//                        }
+//                    }
                 }
             } else {
                 print(error!.localizedDescription)

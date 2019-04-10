@@ -10,10 +10,13 @@ import UIKit
 
 class CheckTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var color: UILabel!
-    @IBOutlet weak var size: UILabel!
-    @IBOutlet weak var amount: UILabel!
+    @IBOutlet weak var ivGood: UIImageView!
+    @IBOutlet weak var lbName: UILabel!
+    @IBOutlet weak var lbPrice: UILabel!
+    @IBOutlet weak var lbNumber: UILabel!
+    @IBOutlet weak var lbColor: UILabel!
+    @IBOutlet weak var lbSize: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

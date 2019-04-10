@@ -114,10 +114,10 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
         
         // Configure the cell...
         let good = orderdetail[indexPath.row]
-        cell.name.text = good.goods_goodsid?.description
-        cell.price.text = good.price?.description
-        cell.colar.text = good.color?.description
-        cell.size.text = good.size?.description
+        cell.name.text = good.goodsid.description
+        cell.price.text = good.price.description
+        cell.colar.text = good.color.description
+        cell.size.text = good.size.description
         
         
         return cell
