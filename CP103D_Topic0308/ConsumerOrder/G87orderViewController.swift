@@ -8,30 +8,56 @@
 
 import UIKit
 
-class G87orderViewController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
-    
+class G87orderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+    var user : User?
     var orders = [Order]()
-    let url_server = URL(string: common_url + "OrderServlet")
+    let url_server1 = URL(string: common_url + "UserServlet")
+    let url_server2 = URL(string: common_url + "OrderServlet")
     
     @IBOutlet weak var ordertableview: UITableView!
     
     
     
-    
     override func viewWillAppear(_ animated: Bool) {
+        user = loadUser()
+        getUser()
         tableViewAddRefreshControl()
-        showAllOrders()
     }
+    
+    func getUser(){
+        var requestParam = [String: String]()
+        requestParam["action"] = "findUserForOrder"
+        requestParam["user"] = try! String(data: JSONEncoder() .encode(user), encoding: .utf8)
+        
+        executeTask(self.url_server1!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    if let user = try? JSONDecoder().decode(User.self, from: data!) {
+                        self.user = user
+                        self.showUserOrders()
+                        DispatchQueue.main.async {
+                            //                            self.lbName.text = user.trueName
+                        }
+                    }
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+    
     func tableViewAddRefreshControl() {
         let refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(showAllOrders), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(showUserOrders), for: .valueChanged)
         self.ordertableview.refreshControl = refreshControl
     }
     
-    @objc func showAllOrders(){
-        let requestParam = ["action" : "getAll"]
-        executeTask(url_server!, requestParam) { (data, response, error) in
+    @objc func showUserOrders(){
+        var requestParam = [String: Any]()
+        requestParam["action"] = "findById"
+        requestParam["id"] = user?.id
+        executeTask(url_server2!, requestParam) { (data, response, error) in
             
             let decoder = JSONDecoder()
             // JSON含有日期時間，解析必須指定日期時間格式
@@ -105,11 +131,18 @@ class G87orderViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
-        if let row = ordertableview.indexPathForSelectedRow?.row, let controller = segue.destination as? G87orderdetailViewController {
-            
-            controller.order = orders[row]
+        if segue.identifier == "orderDetail" {
+            let indexPath = self.ordertableview.indexPath(for: sender as! UITableViewCell)
+            let order = orders[indexPath!.row]
+            let controller = segue.destination as! G87orderdetailViewController
+            controller.order = order
         }
+        
+        
+        //        if let row = ordertableview.indexPathForSelectedRow?.row, let controller = segue.destination as? G87orderdetailViewController {
+        //
+        //            controller.order = orders[row]
+        //        }
     }
     
 }

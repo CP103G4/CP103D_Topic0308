@@ -10,28 +10,21 @@ import UIKit
 
 class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    var order: Order?
-    var orderdetail = [Orderdetail]()
+    var order: Order!
+    var orderdetail = [Good]()
     let url_server = URL(string: common_url + "OrderdetailServlet")
     @IBOutlet weak var Status: UILabel!
     @IBOutlet weak var totalprice: UILabel!
-    
     @IBOutlet weak var orderdetailtableview: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        tableViewAddRefreshControl()
-        
-        // Do any additional setup after loading the view.
-        if let order = order {
-            showAllOrders()
-            
-            Status.text = statusDescription(stayusCode: order.status!
-            )
-            
-//            totalprice.text = " $ \(order.totalPrice!.description)"
-        }
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        showOrdetails()
     }
     
     func statusDescription(stayusCode:Int) -> (String) {
@@ -50,17 +43,15 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
     func tableViewAddRefreshControl() {
         let refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(showAllOrders), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(showOrdetails), for: .valueChanged)
         self.orderdetailtableview.refreshControl = refreshControl
     }
     
-    @objc func showAllOrders(){
-        //        let requestParam = ["action" : "getAll"]
+    @objc func showOrdetails(){
+        let orderId = order.id
         var requestParam = [String: Any]()
         requestParam["action"] = "findById"
-        requestParam["Order_id"] = order?.id
-        print(order?.id)
-        requestParam["orderdetail"] = try! String(data: JSONEncoder() .encode(orderdetail), encoding: .utf8)
+        requestParam["id"] = orderId
         executeTask(url_server!, requestParam) { (data, response, error) in
             
             let decoder = JSONDecoder()
@@ -68,14 +59,11 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
             let format = DateFormatter()
             format.dateFormat = "yyyy-MM-dd HH:mm:ss"
             decoder.dateDecodingStrategy = .formatted(format)
-            
             if error == nil {
                 if data != nil {
                     print("detailinput: \(String(data: data!, encoding: .utf8)!)")
-                    
-                    if let result = try? decoder.decode([Orderdetail].self, from: data!) {
+                    if let result = try? decoder.decode([Good].self, from: data!) {
                         print(result)
-                        
                         self.orderdetail = result
                         print(result)
                         DispatchQueue.main.async {
@@ -97,6 +85,13 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
         
     }
     
+//    func turnOrderdetail (orderId:Int) {
+//        for cart in carts {
+//            let orderdetail = Orderdetail(id: 0, number: cart.quatity, discount: 0, price: cart.price, orderId:orderId, goodsid: cart.id, color: cart.color1, size: cart.size1)
+//            orderdrtails.append(orderdetail)
+//        }
+//    }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -114,10 +109,10 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
         
         // Configure the cell...
         let good = orderdetail[indexPath.row]
-        cell.name.text = good.goodsid.description
+        cell.name.text = good.name.description
         cell.price.text = good.price.description
-        cell.colar.text = good.color.description
-        cell.size.text = good.size.description
+        cell.colar.text = good.color1.description
+        cell.size.text = good.size1.description
         
         
         return cell
