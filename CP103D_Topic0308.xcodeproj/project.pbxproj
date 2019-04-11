@@ -362,8 +362,8 @@
 				CE592A4B2244D07E00DF552F /* Cart.swift */,
 				CE592A4C2244D07E00DF552F /* CartCell.swift */,
 				CE592A4E2244D07E00DF552F /* ShoppingcartViewController.swift */,
-				CE592A4D2244D07E00DF552F /* CheckViewController.swift */,
 				CE9A1B55224D7E5E000263A0 /* CheckTableViewCell.swift */,
+				CE592A4D2244D07E00DF552F /* CheckViewController.swift */,
 				CE9A1B5B2252388E000263A0 /* ConfirmationViewController.swift */,
 			);
 			name = ShoppingCart;

@@ -21,4 +21,15 @@ class User: Codable {
         self.sex = sex
         
     }
+    
+    init(id: Int, userName: String, password: String, trueName: String, phone:String, email:String , sex: Int) {
+        self.id = id
+        self.userName = userName
+        self.password = password
+        self.trueName = trueName
+        self.phone = phone
+        self.email = email
+        self.sex = sex
+        
+    }
 }

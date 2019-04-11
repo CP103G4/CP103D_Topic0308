@@ -59,7 +59,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func getUser(){
         var requestParam = [String: String]()
-        requestParam["action"] = "findByUser"
+        requestParam["action"] = "findUserForOrder"
         requestParam["user"] = try! String(data: JSONEncoder() .encode(user), encoding: .utf8)
         
         executeTask(self.url_server1!, requestParam) { (data, response, error) in
@@ -145,8 +145,9 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                 DispatchQueue.main.async {
                                     // 新增成功則回前頁
                                     if count != 0 {
-                                        //                                    self.showAlertMsgorder()
-                                        self.checkoutdetail()
+                                        self.turnOrderdetail(orderId: count)
+                                        //新增訂單明細
+                                        self.insertOrderdetail()
                                         self.delete()
                                         self.performSegue(withIdentifier: "Thankyou", sender: self)
                                         
@@ -201,6 +202,10 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
+    func userGetOrders() {
+        
+    }
+    
     func showAlertMsg() {
         
         let errorAlert = UIAlertController(title: "資料不完整", message: "請確認資料都已填寫", preferredStyle: .alert)
@@ -233,9 +238,9 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
-    func turnOrderdetail () {
+    func turnOrderdetail (orderId:Int) {
         for cart in carts {
-            let orderdetail = Orderdetail(id: 0, number: cart.quatity, discount: 0, price: cart.price, orderId: 0, goodsid: cart.id, color: cart.color1, size: cart.size1)
+            let orderdetail = Orderdetail(id: 0, number: cart.quatity, discount: 0, price: cart.price, orderId:orderId, goodsid: cart.id, color: cart.color1, size: cart.size1)
             orderdrtails.append(orderdetail)
         }
     }
@@ -271,42 +276,39 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //
     //    }
     
-    @objc func checkoutdetail() {
-        turnOrderdetail()
-        //新增訂單明細
-        let requestParam = ["action" : "Insert"]
-        executeTask(url_server3!, requestParam) { (data, response, error) in
-            
-            let decoder = JSONDecoder()
-            // JSON含有日期時間，解析必須指定日期時間格式
-            let format = DateFormatter()
-            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            decoder.dateDecodingStrategy = .formatted(format)
-            
-            if error == nil {
-                if data != nil {
-                    print("input: \(String(data: data!, encoding: .utf8)!)")
-                    
-//                    if let result = try? decoder.decode([Orderdetail].self, from: data!) {
-//                        self.orderdrtail = result
-//                        DispatchQueue.main.async {
-//                            if let control = self.tableViewOrderDetails.refreshControl {
-//                                if control.isRefreshing {
-//                                    // 停止下拉更新動作
-//                                    control.endRefreshing()
-//                                }
-//                            }
-//                            self.tableViewOrderDetails.reloadData()
-//
-//                            self.performSegue(withIdentifier: "Thankyou", sender: self)
-//                        }
-//                    }
+    @objc func insertOrderdetail() {
+        for i in 0...orderdrtails.count-1 {
+            let orderdetail = orderdrtails[i]
+            var requestParam = [String: String]()
+            requestParam["action"] = "Insert"
+            requestParam["orderdetail"] = try! String(data: JSONEncoder().encode(orderdetail), encoding: .utf8)
+            executeTask(url_server3!, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                        print("input: \(String(data: data!, encoding: .utf8)!)")
+                        if let result = String(data: data!, encoding: .utf8) {
+                            if let count = Int(result) {
+                                DispatchQueue.main.async {
+                                    if count != 0 {
+                                        
+                                    } else {
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    print(error!.localizedDescription)
                 }
-            } else {
-                print(error!.localizedDescription)
             }
+            
         }
-        
+        print("order detail insert success")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        orderdrtails.removeAll()
     }
     
     
