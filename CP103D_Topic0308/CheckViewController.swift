@@ -149,7 +149,9 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                         //新增訂單明細
                                         self.insertOrderdetail()
                                         self.delete()
-                                        self.performSegue(withIdentifier: "Thankyou", sender: self)
+                                        self.showAlertMsgorder()
+                                        
+//                                        self.performSegue(withIdentifier: "Thankyou", sender: self)
                                         
                                     } else {
                                         //                                    self.label.text = "insert fail"
@@ -221,6 +223,18 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func showAlertMsgorder() {
         
         let orderAlert = UIAlertController(title: "訂購完成", message: "你的訂單金額: \(String(describing: labelTotalPrice!.text))", preferredStyle: .alert)
+        //        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            self.performSegue(withIdentifier: "Thankyou", sender: self)
+        }
+        orderAlert.addAction(okAction)
+        present(orderAlert, animated: true, completion: nil)
+        
+    }
+    
+    func showSuccessAlert() {
+        
+        let orderAlert = UIAlertController(title: "感謝您的購買", message: "你的訂單金額: \(String(describing: labelTotalPrice!.text))", preferredStyle: .alert)
         //        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
             self.performSegue(withIdentifier: "Thankyou", sender: self)
