@@ -11,6 +11,16 @@ import UIKit
 class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var cartTableView: UITableView!
     @IBOutlet weak var cartTotalPrice: UILabel!
+    
+    @IBOutlet weak var shoppingView: UIView!
+    @IBOutlet weak var shoppingviewStepper: UIStepper!
+    @IBOutlet weak var shoppingviewQuality: UILabel!
+    @IBOutlet weak var shoppingviewDeepcolorBt: UIButton!
+    @IBOutlet weak var shoppingviewLightBt: UIButton!
+    @IBOutlet weak var shoppingviewSizeLBt: UIButton!
+    @IBOutlet weak var shoppingviewSizeXLBt: UIButton!
+    @IBOutlet weak var shoppingviewprice: UILabel!
+    
     var totalPrice = 0.0
     var carts = [Cart]()
     let url_server = URL(string: common_url + "GoodsServlet1")
@@ -20,11 +30,10 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
 //        let cart2 = Cart(id: 2, name: "牛仔褲", descrip: "丹寧布永不退流行", price: 300.0, mainclass: "Woman", subclass: "1", shelf: "true", evulation: 5, color1: "1", color2: "0", size1: "1", size2: "0", specialPrice: 270.0, quatity: 2)
 //        carts.append(cart1)
 //        carts.append(cart2)
-        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        loadData()
+        loadData()
         cartTableView.reloadData()
     }
     
@@ -87,8 +96,8 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         cell.numberStepper.value = Double(cart.quatity)
         cell.nameLabel.text = cart.name
         cell.priceLabel.text = String(cart.price * Double(cart.quatity))
-        cell.colorLabel.text = cart.color1
-        cell.sizeLabel.text = cart.size1
+        cell.colorLabel.text = cart.color1 == "1" ? "深色" : "淺色"
+        cell.sizeLabel.text = cart.size1 == "1" ? "L" : "XL"
         cell.quantityLabel.text = cart.quatity.description
         
         
@@ -159,32 +168,119 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
     
     //     左滑修改與刪除資料
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        //            // 左滑時顯示Edit按鈕
-        //            let edit = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-        //                let spotUpdateVC = self.storyboard?.instantiateViewController(withIdentifier: "spotUpdateVC") as! SpotUpdateVC
-        //                let spot = self.spots[indexPath.row]
-        //                spotUpdateVC.spot = spot
-        //                self.navigationController?.pushViewController(spotUpdateVC, animated: true)
-        //            })
-        //            edit.backgroundColor = UIColor.lightGray
+                    // 左滑時顯示Edit按鈕
+        let edit = UITableViewRowAction(style: .normal, title: "Edit", handler: { (action, indexPath) in
+            self.cartTableView.tag = indexPath.row
+            self.navigationController?.navigationBar.alpha = 1
+            self.shoppingView.isHidden = false
+            self.shoppingView.alpha = 0
+            UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
+                self.shoppingView.alpha = 1.0
+                self.navigationController?.navigationBar.alpha = 0.6
+            }) { (isCompleted) in
+            }
+            self.shoppingviewQuality.text = self.carts[indexPath.row].quatity.description
+            self.shoppingviewStepper.value = Double(self.carts[indexPath.row].quatity)
+            if self.carts[indexPath.row].color1 == "1"{
+                self.shoppingviewDeepcolorBt.isSelected = true
+                self.shoppingviewLightBt.isSelected = false
+            }else{
+                self.shoppingviewDeepcolorBt.isSelected = false
+                self.shoppingviewLightBt.isSelected = true
+            }
+            if self.carts[indexPath.row].size1 == "1"{
+                self.shoppingviewSizeLBt.isSelected = true
+                self.shoppingviewSizeXLBt.isSelected = false
+            }else{
+                self.shoppingviewSizeLBt.isSelected = false
+                self.shoppingviewSizeXLBt.isSelected = true
+            }
+            self.shoppingviewprice.text = Int(self.carts[indexPath.row].price).description
+//                        let spotUpdateVC = self.storyboard?.instantiateViewController(withIdentifier: "spotUpdateVC") as! SpotUpdateVC
+//                        let spot = self.spots[indexPath.row]
+//                        spotUpdateVC.spot = spot
+//                        self.navigationController?.pushViewController(spotUpdateVC, animated: true)
+                    })
         
         // 左滑時顯示Delete按鈕
         let delete = UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
-            self.carts.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let correctAlert = UIAlertController(title: "刪除商品", message: "確認是否刪除" + self.carts[indexPath.row].name, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+                self.carts.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            correctAlert.addAction(okAction)
+            correctAlert.addAction(cancel)
+            self.present(correctAlert, animated: true, completion: nil)
             tableView.reloadData()
         })
-        return [delete]
+        return [edit, delete]
     }
-    func showCorrectAlert(){
-        let correctAlert = UIAlertController(title: "上傳成功", message: "上傳成功", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Great!", style: .default) { (_) in
-//            self.next()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let storyboard = UIStoryboard(name: "ConsumerHome", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "gooddetailViewController") as! GooddetailViewController
+//        let goodname = carts[indexPath.row].name
+//        controller.goodName = goodname
+//        self.navigationController?.pushViewController(controller, animated: true)        
+//        present(controller, animated: true, completion: nil)
+        if let gooddetailViewController = UIStoryboard(name: "ConsumerHome", bundle:nil).instantiateViewController(withIdentifier: "gooddetailViewController") as? GooddetailViewController {
+            gooddetailViewController.goodName = carts[indexPath.row].name
+            self.navigationController?.pushViewController(gooddetailViewController, animated: true)
+            self.show(gooddetailViewController, sender: nil)
         }
-        correctAlert.addAction(okAction)
-        present(correctAlert, animated: true, completion: nil)
     }
 
+    @IBAction func qualityStepperAction(_ sender: Any) {
+        shoppingviewQuality.text = Int(shoppingviewStepper.value).description
+    }
+    @IBAction func deepcolorBtAction(_ sender: Any) {
+        shoppingviewLightBt.isSelected = false
+        shoppingviewDeepcolorBt.isSelected = !shoppingviewDeepcolorBt.isSelected
+    }
+    @IBAction func lightcolorBtAction(_ sender: Any) {
+        shoppingviewDeepcolorBt.isSelected = false
+        shoppingviewLightBt.isSelected = !shoppingviewLightBt.isSelected
+    }
+    @IBAction func sizeLBtAction(_ sender: Any) {
+        shoppingviewSizeXLBt.isSelected = false
+        shoppingviewSizeLBt.isSelected = !shoppingviewSizeLBt.isSelected
+    }
+    @IBAction func sizeXLBtAction(_ sender: Any) {
+        shoppingviewSizeLBt.isSelected = false
+        shoppingviewSizeXLBt.isSelected = !shoppingviewSizeXLBt.isSelected
+    }
+    @IBAction func updatecartAction(_ sender: Any) {
+        carts[cartTableView.tag].quatity = Int(shoppingviewStepper.value)
+        print(cartTableView.tag)
+        carts[cartTableView.tag].color1 = shoppingviewDeepcolorBt.isSelected ? "1" : "0"
+        carts[cartTableView.tag].size1 = shoppingviewSizeLBt.isSelected ? "1" : "0"
+        saveData(carts: carts)
+        self.loadData()
+        self.cartTableView.reloadData()
+        hideShoppingview()
+        clearShoppingview()
+    }
+    func hideShoppingview() {
+        self.navigationController?.navigationBar.alpha = 0.6
+        shoppingView.alpha = 1
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
+            self.shoppingView.alpha = 0
+            self.navigationController?.navigationBar.alpha = 1
+        }) { (isCompleted) in
+            self.shoppingView.isHidden = true
+        }
+    }
+    func clearShoppingview() {
+        shoppingviewDeepcolorBt.isSelected = false
+        shoppingviewLightBt.isSelected = false
+        shoppingviewSizeLBt.isSelected = false
+        shoppingviewSizeXLBt.isSelected = false
+        shoppingviewStepper.value = 1
+        shoppingviewQuality.text = "1"
+    }
+
+    
     /*
      // MARK: - Navigation
      

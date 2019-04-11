@@ -55,30 +55,28 @@ class GooddetailViewController: UIViewController {
             gooddescriptTextview.text = goodDetail.descrip
             
             shoppingviewPrice.text = goodDetail.price.description
-        }
-        
-        
-        // 尚未取得圖片，另外開啟task請求
-        var requestParam = [String: Any]()
-        requestParam["param"] = "getImage"
-        requestParam["id"] = goodDetail.id
-        // 圖片寬度為tableViewCell的1/4，ImageView的寬度也建議在storyboard加上比例設定的constraint
-        requestParam["imageSize"] = UIScreen.main.bounds.width / 4
-        var image: UIImage?
-        executeTask(url_server!, requestParam) { (data, response, error) in
-            if error == nil {
-                if data != nil {
-                    image = UIImage(data: data!)
+            // 尚未取得圖片，另外開啟task請求
+            var requestParam = [String: Any]()
+            requestParam["param"] = "getImage"
+            requestParam["id"] = goodDetail.id
+            // 圖片寬度為tableViewCell的1/4，ImageView的寬度也建議在storyboard加上比例設定的constraint
+            requestParam["imageSize"] = UIScreen.main.bounds.width / 4
+            var image: UIImage?
+            executeTask(url_server!, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                        image = UIImage(data: data!)
+                    }
+                    if image == nil {
+                        image = UIImage(named: "noImage.jpg")
+                    }
+                    DispatchQueue.main.async {
+                        self.imageview.image = image
+                        self.shoppingviewImageview.image = image
+                    }
+                } else {
+                    print(error!.localizedDescription)
                 }
-                if image == nil {
-                    image = UIImage(named: "noImage.jpg")
-                }
-                DispatchQueue.main.async {
-                    self.imageview.image = image
-                    self.shoppingviewImageview.image = image
-                }
-            } else {
-                print(error!.localizedDescription)
             }
         }
     }
@@ -160,12 +158,11 @@ class GooddetailViewController: UIViewController {
         backoutlet.isEnabled = false
         shoppingView.isHidden = false
         shoppingView.alpha = 0
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
             self.shoppingView.alpha = 1.0
-            self.navigationController?.navigationBar.alpha = 0.7
+            self.navigationController?.navigationBar.alpha = 0.6
         }) { (isCompleted) in
         }
-        
         shoppingviewQuality.text = Int(shoppingviewStepper.value).description
     }
     @IBAction func hideShoppingviewAction(_ sender: Any) {
@@ -173,9 +170,9 @@ class GooddetailViewController: UIViewController {
     }
     func hideShoppingview() {
         backoutlet.isEnabled = true
-        self.navigationController?.navigationBar.alpha = 0.7
+        self.navigationController?.navigationBar.alpha = 0.6
         shoppingView.alpha = 1
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
             self.shoppingView.alpha = 0
             self.navigationController?.navigationBar.alpha = 1
         }) { (isCompleted) in
@@ -204,7 +201,7 @@ class GooddetailViewController: UIViewController {
     }
     
     @IBAction func addtoShoppingcar(_ sender: Any) {
-        let shoppitem = Cart(id: goodDetail.id, name: goodDetail.name, descrip: goodDetail.descrip!, price: goodDetail.price, mainclass: goodDetail.mainclass, subclass: goodDetail.subclass, shelf: goodDetail.shelf, evulation: goodDetail.evulation, color1: shoppingviewDeepcolorBt.isSelected == true ? "深色" : "0", color2: shoppingviewLightBt.isSelected == true ? "淺色" : "0", size1: shoppingviewSizeLBt.isSelected == true ? "L" : "0", size2: shoppingviewSizeXLBt.isSelected == false ? "XL" : "0", specialPrice: Double(Int(goodDetail.specialPrice)), quatity: Int(shoppingviewStepper.value))
+        let shoppitem = Cart(id: goodDetail.id, name: goodDetail.name, descrip: goodDetail.descrip!, price: goodDetail.price, mainclass: goodDetail.mainclass, subclass: goodDetail.subclass, shelf: goodDetail.shelf, evulation: goodDetail.evulation, color1: shoppingviewDeepcolorBt.isSelected == true ? "1" : "0", color2: shoppingviewLightBt.isSelected == true ? "沒有用到" : "沒有用到", size1: shoppingviewSizeLBt.isSelected == true ? "1" : "0", size2: shoppingviewSizeXLBt.isSelected == false ? "沒有用到" : "沒有用到", specialPrice: Double(Int(goodDetail.specialPrice)), quatity: Int(shoppingviewStepper.value))
         loadData()
         carts.append(shoppitem)
         saveData(carts: carts)
@@ -216,6 +213,8 @@ class GooddetailViewController: UIViewController {
         shoppingviewLightBt.isSelected = false
         shoppingviewSizeLBt.isSelected = false
         shoppingviewSizeXLBt.isSelected = false
+        shoppingviewStepper.value = 1
+        shoppingviewQuality.text = "1"
     }
     func fileInDocuments(fileName: String) -> URL {
         let fileManager = FileManager()
@@ -234,8 +233,7 @@ class GooddetailViewController: UIViewController {
         } catch let error {
             print(error.localizedDescription)
         }
-    }
-    
+    }    
     
     func loadData() {
         let fileManager = FileManager()
