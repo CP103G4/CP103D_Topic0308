@@ -311,7 +311,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="colarLabel" destination="7PE-RK-FzX" id="LWe-eb-bwa"/>
+                                            <outlet property="colorLabel" destination="7PE-RK-FzX" id="LWe-eb-bwa"/>
                                             <outlet property="nameLabel" destination="fD9-no-4Z4" id="Vv5-Te-F0P"/>
                                             <outlet property="numberStepper" destination="8y0-4S-Qbl" id="9bT-Gv-HDH"/>
                                             <outlet property="priceLabel" destination="BsY-XP-8tN" id="ay5-gV-Yw5"/>
