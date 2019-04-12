@@ -12,7 +12,6 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
     
     var order: Order!
     var orderdetail = [Good]()
-    var totalPrice = 0.0
     let url_server = URL(string: common_url + "OrderdetailServlet")
     @IBOutlet weak var totalprice: UILabel!
     @IBOutlet weak var orderdetailtableview: UITableView!
@@ -102,7 +101,7 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
         cell.size.text = good.sizeDescription(sizeCode: good.size1)
         cell.number.text = good.quatity.description
         
-        
+        var totalPrice = 0.0
         for good in orderdetail{
             totalPrice += (good.price * Double(good.quatity))
         }
