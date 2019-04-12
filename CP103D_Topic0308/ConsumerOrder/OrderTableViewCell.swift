@@ -13,7 +13,8 @@ class OrderTableViewCell: UITableViewCell {
     @IBOutlet weak var orderid: UILabel!
     @IBOutlet weak var orderdate: UILabel!
     @IBOutlet weak var orderstatus: UILabel!
-    @IBOutlet weak var ordertotalprice: UILabel!
+    @IBOutlet weak var orderpayment: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
