@@ -13,7 +13,6 @@ class ManagerOrderdetailTVC: UITableViewController {
     var order: Order!
     var goods = [Good]()
     let url_server = URL(string: common_url + "OrderdetailServlet")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -62,26 +61,41 @@ class ManagerOrderdetailTVC: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return goods.count
+        switch (section) {
+        case 0: return goods.count
+        case 1: return 1
+        default:
+            return goods.count
+        }
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "goodsCell", for: indexPath) as! ManagerOrderdetailCell
         
-        let good = goods[indexPath.row]
-        cell.lbName.text = good.name
-        cell.lbNumber.text = good.quatity.description
-        cell.lbPrice.text = String(good.price * Double(good.quatity))
-        cell.lbColor.text = good.colorDescription(colorCode: good.color1)
-        cell.lbSize.text = good.sizeDescription(sizeCode: good.size1)
-        
-        return cell
+        if indexPath.section == 1 {
+            let totalCell = tableView.dequeueReusableCell(withIdentifier: "totalPriceCell", for: indexPath) as! TotalPriceCell
+            var totalPrice = 0.0
+            for good in goods{
+                totalPrice += (good.price * Double(good.quatity))
+            }
+            totalCell.lbTotalPrice.text = totalPrice.description
+            return totalCell
+            
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "goodsCell", for: indexPath) as! ManagerOrderdetailCell
+            let good = goods[indexPath.row]
+            cell.lbName.text = good.name
+            cell.lbNumber.text = good.quatity.description
+            cell.lbPrice.text = String(good.price * Double(good.quatity))
+            cell.lbColor.text = good.colorDescription(colorCode: good.color1)
+            cell.lbSize.text = good.sizeDescription(sizeCode: good.size1)
+            
+            return cell
+        }
     }
     
     

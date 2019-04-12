@@ -57,6 +57,7 @@
 		189B1482226075B300EFCB5E /* PayforcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189B1481226075B300EFCB5E /* PayforcardViewController.swift */; };
 		18CEAEB02242491B00023B7E /* G87ConsumerInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79C2F42241FF2E004FA4F5 /* G87ConsumerInformationViewController.swift */; };
 		18DD68E3225DF39C00C7C969 /* GooddetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F3B224B748A00F68CA6 /* GooddetailViewController.swift */; };
+		1D16CBBE22607C3C00677FEF /* TotalPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D16CBBD22607C3C00677FEF /* TotalPriceCell.swift */; };
 		1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */; };
 		1D5FC0DC223CDAF90065C308 /* ManagerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */; };
 		1D6CAC592255AF1300BF05CB /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6CAC582255AF1300BF05CB /* ChartVC.swift */; };
@@ -131,6 +132,7 @@
 		189B147E226071B500EFCB5E /* TPDirectResource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TPDirectResource; sourceTree = "<group>"; };
 		189B14802260720000EFCB5E /* CP103D_Topic0308-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CP103D_Topic0308-Bridging-Header.h"; sourceTree = "<group>"; };
 		189B1481226075B300EFCB5E /* PayforcardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayforcardViewController.swift; sourceTree = "<group>"; };
+		1D16CBBD22607C3C00677FEF /* TotalPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalPriceCell.swift; sourceTree = "<group>"; };
 		1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderEditTVC.swift; sourceTree = "<group>"; };
 		1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderCell.swift; sourceTree = "<group>"; };
 		1D6CAC582255AF1300BF05CB /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */,
 				1DCAC591225F2AC100431A1A /* ManagerOrderdetailCell.swift */,
 				1DC451FD22326FFB003BD747 /* ManagerOrderTVC.swift */,
+				1D16CBBD22607C3C00677FEF /* TotalPriceCell.swift */,
 			);
 			name = ManagerOrder;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				1DC451FC22326FA5003BD747 /* Order.swift in Sources */,
 				18411785224B135D00D878D5 /* HomeCollectionViewCell.swift in Sources */,
 				1841177F224A17BE00D878D5 /* ManTableViewController.swift in Sources */,
+				1D16CBBE22607C3C00677FEF /* TotalPriceCell.swift in Sources */,
 				CE592A502244D07F00DF552F /* CartCell.swift in Sources */,
 				188A8F68224FB72300F68CA6 /* ManagerWomanCollectionViewCell.swift in Sources */,
 				188A8F6A224FB72300F68CA6 /* ManagerHomeCollectionViewCell.swift in Sources */,
@@ -756,7 +760,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CP103D-Topic0308";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/apple/Desktop/appClass/iOSApp/CP103DTopic0412/CP103D_Topic0308/CP103D_Topic0308/CP103D_Topic0308-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/k86095/Desktop/CP103D_Topic0308/CP103D_Topic0308/CP103D_Topic0308-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -781,7 +785,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CP103D-Topic0308";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/apple/Desktop/appClass/iOSApp/CP103DTopic0412/CP103D_Topic0308/CP103D_Topic0308/CP103D_Topic0308-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/k86095/Desktop/CP103D_Topic0308/CP103D_Topic0308/CP103D_Topic0308-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
