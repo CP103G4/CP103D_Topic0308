@@ -28,7 +28,6 @@
 		185620202240E0F80016EB44 /* WomanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1856201F2240E0F80016EB44 /* WomanTableViewController.swift */; };
 		185620222240E1940016EB44 /* WomanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185620212240E1940016EB44 /* WomanTableViewCell.swift */; };
 		185620242240E2AC0016EB44 /* WomanCollectionviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185620232240E2AC0016EB44 /* WomanCollectionviewCell.swift */; };
-		188A8F3C224B748A00F68CA6 /* GooddetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F3B224B748A00F68CA6 /* GooddetailViewController.swift */; };
 		188A8F5D224FB6F200F68CA6 /* ManagerGooddetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F5B224FB6F100F68CA6 /* ManagerGooddetailViewController.swift */; };
 		188A8F5E224FB6F200F68CA6 /* ManagerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F5C224FB6F100F68CA6 /* ManagerHomeViewController.swift */; };
 		188A8F67224FB72300F68CA6 /* ManagerHomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F5F224FB72300F68CA6 /* ManagerHomeCollectionViewController.swift */; };
@@ -54,11 +53,14 @@
 		1899235A2232469D00B9DC1C /* ManagerOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189923592232469D00B9DC1C /* ManagerOrder.storyboard */; };
 		1899235C223246FD00B9DC1C /* ManagerChart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1899235B223246FC00B9DC1C /* ManagerChart.storyboard */; };
 		18CEAEB02242491B00023B7E /* G87ConsumerInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79C2F42241FF2E004FA4F5 /* G87ConsumerInformationViewController.swift */; };
+		18DD68E3225DF39C00C7C969 /* GooddetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F3B224B748A00F68CA6 /* GooddetailViewController.swift */; };
 		1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */; };
 		1D5FC0DC223CDAF90065C308 /* ManagerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */; };
 		1D6CAC592255AF1300BF05CB /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6CAC582255AF1300BF05CB /* ChartVC.swift */; };
 		1DC451FC22326FA5003BD747 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC451FB22326FA5003BD747 /* Order.swift */; };
 		1DC451FE22326FFB003BD747 /* ManagerOrderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC451FD22326FFB003BD747 /* ManagerOrderTVC.swift */; };
+		1DCAC590225F2A3E00431A1A /* ManagerOrderdetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCAC58F225F2A3E00431A1A /* ManagerOrderdetailTVC.swift */; };
+		1DCAC592225F2AC100431A1A /* ManagerOrderdetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCAC591225F2AC100431A1A /* ManagerOrderdetailCell.swift */; };
 		535D7E0CF8024CC84323D27D /* Pods_CP103D_Topic0308.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33DD1E65671F363C3E58EE15 /* Pods_CP103D_Topic0308.framework */; };
 		CE592A4F2244D07F00DF552F /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE592A4B2244D07E00DF552F /* Cart.swift */; };
 		CE592A502244D07F00DF552F /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE592A4C2244D07E00DF552F /* CartCell.swift */; };
@@ -127,6 +129,8 @@
 		1D6CAC582255AF1300BF05CB /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		1DC451FB22326FA5003BD747 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		1DC451FD22326FFB003BD747 /* ManagerOrderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderTVC.swift; sourceTree = "<group>"; };
+		1DCAC58F225F2A3E00431A1A /* ManagerOrderdetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderdetailTVC.swift; sourceTree = "<group>"; };
+		1DCAC591225F2AC100431A1A /* ManagerOrderdetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderdetailCell.swift; sourceTree = "<group>"; };
 		3062F7E4DB298F68FFBB86D0 /* Pods-CP103D_Topic0308.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CP103D_Topic0308.release.xcconfig"; path = "Target Support Files/Pods-CP103D_Topic0308/Pods-CP103D_Topic0308.release.xcconfig"; sourceTree = "<group>"; };
 		33DD1E65671F363C3E58EE15 /* Pods_CP103D_Topic0308.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CP103D_Topic0308.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		895DFD5037B06D226B7E2C73 /* Pods-CP103D_Topic0308.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CP103D_Topic0308.debug.xcconfig"; path = "Target Support Files/Pods-CP103D_Topic0308/Pods-CP103D_Topic0308.debug.xcconfig"; sourceTree = "<group>"; };
@@ -324,9 +328,11 @@
 			isa = PBXGroup;
 			children = (
 				189923592232469D00B9DC1C /* ManagerOrder.storyboard */,
-				1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */,
-				1DC451FD22326FFB003BD747 /* ManagerOrderTVC.swift */,
 				1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */,
+				1DCAC58F225F2A3E00431A1A /* ManagerOrderdetailTVC.swift */,
+				1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */,
+				1DCAC591225F2AC100431A1A /* ManagerOrderdetailCell.swift */,
+				1DC451FD22326FFB003BD747 /* ManagerOrderTVC.swift */,
 			);
 			name = ManagerOrder;
 			sourceTree = "<group>";
@@ -366,6 +372,7 @@
 				CE592A4D2244D07E00DF552F /* CheckViewController.swift */,
 				CE592A4E2244D07E00DF552F /* ShoppingcartViewController.swift */,
 				CE9A1B55224D7E5E000263A0 /* CheckTableViewCell.swift */,
+				CE592A4D2244D07E00DF552F /* CheckViewController.swift */,
 				CE9A1B5B2252388E000263A0 /* ConfirmationViewController.swift */,
 			);
 			name = ShoppingCart;
@@ -523,14 +530,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1137ECD92244CB1C00F03C4E /* Good.swift in Sources */,
+				1DCAC592225F2AC100431A1A /* ManagerOrderdetailCell.swift in Sources */,
 				1841177E224A17BE00D878D5 /* ManCollectionViewCell.swift in Sources */,
+				18DD68E3225DF39C00C7C969 /* GooddetailViewController.swift in Sources */,
 				188A8F6E224FB72300F68CA6 /* ManagerWomanTableViewController.swift in Sources */,
 				CE79C2F32241FB83004FA4F5 /* G87orderViewController.swift in Sources */,
 				18411781224B0C4800D878D5 /* HomeCollectionViewController.swift in Sources */,
-				188A8F3C224B748A00F68CA6 /* GooddetailViewController.swift in Sources */,
 				1137EC91223B584A00F03C4E /* HomeVC.swift in Sources */,
 				18CEAEB02242491B00023B7E /* G87ConsumerInformationViewController.swift in Sources */,
 				188A8F6B224FB72300F68CA6 /* ManagerManTableViewCell.swift in Sources */,
+				1DCAC590225F2A3E00431A1A /* ManagerOrderdetailTVC.swift in Sources */,
 				185620222240E1940016EB44 /* WomanTableViewCell.swift in Sources */,
 				1DC451FE22326FFB003BD747 /* ManagerOrderTVC.swift in Sources */,
 				188A8F5E224FB6F200F68CA6 /* ManagerHomeViewController.swift in Sources */,

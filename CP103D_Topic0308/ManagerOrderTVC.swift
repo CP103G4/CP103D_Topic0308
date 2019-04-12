@@ -277,12 +277,14 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier == "EditOrderTVC"{
-    //            let destinationTVC = segue.destination as! EditOrderTVC
-    //            destinationTVC.completionHandler = { (order) in self.orders.append(order)}
-    //        }
-    //    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "managerOrderDetail"{
+            let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)
+            let order = orders[indexPath!.row]
+            let controller = segue.destination as! ManagerOrderdetailTVC
+            controller.order = order
+        }
+    }
     override func viewWillDisappear(_ animated: Bool) {
         if navigationItem.searchController?.isActive == true {
             //讓searchController按下cancel

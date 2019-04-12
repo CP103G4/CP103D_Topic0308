@@ -8,41 +8,35 @@
 
 import UIKit
 
-class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var cartTableView: UITableView!
     @IBOutlet weak var cartTotalPrice: UILabel!
     
+    @IBOutlet weak var shoppingView: UIView!
+    @IBOutlet weak var shoppingviewStepper: UIStepper!
+    @IBOutlet weak var shoppingviewQuality: UILabel!
+    @IBOutlet weak var shoppingviewDeepcolorBt: UIButton!
+    @IBOutlet weak var shoppingviewLightBt: UIButton!
+    @IBOutlet weak var shoppingviewSizeLBt: UIButton!
+    @IBOutlet weak var shoppingviewSizeXLBt: UIButton!
+    @IBOutlet weak var shoppingviewprice: UILabel!
+    
+    var totalPrice = 0.0
     var carts = [Cart]()
-    
     let url_server = URL(string: common_url + "GoodsServlet1")
-    
+
     override func viewDidLoad() {
-        let cart1 = Cart(id: 1, name: "發熱衣", descrip: "冬天最好的選擇", price: 200.0, mainclass: "Man", subclass: "0", shelf: "true", evulation: 4, color1: "1", color2: "1", size1: "1", size2: "1", specialPrice: 180.0, quatity: 1)
-        let cart2 = Cart(id: 2, name: "牛仔褲", descrip: "丹寧布永不退流行", price: 300.0, mainclass: "Woman", subclass: "1", shelf: "true", evulation: 5, color1: "0", color2: "0", size1: "0", size2: "0", specialPrice: 270.0, quatity: 2)
-        carts.append(cart1)
-        carts.append(cart2)
+//        let cart1 = Cart(id: 1, name: "發熱衣", descrip: "冬天最好的選擇", price: 200.0, mainclass: "Man", subclass: "0", shelf: "true", evulation: 4, color1: "0", color2: "1", size1: "0", size2: "1", specialPrice: 180.0, quatity: 1)
+//        let cart2 = Cart(id: 2, name: "牛仔褲", descrip: "丹寧布永不退流行", price: 300.0, mainclass: "Woman", subclass: "1", shelf: "true", evulation: 5, color1: "1", color2: "0", size1: "1", size2: "0", specialPrice: 270.0, quatity: 2)
+//        carts.append(cart1)
+//        carts.append(cart2)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //        showAllGood()
         loadData()
         cartTableView.reloadData()
-        displayTotal()
-        saveData(carts: carts)
     }
     
-    
-    func displayTotal() {
-        self.cartTotalPrice.text = "$" + calculateCartTotal()
-    }
-    
-    func calculateCartTotal() -> String{
-        var total = 0.0
-        for cart in carts {
-            total += cart.price
-        }
-        return total.description
-    }
     
     func fileInDocuments(fileName: String) -> URL {
         let fileManager = FileManager()
@@ -74,12 +68,6 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
                 if let jsonData = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! Data {
                     let result = try! decoder.decode([Cart].self, from: jsonData)
                     carts = result
-                    //                    imageView.image = spot!.image
-                    //                    lbName.text = spot!.name
-                    //                    lbAddress.text = spot!.address
-                    //                    lbPhone.text = spot!.phone
-                    //                    let text = "File URL = \(dataUrl)"
-                    //                    lbFile.text = text
                 } else {
                     //                    lbFile.text = "no data found error"
                 }
@@ -87,48 +75,6 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
         }
     }
     
-    @IBAction func spNumberChange(_ sender: CartCell) {
-        
-    }
-    
-    
-    
-    //    @objc func showAllGood(){
-    //        let requestParam = ["action" : "getAll"]
-    //        executeTask(url_server!, requestParam) { (data, response, error) in
-    //
-    //            let decoder = JSONDecoder()
-    //            // JSON含有日期時間，解析必須指定日期時間格式
-    //            let format = DateFormatter()
-    //            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
-    //            decoder.dateDecodingStrategy = .formatted(format)
-    //
-    //            if error == nil {
-    //                if data != nil {
-    //                    print("input: \(String(data: data!, encoding: .utf8)!)")
-    //
-    //                    if let result = try? decoder.decode([Cart].self, from: data!) {
-    //                        self.carts = result
-    //                        self.saveData(carts: self.carts)
-    //
-    //                        DispatchQueue.main.async {
-    //                            self.displayTotal()
-    //                            if let control = self.cartTableView.refreshControl {
-    //                                if control.isRefreshing {
-    //                                    // 停止下拉更新動作
-    //                                    control.endRefreshing()
-    //                                }
-    //                            }
-    //                            self.cartTableView.reloadData()
-    //                        }
-    //                    }
-    //                }
-    //            } else {
-    //                print(error!.localizedDescription)
-    //            }
-    //        }
-    //
-    //    }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -147,13 +93,65 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
         
         // Configure the cell...
         let cart = carts[indexPath.row]
+        cell.numberStepper.value = Double(cart.quatity)
         cell.nameLabel.text = cart.name
-        cell.priceLabel.text = "價錢： " + cart.price.description
-        cell.colarLabel.text = "顏色： " + cart.color1
-        cell.sizeLabel.text = "尺寸： " + cart.size1
-        cell.quantityLabel.text = "數量： " + cart.quatity.description
+        cell.priceLabel.text = String(cart.price * Double(cart.quatity))
+        cell.colorLabel.text = cart.color1 == "1" ? "深色" : "淺色"
+        cell.sizeLabel.text = cart.size1 == "1" ? "L" : "XL"
+        cell.quantityLabel.text = cart.quatity.description
+        
+        
+        let item = carts[indexPath.row] // assuming `dataSource` is the data source array
+        cell.numberStepper.value = Double(item.quatity)
+        cell.quantityLabel.text = "\(item.quatity)"
+        var totalprice = 0.0
+        for cartTmp in self.carts{
+            totalprice += (cartTmp.price * Double(cartTmp.quatity))
+        }
+        cartTotalPrice.text = totalprice.description
+        cell.observation = cell.numberStepper.observe( \.value, options: [.new, .old]) { (stepper, change) in
+            cell.quantityLabel.text = "\(Int(change.newValue!))"
+            cell.priceLabel.text = String(change.newValue! * cart.price)
+            totalprice = Double(self.cartTotalPrice.text!)!
+            totalprice = totalprice + (change.newValue! - change.oldValue!) * cart.price
+            print(change.newValue!.description)
+            print(change.oldValue!.description)
+            self.cartTotalPrice.text = totalprice.description
+            self.carts[indexPath.row].quatity = Int(cell.quantityLabel.text!)!
+        }
+        // 尚未取得圖片，另外開啟task請求
+        var requestParam = [String: Any]()
+        requestParam["param"] = "getImage"
+        requestParam["id"] = carts[indexPath.row].id
+        // 圖片寬度為tableViewCell的1/4，ImageView的寬度也建議在storyboard加上比例設定的constraint
+        requestParam["imageSize"] = cell.frame.width / 4
+        var image: UIImage?
+        executeTask(url_server!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    image = UIImage(data: data!)
+                }
+                if image == nil {
+                    image = UIImage(named: "noImage.jpg")
+                }
+                DispatchQueue.main.async { cell.productImage.image = image }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        (cell as! CartCell).observation = nil
+    }
+    
+    func stepperButton(sender: CartCell) {
+        if let indexPath = cartTableView.indexPath(for: sender){
+            print(indexPath)
+            let cart = carts[indexPath.row]
+            cart.quatity = Int(sender.numberStepper.value)
+        }
     }
     
     func statusDescription(stayusCode:Int) -> (String) {
@@ -168,50 +166,121 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
         }
     }
     
-    // 左滑修改與刪除資料
-    //    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    //        //            // 左滑時顯示Edit按鈕
-    //        //            let edit = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-    //        //                let spotUpdateVC = self.storyboard?.instantiateViewController(withIdentifier: "spotUpdateVC") as! SpotUpdateVC
-    //        //                let spot = self.spots[indexPath.row]
-    //        //                spotUpdateVC.spot = spot
-    //        //                self.navigationController?.pushViewController(spotUpdateVC, animated: true)
-    //        //            })
-    //        //            edit.backgroundColor = UIColor.lightGray
-    //
-    //        // 左滑時顯示Delete按鈕
-    //        let delete = UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
-    //            // 尚未刪除server資料
-    //            var requestParam = [String: Any]()
-    //            requestParam["action"] = "shoppingCartDelete"
-    //            requestParam["shoppingCart"] = self.carts[indexPath.row].id
-    //            executeTask(self.url_server!, requestParam
-    //                , completionHandler: { (data, response, error) in
-    //                    if error == nil {
-    //                        if data != nil {
-    //                            print("deleteoutput: \(String(data: data!, encoding: .utf8)!)")
-    //
-    //                            if let result = String(data: data!, encoding: .utf8) {
-    //                                if let count = Int(result) {
-    //                                    // 確定server端刪除資料後，才將client端資料刪除
-    //                                    if count != 0 {
-    //                                        self.carts.remove(at: indexPath.row)
-    //                                        DispatchQueue.main.async {
-    //                                            self.displayTotal()
-    //
-    //                                            tableView.deleteRows(at: [indexPath], with: .fade)
-    //                                        }
-    //                                    }
-    //                                }
-    //                            }
-    //                        }
-    //                    } else {
-    //                        print(error!.localizedDescription)
-    //                    }
-    //            })
-    //        })
-    //        return [delete]
-    //    }
+    //     左滑修改與刪除資料
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+                    // 左滑時顯示Edit按鈕
+        let edit = UITableViewRowAction(style: .normal, title: "Edit", handler: { (action, indexPath) in
+            self.cartTableView.tag = indexPath.row
+            self.navigationController?.navigationBar.alpha = 1
+            self.shoppingView.isHidden = false
+            self.shoppingView.alpha = 0
+            UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
+                self.shoppingView.alpha = 1.0
+                self.navigationController?.navigationBar.alpha = 0.6
+            }) { (isCompleted) in
+            }
+            self.shoppingviewQuality.text = self.carts[indexPath.row].quatity.description
+            self.shoppingviewStepper.value = Double(self.carts[indexPath.row].quatity)
+            if self.carts[indexPath.row].color1 == "1"{
+                self.shoppingviewDeepcolorBt.isSelected = true
+                self.shoppingviewLightBt.isSelected = false
+            }else{
+                self.shoppingviewDeepcolorBt.isSelected = false
+                self.shoppingviewLightBt.isSelected = true
+            }
+            if self.carts[indexPath.row].size1 == "1"{
+                self.shoppingviewSizeLBt.isSelected = true
+                self.shoppingviewSizeXLBt.isSelected = false
+            }else{
+                self.shoppingviewSizeLBt.isSelected = false
+                self.shoppingviewSizeXLBt.isSelected = true
+            }
+            self.shoppingviewprice.text = Int(self.carts[indexPath.row].price).description
+//                        let spotUpdateVC = self.storyboard?.instantiateViewController(withIdentifier: "spotUpdateVC") as! SpotUpdateVC
+//                        let spot = self.spots[indexPath.row]
+//                        spotUpdateVC.spot = spot
+//                        self.navigationController?.pushViewController(spotUpdateVC, animated: true)
+                    })
+        
+        // 左滑時顯示Delete按鈕
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
+            let correctAlert = UIAlertController(title: "刪除商品", message: "確認是否刪除" + self.carts[indexPath.row].name, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+                self.carts.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            correctAlert.addAction(okAction)
+            correctAlert.addAction(cancel)
+            self.present(correctAlert, animated: true, completion: nil)
+            tableView.reloadData()
+        })
+        return [edit, delete]
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let storyboard = UIStoryboard(name: "ConsumerHome", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "gooddetailViewController") as! GooddetailViewController
+//        let goodname = carts[indexPath.row].name
+//        controller.goodName = goodname
+//        self.navigationController?.pushViewController(controller, animated: true)        
+//        present(controller, animated: true, completion: nil)
+        if let gooddetailViewController = UIStoryboard(name: "ConsumerHome", bundle:nil).instantiateViewController(withIdentifier: "gooddetailViewController") as? GooddetailViewController {
+            gooddetailViewController.goodName = carts[indexPath.row].name
+            self.navigationController?.pushViewController(gooddetailViewController, animated: true)
+//            self.show(gooddetailViewController, sender: nil)
+        }
+    }
+
+    @IBAction func qualityStepperAction(_ sender: Any) {
+        shoppingviewQuality.text = Int(shoppingviewStepper.value).description
+    }
+    @IBAction func deepcolorBtAction(_ sender: Any) {
+        shoppingviewLightBt.isSelected = false
+        shoppingviewDeepcolorBt.isSelected = !shoppingviewDeepcolorBt.isSelected
+    }
+    @IBAction func lightcolorBtAction(_ sender: Any) {
+        shoppingviewDeepcolorBt.isSelected = false
+        shoppingviewLightBt.isSelected = !shoppingviewLightBt.isSelected
+    }
+    @IBAction func sizeLBtAction(_ sender: Any) {
+        shoppingviewSizeXLBt.isSelected = false
+        shoppingviewSizeLBt.isSelected = !shoppingviewSizeLBt.isSelected
+    }
+    @IBAction func sizeXLBtAction(_ sender: Any) {
+        shoppingviewSizeLBt.isSelected = false
+        shoppingviewSizeXLBt.isSelected = !shoppingviewSizeXLBt.isSelected
+    }
+    @IBAction func updatecartAction(_ sender: Any) {
+        carts[cartTableView.tag].quatity = Int(shoppingviewStepper.value)
+        print(cartTableView.tag)
+        carts[cartTableView.tag].color1 = shoppingviewDeepcolorBt.isSelected ? "1" : "0"
+        carts[cartTableView.tag].size1 = shoppingviewSizeLBt.isSelected ? "1" : "0"
+        saveData(carts: carts)
+        self.loadData()
+        self.cartTableView.reloadData()
+        hideShoppingview()
+        clearShoppingview()
+    }
+    func hideShoppingview() {
+        self.navigationController?.navigationBar.alpha = 0.6
+        shoppingView.alpha = 1
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
+            self.shoppingView.alpha = 0
+            self.navigationController?.navigationBar.alpha = 1
+        }) { (isCompleted) in
+            self.shoppingView.isHidden = true
+        }
+    }
+    func clearShoppingview() {
+        shoppingviewDeepcolorBt.isSelected = false
+        shoppingviewLightBt.isSelected = false
+        shoppingviewSizeLBt.isSelected = false
+        shoppingviewSizeXLBt.isSelected = false
+        shoppingviewStepper.value = 1
+        shoppingviewQuality.text = "1"
+    }
+
+    
     /*
      // MARK: - Navigation
      
@@ -231,4 +300,9 @@ class ShoppingcartViewController: UIViewController,UITableViewDelegate,UITableVi
             self.performSegue(withIdentifier: "Checkout", sender: sender)
         }
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        saveData(carts: carts)
+    }
+
 }

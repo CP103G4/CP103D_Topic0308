@@ -185,7 +185,11 @@
         <!--Home-->
         <scene sceneID="SLJ-wj-gyd">
             <objects>
+<<<<<<< HEAD
                 <viewController storyboardIdentifier="memberVC" title="Home" id="g6r-b5-qIG" customClass="memberVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
+=======
+                <viewController title="Home" id="g6r-b5-qIG" customClass="memberVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
+>>>>>>> master
                     <view key="view" contentMode="scaleToFill" id="qmr-xo-H5H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="518"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -358,7 +362,7 @@
                                             <outlet property="orderid" destination="pdh-RW-wGZ" id="XDN-Ce-DCh"/>
                                             <outlet property="orderstatus" destination="1da-Ph-VzT" id="TZK-Et-1Ls"/>
                                             <outlet property="ordertotalprice" destination="Xkl-1P-vR1" id="c7Y-O6-xnd"/>
-                                            <segue destination="xq8-rs-CMS" kind="show" id="O3j-hM-91U"/>
+                                            <segue destination="xq8-rs-CMS" kind="show" identifier="orderDetail" id="O3j-hM-91U"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
