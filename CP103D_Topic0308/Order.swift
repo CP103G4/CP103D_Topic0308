@@ -69,6 +69,16 @@ class Order : NSObject, NSSecureCoding, Codable {
         }
     }
     
+    func paymentDescription(paymentCode:Int) -> (String) {
+        if paymentCode == 0 {
+            return "貨到付款"
+        } else if paymentCode == 1 {
+            return "信用卡付款"
+        } else {
+            return "錯誤"
+        }
+    }
+    
     var dateStr: String {
         if date != nil {
             let format = DateFormatter()

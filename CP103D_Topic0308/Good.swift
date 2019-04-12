@@ -40,4 +40,22 @@ class Good: Codable {
         self.specialPrice = specialPrice
         self.quatity = quatity
     }
+    
+    func colorDescription(colorCode:String) -> (String) {
+        if colorCode == "0" {
+            return "淺色"
+        } else if colorCode == "1" {
+            return "深色"
+        }
+        return ""
+    }
+    
+    func sizeDescription(sizeCode:String) -> (String) {
+        if sizeCode == "0" {
+            return "XL"
+        } else if sizeCode == "1" {
+            return "L"
+        }
+        return ""
+    }
 }

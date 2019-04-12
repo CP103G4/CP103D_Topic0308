@@ -12,31 +12,19 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
     
     var order: Order!
     var orderdetail = [Good]()
+    var totalPrice = 0.0
     let url_server = URL(string: common_url + "OrderdetailServlet")
-    @IBOutlet weak var Status: UILabel!
     @IBOutlet weak var totalprice: UILabel!
     @IBOutlet weak var orderdetailtableview: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         showOrdetails()
-    }
-    
-    func statusDescription(stayusCode:Int) -> (String) {
-        if stayusCode == 0 {
-            return "未出貨"
-        } else if stayusCode == 1 {
-            return "已出貨"
-        } else if stayusCode == 2 {
-            return "已退貨"
-        } else {
-            return "已取消"
-        }
     }
     
     
@@ -85,12 +73,12 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
         
     }
     
-//    func turnOrderdetail (orderId:Int) {
-//        for cart in carts {
-//            let orderdetail = Orderdetail(id: 0, number: cart.quatity, discount: 0, price: cart.price, orderId:orderId, goodsid: cart.id, color: cart.color1, size: cart.size1)
-//            orderdrtails.append(orderdetail)
-//        }
-//    }
+    //    func turnOrderdetail (orderId:Int) {
+    //        for cart in carts {
+    //            let orderdetail = Orderdetail(id: 0, number: cart.quatity, discount: 0, price: cart.price, orderId:orderId, goodsid: cart.id, color: cart.color1, size: cart.size1)
+    //            orderdrtails.append(orderdetail)
+    //        }
+    //    }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -103,17 +91,22 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
         return orderdetail.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderdetailCell", for: indexPath) as! OrderdetailTableViewCell
         
         // Configure the cell...
         let good = orderdetail[indexPath.row]
         cell.name.text = good.name.description
-        cell.price.text = good.price.description
-        cell.colar.text = good.color1.description
-        cell.size.text = good.size1.description
+        cell.price.text = String(good.price * Double(good.quatity))
+        cell.colar.text = good.colorDescription(colorCode: good.color1)
+        cell.size.text = good.sizeDescription(sizeCode: good.size1)
+        cell.number.text = good.quatity.description
         
+        
+        for good in orderdetail{
+            totalPrice += (good.price * Double(good.quatity))
+        }
+        totalprice.text = totalPrice.description
         
         return cell
     }
