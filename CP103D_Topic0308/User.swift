@@ -12,6 +12,7 @@ class User: Codable {
         self.password = password
     }
     
+    
     init(userName: String, password: String, trueName: String, phone:String, email:String , sex: Int) {
         self.userName = userName
         self.password = password

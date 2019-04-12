@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FacebookCore
 import UserNotifications
+import AdSupport
 
 
 @UIApplicationMain
@@ -32,6 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // 代理 UNUserNotificationCenterDelegate，這麼做可讓 App 在前景狀態下收到通知
         UNUserNotificationCenter.current().delegate = self
         
+        
+        TPDSetup.setWithAppId(11340, withAppKey: "app_whdEWBH8e8Lzy4N6BysVRRMILYORF6UxXbiOFsICkz0J9j1C0JUlCHv1tVJC", with: TPDServerType.sandBox)
+        
+        
+        let IDFA = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+        
+        // Please setup Advertising  Identifier, to improve the accuracy of fraud detect.
+        TPDSetup.shareInstance().setupIDFA(IDFA)
+        
+        TPDSetup.shareInstance().serverSync()
 
         return true
     }

@@ -913,11 +913,69 @@
                         <outlet property="tableViewOrderDetails" destination="Zfd-Yp-XTk" id="f7x-JZ-w3l"/>
                         <outlet property="tfAddress" destination="oUO-Kv-ZMr" id="IbC-5l-RhU"/>
                         <segue destination="oQY-MH-AY9" kind="showDetail" identifier="Thankyou" id="ihk-fQ-mAa"/>
+                        <segue destination="Y8j-cX-Nnl" kind="show" identifier="payforCard" id="XQZ-F6-KL9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3xB-dT-UMK" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6308" y="26.53673163418291"/>
+        </scene>
+        <!--Payforcard View Controller-->
+        <scene sceneID="niP-gR-8tz">
+            <objects>
+                <viewController id="Y8j-cX-Nnl" customClass="PayforcardViewController" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IxT-QL-iXB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ITQ-oo-xrH">
+                                <rect key="frame" x="52.5" y="64" width="270" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="39Z-86-OVQ"/>
+                                    <constraint firstAttribute="height" constant="80" id="fdf-UH-uVm"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5FR-aN-OqR">
+                                <rect key="frame" x="52.5" y="152" width="270" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="CDr-34-cZe"/>
+                                    <constraint firstAttribute="width" constant="270" id="O26-8l-cXQ"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcN-uO-aKf">
+                                <rect key="frame" x="164.5" y="288" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="doneAction:" destination="Y8j-cX-Nnl" eventType="touchUpInside" id="1cv-aB-ZGT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5FR-aN-OqR" firstAttribute="top" secondItem="ITQ-oo-xrH" secondAttribute="bottom" constant="8" id="Dpo-EK-Khq"/>
+                            <constraint firstItem="ITQ-oo-xrH" firstAttribute="top" secondItem="ByN-Ry-GLz" secondAttribute="top" id="En3-3y-x8c"/>
+                            <constraint firstItem="PcN-uO-aKf" firstAttribute="top" secondItem="5FR-aN-OqR" secondAttribute="bottom" constant="8" id="NQJ-wN-NHM"/>
+                            <constraint firstItem="5FR-aN-OqR" firstAttribute="centerX" secondItem="IxT-QL-iXB" secondAttribute="centerX" id="TVw-fy-hrX"/>
+                            <constraint firstItem="ITQ-oo-xrH" firstAttribute="centerX" secondItem="IxT-QL-iXB" secondAttribute="centerX" id="nNZ-mj-qE3"/>
+                            <constraint firstItem="PcN-uO-aKf" firstAttribute="centerX" secondItem="IxT-QL-iXB" secondAttribute="centerX" id="qn3-5g-uFA"/>
+                            <constraint firstItem="5FR-aN-OqR" firstAttribute="top" secondItem="ITQ-oo-xrH" secondAttribute="bottom" constant="8" id="viG-kn-sHF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ByN-Ry-GLz"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardView" destination="ITQ-oo-xrH" id="GXL-9C-yLO"/>
+                        <outlet property="displayText" destination="5FR-aN-OqR" id="jnI-me-AJK"/>
+                        <outlet property="payButton" destination="PcN-uO-aKf" id="DlQ-au-EPX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sc6-EH-qAM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6308" y="859"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cya-NU-0T8">

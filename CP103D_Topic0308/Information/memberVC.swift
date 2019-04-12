@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -15,6 +17,7 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
+    
     var user: User?
     let url_server = URL(string: common_url + "UserServlet")
     
@@ -22,6 +25,7 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         super.viewDidLoad()
         
         user = loadUser()
+        loadData()
         
     }
     
@@ -101,6 +105,16 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         }
     }
     
-    
+    func loadData(){
+        let userDefaults = UserDefaults.standard
+        
+        if let name = userDefaults.string(forKey: "name") {
+            nameLabel.text = name
+        }
+        
+        if let email = userDefaults.string(forKey: "email") {
+            emailLabel.text = email
+        }
+    }
     
 }
