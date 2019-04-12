@@ -227,7 +227,7 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         if let gooddetailViewController = UIStoryboard(name: "ConsumerHome", bundle:nil).instantiateViewController(withIdentifier: "gooddetailViewController") as? GooddetailViewController {
             gooddetailViewController.goodName = carts[indexPath.row].name
             self.navigationController?.pushViewController(gooddetailViewController, animated: true)
-            self.show(gooddetailViewController, sender: nil)
+//            self.show(gooddetailViewController, sender: nil)
         }
     }
 
