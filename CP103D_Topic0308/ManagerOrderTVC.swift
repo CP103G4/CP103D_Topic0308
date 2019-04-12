@@ -144,7 +144,7 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
     
     func settingSearchController(){
         //        searchController?.definesPresentationContext = true
-        searchController?.searchBar.placeholder = "Search Order By Id"
+        searchController?.searchBar.placeholder = "請輸入訂單編號"
         searchController?.searchBar.searchBarStyle = .prominent
         self.definesPresentationContext = true
     }
@@ -223,14 +223,14 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
             cell.lbOrderId.text = selectOrder.id?.description
             cell.lbOrderDate.text = selectOrder.dateStr
             cell.lbOrderStatus.text = selectOrder.statusDescription(stayusCode: selectOrder.status!)
-            cell.lbOrderTotalPrice.text = selectOrder.address
+            cell.lbOrderTotalPrice.text = selectOrder.paymentDescription(paymentCode: selectOrder.payment!)
             
         } else {
             cell.lbOrderId.text = order.id?.description
             cell.lbOrderDate.text = order.dateStr
             cell.lbOrderStatus.text = order.statusDescription(stayusCode: order.status!
             )
-            cell.lbOrderTotalPrice.text = order.address
+            cell.lbOrderTotalPrice.text = order.paymentDescription(paymentCode: order.payment!)
         }
         return cell
     }

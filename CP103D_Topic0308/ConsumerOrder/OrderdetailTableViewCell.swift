@@ -14,7 +14,7 @@ class OrderdetailTableViewCell: UITableViewCell {
     @IBOutlet weak var colar: UILabel!
     @IBOutlet weak var size: UILabel!
     @IBOutlet weak var price: UILabel!
-    
+    @IBOutlet weak var number: UILabel!
     
     
     

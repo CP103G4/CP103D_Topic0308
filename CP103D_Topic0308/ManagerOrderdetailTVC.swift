@@ -77,9 +77,9 @@ class ManagerOrderdetailTVC: UITableViewController {
         let good = goods[indexPath.row]
         cell.lbName.text = good.name
         cell.lbNumber.text = good.quatity.description
-        cell.lbPrice.text = good.price.description
-        cell.lbColor.text = good.color1.description
-        cell.lbSize.text = good.size1.description
+        cell.lbPrice.text = String(good.price * Double(good.quatity))
+        cell.lbColor.text = good.colorDescription(colorCode: good.color1)
+        cell.lbSize.text = good.sizeDescription(sizeCode: good.size1)
         
         return cell
     }

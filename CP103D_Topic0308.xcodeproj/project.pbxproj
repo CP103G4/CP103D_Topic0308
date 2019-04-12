@@ -20,6 +20,7 @@
 		1152F3B5224A2BE000C96CCF /* Map2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152F3B4224A2BE000C96CCF /* Map2VC.swift */; };
 		115832072239078900C4522C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115832062239078900C4522C /* Common.swift */; };
 		11583209223A344900C4522C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11583208223A344900C4522C /* User.swift */; };
+		1177B88B226074BB00236283 /* ConsumerInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1177B88A226074BB00236283 /* ConsumerInformation.storyboard */; };
 		1841177D224A17BE00D878D5 /* ManTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841177A224A17BE00D878D5 /* ManTableViewCell.swift */; };
 		1841177E224A17BE00D878D5 /* ManCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841177B224A17BE00D878D5 /* ManCollectionViewCell.swift */; };
 		1841177F224A17BE00D878D5 /* ManTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841177C224A17BE00D878D5 /* ManTableViewController.swift */; };
@@ -47,7 +48,6 @@
 		1899234C2232425600B9DC1C /* ConsumerHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1899234B2232425600B9DC1C /* ConsumerHome.storyboard */; };
 		1899234E2232436300B9DC1C /* ConsumerMyfavorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1899234D2232436300B9DC1C /* ConsumerMyfavorite.storyboard */; };
 		189923502232440600B9DC1C /* ConsumerShoppingcar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1899234F2232440600B9DC1C /* ConsumerShoppingcar.storyboard */; };
-		189923542232452D00B9DC1C /* ConsumerInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189923532232452D00B9DC1C /* ConsumerInformation.storyboard */; };
 		189923562232458D00B9DC1C /* ManagerHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189923552232458D00B9DC1C /* ManagerHome.storyboard */; };
 		18992358223245FA00B9DC1C /* ManagerUpload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18992357223245FA00B9DC1C /* ManagerUpload.storyboard */; };
 		1899235A2232469D00B9DC1C /* ManagerOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189923592232469D00B9DC1C /* ManagerOrder.storyboard */; };
@@ -60,8 +60,6 @@
 		1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */; };
 		1D5FC0DC223CDAF90065C308 /* ManagerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */; };
 		1D6CAC592255AF1300BF05CB /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6CAC582255AF1300BF05CB /* ChartVC.swift */; };
-		1DAF78C7225AD615007FA3F6 /* ThisMonthChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAF78C6225AD615007FA3F6 /* ThisMonthChartVC.swift */; };
-		1DAF78C9225AD634007FA3F6 /* LastMonthChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAF78C8225AD634007FA3F6 /* LastMonthChartVC.swift */; };
 		1DC451FC22326FA5003BD747 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC451FB22326FA5003BD747 /* Order.swift */; };
 		1DC451FE22326FFB003BD747 /* ManagerOrderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC451FD22326FFB003BD747 /* ManagerOrderTVC.swift */; };
 		1DCAC590225F2A3E00431A1A /* ManagerOrderdetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCAC58F225F2A3E00431A1A /* ManagerOrderdetailTVC.swift */; };
@@ -94,6 +92,7 @@
 		1152F3B4224A2BE000C96CCF /* Map2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map2VC.swift; sourceTree = "<group>"; };
 		115832062239078900C4522C /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		11583208223A344900C4522C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1177B88A226074BB00236283 /* ConsumerInformation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConsumerInformation.storyboard; sourceTree = "<group>"; };
 		1841177A224A17BE00D878D5 /* ManTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManTableViewCell.swift; sourceTree = "<group>"; };
 		1841177B224A17BE00D878D5 /* ManCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManCollectionViewCell.swift; sourceTree = "<group>"; };
 		1841177C224A17BE00D878D5 /* ManTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManTableViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +123,6 @@
 		1899234B2232425600B9DC1C /* ConsumerHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConsumerHome.storyboard; sourceTree = "<group>"; };
 		1899234D2232436300B9DC1C /* ConsumerMyfavorite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConsumerMyfavorite.storyboard; sourceTree = "<group>"; };
 		1899234F2232440600B9DC1C /* ConsumerShoppingcar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConsumerShoppingcar.storyboard; sourceTree = "<group>"; };
-		189923532232452D00B9DC1C /* ConsumerInformation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConsumerInformation.storyboard; sourceTree = "<group>"; };
 		189923552232458D00B9DC1C /* ManagerHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerHome.storyboard; sourceTree = "<group>"; };
 		18992357223245FA00B9DC1C /* ManagerUpload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerUpload.storyboard; sourceTree = "<group>"; };
 		189923592232469D00B9DC1C /* ManagerOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerOrder.storyboard; sourceTree = "<group>"; };
@@ -136,8 +134,6 @@
 		1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderEditTVC.swift; sourceTree = "<group>"; };
 		1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderCell.swift; sourceTree = "<group>"; };
 		1D6CAC582255AF1300BF05CB /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
-		1DAF78C6225AD615007FA3F6 /* ThisMonthChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisMonthChartVC.swift; sourceTree = "<group>"; };
-		1DAF78C8225AD634007FA3F6 /* LastMonthChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastMonthChartVC.swift; sourceTree = "<group>"; };
 		1DC451FB22326FA5003BD747 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		1DC451FD22326FFB003BD747 /* ManagerOrderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderTVC.swift; sourceTree = "<group>"; };
 		1DCAC58F225F2A3E00431A1A /* ManagerOrderdetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderdetailTVC.swift; sourceTree = "<group>"; };
@@ -175,7 +171,7 @@
 		1137ECFC2248ACE500F03C4E /* Information */ = {
 			isa = PBXGroup;
 			children = (
-				189923532232452D00B9DC1C /* ConsumerInformation.storyboard */,
+				1177B88A226074BB00236283 /* ConsumerInformation.storyboard */,
 				1137ECFD2248AE4200F03C4E /* Spot.swift */,
 				1137ECFA2248ACB500F03C4E /* MapVC.swift */,
 				1152F3B4224A2BE000C96CCF /* Map2VC.swift */,
@@ -185,6 +181,16 @@
 				CE79C2F42241FF2E004FA4F5 /* G87ConsumerInformationViewController.swift */,
 			);
 			path = Information;
+			sourceTree = "<group>";
+		};
+		116091BD225CDA290066073D /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				CE9A1B5D225238C4000263A0 /* Orderdetail.swift */,
+				1899234D2232436300B9DC1C /* ConsumerMyfavorite.storyboard */,
+				1137ECD6224479BB00F03C4E /* FavoriteTVC.swift */,
+			);
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 		1856201E2240E0AF0016EB44 /* ConsumerHome */ = {
@@ -312,12 +318,10 @@
 				11583208223A344900C4522C /* User.swift */,
 				1137ECD82244CB1400F03C4E /* Good.swift */,
 				1DC451FB22326FA5003BD747 /* Order.swift */,
-				CE9A1B5D225238C4000263A0 /* Orderdetail.swift */,
 				1135C36122327745002C9C80 /* signupVC.swift */,
 				11460BA422354BCC0046DF35 /* loginVC.swift */,
 				115832062239078900C4522C /* Common.swift */,
-				1899234D2232436300B9DC1C /* ConsumerMyfavorite.storyboard */,
-				1137ECD6224479BB00F03C4E /* FavoriteTVC.swift */,
+				116091BD225CDA290066073D /* Favorite */,
 				1137ECFC2248ACE500F03C4E /* Information */,
 				CE79C2EF2241F9D0004FA4F5 /* ConsumerOrder */,
 				CE592A532244D08700DF552F /* ShoppingCart */,
@@ -349,8 +353,6 @@
 			children = (
 				1899235B223246FC00B9DC1C /* ManagerChart.storyboard */,
 				1D6CAC582255AF1300BF05CB /* ChartVC.swift */,
-				1DAF78C6225AD615007FA3F6 /* ThisMonthChartVC.swift */,
-				1DAF78C8225AD634007FA3F6 /* LastMonthChartVC.swift */,
 			);
 			name = "ＭanagerChart";
 			sourceTree = "<group>";
@@ -465,8 +467,8 @@
 				1899233F22323DBD00B9DC1C /* Main.storyboard in Resources */,
 				1899234E2232436300B9DC1C /* ConsumerMyfavorite.storyboard in Resources */,
 				1899235A2232469D00B9DC1C /* ManagerOrder.storyboard in Resources */,
-				189923542232452D00B9DC1C /* ConsumerInformation.storyboard in Resources */,
 				18992358223245FA00B9DC1C /* ManagerUpload.storyboard in Resources */,
+				1177B88B226074BB00236283 /* ConsumerInformation.storyboard in Resources */,
 				1899234C2232425600B9DC1C /* ConsumerHome.storyboard in Resources */,
 				189923502232440600B9DC1C /* ConsumerShoppingcar.storyboard in Resources */,
 				189B147F226071B500EFCB5E /* TPDirectResource in Resources */,
@@ -578,7 +580,6 @@
 				1841177D224A17BE00D878D5 /* ManTableViewCell.swift in Sources */,
 				1152F3B5224A2BE000C96CCF /* Map2VC.swift in Sources */,
 				185620242240E2AC0016EB44 /* WomanCollectionviewCell.swift in Sources */,
-				1DAF78C9225AD634007FA3F6 /* LastMonthChartVC.swift in Sources */,
 				185620202240E0F80016EB44 /* WomanTableViewController.swift in Sources */,
 				1137ECFE2248AE4200F03C4E /* Spot.swift in Sources */,
 				11583209223A344900C4522C /* User.swift in Sources */,
@@ -589,7 +590,6 @@
 				CE592A502244D07F00DF552F /* CartCell.swift in Sources */,
 				188A8F68224FB72300F68CA6 /* ManagerWomanCollectionViewCell.swift in Sources */,
 				188A8F6A224FB72300F68CA6 /* ManagerHomeCollectionViewCell.swift in Sources */,
-				1DAF78C7225AD615007FA3F6 /* ThisMonthChartVC.swift in Sources */,
 				1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */,
 				188E5C2622537EBB009A166D /* ManagerUpdateGoodTableViewController.swift in Sources */,
 				1899233A22323DBD00B9DC1C /* AppDelegate.swift in Sources */,
