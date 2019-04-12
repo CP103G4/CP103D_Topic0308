@@ -73,14 +73,14 @@ class PayforcardViewController: UIViewController {
             print(result)
             
             DispatchQueue.main.async {
-                let payment = "Use below cURL to proceed the payment.\ncurl -X POST \\\nhttps://sandbox.tappaysdk.com/tpc/payment/pay-by-prime \\\n-H \'content-type: application/json\' \\\n-H \'x-api-key: partner_6ID1DoDlaPrfHw6HBZsULfTYtDmWs0q0ZZGKMBpp4YICWBxgK97eK3RM\' \\\n-d \'{ \n \"prime\": \"\(prime!)\", \"partner_key\": \"partner_6ID1DoDlaPrfHw6HBZsULfTYtDmWs0q0ZZGKMBpp4YICWBxgK97eK3RM\", \"merchant_id\": \"GlobalTesting_CTBC\", \"details\":\"TapPay Test\", \"amount\": 100, \"cardholder\": { \"phone_number\": \"+886923456789\", \"name\": \"Jane Doe\", \"email\": \"Jane@Doe.com\", \"zip_code\": \"12345\", \"address\": \"123 1st Avenue, City, Country\", \"national_id\": \"A123456789\" }, \"remember\": true }\'"
-                self.displayText.text = payment
-                print(payment)
+                //                let payment = "Use below cURL to proceed the payment.\ncurl -X POST \\\nhttps://sandbox.tappaysdk.com/tpc/payment/pay-by-prime \\\n-H \'content-type: application/json\' \\\n-H \'x-api-key: partner_6ID1DoDlaPrfHw6HBZsULfTYtDmWs0q0ZZGKMBpp4YICWBxgK97eK3RM\' \\\n-d \'{ \n \"prime\": \"\(prime!)\", \"partner_key\": \"partner_6ID1DoDlaPrfHw6HBZsULfTYtDmWs0q0ZZGKMBpp4YICWBxgK97eK3RM\", \"merchant_id\": \"GlobalTesting_CTBC\", \"details\":\"TapPay Test\", \"amount\": 100, \"cardholder\": { \"phone_number\": \"+886923456789\", \"name\": \"Jane Doe\", \"email\": \"Jane@Doe.com\", \"zip_code\": \"12345\", \"address\": \"123 1st Avenue, City, Country\", \"national_id\": \"A123456789\" }, \"remember\": true }\'"
+                //                self.displayText.text = payment
+                //                print(payment)
                 
             }
             
             weak var weakSelf = self
-            weakSelf?.showResult(message: result)
+            weakSelf?.showResult(message: "付款成功")
             
             
             // 3. Setup TPDCard on Failure Callback.
@@ -115,13 +115,17 @@ class PayforcardViewController: UIViewController {
         
         let alertController = UIAlertController(title: "Result", message: message, preferredStyle: UIAlertController.Style.alert)
         
-        let doneAction = UIAlertAction.init(title: "Done", style: UIAlertAction.Style.default, handler: nil)
+        let doneAction = UIAlertAction(title: "Done", style: .default) { (_) in
+            self.performSegue(withIdentifier: "ThankPage", sender: nil)
+            
+        }
         
         alertController.addAction(doneAction)
         
         DispatchQueue.main.async {
             weak var weakSelf = self
-            weakSelf?.present(alertController, animated: true, completion: nil)
+            weakSelf?.present(alertController, animated: true, completion: {
+            })
         }
         
     }
