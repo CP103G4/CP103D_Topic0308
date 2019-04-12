@@ -21,6 +21,12 @@ class Order : NSObject, NSSecureCoding, Codable {
     var address:String?
     var userId:Int?
     
+    
+    init (_ id : Int ,_ status : Int ){
+        self.id = id
+        self.status = status
+    }
+    
     init (_ status : Int ,_ payment : Int,_ userId : Int,_ address : String ){
         self.status = status
         self.payment = payment
