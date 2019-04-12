@@ -15,9 +15,6 @@ import FBSDKLoginKit
 
 class loginVC: UIViewController,FBSDKLoginButtonDelegate {
     
-    
-    
-    
     @IBOutlet weak var facebookButton: FBSDKLoginButton!
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -33,6 +30,25 @@ class loginVC: UIViewController,FBSDKLoginButtonDelegate {
         facebookButton.readPermissions = ["email"]
         loginManager = FBSDKLoginManager()
         loginManager?.loginBehavior = FBSDKLoginBehavior.web
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // 取userDefaults的值出來
+        user = loadUser()
+        userTextField.text = user?.userName
+        passwordTextField.text = user?.password
+        navigationController?.isNavigationBarHidden = true
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func clickLogin(_ sender: UIButton) {
@@ -115,17 +131,8 @@ class loginVC: UIViewController,FBSDKLoginButtonDelegate {
         present(controller, animated: true, completion: nil)
         }
         //performSegue(withIdentifier: "toMainPage", sender: nil)
-        
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        // 取userDefaults的值出來
-        user = loadUser()
-        userTextField.text = user?.userName
-        passwordTextField.text = user?.password
-
-    }
     
     
     @IBAction func clickClear(_ sender: Any) {
@@ -166,18 +173,75 @@ class loginVC: UIViewController,FBSDKLoginButtonDelegate {
             loginManager?.logIn(withReadPermissions: ["email"], from: self, handler: { (result, error) in
                 if error == nil {
                     if result != nil && !result!.isCancelled {
+                        
+                        self.saveProfile()
                         self.next()
                     }
                 }
             })
         } else {
-             self.next()
+             saveProfile()
+             next()
         }
+    }
+    
+
+    
+    func saveProfile(){
+        // 可以指定照片尺寸，參看https://developers.facebook.com/docs/graph-api/reference/user/picture/
+        let param = ["fields":"id, name, email, picture.width(600).height(600)"]
+        // let param = ["fields":"name, email, picture.type(large)"]
+        let myGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: param)
+        var userName = ""
+        var email = ""
+        
+        myGraphRequest?.start(completionHandler: { (connection, result, error) in
+            if error == nil {
+                if result != nil {
+                    print("result: \(result!)")
+                    if let resultDic = result as? [String : Any]{
+                        userName = resultDic["name"] as! String
+                        email = resultDic["email"] as! String
+                    }
+
+                    let user1 = User(email, email)
+                    let user2 = User(userName: email, password: email, trueName: userName, phone: "", email: email, sex: -1)
+                    self.user = user2
+            
+                    let saved = saveUser(user1)
+                    print("saved = \(saved)")
+                    
+                    var requestParam = [String: String]()
+                    requestParam["action"] = "insert"
+                    requestParam["user"] = try! String(data: JSONEncoder().encode(self.user), encoding: .utf8)
+                    executeTask(self.url_server!, requestParam) { (data, response, error) in
+                        if error == nil {
+                            if data != nil {
+                                if let result = String(data: data!, encoding: .utf8) {
+                                    if let count = Int(result) {
+                                        DispatchQueue.main.async {
+                                            if count != 0 {
+                                            
+                                            } else {
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            print(error!.localizedDescription)
+                        }
+                    }
+                }
+            }
+        })
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("登出")
     }
+
     
     
 }

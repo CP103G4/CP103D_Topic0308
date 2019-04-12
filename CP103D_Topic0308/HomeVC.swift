@@ -27,6 +27,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate {
         // Do any additional setup after loading the view.
     }
     
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         mainclassSegment.selectedSegmentIndex = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
     }
