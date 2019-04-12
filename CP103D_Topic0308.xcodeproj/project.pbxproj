@@ -73,6 +73,7 @@
 		CE79C2F22241FB83004FA4F5 /* G87orderdetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79C2F02241FB82004FA4F5 /* G87orderdetailViewController.swift */; };
 		CE79C2F32241FB83004FA4F5 /* G87orderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79C2F12241FB83004FA4F5 /* G87orderViewController.swift */; };
 		CE79C2F7224207D5004FA4F5 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79C2F6224207D5004FA4F5 /* OrderTableViewCell.swift */; };
+		CE7CE720226078FA00290DF8 /* ScanQRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CE71F226078FA00290DF8 /* ScanQRCodeVC.swift */; };
 		CE9A1B56224D7E5E000263A0 /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A1B55224D7E5E000263A0 /* CheckTableViewCell.swift */; };
 		CE9A1B5C2252388E000263A0 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A1B5B2252388E000263A0 /* ConfirmationViewController.swift */; };
 		CE9A1B5E225238C4000263A0 /* Orderdetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A1B5D225238C4000263A0 /* Orderdetail.swift */; };
@@ -150,6 +151,7 @@
 		CE79C2F12241FB83004FA4F5 /* G87orderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = G87orderViewController.swift; sourceTree = "<group>"; };
 		CE79C2F42241FF2E004FA4F5 /* G87ConsumerInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = G87ConsumerInformationViewController.swift; sourceTree = "<group>"; };
 		CE79C2F6224207D5004FA4F5 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		CE7CE71F226078FA00290DF8 /* ScanQRCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanQRCodeVC.swift; sourceTree = "<group>"; };
 		CE9A1B55224D7E5E000263A0 /* CheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTableViewCell.swift; sourceTree = "<group>"; };
 		CE9A1B5B2252388E000263A0 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 		CE9A1B5D225238C4000263A0 /* Orderdetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orderdetail.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */,
 				1DCAC591225F2AC100431A1A /* ManagerOrderdetailCell.swift */,
 				1DC451FD22326FFB003BD747 /* ManagerOrderTVC.swift */,
+				CE7CE71F226078FA00290DF8 /* ScanQRCodeVC.swift */,
 			);
 			name = ManagerOrder;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				185620242240E2AC0016EB44 /* WomanCollectionviewCell.swift in Sources */,
 				185620202240E0F80016EB44 /* WomanTableViewController.swift in Sources */,
 				1137ECFE2248AE4200F03C4E /* Spot.swift in Sources */,
+				CE7CE720226078FA00290DF8 /* ScanQRCodeVC.swift in Sources */,
 				11583209223A344900C4522C /* User.swift in Sources */,
 				1135C36222327745002C9C80 /* signupVC.swift in Sources */,
 				1DC451FC22326FA5003BD747 /* Order.swift in Sources */,
