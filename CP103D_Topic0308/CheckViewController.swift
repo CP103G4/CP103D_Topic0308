@@ -166,6 +166,17 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
         }
+        
+        switch scPayment.selectedSegmentIndex {
+        case 0:
+            self.performSegue(withIdentifier: "Thankyou", sender: self)
+            break
+        case 1:
+            self.performSegue(withIdentifier: "payforCard", sender: self)
+            break
+        default:
+            break
+        }
         //                //新增訂單明細
         //                let name = self.cellname.text == nil ? "" : self.cellname.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         //                let color = self.cellcolor.text == nil ? "" : self.cellname.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -225,7 +236,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let orderAlert = UIAlertController(title: "訂購完成", message: "你的訂單金額: \(String(describing: labelTotalPrice!.text))", preferredStyle: .alert)
         //        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
-            self.performSegue(withIdentifier: "Thankyou", sender: self)
+//            self.performSegue(withIdentifier: "Thankyou", sender: self)
         }
         orderAlert.addAction(okAction)
         present(orderAlert, animated: true, completion: nil)
@@ -237,7 +248,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let orderAlert = UIAlertController(title: "感謝您的購買", message: "你的訂單金額: \(String(describing: labelTotalPrice!.text))", preferredStyle: .alert)
         //        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
-            self.performSegue(withIdentifier: "Thankyou", sender: self)
+//            self.performSegue(withIdentifier: "Thankyou", sender: self)
         }
         orderAlert.addAction(okAction)
         present(orderAlert, animated: true, completion: nil)

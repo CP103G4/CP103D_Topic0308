@@ -52,6 +52,9 @@
 		18992358223245FA00B9DC1C /* ManagerUpload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18992357223245FA00B9DC1C /* ManagerUpload.storyboard */; };
 		1899235A2232469D00B9DC1C /* ManagerOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189923592232469D00B9DC1C /* ManagerOrder.storyboard */; };
 		1899235C223246FD00B9DC1C /* ManagerChart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1899235B223246FC00B9DC1C /* ManagerChart.storyboard */; };
+		189B147D226071A100EFCB5E /* TPDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189B147C226071A100EFCB5E /* TPDirect.framework */; };
+		189B147F226071B500EFCB5E /* TPDirectResource in Resources */ = {isa = PBXBuildFile; fileRef = 189B147E226071B500EFCB5E /* TPDirectResource */; };
+		189B1482226075B300EFCB5E /* PayforcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189B1481226075B300EFCB5E /* PayforcardViewController.swift */; };
 		18CEAEB02242491B00023B7E /* G87ConsumerInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79C2F42241FF2E004FA4F5 /* G87ConsumerInformationViewController.swift */; };
 		18DD68E3225DF39C00C7C969 /* GooddetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F3B224B748A00F68CA6 /* GooddetailViewController.swift */; };
 		1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */; };
@@ -126,6 +129,10 @@
 		18992357223245FA00B9DC1C /* ManagerUpload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerUpload.storyboard; sourceTree = "<group>"; };
 		189923592232469D00B9DC1C /* ManagerOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerOrder.storyboard; sourceTree = "<group>"; };
 		1899235B223246FC00B9DC1C /* ManagerChart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManagerChart.storyboard; sourceTree = "<group>"; };
+		189B147C226071A100EFCB5E /* TPDirect.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TPDirect.framework; sourceTree = "<group>"; };
+		189B147E226071B500EFCB5E /* TPDirectResource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TPDirectResource; sourceTree = "<group>"; };
+		189B14802260720000EFCB5E /* CP103D_Topic0308-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CP103D_Topic0308-Bridging-Header.h"; sourceTree = "<group>"; };
+		189B1481226075B300EFCB5E /* PayforcardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayforcardViewController.swift; sourceTree = "<group>"; };
 		1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderEditTVC.swift; sourceTree = "<group>"; };
 		1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderCell.swift; sourceTree = "<group>"; };
 		1D6CAC582255AF1300BF05CB /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
@@ -158,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				535D7E0CF8024CC84323D27D /* Pods_CP103D_Topic0308.framework in Frameworks */,
+				189B147D226071A100EFCB5E /* TPDirect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +284,7 @@
 		1899232D22323DBD00B9DC1C = {
 			isa = PBXGroup;
 			children = (
+				189B147E226071B500EFCB5E /* TPDirectResource */,
 				1899233822323DBD00B9DC1C /* CP103D_Topic0308 */,
 				1899233722323DBD00B9DC1C /* Products */,
 				B3B42284E493F10EDB128532 /* Pods */,
@@ -294,6 +303,7 @@
 		1899233822323DBD00B9DC1C /* CP103D_Topic0308 */ = {
 			isa = PBXGroup;
 			children = (
+				189B147C226071A100EFCB5E /* TPDirect.framework */,
 				1899233922323DBD00B9DC1C /* AppDelegate.swift */,
 				1899233D22323DBD00B9DC1C /* Main.storyboard */,
 				1899234022323DBE00B9DC1C /* Assets.xcassets */,
@@ -316,6 +326,7 @@
 				188A8F74224FB80100F68CA6 /* ManagerUpload */,
 				1D6CAC572255ABE300BF05CB /* ＭanagerChart */,
 				1D5FC0D1223CD3370065C308 /* ManagerOrder */,
+				189B14802260720000EFCB5E /* CP103D_Topic0308-Bridging-Header.h */,
 			);
 			path = CP103D_Topic0308;
 			sourceTree = "<group>";
@@ -371,6 +382,7 @@
 				CE9A1B55224D7E5E000263A0 /* CheckTableViewCell.swift */,
 				CE592A4D2244D07E00DF552F /* CheckViewController.swift */,
 				CE9A1B5B2252388E000263A0 /* ConfirmationViewController.swift */,
+				189B1481226075B300EFCB5E /* PayforcardViewController.swift */,
 			);
 			name = ShoppingCart;
 			sourceTree = "<group>";
@@ -457,6 +469,7 @@
 				18992358223245FA00B9DC1C /* ManagerUpload.storyboard in Resources */,
 				1899234C2232425600B9DC1C /* ConsumerHome.storyboard in Resources */,
 				189923502232440600B9DC1C /* ConsumerShoppingcar.storyboard in Resources */,
+				189B147F226071B500EFCB5E /* TPDirectResource in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +541,7 @@
 			files = (
 				1137ECD92244CB1C00F03C4E /* Good.swift in Sources */,
 				1DCAC592225F2AC100431A1A /* ManagerOrderdetailCell.swift in Sources */,
+				189B1482226075B300EFCB5E /* PayforcardViewController.swift in Sources */,
 				1841177E224A17BE00D878D5 /* ManCollectionViewCell.swift in Sources */,
 				18DD68E3225DF39C00C7C969 /* GooddetailViewController.swift in Sources */,
 				188A8F6E224FB72300F68CA6 /* ManagerWomanTableViewController.swift in Sources */,
@@ -730,6 +744,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X725M6FRD5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CP103D_Topic0308",
+				);
 				INFOPLIST_FILE = CP103D_Topic0308/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -738,6 +756,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CP103D-Topic0308";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/apple/Desktop/appClass/iOSApp/CP103DTopic0412/CP103D_Topic0308/CP103D_Topic0308/CP103D_Topic0308-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -750,6 +769,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X725M6FRD5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CP103D_Topic0308",
+				);
 				INFOPLIST_FILE = CP103D_Topic0308/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -758,6 +781,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CP103D-Topic0308";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/apple/Desktop/appClass/iOSApp/CP103DTopic0412/CP103D_Topic0308/CP103D_Topic0308/CP103D_Topic0308-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
