@@ -88,7 +88,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         for cart in carts {
             total += cart.price * Double(cart.quatity)
         }
-        return total.description
+        return Int(total).description
     }
     
     
@@ -177,41 +177,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         default:
             break
         }
-        //                //新增訂單明細
-        //                let name = self.cellname.text == nil ? "" : self.cellname.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        //                let color = self.cellcolor.text == nil ? "" : self.cellname.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        //                let size = self.cellsize.text == nil ? "" : self.cellname.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        //                let amount = self.cellamount.text == nil ? "" : self.cellname.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        //                let orderdetail = Orderdetail(Int(name)!,color,size,Int(amount)!)
-        //
-        //
-        //                var requestParam1 = [String: String]()
-        //                requestParam1["action"] = "orderdetailInsert"
-        //                requestParam1["orderdetail"] = try! String(data: JSONEncoder().encode(orderdetail), encoding: .utf8)
-        //                //        // 有圖才上傳
-        //                //        if self.image != nil {
-        //                //            requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
-        //                //        }
-        //                executeTask(self.url_server3!, requestParam) { (data, response, error) in
-        //                    if error == nil {
-        //                        if data != nil {
-        //                            if let result = String(data: data!, encoding: .utf8) {
-        //                                if let count = Int(result) {
-        //                                    DispatchQueue.main.async {
-        //                                        // 新增成功則回前頁
-        //                                        if count != 0 {
-        //                                        } else {
-        //                                            //                                    self.label.text = "insert fail"
-        //                                        }
-        //                                    }
-        //                                }
-        //                            }
-        //                        }
-        //                    } else {
-        //                        print(error!.localizedDescription)
-        //                    }
-        //                }
-        //
+        
         
     }
     
@@ -257,7 +223,6 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     func delete() {
-        //刪除存檔
         //刪除畫面
         carts.removeAll()
         
@@ -271,35 +236,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     
-    //    @objc func checkout(){
-    //        var requestParam = [String: String]()
-    //        requestParam["action"] = "orderInsert"
-    //        requestParam["order"] = try! String(data: JSONEncoder().encode(order), encoding: .utf8)
-    //        //        // 有圖才上傳
-    //        //        if self.image != nil {
-    //        //            requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
-    //        //        }
-    //        executeTask(self.url_server2!, requestParam) { (data, response, error) in
-    //            if error == nil {
-    //                if data != nil {
-    //                    if let result = String(data: data!, encoding: .utf8) {
-    //                        if let count = Int(result) {
-    //                            DispatchQueue.main.async {
-    //                                // 新增成功則回前頁
-    //                                if count != 0 {                                            self.navigationController?.popViewController(animated: true)
-    //                                } else {
-    //                                    //                                    self.label.text = "insert fail"
-    //                                }
-    //                            }
-    //                        }
-    //                    }
-    //                }
-    //            } else {
-    //                print(error!.localizedDescription)
-    //            }
-    //        }
-    //
-    //    }
+    
     
     @objc func insertOrderdetail() {
         for i in 0...orderdrtails.count-1 {

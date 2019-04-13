@@ -82,7 +82,7 @@ class ManagerOrderdetailTVC: UITableViewController {
             for good in goods{
                 totalPrice += (good.price * Double(good.quatity))
             }
-            totalCell.lbTotalPrice.text = totalPrice.description
+            totalCell.lbTotalPrice.text = Int(totalPrice).description
             return totalCell
             
         } else {

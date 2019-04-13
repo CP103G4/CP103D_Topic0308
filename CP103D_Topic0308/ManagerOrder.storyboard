@@ -99,11 +99,6 @@
                                 <action selector="searchClick:" destination="QYj-kw-g2V" id="mDV-j0-pLx"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Scan" id="6Ws-9P-M33">
-                            <connections>
-                                <action selector="editClick:" destination="QYj-kw-g2V" id="riX-eq-MKQ"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>

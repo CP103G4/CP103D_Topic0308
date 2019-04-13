@@ -150,10 +150,6 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
     }
     
     
-    @IBAction func editClick(_ sender: Any) {
-    }
-    
-    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {

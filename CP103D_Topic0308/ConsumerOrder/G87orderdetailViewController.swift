@@ -105,7 +105,7 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
         for good in orderdetail{
             totalPrice += (good.price * Double(good.quatity))
         }
-        totalprice.text = totalPrice.description
+        totalprice.text = Int(totalPrice).description
         
         return cell
     }
