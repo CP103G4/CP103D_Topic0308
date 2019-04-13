@@ -18,6 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" red="0.97254901960784312" green="0.73333333333333328" blue="0.81568627450980391" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ordersCell" rowHeight="100" id="sCn-Rd-b8T" customClass="ManagerOrderCell" customModule="CP103D_Topic0308" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
@@ -78,6 +79,7 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="NJy-l9-YoT" secondAttribute="trailing" constant="40" id="pgS-eQ-FJn"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.93333333333333335" blue="1" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="lbOrderDate" destination="CrW-hb-HwM" id="z7G-kJ-R76"/>
                                     <outlet property="lbOrderId" destination="uAJ-26-r1V" id="O7f-VG-rPM"/>
@@ -223,6 +225,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" red="0.97254901959999995" green="0.73333333329999995" blue="0.81568627449999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="goodsCell" rowHeight="150" id="xCh-ZF-6XD" customClass="ManagerOrderdetailCell" customModule="CP103D_Topic0308" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="150"/>
@@ -300,6 +303,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.93333333333333335" blue="1" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="ivPhoto" destination="zW0-Io-lt3" id="flY-iO-Ggl"/>
                                     <outlet property="lbColor" destination="ewM-p8-laT" id="WkE-fb-n3s"/>
@@ -336,6 +340,7 @@
                                         <constraint firstItem="OWr-Dz-mSl" firstAttribute="top" secondItem="14n-t6-331" secondAttribute="topMargin" constant="5" id="ku8-B5-qu3"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.93333333333333335" blue="1" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="lbTotalPrice" destination="OWr-Dz-mSl" id="QCD-HX-pr2"/>
                                 </connections>

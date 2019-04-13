@@ -131,4 +131,13 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
      }
      */
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showQRcode" {
+            let order = self.order
+            let controller = segue.destination as! ShowQRcodeVC
+            controller.order = order
+        }
+        
+    }
 }

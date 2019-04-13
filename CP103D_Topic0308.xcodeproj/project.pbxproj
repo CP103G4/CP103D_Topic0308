@@ -61,6 +61,7 @@
 		1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */; };
 		1D5FC0DC223CDAF90065C308 /* ManagerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */; };
 		1D6CAC592255AF1300BF05CB /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6CAC582255AF1300BF05CB /* ChartVC.swift */; };
+		1DABCBED226179410030C96D /* ShowQRcodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DABCBEC226179410030C96D /* ShowQRcodeVC.swift */; };
 		1DC451FC22326FA5003BD747 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC451FB22326FA5003BD747 /* Order.swift */; };
 		1DC451FE22326FFB003BD747 /* ManagerOrderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC451FD22326FFB003BD747 /* ManagerOrderTVC.swift */; };
 		1DCAC590225F2A3E00431A1A /* ManagerOrderdetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCAC58F225F2A3E00431A1A /* ManagerOrderdetailTVC.swift */; };
@@ -137,6 +138,7 @@
 		1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderEditTVC.swift; sourceTree = "<group>"; };
 		1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderCell.swift; sourceTree = "<group>"; };
 		1D6CAC582255AF1300BF05CB /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
+		1DABCBEC226179410030C96D /* ShowQRcodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowQRcodeVC.swift; sourceTree = "<group>"; };
 		1DC451FB22326FA5003BD747 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		1DC451FD22326FFB003BD747 /* ManagerOrderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderTVC.swift; sourceTree = "<group>"; };
 		1DCAC58F225F2A3E00431A1A /* ManagerOrderdetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderdetailTVC.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				CE79C2F12241FB83004FA4F5 /* G87orderViewController.swift */,
 				CE79C2F02241FB82004FA4F5 /* G87orderdetailViewController.swift */,
 				CE79C2F6224207D5004FA4F5 /* OrderTableViewCell.swift */,
+				1DABCBEC226179410030C96D /* ShowQRcodeVC.swift */,
 			);
 			path = ConsumerOrder;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				CE592A502244D07F00DF552F /* CartCell.swift in Sources */,
 				188A8F68224FB72300F68CA6 /* ManagerWomanCollectionViewCell.swift in Sources */,
 				188A8F6A224FB72300F68CA6 /* ManagerHomeCollectionViewCell.swift in Sources */,
+				1DABCBED226179410030C96D /* ShowQRcodeVC.swift in Sources */,
 				1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */,
 				188E5C2622537EBB009A166D /* ManagerUpdateGoodTableViewController.swift in Sources */,
 				1899233A22323DBD00B9DC1C /* AppDelegate.swift in Sources */,
