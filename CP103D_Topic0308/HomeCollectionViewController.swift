@@ -48,11 +48,8 @@ class HomeCollectionViewController: UICollectionViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
         let controller = segue.destination as! GooddetailViewController
-        let indexPath = self.collectionView.indexPath(for: sender as! UICollectionViewCell)
-        controller.goodDetail = goods[(indexPath?.row)!]
+        controller.goodDetail = sender as! Good
     }
  
 
@@ -96,6 +93,10 @@ class HomeCollectionViewController: UICollectionViewController {
         goodDetail = goods[indexPath.row]
         return cell    }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let goodDetail = goods[indexPath.row]
+        performSegue(withIdentifier: "home", sender: goodDetail)
+    }
     // MARK: UICollectionViewDelegate
 
     @objc func showAllGoods(){

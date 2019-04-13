@@ -217,20 +217,13 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         return [edit, delete]
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyboard = UIStoryboard(name: "ConsumerHome", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "gooddetailViewController") as! GooddetailViewController
-//        let goodname = carts[indexPath.row].name
-//        controller.goodName = goodname
-//        self.navigationController?.pushViewController(controller, animated: true)        
-//        present(controller, animated: true, completion: nil)
         if let gooddetailViewController = UIStoryboard(name: "ConsumerHome", bundle:nil).instantiateViewController(withIdentifier: "gooddetailViewController") as? GooddetailViewController {
             gooddetailViewController.goodName = carts[indexPath.row].name
-//            self.navigationController?.popToViewController(gooddetailViewController, animated: true)
-            self.show(gooddetailViewController, sender: nil)
-//            performSegue(withIdentifier: "forShoppingcar", sender: nil)
+            gooddetailViewController.isFromshoppingcar = true
+            navigationController?.pushViewController(gooddetailViewController, animated: true)
         }
     }
-
+    
     @IBAction func qualityStepperAction(_ sender: Any) {
         shoppingviewQuality.text = Int(shoppingviewStepper.value).description
     }

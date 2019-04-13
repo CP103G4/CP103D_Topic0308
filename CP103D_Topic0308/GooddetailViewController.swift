@@ -37,12 +37,15 @@ class GooddetailViewController: UIViewController {
     
     
     var goodName = "-1"
+    var isFromshoppingcar = false
+    
     
     var carts = [Cart]()
 
+    @IBOutlet weak var backItemoutlet: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if goodName != "-1" {
             navigationItem.title = goodName
             showGoodDetail()
@@ -149,7 +152,7 @@ class GooddetailViewController: UIViewController {
         }
     }
     @IBAction func backButton(_ sender: Any) {
-        if goodName != "-1" {
+        if goodName != "-1" && !isFromshoppingcar{
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "TabBar")
             present(controller, animated: true, completion: nil)
