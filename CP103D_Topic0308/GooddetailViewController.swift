@@ -213,13 +213,23 @@ class GooddetailViewController: UIViewController {
     }
     
     @IBAction func addtoShoppingcar(_ sender: Any) {
-        let shoppitem = Cart(id: goodDetail.id, name: goodDetail.name, descrip: goodDetail.descrip!, price: goodDetail.price, mainclass: goodDetail.mainclass, subclass: goodDetail.subclass, shelf: goodDetail.shelf, evulation: goodDetail.evulation, color1: shoppingviewDeepcolorBt.isSelected == true ? "1" : "0", color2: shoppingviewLightBt.isSelected == true ? "沒有用到" : "沒有用到", size1: shoppingviewSizeLBt.isSelected == true ? "1" : "0", size2: shoppingviewSizeXLBt.isSelected == false ? "沒有用到" : "沒有用到", specialPrice: Double(Int(goodDetail.specialPrice)), quatity: Int(shoppingviewStepper.value))
-        loadData()
-        carts.append(shoppitem)
-        saveData(carts: carts)
-        hideShoppingview()
-        clearShoppingview()
-        setBadgevalue()
+        if (shoppingviewDeepcolorBt.isSelected || shoppingviewLightBt.isSelected) && (shoppingviewSizeLBt.isSelected || shoppingviewSizeXLBt.isSelected) {
+            let shoppitem = Cart(id: goodDetail.id, name: goodDetail.name, descrip: goodDetail.descrip!, price: goodDetail.price, mainclass: goodDetail.mainclass, subclass: goodDetail.subclass, shelf: goodDetail.shelf, evulation: goodDetail.evulation, color1: shoppingviewDeepcolorBt.isSelected == true ? "1" : "0", color2: shoppingviewLightBt.isSelected == true ? "沒有用到" : "沒有用到", size1: shoppingviewSizeLBt.isSelected == true ? "1" : "0", size2: shoppingviewSizeXLBt.isSelected == false ? "沒有用到" : "沒有用到", specialPrice: Double(Int(goodDetail.specialPrice)), quatity: Int(shoppingviewStepper.value))
+            loadData()
+            carts.append(shoppitem)
+            saveData(carts: carts)
+            hideShoppingview()
+            clearShoppingview()
+            setBadgevalue()
+        }else if !(shoppingviewDeepcolorBt.isSelected || shoppingviewLightBt.isSelected){
+            let alert = UIAlertController.init(title: "顏色", message: "請選擇顏色", preferredStyle: .alert)
+            alert.addAction(UIAlertAction.init(title: "OK", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
+        }else if !(shoppingviewSizeLBt.isSelected || shoppingviewSizeXLBt.isSelected){
+            let alert = UIAlertController.init(title: "尺寸", message: "請選擇尺寸", preferredStyle: .alert)
+            alert.addAction(UIAlertAction.init(title: "OK", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     func setBadgevalue() {
         if carts.count == 0 {
