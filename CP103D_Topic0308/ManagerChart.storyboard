@@ -28,7 +28,7 @@
                                     <action selector="scChangeMonth:" destination="odk-pF-qJB" eventType="valueChanged" id="c5J-sL-L9e"/>
                                 </connections>
                             </segmentedControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJX-bT-LLr">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MJX-bT-LLr">
                                 <rect key="frame" x="0.0" y="92" width="375" height="526"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j56-M3-QDT">
@@ -69,6 +69,9 @@
                                     <constraint firstItem="uEM-1T-dET" firstAttribute="width" secondItem="MJX-bT-LLr" secondAttribute="width" id="X8g-ah-T7Z"/>
                                     <constraint firstItem="uEM-1T-dET" firstAttribute="height" secondItem="MJX-bT-LLr" secondAttribute="height" id="eD1-Kk-7A3"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="odk-pF-qJB" id="Htq-Aw-8jy"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

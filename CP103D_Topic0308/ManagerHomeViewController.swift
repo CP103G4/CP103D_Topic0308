@@ -19,6 +19,10 @@ class ManagerHomeViewController: UIViewController ,UIScrollViewDelegate{
         // Do any additional setup after loading the view.
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        mainclassSegment.selectedSegmentIndex = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
+    }
+    
     @IBAction func mainclassSegmentAction(_ sender: Any) {
         switch mainclassSegment.selectedSegmentIndex {
         case 0:

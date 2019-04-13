@@ -22,7 +22,14 @@ class ChartVC: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scMonth.selectedSegmentIndex = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
+        print(svChart.contentOffset.x)
     }
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        scMonth.selectedSegmentIndex = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
+//        print(scMonth.selectedSegmentIndex)
+//    }
+    
     
     
     @IBAction func scChangeMonth(_ sender: Any) {
