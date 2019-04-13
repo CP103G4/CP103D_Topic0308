@@ -15,6 +15,7 @@
 		1137ECFB2248ACB500F03C4E /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137ECFA2248ACB500F03C4E /* MapVC.swift */; };
 		1137ECFE2248AE4200F03C4E /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137ECFD2248AE4200F03C4E /* Spot.swift */; };
 		1137ED002248B0C300F03C4E /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1137ECFF2248B0C300F03C4E /* DetailVC.swift */; };
+		113C6E4D2261757300DA318B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 113C6E4B2261757300DA318B /* Model.xcdatamodeld */; };
 		11460BA3223547A70046DF35 /* memberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11460BA2223547A70046DF35 /* memberVC.swift */; };
 		11460BA522354BCC0046DF35 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11460BA422354BCC0046DF35 /* loginVC.swift */; };
 		1152F3B5224A2BE000C96CCF /* Map2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152F3B4224A2BE000C96CCF /* Map2VC.swift */; };
@@ -92,6 +93,7 @@
 		1137ECFA2248ACB500F03C4E /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		1137ECFD2248AE4200F03C4E /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		1137ECFF2248B0C300F03C4E /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		113C6E4C2261757300DA318B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		11460BA2223547A70046DF35 /* memberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memberVC.swift; sourceTree = "<group>"; };
 		11460BA422354BCC0046DF35 /* loginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
 		1152F3B4224A2BE000C96CCF /* Map2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map2VC.swift; sourceTree = "<group>"; };
@@ -196,9 +198,9 @@
 		116091BD225CDA290066073D /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
-				CE9A1B5D225238C4000263A0 /* Orderdetail.swift */,
 				1899234D2232436300B9DC1C /* ConsumerMyfavorite.storyboard */,
 				1137ECD6224479BB00F03C4E /* FavoriteTVC.swift */,
+				113C6E4B2261757300DA318B /* Model.xcdatamodeld */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -328,6 +330,7 @@
 				11583208223A344900C4522C /* User.swift */,
 				1137ECD82244CB1400F03C4E /* Good.swift */,
 				1DC451FB22326FA5003BD747 /* Order.swift */,
+				CE9A1B5D225238C4000263A0 /* Orderdetail.swift */,
 				1135C36122327745002C9C80 /* signupVC.swift */,
 				11460BA422354BCC0046DF35 /* loginVC.swift */,
 				115832062239078900C4522C /* Common.swift */,
@@ -573,6 +576,7 @@
 				188A8F5E224FB6F200F68CA6 /* ManagerHomeViewController.swift in Sources */,
 				1137ECD7224479BB00F03C4E /* FavoriteTVC.swift in Sources */,
 				CE9A1B5E225238C4000263A0 /* Orderdetail.swift in Sources */,
+				113C6E4D2261757300DA318B /* Model.xcdatamodeld in Sources */,
 				CE79C2F22241FB83004FA4F5 /* G87orderdetailViewController.swift in Sources */,
 				CE592A512244D07F00DF552F /* CheckViewController.swift in Sources */,
 				188A8F73224FB7F500F68CA6 /* ManagerUploadTableViewController.swift in Sources */,
@@ -829,6 +833,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		113C6E4B2261757300DA318B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				113C6E4C2261757300DA318B /* Model.xcdatamodel */,
+			);
+			currentVersion = 113C6E4C2261757300DA318B /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1899232E22323DBD00B9DC1C /* Project object */;
 }

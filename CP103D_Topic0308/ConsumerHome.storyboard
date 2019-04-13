@@ -106,6 +106,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNw-AH-e5m">
                                         <rect key="frame" x="121" y="0.0" width="83" height="30"/>
                                         <state key="normal" title="❤️追蹤清單"/>
+                                        <connections>
+                                            <action selector="openFavoriteView:" destination="ARd-ge-Jir" eventType="touchUpInside" id="EPB-Qn-Oa2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITh-oi-Syk">
                                         <rect key="frame" x="214" y="0.0" width="98" height="30"/>
