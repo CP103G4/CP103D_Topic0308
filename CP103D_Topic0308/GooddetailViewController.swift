@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class GooddetailViewController: UIViewController {
+
+    
     var goodDetail = Good.init(id: -1, name: "-1", descrip: "-1", price: -1, mainclass: "-1", subclass: "-1", shelf: "-1", evulation: -1, color1: "-1", color2: "-1", size1: "-1", size2: "-1", specialPrice: -1, quatity: -1)
     let url_server = URL(string: common_url + "GoodsServlet1")
 
@@ -39,6 +42,7 @@ class GooddetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if goodName != "-1" {
             navigationItem.title = goodName
             showGoodDetail()
@@ -153,6 +157,12 @@ class GooddetailViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
+    @IBAction func openFavoriteView(_ sender: Any) {
+        saveDataFavorite()
+        
+    }
+    
     @IBAction func openshoppingView(_ sender: Any) {
         self.navigationController?.navigationBar.alpha = 1
         backoutlet.isEnabled = false
@@ -165,9 +175,11 @@ class GooddetailViewController: UIViewController {
         }
         shoppingviewQuality.text = Int(shoppingviewStepper.value).description
     }
+    
     @IBAction func hideShoppingviewAction(_ sender: Any) {
         hideShoppingview()
     }
+    
     func hideShoppingview() {
         backoutlet.isEnabled = true
         self.navigationController?.navigationBar.alpha = 0.6
@@ -256,6 +268,20 @@ class GooddetailViewController: UIViewController {
                     //                    lbFile.text = "no data found error"
                 }
             }
+        }
+    }
+    
+    func saveDataFavorite(){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let favorite = NSEntityDescription.insertNewObject(forEntityName: "Favorite", into: context) as! Favorite
+        favorite.image = imageview.image?.jpegData(compressionQuality: 1.0)
+        favorite.name = navigationbarOutlet.title
+        do {
+            if context.hasChanges {
+                try context.save()
+            }
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
 }
