@@ -207,6 +207,14 @@ class GooddetailViewController: UIViewController {
         saveData(carts: carts)
         hideShoppingview()
         clearShoppingview()
+        setBadgevalue()
+    }
+    func setBadgevalue() {
+        if carts.count == 0 {
+            self.tabBarController?.viewControllers?[2].tabBarItem.badgeValue = nil
+        }else{
+            self.tabBarController?.viewControllers?[2].tabBarItem.badgeValue = carts.count.description
+        }
     }
     func clearShoppingview() {
         shoppingviewDeepcolorBt.isSelected = false

@@ -196,10 +196,7 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
                 self.shoppingviewSizeXLBt.isSelected = true
             }
             self.shoppingviewprice.text = Int(self.carts[indexPath.row].price).description
-//                        let spotUpdateVC = self.storyboard?.instantiateViewController(withIdentifier: "spotUpdateVC") as! SpotUpdateVC
-//                        let spot = self.spots[indexPath.row]
-//                        spotUpdateVC.spot = spot
-//                        self.navigationController?.pushViewController(spotUpdateVC, animated: true)
+            self.saveData(carts: self.carts)
                     })
         
         // 左滑時顯示Delete按鈕
@@ -207,7 +204,9 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
             let correctAlert = UIAlertController(title: "刪除商品", message: "確認是否刪除" + self.carts[indexPath.row].name, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
                 self.carts.remove(at: indexPath.row)
+                self.saveData(carts: self.carts)
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                self.setBadgevalue()
             }
             let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             correctAlert.addAction(okAction)
@@ -303,6 +302,13 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidDisappear(_ animated: Bool) {
         saveData(carts: carts)
+    }
+    func setBadgevalue() {
+        if carts.count == 0 {
+            self.tabBarController?.viewControllers?[2].tabBarItem.badgeValue = nil
+        }else{
+            self.tabBarController?.viewControllers?[2].tabBarItem.badgeValue = carts.count.description
+        }
     }
 
 }

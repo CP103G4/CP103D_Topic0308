@@ -15,7 +15,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var mainclassSegment: UISegmentedControl!
     @IBOutlet weak var scrollView: UIScrollView!
     var socket: WebSocket!
+    var carts = [Cart]()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let userInfo = loadUser()
@@ -24,6 +26,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate {
         socket = WebSocket(url: url_WebSocketserver!)
         socket.delegate = self
         socket.connect()
+        loadData()
         // Do any additional setup after loading the view.
     }
     
@@ -103,6 +106,35 @@ extension HomeVC: WebSocketDelegate{
         UNUserNotificationCenter.current().add(request, withCompletionHandler: {error in
 //            print("成功建立通知...")
         })
+    }
+    func fileInDocuments(fileName: String) -> URL {
+        let fileManager = FileManager()
+        let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        let fileUrl = urls.first!.appendingPathComponent(fileName)
+        return fileUrl
+    }
+    func loadData() {
+        let fileManager = FileManager()
+        let decoder = JSONDecoder()
+        let dataUrl = fileInDocuments(fileName: "cartData")
+        if fileManager.fileExists(atPath: dataUrl.path) {
+            if let data = try? Data(contentsOf: dataUrl) {
+                if let jsonData = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! Data {
+                    let result = try! decoder.decode([Cart].self, from: jsonData)
+                    carts = result
+                    setBadgevalue()
+                } else {
+                    //                    lbFile.text = "no data found error"
+                }
+            }
+        }
+    }
+    func setBadgevalue() {
+        if carts.count == 0 {
+            self.tabBarController?.viewControllers?[2].tabBarItem.badgeValue = nil
+        }else{
+            self.tabBarController?.viewControllers?[2].tabBarItem.badgeValue = carts.count.description
+        }
     }
 }
 
