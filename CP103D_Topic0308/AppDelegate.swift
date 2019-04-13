@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        UINavigationBar.appearance().barTintColor = UIColor(red: 196/255, green: 139/255, blue: 159/255, alpha: 1)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 248/255, green: 187/255, blue: 208/255, alpha: 1)
         
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         

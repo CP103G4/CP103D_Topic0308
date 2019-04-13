@@ -58,6 +58,8 @@
 		18CEAEB02242491B00023B7E /* G87ConsumerInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79C2F42241FF2E004FA4F5 /* G87ConsumerInformationViewController.swift */; };
 		18DD68E3225DF39C00C7C969 /* GooddetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F3B224B748A00F68CA6 /* GooddetailViewController.swift */; };
 		1D16CBBE22607C3C00677FEF /* TotalPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D16CBBD22607C3C00677FEF /* TotalPriceCell.swift */; };
+		1D2033992261BCC200A8F5D8 /* ThisMonthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2033982261BCC200A8F5D8 /* ThisMonthVC.swift */; };
+		1D20339B2261BCD300A8F5D8 /* LastMonthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D20339A2261BCD300A8F5D8 /* LastMonthVC.swift */; };
 		1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */; };
 		1D5FC0DC223CDAF90065C308 /* ManagerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */; };
 		1D6CAC592255AF1300BF05CB /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6CAC582255AF1300BF05CB /* ChartVC.swift */; };
@@ -135,6 +137,8 @@
 		189B14802260720000EFCB5E /* CP103D_Topic0308-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CP103D_Topic0308-Bridging-Header.h"; sourceTree = "<group>"; };
 		189B1481226075B300EFCB5E /* PayforcardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayforcardViewController.swift; sourceTree = "<group>"; };
 		1D16CBBD22607C3C00677FEF /* TotalPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalPriceCell.swift; sourceTree = "<group>"; };
+		1D2033982261BCC200A8F5D8 /* ThisMonthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisMonthVC.swift; sourceTree = "<group>"; };
+		1D20339A2261BCD300A8F5D8 /* LastMonthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastMonthVC.swift; sourceTree = "<group>"; };
 		1D2BE2C3224206330073BDE6 /* ManagerOrderEditTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderEditTVC.swift; sourceTree = "<group>"; };
 		1D5FC0DB223CDAF90065C308 /* ManagerOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerOrderCell.swift; sourceTree = "<group>"; };
 		1D6CAC582255AF1300BF05CB /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
@@ -361,6 +365,8 @@
 			children = (
 				1899235B223246FC00B9DC1C /* ManagerChart.storyboard */,
 				1D6CAC582255AF1300BF05CB /* ChartVC.swift */,
+				1D2033982261BCC200A8F5D8 /* ThisMonthVC.swift */,
+				1D20339A2261BCD300A8F5D8 /* LastMonthVC.swift */,
 			);
 			name = "ＭanagerChart";
 			sourceTree = "<group>";
@@ -572,6 +578,7 @@
 				188A8F73224FB7F500F68CA6 /* ManagerUploadTableViewController.swift in Sources */,
 				CE9A1B56224D7E5E000263A0 /* CheckTableViewCell.swift in Sources */,
 				188A8F6C224FB72300F68CA6 /* ManagerManCollectionViewCell.swift in Sources */,
+				1D2033992261BCC200A8F5D8 /* ThisMonthVC.swift in Sources */,
 				1D6CAC592255AF1300BF05CB /* ChartVC.swift in Sources */,
 				188A8F69224FB72300F68CA6 /* ManagerManTableViewController.swift in Sources */,
 				188A8F5D224FB6F200F68CA6 /* ManagerGooddetailViewController.swift in Sources */,
@@ -604,6 +611,7 @@
 				1DABCBED226179410030C96D /* ShowQRcodeVC.swift in Sources */,
 				1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */,
 				188E5C2622537EBB009A166D /* ManagerUpdateGoodTableViewController.swift in Sources */,
+				1D20339B2261BCD300A8F5D8 /* LastMonthVC.swift in Sources */,
 				1899233A22323DBD00B9DC1C /* AppDelegate.swift in Sources */,
 				1137ECD322436F6100F03C4E /* MemberUpdataVC.swift in Sources */,
 				CE592A572244E40600DF552F /* OrderdetailTableViewCell.swift in Sources */,
