@@ -336,10 +336,10 @@
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXr-Xy-DZL">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="880"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D63-RR-BVM">
-                                        <rect key="frame" x="0.0" y="425" width="414" height="300"/>
+                                        <rect key="frame" x="0.0" y="580" width="414" height="300"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxZ-zT-euh">
                                                 <rect key="frame" x="0.0" y="270" width="414" height="30"/>
@@ -427,6 +427,9 @@
                                                 <state key="normal" title="×">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="hideShoppingviewAction:" destination="mbG-oA-uJv" eventType="touchUpInside" id="Qvw-nW-b11"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q1L-WH-kSl">
                                                 <rect key="frame" x="8" y="-36" width="190" height="128"/>
@@ -477,11 +480,14 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU2-zh-PeB">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="425"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="580"/>
                                         <state key="normal" title=" "/>
+                                        <connections>
+                                            <action selector="hideShoppingviewAction:" destination="mbG-oA-uJv" eventType="touchUpInside" id="exY-hj-SQ1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.70620184080000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.70242936643835618" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="D63-RR-BVM" firstAttribute="top" secondItem="lU2-zh-PeB" secondAttribute="bottom" id="8fH-GZ-0Df"/>
                                     <constraint firstItem="D63-RR-BVM" firstAttribute="leading" secondItem="xXr-Xy-DZL" secondAttribute="leading" id="9mr-nN-Z3x"/>
@@ -500,13 +506,13 @@
                             <constraint firstItem="fbo-mB-qJt" firstAttribute="trailing" secondItem="Ty8-dd-y37" secondAttribute="trailing" constant="8" id="3d4-zV-KCc"/>
                             <constraint firstItem="fbo-mB-qJt" firstAttribute="trailing" secondItem="jbe-H2-6q5" secondAttribute="trailing" constant="16" id="50S-FS-7MP"/>
                             <constraint firstItem="jkI-Zf-d23" firstAttribute="leading" secondItem="lcy-8u-9kh" secondAttribute="leading" id="Htn-kj-wpt"/>
-                            <constraint firstItem="xXr-Xy-DZL" firstAttribute="top" secondItem="ItL-OL-Xv0" secondAttribute="bottom" id="Kbu-Kz-FCG"/>
+                            <constraint firstItem="xXr-Xy-DZL" firstAttribute="top" secondItem="lcy-8u-9kh" secondAttribute="top" id="Kbu-Kz-FCG"/>
                             <constraint firstItem="xXr-Xy-DZL" firstAttribute="leading" secondItem="fbo-mB-qJt" secondAttribute="leading" id="NM9-zD-5ad"/>
                             <constraint firstItem="H40-lt-Dj6" firstAttribute="top" secondItem="Ty8-dd-y37" secondAttribute="bottom" id="Ssz-z9-V2x"/>
                             <constraint firstItem="xXr-Xy-DZL" firstAttribute="trailing" secondItem="fbo-mB-qJt" secondAttribute="trailing" id="TIZ-rq-7Jk"/>
                             <constraint firstAttribute="trailing" secondItem="jkI-Zf-d23" secondAttribute="trailing" id="Xbs-cF-RiM"/>
                             <constraint firstItem="Ty8-dd-y37" firstAttribute="top" secondItem="YZO-1l-4b3" secondAttribute="bottom" id="hBQ-Rd-cwY"/>
-                            <constraint firstItem="H40-lt-Dj6" firstAttribute="top" secondItem="xXr-Xy-DZL" secondAttribute="bottom" id="kpg-m9-s80"/>
+                            <constraint firstAttribute="bottom" secondItem="xXr-Xy-DZL" secondAttribute="bottom" constant="16" id="kpg-m9-s80"/>
                             <constraint firstItem="Ty8-dd-y37" firstAttribute="leading" secondItem="fbo-mB-qJt" secondAttribute="leading" constant="8" id="mb7-9G-5eK"/>
                             <constraint firstItem="jkI-Zf-d23" firstAttribute="top" secondItem="ItL-OL-Xv0" secondAttribute="bottom" id="nLl-ig-i6v"/>
                             <constraint firstItem="jbe-H2-6q5" firstAttribute="leading" secondItem="YZO-1l-4b3" secondAttribute="trailing" constant="8" id="okm-l2-fkf"/>
@@ -535,7 +541,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Zm-Mz-5B1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5460" y="26"/>
+            <point key="canvasLocation" x="5459.420289855073" y="25.446428571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="s3r-rt-bev">

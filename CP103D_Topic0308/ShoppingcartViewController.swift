@@ -170,6 +170,7 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
                     // 左滑時顯示Edit按鈕
         let edit = UITableViewRowAction(style: .normal, title: "Edit", handler: { (action, indexPath) in
+            self.tabBarController?.tabBar.isHidden = true
             self.cartTableView.tag = indexPath.row
             self.navigationController?.navigationBar.alpha = 1
             self.shoppingView.isHidden = false
@@ -224,6 +225,11 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
+    @IBAction func hideShoppingviewAction(_ sender: Any) {
+        hideShoppingview()
+    }
+    
+    
     @IBAction func qualityStepperAction(_ sender: Any) {
         shoppingviewQuality.text = Int(shoppingviewStepper.value).description
     }
@@ -255,6 +261,8 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         clearShoppingview()
     }
     func hideShoppingview() {
+        self.tabBarController?.tabBar.isHidden = false
+        self.tabBarController?.tabBar.layer.zPosition = 0
         self.navigationController?.navigationBar.alpha = 0.6
         shoppingView.alpha = 1
         UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
