@@ -10,11 +10,11 @@ import UIKit
 import CoreData
 
 class GooddetailViewController: UIViewController {
-
+    
     
     var goodDetail = Good.init(id: -1, name: "-1", descrip: "-1", price: -1, mainclass: "-1", subclass: "-1", shelf: "-1", evulation: -1, color1: "-1", color2: "-1", size1: "-1", size2: "-1", specialPrice: -1, quatity: -1)
     let url_server = URL(string: common_url + "GoodsServlet1")
-
+    
     @IBOutlet weak var imageview: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var color1Label: UILabel!
@@ -32,24 +32,23 @@ class GooddetailViewController: UIViewController {
     @IBOutlet weak var shoppingviewLightBt: UIButton!
     @IBOutlet weak var shoppingviewSizeLBt: UIButton!
     @IBOutlet weak var shoppingviewSizeXLBt: UIButton!
-    @IBOutlet weak var navigationbarOutlet: UINavigationItem!
-    @IBOutlet weak var backoutlet: UIBarButtonItem!
     
     
     var goodName = "-1"
     var isFromshoppingcar = false
     
-    
     var carts = [Cart]()
-
-    @IBOutlet weak var backItemoutlet: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         if goodName != "-1" {
             navigationItem.title = goodName
             showGoodDetail()
-            
+            if !isFromshoppingcar{
+                let leftBarBtn = UIBarButtonItem(title: "返回", style: .plain, target: self,
+                                                 action: #selector(backToPrevious))
+                self.navigationItem.leftBarButtonItem = leftBarBtn
+            }
         }else{
             
             // Do any additional setup after loading the view.
@@ -87,16 +86,21 @@ class GooddetailViewController: UIViewController {
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @objc func backToPrevious(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "TabBar")
+        present(controller, animated: true, completion: nil)
     }
-    */
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     @objc func showGoodDetail(){
         var requestParam = [String: String]()
         requestParam["param"] = "getGoodDetail"
@@ -119,7 +123,7 @@ class GooddetailViewController: UIViewController {
                             self.size1Label.alpha = (self.self.goodDetail.size1 == "1") ? 1 : 0.1
                             self.size2Label.alpha = (self.goodDetail.size2 == "1") ? 1 : 0.1
                             self.gooddescriptTextview.text = self.goodDetail.descrip
-
+                            
                             /////////
                             // 尚未取得圖片，另外開啟task請求
                             var requestParam = [String: Any]()
@@ -151,15 +155,7 @@ class GooddetailViewController: UIViewController {
             }
         }
     }
-    @IBAction func backButton(_ sender: Any) {
-        if goodName != "-1" && !isFromshoppingcar{
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "TabBar")
-            present(controller, animated: true, completion: nil)
-        }else{
-            self.navigationController?.popViewController(animated: true)
-        }
-    }
+    
     
     @IBAction func openFavoriteView(_ sender: Any) {
         saveDataFavorite()
@@ -167,8 +163,7 @@ class GooddetailViewController: UIViewController {
     }
     
     @IBAction func openshoppingView(_ sender: Any) {
-        self.navigationController?.navigationBar.alpha = 1
-        backoutlet.isEnabled = false
+        self.navigationController?.navigationBar.isUserInteractionEnabled = false
         shoppingView.isHidden = false
         shoppingView.alpha = 0
         UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
@@ -181,10 +176,11 @@ class GooddetailViewController: UIViewController {
     
     @IBAction func hideShoppingviewAction(_ sender: Any) {
         hideShoppingview()
+        self.navigationItem.backBarButtonItem?.isEnabled = true
     }
     
     func hideShoppingview() {
-        backoutlet.isEnabled = true
+        self.navigationController?.navigationBar.isUserInteractionEnabled = true
         self.navigationController?.navigationBar.alpha = 0.6
         shoppingView.alpha = 1
         UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
@@ -233,6 +229,10 @@ class GooddetailViewController: UIViewController {
             alert.addAction(UIAlertAction.init(title: "OK", style: .cancel))
             self.present(alert, animated: true, completion: nil)
         }
+        if navigationItem.leftBarButtonItem?.title == "返回" {
+            backToPrevious()
+        }
+
     }
     func setBadgevalue() {
         if carts.count == 0 {
@@ -288,7 +288,7 @@ class GooddetailViewController: UIViewController {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let favorite = NSEntityDescription.insertNewObject(forEntityName: "Favorite", into: context) as! Favorite
         favorite.image = imageview.image?.jpegData(compressionQuality: 1.0)
-        favorite.name = navigationbarOutlet.title
+        favorite.name = goodDetail.name
         do {
             if context.hasChanges {
                 try context.save()
