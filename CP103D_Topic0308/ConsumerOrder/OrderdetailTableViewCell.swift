@@ -9,7 +9,9 @@
 import UIKit
 
 class OrderdetailTableViewCell: UITableViewCell {
-
+    
+    
+    @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var colar: UILabel!
     @IBOutlet weak var size: UILabel!

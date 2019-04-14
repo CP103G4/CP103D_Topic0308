@@ -522,7 +522,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dma-5Q-DiI">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="dma-5Q-DiI">
                                                     <rect key="frame" x="25" y="21" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="Eof-7N-C6a"/>
@@ -594,6 +594,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="colar" destination="eQn-pF-9um" id="sLf-Pu-9Gi"/>
+                                            <outlet property="detailImage" destination="dma-5Q-DiI" id="et5-4T-JFK"/>
                                             <outlet property="name" destination="Yss-Py-Tqg" id="JMs-vs-RDP"/>
                                             <outlet property="number" destination="YpL-m1-TEH" id="WI0-Su-8VC"/>
                                             <outlet property="price" destination="tQK-y6-2h5" id="Pgg-ey-a6F"/>
@@ -823,6 +824,7 @@
     <resources>
         <image name="member" width="112.5" height="112.5"/>
         <image name="member2" width="30" height="30"/>
+        <image name="noImage" width="300" height="183"/>
         <image name="photo" width="60" height="60"/>
         <image name="shulin" width="721" height="480"/>
         <image name="京站" width="640" height="480"/>

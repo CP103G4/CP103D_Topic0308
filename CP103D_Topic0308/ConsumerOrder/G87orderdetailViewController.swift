@@ -13,6 +13,7 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
     var order: Order!
     var orderdetail = [Good]()
     let url_server = URL(string: common_url + "OrderdetailServlet")
+    let url_server_pic = URL(string: common_url + "GoodsServlet1")
     @IBOutlet weak var totalprice: UILabel!
     @IBOutlet weak var orderdetailtableview: UITableView!
     
@@ -92,6 +93,27 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderdetailCell", for: indexPath) as! OrderdetailTableViewCell
+        
+        // 尚未取得圖片，另外開啟task請求
+        var requestParam = [String: Any]()
+        requestParam["param"] = "getImage"
+        requestParam["id"] = orderdetail[indexPath.row].id
+        // 圖片寬度為tableViewCell的1/4，ImageView的寬度也建議在storyboard加上比例設定的constraint
+        requestParam["imageSize"] = cell.frame.width / 4
+        var image: UIImage?
+        executeTask(url_server_pic!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    image = UIImage(data: data!)
+                }
+                if image == nil {
+                    image = UIImage(named: "noImage.jpg")
+                }
+                DispatchQueue.main.async {cell.detailImage.image = image}
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
         
         // Configure the cell...
         let good = orderdetail[indexPath.row]
