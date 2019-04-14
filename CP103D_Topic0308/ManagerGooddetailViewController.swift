@@ -64,6 +64,7 @@ class ManagerGooddetailViewController: UIViewController {
         if let managerUploadTableViewController = UIStoryboard(name: "ManagerUpload", bundle: nil).instantiateViewController(withIdentifier: "managerUploadTableViewController") as? ManagerUploadTableViewController{
             managerUploadTableViewController.goodDetail = goodDetail
             managerUploadTableViewController.isGoodUpdate = true
+            managerUploadTableViewController.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(managerUploadTableViewController, animated: true)
         }
     }

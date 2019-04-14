@@ -158,8 +158,7 @@ class GooddetailViewController: UIViewController {
     
     
     @IBAction func openFavoriteView(_ sender: Any) {
-        saveDataFavorite()
-        
+        saveDataFavorite()        
     }
     
     @IBAction func openshoppingView(_ sender: Any) {

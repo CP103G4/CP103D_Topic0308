@@ -335,14 +335,9 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Upload" image="upload" id="fXM-L1-FCo"/>
                     <navigationItem key="navigationItem" title="Upload" id="rfn-4M-vbG">
-                        <barButtonItem key="leftBarButtonItem" systemItem="undo" id="3ea-7F-IbT">
+                        <barButtonItem key="rightBarButtonItem" title="上傳" id="XBG-i7-A9Y">
                             <connections>
-                                <action selector="undoClick:" destination="thu-EH-lne" id="DVV-Jz-jaY"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ehh-2h-srU">
-                            <connections>
-                                <action selector="saveAction:" destination="thu-EH-lne" id="4CR-qS-MnQ"/>
+                                <action selector="saveAction:" destination="thu-EH-lne" id="E0i-cQ-3ug"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -355,13 +350,13 @@
                         <outlet property="goodnameTextfield" destination="7lD-ee-etS" id="iuk-XJ-jhe"/>
                         <outlet property="goodpriceTextfield" destination="LB3-n4-BJU" id="bs6-MR-zLC"/>
                         <outlet property="quatityTextfield" destination="HIm-qR-Ntm" id="u94-w4-L2X"/>
+                        <outlet property="saveItem" destination="XBG-i7-A9Y" id="Vrj-OE-xQE"/>
                         <outlet property="sexSegment" destination="dyZ-GH-ri9" id="iYU-QT-Jkc"/>
                         <outlet property="shelfSwitch" destination="mxQ-Jb-VQH" id="Uja-ei-UL5"/>
                         <outlet property="sizeLswitch" destination="6LE-5l-TsO" id="6Ld-L9-4ZC"/>
                         <outlet property="sizeXLswitch" destination="2e4-0W-qFN" id="NZz-4Y-OGm"/>
                         <outlet property="specialPriceTextfield" destination="LcN-ig-9Wy" id="3V9-6i-QK3"/>
                         <outlet property="subclassSegment" destination="rrt-AH-vaD" id="8Sq-vV-gnk"/>
-                        <outlet property="uploadnavigatiobbarOutlet" destination="rfn-4M-vbG" id="m8g-wq-bWa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VR4-Ty-tYa" userLabel="First Responder" sceneMemberID="firstResponder"/>

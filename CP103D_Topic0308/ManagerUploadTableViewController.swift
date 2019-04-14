@@ -26,7 +26,8 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     @IBOutlet weak var quatityTextfield: UITextField!   //庫存
     @IBOutlet weak var shelfSwitch: UISwitch!   //上架
     @IBOutlet weak var gooddescriptTextview: UITextView!
-    @IBOutlet weak var uploadnavigatiobbarOutlet: UINavigationItem!
+    
+    @IBOutlet weak var saveItem: UIBarButtonItem!
     
     var image: UIImage?
     var socket: WebSocket!
@@ -38,7 +39,8 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     override func viewDidLoad() {
         super.viewDidLoad()
         if isGoodUpdate {
-            tabBarController?.tabBar.layer.zPosition = -1
+//            tabBarController?.tabBar.layer.zPosition = -1
+            saveItem.title = "儲存"
         }
         
         let url_WebSocketserver = URL(string: wscommon_url + "websocketAll/" + username)
@@ -50,7 +52,9 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
             loadGoodDetail()
         }
     }
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        tabBarController?.tabBar.layer.zPosition = 0
+    }
     func hideKeyboardByGesture() {
         //透過手勢隱藏鍵盤
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
