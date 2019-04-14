@@ -56,10 +56,15 @@ class ManagerGooddetailViewController: UIViewController {
     }
     
     @IBAction func updateClick(_ sender: Any) {
-        if let managerUpdateGoodTableViewController = storyboard?.instantiateViewController(withIdentifier: "managerUpdateGoodTableViewController") as? ManagerUpdateGoodTableViewController {
-            managerUpdateGoodTableViewController.goodDetail = goodDetail
-            let navBarOnModal: UINavigationController = UINavigationController(rootViewController: managerUpdateGoodTableViewController)
-            present(navBarOnModal, animated: true, completion: nil)
+//        if let managerUpdateGoodTableViewController = storyboard?.instantiateViewController(withIdentifier: "managerUpdateGoodTableViewController") as? ManagerUpdateGoodTableViewController {
+//            managerUpdateGoodTableViewController.goodDetail = goodDetail
+//            let navBarOnModal: UINavigationController = UINavigationController(rootViewController: managerUpdateGoodTableViewController)
+//            present(navBarOnModal, animated: true, completion: nil)
+//        }
+        if let managerUploadTableViewController = UIStoryboard(name: "ManagerUpload", bundle: nil).instantiateViewController(withIdentifier: "managerUploadTableViewController") as? ManagerUploadTableViewController{
+            managerUploadTableViewController.goodDetail = goodDetail
+            managerUploadTableViewController.isGoodUpdate = true
+            navigationController?.pushViewController(managerUploadTableViewController, animated: true)
         }
     }
     

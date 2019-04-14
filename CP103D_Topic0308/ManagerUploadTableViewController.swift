@@ -26,23 +26,71 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     @IBOutlet weak var quatityTextfield: UITextField!   //庫存
     @IBOutlet weak var shelfSwitch: UISwitch!   //上架
     @IBOutlet weak var gooddescriptTextview: UITextView!
+    @IBOutlet weak var uploadnavigatiobbarOutlet: UINavigationItem!
+    
     var image: UIImage?
     var socket: WebSocket!
     let tag = "AllChatVC"
     let username = "manager"
-    
+    var isGoodUpdate = false    
+    var goodDetail : Good?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if isGoodUpdate {
+            tabBarController?.tabBar.layer.zPosition = -1
+        }
         
         let url_WebSocketserver = URL(string: wscommon_url + "websocketAll/" + username)
         socket = WebSocket(url: url_WebSocketserver!)
         socket.delegate = self
         socket.connect()
-        
+        hideKeyboardByGesture()
+        if isGoodUpdate {
+            loadGoodDetail()
+        }
+    }
+    
+    func hideKeyboardByGesture() {
         //透過手勢隱藏鍵盤
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
         self.view.addGestureRecognizer(tap)
+    }
+    
+    func loadGoodDetail() {
+        goodnameTextfield.text = goodDetail!.name
+        color1Switch.isOn = goodDetail!.color1 == "1" ? true : false//true = 1
+        color2Switch.isOn = goodDetail!.color2 == "1" ? true : false
+        sizeLswitch.isOn = goodDetail!.size1 == "1" ? true : false
+        sizeXLswitch.isOn = goodDetail!.size2 == "1" ? true : false
+        sexSegment.selectedSegmentIndex = goodDetail!.mainclass == "Woman" ? 0 : 1
+        subclassSegment.selectedSegmentIndex = Int(goodDetail!.subclass)!
+        goodpriceTextfield.text = Int(goodDetail!.price).description
+        specialPriceTextfield.text = Int(goodDetail!.specialPrice).description
+        quatityTextfield.text = goodDetail!.quatity.description
+        shelfSwitch.isOn = Bool(goodDetail!.shelf)!
+        gooddescriptTextview.text = goodDetail!.descrip
+        
+        // 尚未取得圖片，另外開啟task請求
+        var requestParam = [String: Any]()
+        requestParam["param"] = "getImage"
+        requestParam["id"] = goodDetail!.id
+        // 圖片寬度為tableViewCell的1/4，ImageView的寬度也建議在storyboard加上比例設定的constraint
+        requestParam["imageSize"] = UIScreen.main.bounds.width / 4
+        var image: UIImage?
+        executeTask(url_server!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    image = UIImage(data: data!)
+                }
+                if image == nil {
+                    image = UIImage(named: "noImage.jpg")
+                }
+                DispatchQueue.main.async { self.goodImageview.image = image }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
     }
     
     @IBAction func saveAction(_ sender: Any) {
@@ -77,7 +125,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
             self.present(alertController, animated: true, completion: nil)
             return
         }
-        let goodDetail = Good(id: -1, name: goodname!, descrip: gooddescript!, price: Double(goodprice!)!, mainclass: sex, subclass: subclass, shelf: shelf, evulation: -1, color1: color1, color2: color2, size1: sizeL, size2: sizeXL, specialPrice: Double(specialprice!)!, quatity: Int(quatity!)!)
+        goodDetail = Good(id: -1, name: goodname!, descrip: gooddescript!, price: Double(goodprice!)!, mainclass: sex, subclass: subclass, shelf: shelf, evulation: -1, color1: color1, color2: color2, size1: sizeL, size2: sizeXL, specialPrice: Double(specialprice!)!, quatity: Int(quatity!)!)
         var requestParam = [String: String]()
         requestParam["param"] = "insert"
         
@@ -100,7 +148,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
                 let text = String(data: jsonData, encoding: .utf8)
                 socket.write(string: text!)
                 print("傳送推播訊息\(dictionary["message"]!)")
-//                socket.disconnect()
+                //                socket.disconnect()
             }catch{
                 print(error.localizedDescription)
             }

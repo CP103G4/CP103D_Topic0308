@@ -12,7 +12,7 @@
         <!--Upload-->
         <scene sceneID="zdq-vp-Nhy">
             <objects>
-                <tableViewController id="thu-EH-lne" customClass="ManagerUploadTableViewController" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="managerUploadTableViewController" id="thu-EH-lne" customClass="ManagerUploadTableViewController" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ppI-E0-Wef">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -361,6 +361,7 @@
                         <outlet property="sizeXLswitch" destination="2e4-0W-qFN" id="NZz-4Y-OGm"/>
                         <outlet property="specialPriceTextfield" destination="LcN-ig-9Wy" id="3V9-6i-QK3"/>
                         <outlet property="subclassSegment" destination="rrt-AH-vaD" id="8Sq-vV-gnk"/>
+                        <outlet property="uploadnavigatiobbarOutlet" destination="rfn-4M-vbG" id="m8g-wq-bWa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VR4-Ty-tYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
