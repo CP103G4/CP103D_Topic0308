@@ -325,6 +325,31 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wfF-aR-RPy">
+                                        <rect key="frame" x="0.0" y="710" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wfF-aR-RPy" id="VYM-c9-Dac">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWY-eU-hA6">
+                                                    <rect key="frame" x="8" y="8" width="359" height="27.5"/>
+                                                    <state key="normal" title="刪除商品">
+                                                        <color key="titleColor" red="1" green="0.18423828079999999" blue="0.18251946450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deleteGood:" destination="thu-EH-lne" eventType="touchUpInside" id="C59-hh-YB1"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="KWY-eU-hA6" secondAttribute="trailing" constant="8" id="0Zi-3c-S3P"/>
+                                                <constraint firstAttribute="bottom" secondItem="KWY-eU-hA6" secondAttribute="bottom" constant="8" id="8vV-Gd-kjY"/>
+                                                <constraint firstItem="KWY-eU-hA6" firstAttribute="leading" secondItem="VYM-c9-Dac" secondAttribute="leading" constant="8" id="YfI-Ht-4B6"/>
+                                                <constraint firstItem="KWY-eU-hA6" firstAttribute="top" secondItem="VYM-c9-Dac" secondAttribute="top" constant="8" id="zWB-ln-KC4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -345,6 +370,7 @@
                     <connections>
                         <outlet property="color1Switch" destination="run-bJ-t5M" id="gU6-cY-Jn7"/>
                         <outlet property="color2Switch" destination="eqv-Ku-u7b" id="yV6-KT-B65"/>
+                        <outlet property="deleteButtonOutlet" destination="KWY-eU-hA6" id="n6J-7F-575"/>
                         <outlet property="goodImageview" destination="gGP-jZ-o6g" id="nA6-Gh-G1c"/>
                         <outlet property="gooddescriptTextview" destination="w1w-Mm-hd2" id="Siu-2e-eOE"/>
                         <outlet property="goodnameTextfield" destination="7lD-ee-etS" id="iuk-XJ-jhe"/>

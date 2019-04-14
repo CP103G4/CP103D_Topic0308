@@ -28,6 +28,8 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     @IBOutlet weak var gooddescriptTextview: UITextView!
     
     @IBOutlet weak var saveItem: UIBarButtonItem!
+    @IBOutlet weak var deleteButtonOutlet: UIButton!
+    
     
     var image: UIImage?
     var socket: WebSocket!
@@ -39,8 +41,13 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     override func viewDidLoad() {
         super.viewDidLoad()
         if isGoodUpdate {
-//            tabBarController?.tabBar.layer.zPosition = -1
             saveItem.title = "儲存"
+            navigationItem.title = "修改商品資訊"
+            deleteButtonOutlet.isHidden = false
+            deleteButtonOutlet.isEnabled = true
+        }else{
+            deleteButtonOutlet.isHidden = true
+            deleteButtonOutlet.isEnabled = false
         }
         
         let url_WebSocketserver = URL(string: wscommon_url + "websocketAll/" + username)
@@ -130,16 +137,22 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
             return
         }
         goodDetail = Good(id: -1, name: goodname!, descrip: gooddescript!, price: Double(goodprice!)!, mainclass: sex, subclass: subclass, shelf: shelf, evulation: -1, color1: color1, color2: color2, size1: sizeL, size2: sizeXL, specialPrice: Double(specialprice!)!, quatity: Int(quatity!)!)
-        var requestParam = [String: String]()
-        requestParam["param"] = "insert"
         
-        requestParam["goodinsert"] = try! String(data: JSONEncoder().encode(goodDetail), encoding: .utf8)
-        // 有圖才上傳
-        if self.image != nil {
-            requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
-        }else{//named: "noImage.jpg"
-            requestParam["imageBase64"] = UIImage(named: "noImage.jpg")?.jpegData(compressionQuality: 1.0)!.base64EncodedString()
-        }        
+        var requestParam = [String: String]()
+        if !isGoodUpdate {
+            requestParam["param"] = "insert"
+            requestParam["goodinsert"] = try! String(data: JSONEncoder().encode(goodDetail), encoding: .utf8)
+            // 有圖才上傳
+            if self.image != nil {
+                requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
+            }else{//named: "noImage.jpg"
+                requestParam["imageBase64"] = UIImage(named: "noImage.jpg")?.jpegData(compressionQuality: 1.0)!.base64EncodedString()
+            }
+        }else{
+            requestParam["param"] = "update"
+            requestParam["goodinsert"] = try! String(data: JSONEncoder().encode(goodDetail), encoding: .utf8)
+        }
+     
         
         //推播訊息
         if shelfSwitch.isOn == true {
@@ -181,6 +194,33 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         
         
     }
+    
+    @IBAction func deleteGood(_ sender: Any) {
+        var requestParam = [String: String]()
+        requestParam["param"] = "delete"
+        requestParam["goodId"] = goodDetail!.id.description
+        executeTask(url_server!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    if let result = String(data: data!, encoding: .utf8) {
+                        if let count = Int(result) {
+                            DispatchQueue.main.async {
+                                print(count.description)
+                                if count != 0 {
+                                    self.showCorrectAlert()
+                                } else {
+                                    self.showErrorAlert()
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+    
     
     @IBAction func photoButton(_ sender: Any) {
         photo()
