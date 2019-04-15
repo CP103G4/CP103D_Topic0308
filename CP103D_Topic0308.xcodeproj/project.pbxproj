@@ -41,8 +41,8 @@
 		188A8F6D224FB72300F68CA6 /* ManagerWomanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F65224FB72300F68CA6 /* ManagerWomanTableViewCell.swift */; };
 		188A8F6E224FB72300F68CA6 /* ManagerWomanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F66224FB72300F68CA6 /* ManagerWomanTableViewController.swift */; };
 		188A8F73224FB7F500F68CA6 /* ManagerUploadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F72224FB7F500F68CA6 /* ManagerUploadTableViewController.swift */; };
+		189147092264D3F000A4E025 /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 189147082264D3F000A4E025 /* apple.png */; };
 		18969047226212D40031C2A6 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18969046226212D40031C2A6 /* FavoriteCell.swift */; };
-		189690492264688D0031C2A6 /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 189690482264688C0031C2A6 /* apple.png */; };
 		1899233A22323DBD00B9DC1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899233922323DBD00B9DC1C /* AppDelegate.swift */; };
 		1899233F22323DBD00B9DC1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1899233D22323DBD00B9DC1C /* Main.storyboard */; };
 		1899234122323DBE00B9DC1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1899234022323DBE00B9DC1C /* Assets.xcassets */; };
@@ -121,8 +121,8 @@
 		188A8F65224FB72300F68CA6 /* ManagerWomanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerWomanTableViewCell.swift; sourceTree = "<group>"; };
 		188A8F66224FB72300F68CA6 /* ManagerWomanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerWomanTableViewController.swift; sourceTree = "<group>"; };
 		188A8F72224FB7F500F68CA6 /* ManagerUploadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerUploadTableViewController.swift; sourceTree = "<group>"; };
+		189147082264D3F000A4E025 /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = apple.png; path = Assets.xcassets/AppIcon.appiconset/apple.png; sourceTree = "<group>"; };
 		18969046226212D40031C2A6 /* FavoriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
-		189690482264688C0031C2A6 /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple.png; sourceTree = "<group>"; };
 		1899233622323DBD00B9DC1C /* CP103D_Topic0308.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP103D_Topic0308.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1899233922323DBD00B9DC1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1899233E22323DBD00B9DC1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -323,7 +323,7 @@
 		1899233822323DBD00B9DC1C /* CP103D_Topic0308 */ = {
 			isa = PBXGroup;
 			children = (
-				189690482264688C0031C2A6 /* apple.png */,
+				189147082264D3F000A4E025 /* apple.png */,
 				189B147C226071A100EFCB5E /* TPDirect.framework */,
 				1899233922323DBD00B9DC1C /* AppDelegate.swift */,
 				1899233D22323DBD00B9DC1C /* Main.storyboard */,
@@ -482,7 +482,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1899234422323DBE00B9DC1C /* LaunchScreen.storyboard in Resources */,
-				189690492264688D0031C2A6 /* apple.png in Resources */,
 				189923562232458D00B9DC1C /* ManagerHome.storyboard in Resources */,
 				1899234122323DBE00B9DC1C /* Assets.xcassets in Resources */,
 				1899235C223246FD00B9DC1C /* ManagerChart.storyboard in Resources */,
@@ -491,6 +490,7 @@
 				1899235A2232469D00B9DC1C /* ManagerOrder.storyboard in Resources */,
 				18992358223245FA00B9DC1C /* ManagerUpload.storyboard in Resources */,
 				1177B88B226074BB00236283 /* ConsumerInformation.storyboard in Resources */,
+				189147092264D3F000A4E025 /* apple.png in Resources */,
 				1899234C2232425600B9DC1C /* ConsumerHome.storyboard in Resources */,
 				189923502232440600B9DC1C /* ConsumerShoppingcar.storyboard in Resources */,
 				189B147F226071B500EFCB5E /* TPDirectResource in Resources */,
