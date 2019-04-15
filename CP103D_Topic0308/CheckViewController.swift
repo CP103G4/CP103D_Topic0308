@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var scPayment: UISegmentedControl!
     @IBOutlet weak var lbName: UILabel!
@@ -32,7 +32,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         displayTotal()
         user = loadUser()
         getUser()
-        
+        hideKeyboardByGesture()
     }
     
     func fileInDocuments(fileName: String) -> URL {
@@ -291,6 +291,17 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         orderdrtails.removeAll()
     }
     
+    func hideKeyboardByGesture() {
+        //透過手勢隱藏鍵盤
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        self.view.addGestureRecognizer(tap)
+    }
     
+    @objc func dismissKeyBoard() {//透過手勢隱藏鍵盤
+        self.view.endEditing(true)
+    }
     
+    @IBAction func hideKeyboardByReturn(_ sender: Any) {
+        //按下Return收鍵盤
+    }
 }

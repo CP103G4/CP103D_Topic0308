@@ -362,13 +362,15 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         self.view.addGestureRecognizer(tap)
     }
     
+    @objc func dismissKeyBoard() {//透過手勢隱藏鍵盤
+        self.view.endEditing(true)
+    }
+
+    
     @IBAction func hidekeyboard(_ sender: Any) {
         //按下return收鍵盤
     }
     
-    @objc func dismissKeyBoard() {//透過手勢隱藏鍵盤
-        self.view.endEditing(true)
-    }
     /*
      // MARK: - Navigation
      
