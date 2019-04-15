@@ -359,6 +359,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="mDW-P8-OWD" secondAttribute="bottom" constant="17" id="wAP-MW-1GM"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.93333333333333335" blue="1" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="orderdate" destination="mDW-P8-OWD" id="AUd-iE-enA"/>
                                             <outlet property="orderid" destination="pdh-RW-wGZ" id="XDN-Ce-DCh"/>
@@ -593,6 +594,7 @@
                                                 <constraint firstItem="uhW-i9-bMg" firstAttribute="top" secondItem="Yss-Py-Tqg" secondAttribute="bottom" constant="10" id="zEU-d0-dwC"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.93333333333333335" blue="1" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="colar" destination="eQn-pF-9um" id="sLf-Pu-9Gi"/>
                                             <outlet property="detailImage" destination="dma-5Q-DiI" id="et5-4T-JFK"/>
