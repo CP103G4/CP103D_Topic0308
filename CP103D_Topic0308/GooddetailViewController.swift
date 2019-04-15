@@ -14,6 +14,7 @@ class GooddetailViewController: UIViewController {
     
     var goodDetail = Good.init(id: -1, name: "-1", descrip: "-1", price: -1, mainclass: "-1", subclass: "-1", shelf: "-1", evulation: -1, color1: "-1", color2: "-1", size1: "-1", size2: "-1", specialPrice: -1, quatity: -1)
     let url_server = URL(string: common_url + "GoodsServlet1")
+    var goodId = 0
     
     @IBOutlet weak var imageview: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
@@ -119,6 +120,7 @@ class GooddetailViewController: UIViewController {
                     print("input: \(String(data: data!, encoding: .utf8)!)")
                     do{
                         self.goodDetail = try decoder.decode(Good.self, from: data!)
+                        self.goodId = self.goodDetail.id
                         DispatchQueue.main.async {
                             self.priceLabel.text = self.goodDetail.price.description
                             self.color1Label.alpha = (self.goodDetail.color1 == "1") ? 1 : 0
@@ -162,7 +164,8 @@ class GooddetailViewController: UIViewController {
     
     
     @IBAction func openFavoriteView(_ sender: Any) {
-        saveDataFavorite()        
+        saveDataFavorite()
+        showalert()
     }
     
     @IBAction func openshoppingView(_ sender: Any) {
@@ -292,6 +295,7 @@ class GooddetailViewController: UIViewController {
         let favorite = NSEntityDescription.insertNewObject(forEntityName: "Favorite", into: context) as! Favorite
         favorite.image = imageview.image?.jpegData(compressionQuality: 1.0)
         favorite.name = goodDetail.name
+//        favorite.id = Int16(goodId)
         do {
             if context.hasChanges {
                 try context.save()
@@ -299,5 +303,23 @@ class GooddetailViewController: UIViewController {
         } catch let error {
             print(error.localizedDescription)
         }
+    }
+    
+    func showalert(){
+        let alertController = UIAlertController(
+            title: "已加入我的最愛",
+            message: nil,
+            preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(
+            title: "確認",
+            style: .default,
+            handler: {
+                (action: UIAlertAction!) -> Void in
+                print()
+        })
+        alertController.addAction(okAction)
+        // 顯示提示框
+        self.present(alertController, animated: true, completion: nil)
     }
 }

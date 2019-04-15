@@ -14,15 +14,13 @@ class FavoriteTVC: UITableViewController {
     var favorites = [Favorite]()
     var context: NSManagedObjectContext!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 80
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         navigationItem.rightBarButtonItem = editButtonItem
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         //loadData()
@@ -90,6 +88,14 @@ class FavoriteTVC: UITableViewController {
             } catch let erroer {
                 print(erroer.localizedDescription)
             }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let gooddetailViewController = UIStoryboard(name: "ConsumerHome", bundle:nil).instantiateViewController(withIdentifier: "gooddetailViewController") as? GooddetailViewController {
+            gooddetailViewController.goodName = favorites[indexPath.row].name!
+            gooddetailViewController.isFromshoppingcar = true
+            navigationController?.pushViewController(gooddetailViewController, animated: true)
         }
     }
     
