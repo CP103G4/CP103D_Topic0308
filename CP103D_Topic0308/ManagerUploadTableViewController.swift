@@ -10,7 +10,7 @@ import UIKit
 import ImageIO
 import Starscream
 
-class ManagerUploadTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, WebSocketDelegate {
+class ManagerUploadTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, WebSocketDelegate {
     
     let url_server = URL(string: common_url + "GoodsServlet1")
     @IBOutlet weak var goodnameTextfield: UITextField!
@@ -41,6 +41,10 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if gooddescriptTextview.text == "" {
+            gooddescriptTextview.text = "請輸入商品介紹"
+            gooddescriptTextview.textColor = UIColor.lightGray
+        }
         if isGoodUpdate {
             saveItem.title = "儲存"
             navigationItem.title = "修改商品資訊"
@@ -66,10 +70,20 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     override func viewDidDisappear(_ animated: Bool) {
         tabBarController?.tabBar.layer.zPosition = 0
     }
-    func hideKeyboardByGesture() {
-        //透過手勢隱藏鍵盤
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
-        self.view.addGestureRecognizer(tap)
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if gooddescriptTextview.text == "請輸入商品介紹"{
+            gooddescriptTextview.text = nil
+            gooddescriptTextview.textColor = UIColor.black
+        }else{
+            gooddescriptTextview.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if gooddescriptTextview.text.isEmpty {
+            gooddescriptTextview.text = "請輸入商品介紹"
+            gooddescriptTextview.textColor = UIColor.lightGray
+        }
     }
     
     func loadGoodDetail() {
@@ -120,7 +134,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         let specialprice = specialPriceTextfield.text == "" ? "-1" : goodpriceTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let quatity = quatityTextfield.text == "" ? "-1" : quatityTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let shelf = shelfSwitch.isOn.description
-        let gooddescript = goodpriceTextfield.text
+        let gooddescript = gooddescriptTextview.text
         if goodname!.isEmpty {
             let alertController = UIAlertController(
                 title: "商品名稱不可以為空白",
@@ -368,6 +382,12 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         quatityTextfield.text = ""
         shelfSwitch.isOn = false
         gooddescriptTextview.text = "請輸入商品介紹"
+    }
+    
+    func hideKeyboardByGesture() {
+        //透過手勢隱藏鍵盤
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        self.view.addGestureRecognizer(tap)
     }
     
     @IBAction func hidekeyboard(_ sender: Any) {
