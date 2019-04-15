@@ -13,30 +13,42 @@
         <scene sceneID="RQG-Bj-7Po">
             <objects>
                 <tableViewController title="我的最愛" id="N6E-hL-C8I" customClass="FavoriteTVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="apr-ip-SXH">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" id="apr-ip-SXH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="favoriteCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" rowHeight="131" id="nEu-4K-Jfl" customClass="FavoriteCell" customModule="CP103D_Topic0308" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="131"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="favoriteCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" rowHeight="130" id="nEu-4K-Jfl" customClass="FavoriteCell" customModule="CP103D_Topic0308" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nEu-4K-Jfl" id="Pp3-BY-e8m">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PUo-Ea-Foc">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PUo-Ea-Foc">
                                             <rect key="frame" x="16" y="10" width="110" height="110"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="110" id="1sU-sR-7oQ"/>
+                                                <constraint firstAttribute="width" constant="110" id="GXK-5l-Nmz"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uwt-PP-gDL">
-                                            <rect key="frame" x="193" y="45" width="92" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uwt-PP-gDL">
+                                            <rect key="frame" x="159" y="22" width="180" height="86"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="86" id="MmS-QR-FUW"/>
+                                                <constraint firstAttribute="width" constant="180" id="OUy-m1-toL"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Uwt-PP-gDL" secondAttribute="trailing" constant="20" id="9DR-fJ-0dH"/>
+                                        <constraint firstItem="Uwt-PP-gDL" firstAttribute="centerY" secondItem="Pp3-BY-e8m" secondAttribute="centerY" id="EvP-QF-fjW"/>
+                                        <constraint firstItem="PUo-Ea-Foc" firstAttribute="centerY" secondItem="Pp3-BY-e8m" secondAttribute="centerY" id="M8k-zw-Buq"/>
+                                        <constraint firstItem="PUo-Ea-Foc" firstAttribute="leading" secondItem="Pp3-BY-e8m" secondAttribute="leading" constant="16" id="mQf-Vu-8qg"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="Uwt-PP-gDL" id="eR6-HO-7V3"/>
