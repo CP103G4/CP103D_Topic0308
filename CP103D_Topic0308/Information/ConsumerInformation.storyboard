@@ -266,14 +266,24 @@
                                     <action selector="clickcamera:" destination="g6r-b5-qIG" eventType="touchUpInside" id="P1N-GD-86w"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SE3-Gd-kKO">
+                                <rect key="frame" x="300" y="187" width="35" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="登出"/>
+                                <connections>
+                                    <action selector="logoutClick:" destination="g6r-b5-qIG" eventType="touchUpInside" id="Nc0-WF-fe9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="OvY-v0-3Jo" firstAttribute="top" secondItem="WkY-6I-RiW" secondAttribute="top" constant="50" id="4cH-O9-HAO"/>
                             <constraint firstItem="WQm-fR-vX4" firstAttribute="leading" secondItem="WkY-6I-RiW" secondAttribute="leading" constant="40" id="7BF-CO-saN"/>
+                            <constraint firstItem="WQm-fR-vX4" firstAttribute="top" secondItem="SE3-Gd-kKO" secondAttribute="bottom" constant="30" id="7gs-pW-5Su"/>
                             <constraint firstItem="OvY-v0-3Jo" firstAttribute="centerX" secondItem="qmr-xo-H5H" secondAttribute="centerX" id="C4q-3p-MmG"/>
                             <constraint firstItem="WkY-6I-RiW" firstAttribute="trailing" secondItem="WQm-fR-vX4" secondAttribute="trailing" constant="40" id="Cdq-HT-Et7"/>
                             <constraint firstItem="MTH-hT-AkC" firstAttribute="top" secondItem="WQm-fR-vX4" secondAttribute="bottom" constant="15" id="FF7-2Z-o0N"/>
+                            <constraint firstItem="WkY-6I-RiW" firstAttribute="trailing" secondItem="SE3-Gd-kKO" secondAttribute="trailing" constant="40" id="HHQ-EQ-Ocl"/>
                             <constraint firstItem="MTH-hT-AkC" firstAttribute="leading" secondItem="WkY-6I-RiW" secondAttribute="leading" constant="130" id="MuT-RT-hLC"/>
                             <constraint firstItem="WkY-6I-RiW" firstAttribute="trailing" secondItem="MTH-hT-AkC" secondAttribute="trailing" constant="130" id="Ond-mC-PZT"/>
                             <constraint firstItem="WQm-fR-vX4" firstAttribute="top" secondItem="OvY-v0-3Jo" secondAttribute="bottom" constant="30" id="pjk-dd-vcw"/>
@@ -304,7 +314,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="518"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OQi-lt-3Jg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OQi-lt-3Jg">
                                 <rect key="frame" x="0.0" y="20" width="375" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -312,7 +322,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FGf-LW-M0B" id="Q3f-ds-Dmt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="order.date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDW-P8-OWD">
@@ -427,6 +437,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="returnKeyboard:" destination="ak0-di-qPo" eventType="editingDidEndOnExit" id="XeW-XJ-yPi"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電話：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQx-Tf-ZuX">
                                         <rect key="frame" x="0.0" y="74" width="295" height="24"/>
@@ -439,6 +452,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="returnPhoneKey:" destination="ak0-di-qPo" eventType="editingDidEndOnExit" id="hcd-bS-M9V"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電子信箱：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFY-uH-f6I">
                                         <rect key="frame" x="0.0" y="148" width="295" height="24"/>
@@ -451,6 +467,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="returnEmailKey:" destination="ak0-di-qPo" eventType="editingDidEnd" id="CXy-fM-Kjo"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -499,7 +518,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="518"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="apE-Nf-i4j">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="apE-Nf-i4j">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -507,7 +526,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UGf-BR-qci" id="8Lu-mF-QdD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="good.name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yss-Py-Tqg">

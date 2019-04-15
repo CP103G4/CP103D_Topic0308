@@ -29,6 +29,20 @@ class MemberUpdataVC: UIViewController {
         
     }
     
+    
+    @IBAction func returnKeyboard(_ sender: Any) {
+    }
+    
+    @IBAction func returnPhoneKey(_ sender: Any) {
+    }
+    
+    @IBAction func returnEmailKey(_ sender: Any) {
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         showUser()
     }
