@@ -29,7 +29,8 @@ class ManagerGooddetailViewController: UIViewController {
         requestParam["param"] = "getImage"
         requestParam["id"] = goodDetail.id
         // 圖片寬度為tableViewCell的1/4，ImageView的寬度也建議在storyboard加上比例設定的constraint
-        requestParam["imageSize"] = UIScreen.main.bounds.width / 4
+//        requestParam["imageSize"] = UIScreen.main.bounds.width / 4
+        requestParam["imageSize"] = 512
         var image: UIImage?
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
