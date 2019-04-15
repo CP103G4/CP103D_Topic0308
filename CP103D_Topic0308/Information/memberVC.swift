@@ -29,6 +29,15 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
     }
     
+    
+    @IBAction func logoutClick(_ sender: Any) {
+        clearUser()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "Login") as! loginVC
+        present(controller, animated: true, completion: nil)
+
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         showInfo()
     }
