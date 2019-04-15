@@ -133,8 +133,8 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Configure the cell...
         let cart = carts[indexPath.row]
         cell.lbName.text = cart.name
-        cell.lbColor.text = cart.color1.description
-        cell.lbSize.text = cart.size1.description
+        cell.lbColor.text = cart.colorDescription(colorCode: cart.color1)
+        cell.lbSize.text = cart.sizeDescription(sizeCode: cart.size1)
         cell.lbNumber.text = cart.quatity.description
         cell.lbPrice.text = String(cart.price * Double(cart.quatity))
         

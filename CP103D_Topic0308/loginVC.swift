@@ -51,6 +51,18 @@ class loginVC: UIViewController,FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    //return收鍵盤
+    @IBAction func closeKeyBoard(_ sender: Any) {
+    }
+    
+    
+    @IBAction func closekeyboard(_ sender: Any) {
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func clickLogin(_ sender: UIButton) {
         let username = userTextField.text == nil ? "" : userTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text == nil ? "" : passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)

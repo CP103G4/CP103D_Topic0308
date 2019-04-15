@@ -68,12 +68,20 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="closeKeyBoard:" destination="cmN-8A-TaB" eventType="editingDidEndOnExit" id="n6a-H4-L2M"/>
+                                            <outlet property="delegate" destination="cmN-8A-TaB" id="An3-yA-6SG"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hlu-Yq-EvS">
                                         <rect key="frame" x="0.0" y="36" width="295" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="closekeyboard:" destination="cmN-8A-TaB" eventType="editingDidEndOnExit" id="oah-hG-D8Q"/>
+                                            <outlet property="delegate" destination="cmN-8A-TaB" id="ihZ-8l-ef0"/>
+                                        </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="B3m-X6-SH1">
                                         <rect key="frame" x="0.0" y="72" width="295" height="30"/>

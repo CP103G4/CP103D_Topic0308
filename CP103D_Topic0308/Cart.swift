@@ -78,4 +78,21 @@ class Cart: NSObject , NSSecureCoding , Codable {
         specialPrice = aDecoder.decodeObject(of: NSNumber.self, forKey: "specialPrice") as? Double ?? 0.0
         quatity = aDecoder.decodeObject(of: NSNumber.self, forKey: "quatity") as? Int ?? -1
     }
+    func colorDescription(colorCode:String) -> (String) {
+        if colorCode == "0" {
+            return "淺色"
+        } else if colorCode == "1" {
+            return "深色"
+        }
+        return ""
+    }
+    
+    func sizeDescription(sizeCode:String) -> (String) {
+        if sizeCode == "0" {
+            return "XL"
+        } else if sizeCode == "1" {
+            return "L"
+        }
+        return ""
+    }
 }
