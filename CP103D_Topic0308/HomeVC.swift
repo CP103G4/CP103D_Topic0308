@@ -101,6 +101,11 @@ extension HomeVC: WebSocketDelegate{
         content.badge = 1
         content.sound = UNNotificationSound.default
         
+        let imageURL: URL = Bundle.main.url(forResource: "apple", withExtension: "png")!
+        let attachment = try! UNNotificationAttachment(identifier: "image", url: imageURL, options: nil)
+        
+        content.attachments = [attachment]
+        
         let request = UNNotificationRequest(identifier: "notification", content: content, trigger: nil)
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: {error in
