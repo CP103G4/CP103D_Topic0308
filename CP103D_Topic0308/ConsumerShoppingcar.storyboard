@@ -535,7 +535,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="ShoppingCar" image="shopping" id="YVL-Kd-Jwx"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="CART" id="5Ny-dY-rcz"/>
+                    <navigationItem key="navigationItem" title="購物車" id="5Ny-dY-rcz"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cartTableView" destination="jkI-Zf-d23" id="FPp-AD-Pwv"/>
@@ -587,49 +587,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z1H-p9-xzw">
-                                <rect key="frame" x="0.0" y="6" width="375" height="597"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thank you for shopping!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jI-8l-o0V">
-                                        <rect key="frame" x="50" y="128" width="275" height="104"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="38"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your order has been placed." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urO-Uq-7hP">
-                                        <rect key="frame" x="68" y="260" width="239" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="delivery.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cs5-b0-cmz">
-                                        <rect key="frame" x="179" y="294" width="16" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kty-nV-SaA">
-                                        <rect key="frame" x="0.0" y="495" width="375" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.29411764709999999" green="0.2274509804" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="22"/>
-                                        <state key="normal" title="KEEP SHOPPING">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="GAY-DR-jvM" kind="presentation" id="9jR-Sg-fjC"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kty-nV-SaA">
+                                <rect key="frame" x="0.0" y="686" width="414" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="繼續購物"/>
+                                <connections>
+                                    <segue destination="GAY-DR-jvM" kind="presentation" id="9jR-Sg-fjC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="感謝您的購買！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jI-8l-o0V">
+                                <rect key="frame" x="74" y="378" width="266" height="52"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="38"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您已完成訂單" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urO-Uq-7hP">
+                                <rect key="frame" x="150" y="344" width="114" height="26"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="zy2-ji-g0c" firstAttribute="top" secondItem="Kty-nV-SaA" secondAttribute="bottom" id="5I5-OW-KQi"/>
+                            <constraint firstItem="8jI-8l-o0V" firstAttribute="top" secondItem="urO-Uq-7hP" secondAttribute="bottom" constant="8" id="GyL-Cr-vTm"/>
+                            <constraint firstItem="8jI-8l-o0V" firstAttribute="centerX" secondItem="yFL-Ue-ukb" secondAttribute="centerX" id="cT1-8z-JlR"/>
+                            <constraint firstItem="dNi-oL-qpY" firstAttribute="trailing" secondItem="Kty-nV-SaA" secondAttribute="trailing" id="gzj-sV-phN"/>
+                            <constraint firstItem="urO-Uq-7hP" firstAttribute="centerX" secondItem="yFL-Ue-ukb" secondAttribute="centerX" id="nZK-Z1-adc"/>
+                            <constraint firstItem="8jI-8l-o0V" firstAttribute="centerY" secondItem="yFL-Ue-ukb" secondAttribute="centerY" id="vYQ-yV-7Wt"/>
+                            <constraint firstItem="Kty-nV-SaA" firstAttribute="leading" secondItem="dNi-oL-qpY" secondAttribute="leading" id="wtE-Nk-hva"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dNi-oL-qpY"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="CONFIRMATION" id="z8C-lJ-gQ7"/>
+                    <navigationItem key="navigationItem" title="訂單完成" id="z8C-lJ-gQ7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQW-ap-w6z" sceneMemberID="firstResponder"/>
             </objects>
@@ -942,7 +935,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="CHECKOUT" id="Faz-vk-Jei"/>
+                    <navigationItem key="navigationItem" title="結帳" id="Faz-vk-Jei"/>
                     <connections>
                         <outlet property="labelTotalPrice" destination="Z8M-bg-CXl" id="meT-d2-nDb"/>
                         <outlet property="lbName" destination="GcX-D1-oZD" id="bMg-Uk-HHl"/>
@@ -1078,7 +1071,6 @@
     </scenes>
     <resources>
         <image name="cart" width="16" height="16"/>
-        <image name="delivery.png" width="16" height="16"/>
         <image name="noImage" width="300" height="183"/>
         <image name="shopping" width="20" height="20"/>
     </resources>
