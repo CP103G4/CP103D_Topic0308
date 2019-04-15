@@ -366,31 +366,6 @@
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="ENg-ZV-fIJ"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eD-Ep-BYC">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKt-QE-aBV">
-                                        <rect key="frame" x="184" y="347.5" width="46" height="30"/>
-                                        <state key="normal" title="去購物"/>
-                                        <connections>
-                                            <action selector="goShopping:" destination="mbG-oA-uJv" eventType="touchUpInside" id="YUk-5r-rjF"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的購物車沒有商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-dx-Vh5">
-                                        <rect key="frame" x="129" y="311" width="156" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="NWZ-dx-Vh5" firstAttribute="centerX" secondItem="5eD-Ep-BYC" secondAttribute="centerX" id="cXg-Jq-2FZ"/>
-                                    <constraint firstItem="VKt-QE-aBV" firstAttribute="top" secondItem="NWZ-dx-Vh5" secondAttribute="bottom" constant="16" id="mIA-2q-I4W"/>
-                                    <constraint firstItem="VKt-QE-aBV" firstAttribute="centerX" secondItem="5eD-Ep-BYC" secondAttribute="centerX" id="sK4-CB-H1R"/>
-                                    <constraint firstItem="VKt-QE-aBV" firstAttribute="centerY" secondItem="5eD-Ep-BYC" secondAttribute="centerY" id="zk2-Yj-vAM"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jkI-Zf-d23">
                                 <rect key="frame" x="0.0" y="88" width="414" height="665.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -508,6 +483,31 @@
                                     <outlet property="delegate" destination="mbG-oA-uJv" id="Eo8-mM-qMI"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eD-Ep-BYC">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKt-QE-aBV">
+                                        <rect key="frame" x="184" y="347.5" width="46" height="30"/>
+                                        <state key="normal" title="去購物"/>
+                                        <connections>
+                                            <action selector="goShopping:" destination="mbG-oA-uJv" eventType="touchUpInside" id="YUk-5r-rjF"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的購物車沒有商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-dx-Vh5">
+                                        <rect key="frame" x="129" y="311" width="156" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="NWZ-dx-Vh5" firstAttribute="centerX" secondItem="5eD-Ep-BYC" secondAttribute="centerX" id="cXg-Jq-2FZ"/>
+                                    <constraint firstItem="VKt-QE-aBV" firstAttribute="top" secondItem="NWZ-dx-Vh5" secondAttribute="bottom" constant="16" id="mIA-2q-I4W"/>
+                                    <constraint firstItem="VKt-QE-aBV" firstAttribute="centerX" secondItem="5eD-Ep-BYC" secondAttribute="centerX" id="sK4-CB-H1R"/>
+                                    <constraint firstItem="VKt-QE-aBV" firstAttribute="centerY" secondItem="5eD-Ep-BYC" secondAttribute="centerY" id="zk2-Yj-vAM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
