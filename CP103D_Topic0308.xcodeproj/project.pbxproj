@@ -41,7 +41,6 @@
 		188A8F6D224FB72300F68CA6 /* ManagerWomanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F65224FB72300F68CA6 /* ManagerWomanTableViewCell.swift */; };
 		188A8F6E224FB72300F68CA6 /* ManagerWomanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F66224FB72300F68CA6 /* ManagerWomanTableViewController.swift */; };
 		188A8F73224FB7F500F68CA6 /* ManagerUploadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A8F72224FB7F500F68CA6 /* ManagerUploadTableViewController.swift */; };
-		188E5C2622537EBB009A166D /* ManagerUpdateGoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E5C2522537EBB009A166D /* ManagerUpdateGoodTableViewController.swift */; };
 		18969047226212D40031C2A6 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18969046226212D40031C2A6 /* FavoriteCell.swift */; };
 		1899233A22323DBD00B9DC1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899233922323DBD00B9DC1C /* AppDelegate.swift */; };
 		1899233F22323DBD00B9DC1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1899233D22323DBD00B9DC1C /* Main.storyboard */; };
@@ -121,7 +120,6 @@
 		188A8F65224FB72300F68CA6 /* ManagerWomanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerWomanTableViewCell.swift; sourceTree = "<group>"; };
 		188A8F66224FB72300F68CA6 /* ManagerWomanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerWomanTableViewController.swift; sourceTree = "<group>"; };
 		188A8F72224FB7F500F68CA6 /* ManagerUploadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerUploadTableViewController.swift; sourceTree = "<group>"; };
-		188E5C2522537EBB009A166D /* ManagerUpdateGoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerUpdateGoodTableViewController.swift; sourceTree = "<group>"; };
 		18969046226212D40031C2A6 /* FavoriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		1899233622323DBD00B9DC1C /* CP103D_Topic0308.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP103D_Topic0308.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1899233922323DBD00B9DC1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -255,7 +253,6 @@
 			children = (
 				188A8F5B224FB6F100F68CA6 /* ManagerGooddetailViewController.swift */,
 				188A8F5C224FB6F100F68CA6 /* ManagerHomeViewController.swift */,
-				188E5C2522537EBB009A166D /* ManagerUpdateGoodTableViewController.swift */,
 				189923552232458D00B9DC1C /* ManagerHome.storyboard */,
 				188A8F6F224FB73600F68CA6 /* ManagerHome */,
 				188A8F70224FB74A00F68CA6 /* ManagerMan */,
@@ -618,7 +615,6 @@
 				188A8F6A224FB72300F68CA6 /* ManagerHomeCollectionViewCell.swift in Sources */,
 				1DABCBED226179410030C96D /* ShowQRcodeVC.swift in Sources */,
 				1D2BE2C4224206330073BDE6 /* ManagerOrderEditTVC.swift in Sources */,
-				188E5C2622537EBB009A166D /* ManagerUpdateGoodTableViewController.swift in Sources */,
 				1D20339B2261BCD300A8F5D8 /* LastMonthVC.swift in Sources */,
 				1899233A22323DBD00B9DC1C /* AppDelegate.swift in Sources */,
 				1137ECD322436F6100F03C4E /* MemberUpdataVC.swift in Sources */,
@@ -771,7 +767,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X725M6FRD5;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CP103D_Topic0308",
@@ -796,7 +792,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X725M6FRD5;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CP103D_Topic0308",

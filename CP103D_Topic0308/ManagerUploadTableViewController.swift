@@ -10,7 +10,7 @@ import UIKit
 import ImageIO
 import Starscream
 
-class ManagerUploadTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, WebSocketDelegate {
+class ManagerUploadTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, WebSocketDelegate {
     
     let url_server = URL(string: common_url + "GoodsServlet1")
     @IBOutlet weak var goodnameTextfield: UITextField!
@@ -30,6 +30,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     @IBOutlet weak var saveItem: UIBarButtonItem!
     @IBOutlet weak var deleteButtonOutlet: UIButton!
     
+    @IBOutlet weak var uploadButtonOutlet: UIButton!
     
     var image: UIImage?
     var socket: WebSocket!
@@ -40,14 +41,21 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if gooddescriptTextview.text == "" {
+            gooddescriptTextview.text = "請輸入商品介紹"
+            gooddescriptTextview.textColor = UIColor.lightGray
+        }
         if isGoodUpdate {
             saveItem.title = "儲存"
             navigationItem.title = "修改商品資訊"
             deleteButtonOutlet.isHidden = false
             deleteButtonOutlet.isEnabled = true
+            
         }else{
             deleteButtonOutlet.isHidden = true
             deleteButtonOutlet.isEnabled = false
+            uploadButtonOutlet.isHidden = false
+            uploadButtonOutlet.isEnabled = true
         }
         
         let url_WebSocketserver = URL(string: wscommon_url + "websocketAll/" + username)
@@ -62,10 +70,20 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     override func viewDidDisappear(_ animated: Bool) {
         tabBarController?.tabBar.layer.zPosition = 0
     }
-    func hideKeyboardByGesture() {
-        //透過手勢隱藏鍵盤
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
-        self.view.addGestureRecognizer(tap)
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if gooddescriptTextview.text == "請輸入商品介紹"{
+            gooddescriptTextview.text = nil
+            gooddescriptTextview.textColor = UIColor.black
+        }else{
+            gooddescriptTextview.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if gooddescriptTextview.text.isEmpty {
+            gooddescriptTextview.text = "請輸入商品介紹"
+            gooddescriptTextview.textColor = UIColor.lightGray
+        }
     }
     
     func loadGoodDetail() {
@@ -116,7 +134,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         let specialprice = specialPriceTextfield.text == "" ? "-1" : goodpriceTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let quatity = quatityTextfield.text == "" ? "-1" : quatityTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let shelf = shelfSwitch.isOn.description
-        let gooddescript = goodpriceTextfield.text
+        let gooddescript = gooddescriptTextview.text
         if goodname!.isEmpty {
             let alertController = UIAlertController(
                 title: "商品名稱不可以為空白",
@@ -136,41 +154,30 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
             self.present(alertController, animated: true, completion: nil)
             return
         }
-        goodDetail = Good(id: -1, name: goodname!, descrip: gooddescript!, price: Double(goodprice!)!, mainclass: sex, subclass: subclass, shelf: shelf, evulation: -1, color1: color1, color2: color2, size1: sizeL, size2: sizeXL, specialPrice: Double(specialprice!)!, quatity: Int(quatity!)!)
+        var goodId = -1
+        
+        if goodDetail == nil {
+            goodId = -1
+        }else{
+            goodId = goodDetail!.id
+        }
+        goodDetail = Good(id: goodId, name: goodname!, descrip: gooddescript!, price: Double(goodprice!)!, mainclass: sex, subclass: subclass, shelf: shelf, evulation: -1, color1: color1, color2: color2, size1: sizeL, size2: sizeXL, specialPrice: Double(specialprice!)!, quatity: Int(quatity!)!)
         
         var requestParam = [String: String]()
         if !isGoodUpdate {
             requestParam["param"] = "insert"
             requestParam["goodinsert"] = try! String(data: JSONEncoder().encode(goodDetail), encoding: .utf8)
-            // 有圖才上傳
-            if self.image != nil {
-                requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
-            }else{//named: "noImage.jpg"
-                requestParam["imageBase64"] = UIImage(named: "noImage.jpg")?.jpegData(compressionQuality: 1.0)!.base64EncodedString()
-            }
         }else{
             requestParam["param"] = "update"
             requestParam["goodinsert"] = try! String(data: JSONEncoder().encode(goodDetail), encoding: .utf8)
         }
-     
-        
-        //推播訊息
-        if shelfSwitch.isOn == true {
-            do {
-                var dictionary = [String: String]()
-                dictionary["userName"] = username
-                dictionary["message"] = goodname! + "上架啦～～～"
-                dictionary["goodName"] = goodname!
-                let jsonData = try JSONEncoder().encode(dictionary)
-                let text = String(data: jsonData, encoding: .utf8)
-                socket.write(string: text!)
-                print("傳送推播訊息\(dictionary["message"]!)")
-                //                socket.disconnect()
-            }catch{
-                print(error.localizedDescription)
-            }
+        // 有圖才上傳
+        if self.image != nil {
+            requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
+        }else{//named: "noImage.jpg"
+//            requestParam["imageBase64"] = UIImage(named: "noImage.jpg")?.jpegData(compressionQuality: 1.0)!.base64EncodedString()
+            requestParam["imageBase64"] = goodImageview.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
         }
-        
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
@@ -179,7 +186,14 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
                             DispatchQueue.main.async {
                                 print(count.description)
                                 if count != 0 {
-                                    self.showCorrectAlert()
+                                    switch requestParam["param"]{
+                                    case "insert":
+                                        self.showCorrectAlert("上傳商品：\(self.goodDetail!.name)")
+                                    case "update":
+                                        self.showCorrectAlert("修改商品：\(self.goodDetail!.name)")
+                                    default: break
+                                    }
+                                    self.pushtoConsumerHome()
                                 } else {
                                     self.showErrorAlert()
                                 }
@@ -191,8 +205,26 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
                 print(error!.localizedDescription)
             }
         }
+
         
-        
+    }
+    func pushtoConsumerHome() {
+        //推播訊息
+        if shelfSwitch.isOn == true {
+            do {
+                var dictionary = [String: String]()
+                dictionary["userName"] = username
+                dictionary["message"] = goodDetail!.name + "上架啦～～～"
+                dictionary["goodName"] = goodDetail!.name
+                let jsonData = try JSONEncoder().encode(dictionary)
+                let text = String(data: jsonData, encoding: .utf8)
+                socket.write(string: text!)
+                print("傳送推播訊息\(dictionary["message"]!)")
+                //                socket.disconnect()
+            }catch{
+                print(error.localizedDescription)
+            }
+        }
     }
     
     @IBAction func deleteGood(_ sender: Any) {
@@ -207,7 +239,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
                             DispatchQueue.main.async {
                                 print(count.description)
                                 if count != 0 {
-                                    self.showCorrectAlert()
+                                    self.showCorrectAlert("刪除商品：\(self.goodDetail!.name)")
                                 } else {
                                     self.showErrorAlert()
                                 }
@@ -235,8 +267,8 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         
     }
     
-    func showCorrectAlert(){
-        let correctAlert = UIAlertController(title: "上傳成功", message: "上傳成功", preferredStyle: .alert)
+    func showCorrectAlert(_ correctMessage: String){
+        let correctAlert = UIAlertController(title: correctMessage, message: correctMessage + "成功！", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Great!", style: .default) { (_) in
             self.next()            
         }
@@ -350,6 +382,12 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         quatityTextfield.text = ""
         shelfSwitch.isOn = false
         gooddescriptTextview.text = "請輸入商品介紹"
+    }
+    
+    func hideKeyboardByGesture() {
+        //透過手勢隱藏鍵盤
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        self.view.addGestureRecognizer(tap)
     }
     
     @IBAction func hidekeyboard(_ sender: Any) {

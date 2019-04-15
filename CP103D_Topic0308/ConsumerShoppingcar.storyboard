@@ -500,22 +500,51 @@
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="ENg-ZV-fIJ"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eD-Ep-BYC">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKt-QE-aBV">
+                                        <rect key="frame" x="184" y="347.5" width="46" height="30"/>
+                                        <state key="normal" title="去購物"/>
+                                        <connections>
+                                            <action selector="goShopping:" destination="mbG-oA-uJv" eventType="touchUpInside" id="YUk-5r-rjF"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的購物車沒有商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-dx-Vh5">
+                                        <rect key="frame" x="129" y="311" width="156" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="NWZ-dx-Vh5" firstAttribute="centerX" secondItem="5eD-Ep-BYC" secondAttribute="centerX" id="cXg-Jq-2FZ"/>
+                                    <constraint firstItem="VKt-QE-aBV" firstAttribute="top" secondItem="NWZ-dx-Vh5" secondAttribute="bottom" constant="16" id="mIA-2q-I4W"/>
+                                    <constraint firstItem="VKt-QE-aBV" firstAttribute="centerX" secondItem="5eD-Ep-BYC" secondAttribute="centerX" id="sK4-CB-H1R"/>
+                                    <constraint firstItem="VKt-QE-aBV" firstAttribute="centerY" secondItem="5eD-Ep-BYC" secondAttribute="centerY" id="zk2-Yj-vAM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="5eD-Ep-BYC" firstAttribute="leading" secondItem="fbo-mB-qJt" secondAttribute="leading" id="0f3-hN-R0F"/>
                             <constraint firstItem="fbo-mB-qJt" firstAttribute="trailing" secondItem="Ty8-dd-y37" secondAttribute="trailing" constant="8" id="3d4-zV-KCc"/>
                             <constraint firstItem="fbo-mB-qJt" firstAttribute="trailing" secondItem="jbe-H2-6q5" secondAttribute="trailing" constant="16" id="50S-FS-7MP"/>
+                            <constraint firstItem="H40-lt-Dj6" firstAttribute="top" secondItem="5eD-Ep-BYC" secondAttribute="bottom" id="Cj5-oe-fgQ"/>
                             <constraint firstItem="jkI-Zf-d23" firstAttribute="leading" secondItem="lcy-8u-9kh" secondAttribute="leading" id="Htn-kj-wpt"/>
                             <constraint firstItem="xXr-Xy-DZL" firstAttribute="top" secondItem="lcy-8u-9kh" secondAttribute="top" id="Kbu-Kz-FCG"/>
                             <constraint firstItem="xXr-Xy-DZL" firstAttribute="leading" secondItem="fbo-mB-qJt" secondAttribute="leading" id="NM9-zD-5ad"/>
                             <constraint firstItem="H40-lt-Dj6" firstAttribute="top" secondItem="Ty8-dd-y37" secondAttribute="bottom" id="Ssz-z9-V2x"/>
                             <constraint firstItem="xXr-Xy-DZL" firstAttribute="trailing" secondItem="fbo-mB-qJt" secondAttribute="trailing" id="TIZ-rq-7Jk"/>
                             <constraint firstAttribute="trailing" secondItem="jkI-Zf-d23" secondAttribute="trailing" id="Xbs-cF-RiM"/>
+                            <constraint firstItem="5eD-Ep-BYC" firstAttribute="trailing" secondItem="fbo-mB-qJt" secondAttribute="trailing" id="gab-XX-HS4"/>
                             <constraint firstItem="Ty8-dd-y37" firstAttribute="top" secondItem="YZO-1l-4b3" secondAttribute="bottom" id="hBQ-Rd-cwY"/>
                             <constraint firstAttribute="bottom" secondItem="xXr-Xy-DZL" secondAttribute="bottom" constant="16" id="kpg-m9-s80"/>
                             <constraint firstItem="Ty8-dd-y37" firstAttribute="leading" secondItem="fbo-mB-qJt" secondAttribute="leading" constant="8" id="mb7-9G-5eK"/>
                             <constraint firstItem="jkI-Zf-d23" firstAttribute="top" secondItem="ItL-OL-Xv0" secondAttribute="bottom" id="nLl-ig-i6v"/>
                             <constraint firstItem="jbe-H2-6q5" firstAttribute="leading" secondItem="YZO-1l-4b3" secondAttribute="trailing" constant="8" id="okm-l2-fkf"/>
+                            <constraint firstItem="5eD-Ep-BYC" firstAttribute="top" secondItem="ItL-OL-Xv0" secondAttribute="bottom" id="qrp-24-wj3"/>
                             <constraint firstItem="jbe-H2-6q5" firstAttribute="top" secondItem="jkI-Zf-d23" secondAttribute="bottom" id="rfJ-Ly-xGV"/>
                             <constraint firstItem="Ty8-dd-y37" firstAttribute="top" secondItem="jbe-H2-6q5" secondAttribute="bottom" id="rn5-Lz-kIm"/>
                         </constraints>
@@ -528,6 +557,7 @@
                     <connections>
                         <outlet property="cartTableView" destination="jkI-Zf-d23" id="FPp-AD-Pwv"/>
                         <outlet property="cartTotalPrice" destination="jbe-H2-6q5" id="4vk-it-neA"/>
+                        <outlet property="noGoodView" destination="5eD-Ep-BYC" id="VPr-dg-Cpa"/>
                         <outlet property="shoppingView" destination="xXr-Xy-DZL" id="HSW-s9-0KR"/>
                         <outlet property="shoppingviewDeepcolorBt" destination="Xex-t4-MZ4" id="hk5-7V-ski"/>
                         <outlet property="shoppingviewLightBt" destination="XTx-yy-pVC" id="d5l-4i-0b5"/>
