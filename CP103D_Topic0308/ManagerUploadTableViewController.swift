@@ -30,6 +30,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     @IBOutlet weak var saveItem: UIBarButtonItem!
     @IBOutlet weak var deleteButtonOutlet: UIButton!
     
+    @IBOutlet weak var uploadButtonOutlet: UIButton!
     
     var image: UIImage?
     var socket: WebSocket!
@@ -45,9 +46,12 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
             navigationItem.title = "修改商品資訊"
             deleteButtonOutlet.isHidden = false
             deleteButtonOutlet.isEnabled = true
+            
         }else{
             deleteButtonOutlet.isHidden = true
             deleteButtonOutlet.isEnabled = false
+            uploadButtonOutlet.isHidden = false
+            uploadButtonOutlet.isEnabled = true
         }
         
         let url_WebSocketserver = URL(string: wscommon_url + "websocketAll/" + username)

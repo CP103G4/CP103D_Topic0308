@@ -332,7 +332,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWY-eU-hA6">
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWY-eU-hA6">
                                                     <rect key="frame" x="8" y="8" width="359" height="27.5"/>
                                                     <state key="normal" title="刪除商品">
                                                         <color key="titleColor" red="1" green="0.18423828079999999" blue="0.18251946450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -341,11 +341,22 @@
                                                         <action selector="deleteGood:" destination="thu-EH-lne" eventType="touchUpInside" id="C59-hh-YB1"/>
                                                     </connections>
                                                 </button>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AN-mY-Xgq">
+                                                    <rect key="frame" x="8" y="8" width="359" height="27.5"/>
+                                                    <state key="normal" title="上傳"/>
+                                                    <connections>
+                                                        <action selector="saveAction:" destination="thu-EH-lne" eventType="touchUpInside" id="bHj-0d-MtR"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="KWY-eU-hA6" secondAttribute="trailing" constant="8" id="0Zi-3c-S3P"/>
                                                 <constraint firstAttribute="bottom" secondItem="KWY-eU-hA6" secondAttribute="bottom" constant="8" id="8vV-Gd-kjY"/>
+                                                <constraint firstAttribute="trailing" secondItem="1AN-mY-Xgq" secondAttribute="trailing" constant="8" id="V6e-eg-QHT"/>
                                                 <constraint firstItem="KWY-eU-hA6" firstAttribute="leading" secondItem="VYM-c9-Dac" secondAttribute="leading" constant="8" id="YfI-Ht-4B6"/>
+                                                <constraint firstAttribute="bottom" secondItem="1AN-mY-Xgq" secondAttribute="bottom" constant="8" id="gdj-B4-UOl"/>
+                                                <constraint firstItem="1AN-mY-Xgq" firstAttribute="leading" secondItem="VYM-c9-Dac" secondAttribute="leading" constant="8" id="wsQ-OU-pUE"/>
+                                                <constraint firstItem="1AN-mY-Xgq" firstAttribute="top" secondItem="VYM-c9-Dac" secondAttribute="top" constant="8" id="yVB-Iz-mL4"/>
                                                 <constraint firstItem="KWY-eU-hA6" firstAttribute="top" secondItem="VYM-c9-Dac" secondAttribute="top" constant="8" id="zWB-ln-KC4"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -383,6 +394,7 @@
                         <outlet property="sizeXLswitch" destination="2e4-0W-qFN" id="NZz-4Y-OGm"/>
                         <outlet property="specialPriceTextfield" destination="LcN-ig-9Wy" id="3V9-6i-QK3"/>
                         <outlet property="subclassSegment" destination="rrt-AH-vaD" id="8Sq-vV-gnk"/>
+                        <outlet property="uploadButtonOutlet" destination="1AN-mY-Xgq" id="Ee9-nd-sZq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VR4-Ty-tYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
