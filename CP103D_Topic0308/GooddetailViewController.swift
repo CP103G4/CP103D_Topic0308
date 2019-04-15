@@ -59,31 +59,33 @@ class GooddetailViewController: UIViewController {
             size1Label.alpha = (goodDetail.size1 == "1") ? 1 : 0.1
             size2Label.alpha = (goodDetail.size2 == "1") ? 1 : 0.1
             gooddescriptTextview.text = goodDetail.descrip
-            
             shoppingviewPrice.text = goodDetail.price.description
-            // 尚未取得圖片，另外開啟task請求
-            var requestParam = [String: Any]()
-            requestParam["param"] = "getImage"
-            requestParam["id"] = goodDetail.id
-            // 圖片寬度為tableViewCell的1/4，ImageView的寬度也建議在storyboard加上比例設定的constraint
-//            requestParam["imageSize"] = UIScreen.main.bounds.width / 4
-            requestParam["imageSize"] = 512
-            var image: UIImage?
-            executeTask(url_server!, requestParam) { (data, response, error) in
-                if error == nil {
-                    if data != nil {
-                        image = UIImage(data: data!)
-                    }
-                    if image == nil {
-                        image = UIImage(named: "noImage.jpg")
-                    }
-                    DispatchQueue.main.async {
-                        self.imageview.image = image
-                        self.shoppingviewImageview.image = image
-                    }
-                } else {
-                    print(error!.localizedDescription)
+            getImage()
+        }
+    }
+    
+    func getImage() {
+        // 尚未取得圖片，另外開啟task請求
+        var requestParam = [String: Any]()
+        requestParam["param"] = "getImage"
+        requestParam["id"] = goodDetail.id
+        // 圖片寬度為tableViewCell的寬度，ImageView的寬度也建議在storyboard加上比例設定的constraint
+        requestParam["imageSize"] = UIScreen.main.bounds.width
+        var image: UIImage?
+        executeTask(url_server!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    image = UIImage(data: data!)
                 }
+                if image == nil {
+                    image = UIImage(named: "noImage.jpg")
+                }
+                DispatchQueue.main.async {
+                    self.imageview.image = image
+                    self.shoppingviewImageview.image = image
+                }
+            } else {
+                print(error!.localizedDescription)
             }
         }
     }
@@ -126,26 +128,27 @@ class GooddetailViewController: UIViewController {
                             self.gooddescriptTextview.text = self.goodDetail.descrip
                             
                             /////////
+                            self.getImage()
                             // 尚未取得圖片，另外開啟task請求
-                            var requestParam = [String: Any]()
-                            requestParam["param"] = "getImage"
-                            requestParam["id"] = self.goodDetail.id
-                            // 圖片寬度為tableViewCell的1/4，ImageView的寬度也建議在storyboard加上比例設定的constraint
-                            requestParam["imageSize"] = UIScreen.main.bounds.width / 4
-                            var image: UIImage?
-                            executeTask(self.url_server!, requestParam) { (data, response, error) in
-                                if error == nil {
-                                    if data != nil {
-                                        image = UIImage(data: data!)
-                                    }
-                                    if image == nil {
-                                        image = UIImage(named: "noImage.jpg")
-                                    }
-                                    DispatchQueue.main.async { self.imageview.image = image }
-                                } else {
-                                    print(error!.localizedDescription)
-                                }
-                            }
+//                            var requestParam = [String: Any]()
+//                            requestParam["param"] = "getImage"
+//                            requestParam["id"] = self.goodDetail.id
+//                            // 圖片寬度為tableViewCell的1/4，ImageView的寬度也建議在storyboard加上比例設定的constraint
+//                            requestParam["imageSize"] = UIScreen.main.bounds.width / 4
+//                            var image: UIImage?
+//                            executeTask(self.url_server!, requestParam) { (data, response, error) in
+//                                if error == nil {
+//                                    if data != nil {
+//                                        image = UIImage(data: data!)
+//                                    }
+//                                    if image == nil {
+//                                        image = UIImage(named: "noImage.jpg")
+//                                    }
+//                                    DispatchQueue.main.async { self.imageview.image = image }
+//                                } else {
+//                                    print(error!.localizedDescription)
+//                                }
+//                            }
                         }
                     }catch{
                         print(error)
