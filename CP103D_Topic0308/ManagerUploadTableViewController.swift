@@ -15,15 +15,10 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     let url_server = URL(string: common_url + "GoodsServlet1")
     @IBOutlet weak var goodnameTextfield: UITextField!
     @IBOutlet weak var goodImageview: UIImageView!
-    @IBOutlet weak var color1Switch: UISwitch!
-    @IBOutlet weak var color2Switch: UISwitch!
-    @IBOutlet weak var sizeLswitch: UISwitch!
-    @IBOutlet weak var sizeXLswitch: UISwitch!
     @IBOutlet weak var sexSegment: UISegmentedControl!
     @IBOutlet weak var subclassSegment: UISegmentedControl!
     @IBOutlet weak var goodpriceTextfield: UITextField!
-    @IBOutlet weak var specialPriceTextfield: UITextField!
-    @IBOutlet weak var quatityTextfield: UITextField!   //庫存
+
     @IBOutlet weak var shelfSwitch: UISwitch!   //上架
     @IBOutlet weak var gooddescriptTextview: UITextView!
     
@@ -88,15 +83,11 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     
     func loadGoodDetail() {
         goodnameTextfield.text = goodDetail!.name
-        color1Switch.isOn = goodDetail!.color1 == "1" ? true : false//true = 1
-        color2Switch.isOn = goodDetail!.color2 == "1" ? true : false
-        sizeLswitch.isOn = goodDetail!.size1 == "1" ? true : false
-        sizeXLswitch.isOn = goodDetail!.size2 == "1" ? true : false
+
         sexSegment.selectedSegmentIndex = goodDetail!.mainclass == "Woman" ? 0 : 1
         subclassSegment.selectedSegmentIndex = Int(goodDetail!.subclass)!
         goodpriceTextfield.text = Int(goodDetail!.price).description
-        specialPriceTextfield.text = Int(goodDetail!.specialPrice).description
-        quatityTextfield.text = goodDetail!.quatity.description
+
         shelfSwitch.isOn = Bool(goodDetail!.shelf)!
         gooddescriptTextview.text = goodDetail!.descrip
         
@@ -124,15 +115,13 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     
     @IBAction func saveAction(_ sender: Any) {
         let goodname = goodnameTextfield.text == "" ? "" : goodnameTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let color1 = color1Switch.isOn.description == "true" ? "1" : (color1Switch.isOn.description == "false" ? "0" : "1") //true = 1
-        let color2 = color2Switch.isOn.description == "true" ? "1" : (color2Switch.isOn.description == "false" ? "0" : "1")
-        let sizeL = sizeLswitch.isOn.description == "true" ? "1" : (sizeLswitch.isOn.description == "false" ? "0" : "1")
-        let sizeXL = sizeXLswitch.isOn.description == "true" ? "1" : (sizeXLswitch.isOn.description == "false" ? "0" : "1")
+        let color1 = "1"//color1Switch.isOn.description == "true" ? "1" : (color1Switch.isOn.description == "false" ? "0" : "1") //true = 1
+        let color2 = "1"//color2Switch.isOn.description == "true" ? "1" : (color2Switch.isOn.description == "false" ? "0" : "1")
+        let sizeL = "1"//sizeLswitch.isOn.description == "true" ? "1" : (sizeLswitch.isOn.description == "false" ? "0" : "1")
+        let sizeXL = "1"//sizeXLswitch.isOn.description == "true" ? "1" : (sizeXLswitch.isOn.description == "false" ? "0" : "1")
         let sex = sexSegment.selectedSegmentIndex.description == "0" ? "Woman" : (sexSegment.selectedSegmentIndex.description == "1" ? "Man" : "Woman")
         let subclass = subclassSegment.selectedSegmentIndex.description
         let goodprice = goodpriceTextfield.text == "" ? "-1" : goodpriceTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let specialprice = specialPriceTextfield.text == "" ? "-1" : goodpriceTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let quatity = quatityTextfield.text == "" ? "-1" : quatityTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let shelf = shelfSwitch.isOn.description
         let gooddescript = gooddescriptTextview.text
         if goodname!.isEmpty {
@@ -161,7 +150,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         }else{
             goodId = goodDetail!.id
         }
-        goodDetail = Good(id: goodId, name: goodname!, descrip: gooddescript!, price: Double(goodprice!)!, mainclass: sex, subclass: subclass, shelf: shelf, evulation: -1, color1: color1, color2: color2, size1: sizeL, size2: sizeXL, specialPrice: Double(specialprice!)!, quatity: Int(quatity!)!)
+        goodDetail = Good(id: goodId, name: goodname!, descrip: gooddescript!, price: Double(goodprice!)!, mainclass: sex, subclass: subclass, shelf: shelf, evulation: -1, color1: color1, color2: color2, size1: sizeL, size2: sizeXL, specialPrice: -1, quatity: -1)
         
         var requestParam = [String: String]()
         if !isGoodUpdate {
@@ -174,8 +163,7 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
         // 有圖才上傳
         if self.image != nil {
             requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
-        }else{//named: "noImage.jpg"
-//            requestParam["imageBase64"] = UIImage(named: "noImage.jpg")?.jpegData(compressionQuality: 1.0)!.base64EncodedString()
+        }else{
             requestParam["imageBase64"] = goodImageview.image!.jpegData(compressionQuality: 1.0)!.base64EncodedString()
         }
         executeTask(url_server!, requestParam) { (data, response, error) in
@@ -366,22 +354,6 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
         print("\(self.tag) got some data: \(data.count)")
-    }
-    
-    @IBAction func undoClick(_ sender: Any) {
-        goodnameTextfield.text = ""
-        goodImageview.image = UIImage(named: "noImage.jpg")
-        color1Switch.isOn = false
-        color2Switch.isOn = false
-        sizeLswitch.isOn = false
-        sizeXLswitch.isOn = false
-        sexSegment.selectedSegmentIndex = 0
-        subclassSegment.selectedSegmentIndex = 0
-        goodpriceTextfield.text = ""
-        specialPriceTextfield.text = ""
-        quatityTextfield.text = ""
-        shelfSwitch.isOn = false
-        gooddescriptTextview.text = "請輸入商品介紹"
     }
     
     func hideKeyboardByGesture() {
