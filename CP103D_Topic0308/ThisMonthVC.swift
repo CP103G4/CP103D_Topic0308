@@ -46,9 +46,14 @@ class ThisMonthChartVC: UIViewController, ChartViewDelegate{
             format.dateFormat = "yyyy-MM-dd HH:mm:ss"
             decoder.dateDecodingStrategy = .formatted(format)
             let now = Date()
+            
             let calendar = Calendar.current
+            var dateComponents = DateComponents()
+            dateComponents.hour = -8
+            let date_fix = calendar.date(byAdding: dateComponents, to: now)
+            
             let componentSet: Set<Calendar.Component> = [.year, .month, .weekOfYear, .day, .hour, .minute, .second, .nanosecond]
-            let nowComponents = calendar.dateComponents(componentSet, from: now)
+            let nowComponents = calendar.dateComponents(componentSet, from: date_fix!)
             
             if error == nil {
                 if data != nil {
