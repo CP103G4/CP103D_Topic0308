@@ -25,6 +25,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let url_server1 = URL(string: common_url + "UserServlet")
     let url_server2 = URL(string: common_url + "OrderServlet")
     let url_server3 = URL(string: common_url + "OrderdetailServlet")
+    let url_server_pic = URL(string: common_url + "GoodsServlet1")
     
     override func viewWillAppear(_ animated: Bool) {
         loadData()
@@ -108,6 +109,27 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "checkCell", for: indexPath) as! CheckTableViewCell
         
+        // 尚未取得圖片，另外開啟task請求
+        var requestParam = [String: Any]()
+        requestParam["param"] = "getImage"
+        requestParam["id"] = carts[indexPath.row].id
+        // 圖片寬度為tableViewCell的1/4，ImageView的寬度也建議在storyboard加上比例設定的constraint
+        requestParam["imageSize"] = cell.frame.width / 4
+        var image: UIImage?
+        executeTask(url_server_pic!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    image = UIImage(data: data!)
+                }
+                if image == nil {
+                    image = UIImage(named: "noImage.jpg")
+                }
+                DispatchQueue.main.async {cell.ivGood.image = image}
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+        
         // Configure the cell...
         let cart = carts[indexPath.row]
         cell.lbName.text = cart.name
@@ -152,7 +174,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                         self.showAlertMsgorder()
                                         
 //                                        self.performSegue(withIdentifier: "Thankyou", sender: self)
-                                        
+
                                     } else {
                                         //                                    self.label.text = "insert fail"
                                     }
@@ -178,10 +200,6 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
             break
         }
         
-        
-    }
-    
-    func userGetOrders() {
         
     }
     

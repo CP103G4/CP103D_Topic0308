@@ -860,7 +860,6 @@
                                                         <segments>
                                                             <segment title="貨到付款"/>
                                                             <segment title="信用卡支付"/>
-                                                            <segment title="電子支付"/>
                                                         </segments>
                                                     </segmentedControl>
                                                 </subviews>
