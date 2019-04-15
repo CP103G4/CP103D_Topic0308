@@ -20,6 +20,7 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var shoppingviewSizeLBt: UIButton!
     @IBOutlet weak var shoppingviewSizeXLBt: UIButton!
     @IBOutlet weak var shoppingviewprice: UILabel!
+    @IBOutlet weak var noGoodView: UIView!
     
     var totalPrice = 0.0
     var carts = [Cart]()
@@ -35,6 +36,11 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
     override func viewWillAppear(_ animated: Bool) {
         loadData()
         cartTableView.reloadData()
+        if carts.count == 0 {
+            noGoodView.isHidden = false
+        }else{
+            noGoodView.isHidden = true
+        }
     }
     
     
@@ -208,6 +214,10 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
                 self.saveData(carts: self.carts)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 self.setBadgevalue()
+                if let controller = self.storyboard?.instantiateViewController(withIdentifier: "shoppingcartViewController") {
+                    self.present(controller, animated: true, completion: nil)
+                }
+
             }
             let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             correctAlert.addAction(okAction)
@@ -305,6 +315,7 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidDisappear(_ animated: Bool) {
         saveData(carts: carts)
     }
+    
     func setBadgevalue() {
         if carts.count == 0 {
             self.tabBarController?.viewControllers?[2].tabBarItem.badgeValue = nil
@@ -312,5 +323,10 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
             self.tabBarController?.viewControllers?[2].tabBarItem.badgeValue = carts.count.description
         }
     }
-
+    
+    @IBAction func goShopping(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "TabBar")
+        present(controller, animated: true, completion: nil)
+    }
 }
