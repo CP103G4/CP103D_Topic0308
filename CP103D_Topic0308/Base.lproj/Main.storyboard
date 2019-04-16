@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fw6-b3-nv5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aOf-MW-m5H">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,9 +25,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="109" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                         <state key="normal" title="消費者"/>
-                                        <connections>
-                                            <segue destination="cmN-8A-TaB" kind="show" id="abm-Kp-I30"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v30-dP-KYj">
                                         <rect key="frame" x="0.0" y="63" width="109" height="55"/>
@@ -50,9 +47,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8a-Pc-jXm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-428" y="72"/>
+            <point key="canvasLocation" x="-412" y="461"/>
         </scene>
-        <!--LoginVC-->
+        <!--使用者登入-->
         <scene sceneID="Rh5-EG-ypH">
             <objects>
                 <viewController storyboardIdentifier="Login" id="cmN-8A-TaB" customClass="loginVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
@@ -104,30 +101,6 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1QA-iY-Lh2">
-                                <rect key="frame" x="0.0" y="46" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="使用者登入" id="hXk-5m-G9F">
-                                        <barButtonItem key="rightBarButtonItem" title="註冊" id="J85-fL-6Q8">
-                                            <connections>
-                                                <segue destination="o6Z-Uk-r2f" kind="show" id="1Me-6d-Je7"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKg-9k-mDa">
-                                <rect key="frame" x="285" y="425" width="50" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="先去逛逛">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickshopping:" destination="cmN-8A-TaB" eventType="touchUpInside" id="APz-CB-mlw"/>
-                                    <segue destination="HCp-Vj-eJg" kind="show" identifier="toMainPage" id="lJB-5T-aa6"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QUl-tY-Fil" customClass="FBSDKLoginButton">
                                 <rect key="frame" x="40" y="425" width="150" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -140,19 +113,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="q9l-Px-jnE" firstAttribute="trailing" secondItem="cKg-9k-mDa" secondAttribute="trailing" constant="40" id="Bob-A2-330"/>
                             <constraint firstItem="QUl-tY-Fil" firstAttribute="top" secondItem="cLD-oU-4uL" secondAttribute="bottom" constant="8" id="Cco-8f-bJQ"/>
                             <constraint firstItem="q9l-Px-jnE" firstAttribute="trailing" secondItem="cLD-oU-4uL" secondAttribute="trailing" constant="40" id="SEA-Mj-o8Q"/>
-                            <constraint firstItem="cKg-9k-mDa" firstAttribute="top" secondItem="cLD-oU-4uL" secondAttribute="bottom" constant="8" id="Seo-rJ-RPe"/>
                             <constraint firstItem="q9l-Px-jnE" firstAttribute="bottom" secondItem="cLD-oU-4uL" secondAttribute="bottom" constant="250" id="T6k-dM-IqD"/>
                             <constraint firstItem="QUl-tY-Fil" firstAttribute="leading" secondItem="q9l-Px-jnE" secondAttribute="leading" constant="40" id="UuT-ID-hSb"/>
                             <constraint firstItem="cLD-oU-4uL" firstAttribute="leading" secondItem="q9l-Px-jnE" secondAttribute="leading" constant="40" id="bGS-sl-dfd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q9l-Px-jnE"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="B4E-li-J35" appends="YES" id="cXu-si-oRS"/>
-                        </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="使用者登入" id="71v-rW-qGs">
+                        <barButtonItem key="rightBarButtonItem" title="註冊" id="FhJ-xQ-D5b">
+                            <connections>
+                                <segue destination="Vhd-WS-vEz" kind="show" id="cFn-nB-9g0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="facebookButton" destination="QUl-tY-Fil" id="s7f-7Q-61V"/>
                         <outlet property="passwordTextField" destination="Hlu-Yq-EvS" id="akW-3F-41p"/>
@@ -160,9 +136,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4u6-wl-hbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="B4E-li-J35"/>
             </objects>
-            <point key="canvasLocation" x="404" y="-225.33733133433284"/>
+            <point key="canvasLocation" x="3221.5999999999999" y="-225.33733133433284"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="J5p-fI-303">
@@ -183,7 +158,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c22-jm-IAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1205.7971014492755" y="-225"/>
+            <point key="canvasLocation" x="4023.1999999999998" y="-225.33733133433284"/>
         </scene>
         <!--ConsumerMyfavorite-->
         <scene sceneID="Vqh-Az-v6r">
@@ -193,7 +168,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fiR-Wd-wPG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1896" y="-350"/>
+            <point key="canvasLocation" x="4712.8000000000002" y="-350.82458770614693"/>
         </scene>
         <!--ConsumerShoppingcar-->
         <scene sceneID="rfa-K8-ZYb">
@@ -203,7 +178,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g6V-dR-Z6d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1905" y="-180"/>
+            <point key="canvasLocation" x="4722.3999999999996" y="-180.80959520239881"/>
         </scene>
         <!--ConsumerInformation-->
         <scene sceneID="cTE-s7-xTz">
@@ -213,7 +188,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvr-vE-4fE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1892" y="3"/>
+            <point key="canvasLocation" x="4709.6000000000004" y="2.6986506746626691"/>
         </scene>
         <!--ManagerHome-->
         <scene sceneID="n0A-JH-zhL">
@@ -255,133 +230,233 @@
             </objects>
             <point key="canvasLocation" x="1859" y="654"/>
         </scene>
-        <!--SignupVC-->
-        <scene sceneID="48T-lI-HQY">
+        <!--註冊-->
+        <scene sceneID="HJe-6g-7ef">
             <objects>
-                <viewController id="o6Z-Uk-r2f" customClass="signupVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BUs-Ew-WeB">
+                <tableViewController id="Vhd-WS-vEz" customClass="SignupTVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nIF-QV-61x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cLh-Ye-zYX">
-                                <rect key="frame" x="30" y="100" width="315" height="511"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVT-9C-AKj">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jf3-PS-jN4">
-                                        <rect key="frame" x="0.0" y="35.5" width="315" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帳號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9R-fw-YQS">
-                                        <rect key="frame" x="0.0" y="80.5" width="315" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="toB-JY-Op4">
-                                        <rect key="frame" x="0.0" y="116" width="315" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZu-D4-r49">
-                                        <rect key="frame" x="0.0" y="161" width="315" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eGL-mQ-XqT">
-                                        <rect key="frame" x="0.0" y="196.5" width="315" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電子信箱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCN-RS-deE">
-                                        <rect key="frame" x="0.0" y="241.5" width="315" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dwF-c2-Hzi">
-                                        <rect key="frame" x="0.0" y="277" width="315" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電話" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAK-m4-vsA">
-                                        <rect key="frame" x="0.0" y="322" width="315" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Os8-rO-bNj">
-                                        <rect key="frame" x="0.0" y="357.5" width="315" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性別" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvV-lm-0eo">
-                                        <rect key="frame" x="0.0" y="402.5" width="315" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aPM-f9-KAp">
-                                        <rect key="frame" x="0.0" y="438" width="315" height="29"/>
-                                        <segments>
-                                            <segment title="男性"/>
-                                            <segment title="女性"/>
-                                        </segments>
-                                    </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEA-Pv-rqm">
-                                        <rect key="frame" x="0.0" y="481" width="315" height="30"/>
-                                        <state key="normal" title="完成"/>
-                                        <connections>
-                                            <action selector="registerClick:" destination="o6Z-Uk-r2f" eventType="touchUpInside" id="7dC-Qv-x0s"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W3a-EI-2Sh">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="註冊" id="iIu-88-iDD">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="EUq-97-klm">
-                                            <connections>
-                                                <action selector="doneItem:" destination="o6Z-Uk-r2f" id="c7N-WQ-cto"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="ntt-Dl-HIG" firstAttribute="trailing" secondItem="cLh-Ye-zYX" secondAttribute="trailing" constant="30" id="QEI-od-OPb"/>
-                            <constraint firstItem="cLh-Ye-zYX" firstAttribute="top" secondItem="ntt-Dl-HIG" secondAttribute="top" constant="80" id="fGn-Iw-Rr5"/>
-                            <constraint firstItem="cLh-Ye-zYX" firstAttribute="leading" secondItem="ntt-Dl-HIG" secondAttribute="leading" constant="30" id="uQB-Ua-5fN"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="ntt-Dl-HIG"/>
-                    </view>
+                        <sections>
+                            <tableViewSection headerTitle="姓名" id="s0D-LK-aWn">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QTa-Bu-6ev">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QTa-Bu-6ev" id="XO7-up-G9X">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入真實姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VMh-jj-JLf">
+                                                    <rect key="frame" x="10" y="7" width="355" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="returnNameKB:" destination="Vhd-WS-vEz" eventType="editingDidEndOnExit" id="DKS-us-zoY"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VMh-jj-JLf" firstAttribute="leading" secondItem="XO7-up-G9X" secondAttribute="leading" constant="10" id="EDc-ij-kGd"/>
+                                                <constraint firstAttribute="trailing" secondItem="VMh-jj-JLf" secondAttribute="trailing" constant="10" id="I3W-kY-iFy"/>
+                                                <constraint firstItem="VMh-jj-JLf" firstAttribute="centerY" secondItem="XO7-up-G9X" secondAttribute="centerY" id="NnB-W2-bv8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="帳號" id="VCv-cn-7qd">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Qos-Be-Pi8">
+                                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qos-Be-Pi8" id="fa1-wn-FIA">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入帳號" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x6f-0f-a6Q">
+                                                    <rect key="frame" x="10" y="7" width="355" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="returnUsernameKB:" destination="Vhd-WS-vEz" eventType="editingDidEndOnExit" id="OyP-pz-SCs"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="x6f-0f-a6Q" firstAttribute="leading" secondItem="fa1-wn-FIA" secondAttribute="leading" constant="10" id="1sz-VZ-9mx"/>
+                                                <constraint firstItem="x6f-0f-a6Q" firstAttribute="centerY" secondItem="fa1-wn-FIA" secondAttribute="centerY" id="Csv-CE-Xug"/>
+                                                <constraint firstAttribute="trailing" secondItem="x6f-0f-a6Q" secondAttribute="trailing" constant="10" id="pN5-IL-kvw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="密碼" id="VfX-wk-oGM">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="CcL-cg-lh1">
+                                        <rect key="frame" x="0.0" y="172" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CcL-cg-lh1" id="sAP-49-nzV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NMN-mH-yYG">
+                                                    <rect key="frame" x="10" y="7" width="355" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="returnPasswordKB:" destination="Vhd-WS-vEz" eventType="editingDidEndOnExit" id="KV4-Jm-56y"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="NMN-mH-yYG" secondAttribute="trailing" constant="10" id="OCD-XC-xlu"/>
+                                                <constraint firstItem="NMN-mH-yYG" firstAttribute="leading" secondItem="sAP-49-nzV" secondAttribute="leading" constant="10" id="TuO-hK-6hU"/>
+                                                <constraint firstItem="NMN-mH-yYG" firstAttribute="centerY" secondItem="sAP-49-nzV" secondAttribute="centerY" id="Xnw-g7-8xg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="電子信箱" id="sXo-5v-DFX">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="any-XT-ZqB">
+                                        <rect key="frame" x="0.0" y="244" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="any-XT-ZqB" id="3ol-1F-IKI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入電子信箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mbh-EW-NR3">
+                                                    <rect key="frame" x="10" y="7" width="355" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="returnEmailKB:" destination="Vhd-WS-vEz" eventType="editingDidEndOnExit" id="ivi-7p-hff"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="mbh-EW-NR3" secondAttribute="trailing" constant="10" id="LiR-IB-gLE"/>
+                                                <constraint firstItem="mbh-EW-NR3" firstAttribute="leading" secondItem="3ol-1F-IKI" secondAttribute="leading" constant="10" id="Z3o-wf-Bn1"/>
+                                                <constraint firstItem="mbh-EW-NR3" firstAttribute="centerY" secondItem="3ol-1F-IKI" secondAttribute="centerY" id="zqo-DH-arW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="電話" id="Xl5-QQ-njQ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0Lf-5w-Ka5">
+                                        <rect key="frame" x="0.0" y="316" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Lf-5w-Ka5" id="Uhr-LI-N4f">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入電話號碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="my6-83-a1s">
+                                                    <rect key="frame" x="10" y="7" width="355" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="returnPhoneKB:" destination="Vhd-WS-vEz" eventType="editingDidEndOnExit" id="aVN-Vh-0PN"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="my6-83-a1s" firstAttribute="centerY" secondItem="Uhr-LI-N4f" secondAttribute="centerY" id="bde-I6-aqC"/>
+                                                <constraint firstAttribute="trailing" secondItem="my6-83-a1s" secondAttribute="trailing" constant="10" id="ehf-yj-VMB"/>
+                                                <constraint firstItem="my6-83-a1s" firstAttribute="leading" secondItem="Uhr-LI-N4f" secondAttribute="leading" constant="10" id="zOb-ep-9ZR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="性別" id="7ZG-Lz-NTn">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Ze4-Wp-yaH">
+                                        <rect key="frame" x="0.0" y="388" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ze4-Wp-yaH" id="txN-Ek-ae7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EWQ-ZY-Zky">
+                                                    <rect key="frame" x="10" y="8" width="355" height="29"/>
+                                                    <segments>
+                                                        <segment title="男性"/>
+                                                        <segment title="女性"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="EWQ-ZY-Zky" secondAttribute="trailing" constant="10" id="Ftz-oZ-FI6"/>
+                                                <constraint firstItem="EWQ-ZY-Zky" firstAttribute="leading" secondItem="txN-Ek-ae7" secondAttribute="leading" constant="10" id="Nai-Id-c7t"/>
+                                                <constraint firstItem="EWQ-ZY-Zky" firstAttribute="centerY" secondItem="txN-Ek-ae7" secondAttribute="centerY" id="aMG-Vt-lLQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="uLu-Yr-BSK">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Dvf-zi-iI7">
+                                        <rect key="frame" x="0.0" y="432" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dvf-zi-iI7" id="inM-AW-WTy">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsO-hj-ayu">
+                                                    <rect key="frame" x="10" y="7" width="355" height="30"/>
+                                                    <state key="normal" title="完成"/>
+                                                    <connections>
+                                                        <action selector="registerClick:" destination="Vhd-WS-vEz" eventType="touchUpInside" id="51O-ir-cyM"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="VsO-hj-ayu" secondAttribute="trailing" constant="10" id="0gc-rr-ld1"/>
+                                                <constraint firstItem="VsO-hj-ayu" firstAttribute="leading" secondItem="inM-AW-WTy" secondAttribute="leading" constant="10" id="FMh-BJ-KuP"/>
+                                                <constraint firstItem="VsO-hj-ayu" firstAttribute="centerY" secondItem="inM-AW-WTy" secondAttribute="centerY" id="f7s-EY-O3s"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Vhd-WS-vEz" id="U95-WE-Bju"/>
+                            <outlet property="delegate" destination="Vhd-WS-vEz" id="fXI-J3-Mgl"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="註冊" id="5Yt-hC-lvG">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="g7E-zH-WiD">
+                            <connections>
+                                <action selector="cancelClick:" destination="Vhd-WS-vEz" id="1hH-cq-nee"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="scSex" destination="aPM-f9-KAp" id="hOm-QD-PUA"/>
-                        <outlet property="tfEmail" destination="dwF-c2-Hzi" id="hdk-C7-ewg"/>
-                        <outlet property="tfName" destination="jf3-PS-jN4" id="xk6-Pc-47y"/>
-                        <outlet property="tfPassword" destination="eGL-mQ-XqT" id="zhI-aL-LgE"/>
-                        <outlet property="tfPhone" destination="Os8-rO-bNj" id="pXB-oc-BuD"/>
-                        <outlet property="tfUserName" destination="toB-JY-Op4" id="VNm-RB-emR"/>
+                        <outlet property="scSex" destination="EWQ-ZY-Zky" id="C4m-u7-nWe"/>
+                        <outlet property="tfEmail" destination="mbh-EW-NR3" id="uxJ-FS-jZB"/>
+                        <outlet property="tfName" destination="VMh-jj-JLf" id="1ba-dM-UzJ"/>
+                        <outlet property="tfPassword" destination="NMN-mH-yYG" id="izF-gE-YRI"/>
+                        <outlet property="tfPhone" destination="my6-83-a1s" id="kah-Pv-sJI"/>
+                        <outlet property="tfUsername" destination="x6f-0f-a6Q" id="5Zu-Xn-RwR"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6AX-Fi-L7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAi-ie-n7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="-972"/>
+            <point key="canvasLocation" x="3222" y="-935"/>
         </scene>
         <!--ConsumerHome-->
         <scene sceneID="Oj2-Tz-F3C">
@@ -391,7 +466,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j2R-0C-Pxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1866" y="-493"/>
+            <point key="canvasLocation" x="4682.3999999999996" y="-493.8530734632684"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4Nx-GO-0th">
@@ -413,6 +488,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYN-Vx-BFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1214.4927536231885" y="461.38392857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9a3-e6-SNk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aOf-MW-m5H" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p5Q-Dh-fkU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cmN-8A-TaB" kind="relationship" relationship="rootViewController" id="oBL-o8-tIM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="36K-WA-JIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2282.4000000000001" y="-225.33733133433284"/>
         </scene>
     </scenes>
 </document>

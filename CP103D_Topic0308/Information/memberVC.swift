@@ -31,11 +31,22 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     
     @IBAction func logoutClick(_ sender: Any) {
-        clearUser()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "Login") as! loginVC
-        present(controller, animated: true, completion: nil)
-
+        
+        let correctAlert = UIAlertController(title: "你正準備登出會員", message: "你確定要登出會員?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "是的", style: .default) { (_) in
+            clearUser()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "Login") as! loginVC
+            self.present(controller, animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "沒有", style: .default) { (_) in
+            return
+        }
+        
+        correctAlert.addAction(okAction)
+        correctAlert.addAction(cancelAction)
+        present(correctAlert, animated: true, completion: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,7 +102,7 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         executeTask(self.url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
-                       if let user = try? JSONDecoder().decode(User.self, from: data!) {
+                    if let user = try? JSONDecoder().decode(User.self, from: data!) {
                         self.user = user
                         DispatchQueue.main.async {
                             self.nameLabel.text = user.trueName

@@ -25,7 +25,7 @@ class loginVC: UIViewController,FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = "使用者登入"
         facebookButton.delegate = self
         facebookButton.readPermissions = ["email"]
         loginManager = FBSDKLoginManager()
@@ -37,7 +37,7 @@ class loginVC: UIViewController,FBSDKLoginButtonDelegate {
         user = loadUser()
         userTextField.text = user?.userName
         passwordTextField.text = user?.password
-        navigationController?.isNavigationBarHidden = true
+//        navigationController?.isNavigationBarHidden = true
         
     }
     
@@ -139,8 +139,16 @@ class loginVC: UIViewController,FBSDKLoginButtonDelegate {
     
     func next() {
 //        let storyboard = UIStoryboard(name: "ConsumerHome", bundle: nil)
-        if let controller = storyboard?.instantiateViewController(withIdentifier: "TabBar") {
-        present(controller, animated: true, completion: nil)
+        user = loadUser()
+        if user?.userName == "1234"{
+            if let controller = storyboard?.instantiateViewController(withIdentifier: "managertabbar") {
+                present(controller, animated: true, completion: nil)
+            }
+            //管理者帳號:1234
+        } else {
+            if let controller = storyboard?.instantiateViewController(withIdentifier: "TabBar") {
+                present(controller, animated: true, completion: nil)
+            }
         }
         //performSegue(withIdentifier: "toMainPage", sender: nil)
     }
