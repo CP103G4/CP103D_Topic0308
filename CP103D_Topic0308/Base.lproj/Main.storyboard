@@ -58,7 +58,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="cLD-oU-4uL">
-                                <rect key="frame" x="40" y="315" width="295" height="102"/>
+                                <rect key="frame" x="40" y="435" width="295" height="102"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="帳號" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8It-FE-owq">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
@@ -85,14 +85,20 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAc-cX-txq">
                                                 <rect key="frame" x="0.0" y="0.0" width="147.5" height="30"/>
-                                                <state key="normal" title="登入"/>
+                                                <color key="backgroundColor" red="0.76862745099999996" green="0.5450980392" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="登入">
+                                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="clickLogin:" destination="cmN-8A-TaB" eventType="touchUpInside" id="lyc-vH-83c"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEz-e9-ebU">
                                                 <rect key="frame" x="147.5" y="0.0" width="147.5" height="30"/>
-                                                <state key="normal" title="取消"/>
+                                                <color key="backgroundColor" red="0.76862745099999996" green="0.5450980392" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="取消">
+                                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="clickClear:" destination="cmN-8A-TaB" eventType="touchUpInside" id="Tbt-KI-nXZ"/>
                                                 </connections>
@@ -102,20 +108,38 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QUl-tY-Fil" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="40" y="425" width="150" height="30"/>
+                                <rect key="frame" x="40" y="557" width="150" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="XEx-Aj-5wl"/>
                                     <constraint firstAttribute="height" constant="30" id="al4-Cd-iVQ"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgS-yF-nXK">
+                                <rect key="frame" x="40" y="270" width="227" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Clo Clo Shopping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff1-Vf-m9b">
+                                <rect key="frame" x="40" y="333" width="307" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="macarons" translatesAutoresizingMaskIntoConstraints="NO" id="8Ag-F4-MFv">
+                                <rect key="frame" x="127" y="112" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.73333333329999995" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="QUl-tY-Fil" firstAttribute="top" secondItem="cLD-oU-4uL" secondAttribute="bottom" constant="8" id="Cco-8f-bJQ"/>
+                            <constraint firstItem="QUl-tY-Fil" firstAttribute="top" secondItem="cLD-oU-4uL" secondAttribute="bottom" constant="20" id="Aps-cx-Azn"/>
                             <constraint firstItem="q9l-Px-jnE" firstAttribute="trailing" secondItem="cLD-oU-4uL" secondAttribute="trailing" constant="40" id="SEA-Mj-o8Q"/>
-                            <constraint firstItem="q9l-Px-jnE" firstAttribute="bottom" secondItem="cLD-oU-4uL" secondAttribute="bottom" constant="250" id="T6k-dM-IqD"/>
+                            <constraint firstItem="q9l-Px-jnE" firstAttribute="bottom" secondItem="cLD-oU-4uL" secondAttribute="bottom" constant="130" id="T6k-dM-IqD"/>
                             <constraint firstItem="QUl-tY-Fil" firstAttribute="leading" secondItem="q9l-Px-jnE" secondAttribute="leading" constant="40" id="UuT-ID-hSb"/>
                             <constraint firstItem="cLD-oU-4uL" firstAttribute="leading" secondItem="q9l-Px-jnE" secondAttribute="leading" constant="40" id="bGS-sl-dfd"/>
                         </constraints>
@@ -510,4 +534,7 @@
             <point key="canvasLocation" x="2282.4000000000001" y="-225.33733133433284"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="macarons" width="512" height="511"/>
+    </resources>
 </document>
