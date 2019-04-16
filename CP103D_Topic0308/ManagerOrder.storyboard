@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--管理訂單-->
+        <!--訂單管理-->
         <scene sceneID="Ygi-tE-Rxs">
             <objects>
                 <tableViewController id="QYj-kw-g2V" customClass="ManagerOrderTVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
@@ -90,8 +90,8 @@
                             <outlet property="delegate" destination="QYj-kw-g2V" id="BNq-8s-VHu"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Order" image="order" id="IRt-cy-n25"/>
-                    <navigationItem key="navigationItem" title="管理訂單" id="1Vb-9p-UpC">
+                    <tabBarItem key="tabBarItem" title="訂單管理" image="order" id="IRt-cy-n25"/>
+                    <navigationItem key="navigationItem" title="訂單管理" id="1Vb-9p-UpC">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="She-Wp-MRB">
                             <connections>
                                 <action selector="searchClick:" destination="QYj-kw-g2V" id="mDV-j0-pLx"/>
@@ -404,7 +404,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="totalPrice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWr-Dz-mSl">
-                                            <rect key="frame" x="196" y="39" width="77" height="21.5"/>
+                                            <rect key="frame" x="196" y="39.5" width="77" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

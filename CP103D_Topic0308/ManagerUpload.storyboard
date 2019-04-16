@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Upload-->
+        <!--商品上傳-->
         <scene sceneID="zdq-vp-Nhy">
             <objects>
                 <tableViewController storyboardIdentifier="managerUploadTableViewController" id="thu-EH-lne" customClass="ManagerUploadTableViewController" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
@@ -248,8 +248,8 @@
                             <outlet property="delegate" destination="thu-EH-lne" id="mqY-hf-tuf"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Upload" image="upload" id="fXM-L1-FCo"/>
-                    <navigationItem key="navigationItem" title="Upload" id="rfn-4M-vbG">
+                    <tabBarItem key="tabBarItem" title="商品上傳" image="upload" id="fXM-L1-FCo"/>
+                    <navigationItem key="navigationItem" title="商品上傳" id="rfn-4M-vbG">
                         <barButtonItem key="rightBarButtonItem" title="上傳" id="XBG-i7-A9Y">
                             <connections>
                                 <action selector="saveAction:" destination="thu-EH-lne" id="E0i-cQ-3ug"/>

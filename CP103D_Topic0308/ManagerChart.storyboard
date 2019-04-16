@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Chart-->
+        <!--統計-->
         <scene sceneID="N99-9D-ssk">
             <objects>
                 <viewController id="odk-pF-qJB" customClass="ChartVC" customModule="CP103D_Topic0308" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,8 +21,8 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6Ed-IR-eud">
                                 <rect key="frame" x="0.0" y="64" width="375" height="29"/>
                                 <segments>
-                                    <segment title="Last Month"/>
-                                    <segment title="This Month"/>
+                                    <segment title="上個月"/>
+                                    <segment title="這個月"/>
                                 </segments>
                                 <connections>
                                     <action selector="scChangeMonth:" destination="odk-pF-qJB" eventType="valueChanged" id="c5J-sL-L9e"/>
@@ -86,8 +86,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ztk-nm-z7s"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chart" image="statistics" id="ged-hJ-pcM"/>
-                    <navigationItem key="navigationItem" title="Chart" id="eym-dE-1dq"/>
+                    <tabBarItem key="tabBarItem" title="統計" image="statistics" id="ged-hJ-pcM"/>
+                    <navigationItem key="navigationItem" title="統計" id="eym-dE-1dq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="scMonth" destination="6Ed-IR-eud" id="HCL-uP-zka"/>

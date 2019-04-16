@@ -99,7 +99,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="coI-F8-YXN"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="home" landscapeImage="home" id="jDJ-vI-5oh"/>
+                    <tabBarItem key="tabBarItem" title="首頁" image="home" landscapeImage="home" id="jDJ-vI-5oh"/>
                     <navigationItem key="navigationItem" title="管理端首頁" id="cVQ-x6-X15"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
