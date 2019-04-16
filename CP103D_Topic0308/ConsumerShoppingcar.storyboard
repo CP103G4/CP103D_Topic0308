@@ -543,6 +543,7 @@
                         <outlet property="noGoodView" destination="5eD-Ep-BYC" id="VPr-dg-Cpa"/>
                         <outlet property="shoppingView" destination="xXr-Xy-DZL" id="HSW-s9-0KR"/>
                         <outlet property="shoppingviewDeepcolorBt" destination="Xex-t4-MZ4" id="hk5-7V-ski"/>
+                        <outlet property="shoppingviewImageview" destination="Ejl-5q-JvG" id="xgP-7G-J2v"/>
                         <outlet property="shoppingviewLightBt" destination="XTx-yy-pVC" id="d5l-4i-0b5"/>
                         <outlet property="shoppingviewQuality" destination="s6O-RR-DE3" id="NMC-By-rDn"/>
                         <outlet property="shoppingviewSizeLBt" destination="BOK-M5-imJ" id="7VB-J5-fZd"/>
@@ -559,7 +560,7 @@
         <!--Navigation Controller-->
         <scene sceneID="s3r-rt-bev">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JzT-9A-dXa" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="shoppingcarNavigation" automaticallyAdjustsScrollViewInsets="NO" id="JzT-9A-dXa" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cfM-L2-cUK">
