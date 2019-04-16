@@ -19,7 +19,7 @@ class PayforcardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = "信用卡付款"
         // 1. Setup TPDForm With Your Customized CardView, Recommend(width:260, height:80)
         tpdForm = TPDForm.setup(withContainer: cardView)
         

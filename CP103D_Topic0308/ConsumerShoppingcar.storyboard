@@ -588,7 +588,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kty-nV-SaA">
-                                <rect key="frame" x="0.0" y="686" width="414" height="39"/>
+                                <rect key="frame" x="0.0" y="735" width="414" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="繼續購物"/>
                                 <connections>
@@ -959,46 +959,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ITQ-oo-xrH">
-                                <rect key="frame" x="72" y="88" width="270" height="80"/>
+                                <rect key="frame" x="72" y="345" width="270" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="270" id="39Z-86-OVQ"/>
                                     <constraint firstAttribute="height" constant="80" id="fdf-UH-uVm"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5FR-aN-OqR">
-                                <rect key="frame" x="72" y="176" width="270" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="CDr-34-cZe"/>
-                                    <constraint firstAttribute="width" constant="270" id="O26-8l-cXQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcN-uO-aKf">
-                                <rect key="frame" x="191.5" y="312" width="31" height="30"/>
+                                <rect key="frame" x="191.5" y="433" width="31" height="30"/>
                                 <state key="normal" title="付款"/>
                                 <connections>
                                     <action selector="doneAction:" destination="Y8j-cX-Nnl" eventType="touchUpInside" id="1cv-aB-ZGT"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請輸入信用卡卡號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2t-pI-iMs">
+                                <rect key="frame" x="137.5" y="316" width="139" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5FR-aN-OqR" firstAttribute="top" secondItem="ITQ-oo-xrH" secondAttribute="bottom" constant="8" id="Dpo-EK-Khq"/>
-                            <constraint firstItem="ITQ-oo-xrH" firstAttribute="top" secondItem="ByN-Ry-GLz" secondAttribute="top" id="En3-3y-x8c"/>
-                            <constraint firstItem="PcN-uO-aKf" firstAttribute="top" secondItem="5FR-aN-OqR" secondAttribute="bottom" constant="8" id="NQJ-wN-NHM"/>
-                            <constraint firstItem="5FR-aN-OqR" firstAttribute="centerX" secondItem="IxT-QL-iXB" secondAttribute="centerX" id="TVw-fy-hrX"/>
+                            <constraint firstItem="v2t-pI-iMs" firstAttribute="centerX" secondItem="IxT-QL-iXB" secondAttribute="centerX" id="75O-1G-qAc"/>
+                            <constraint firstItem="ITQ-oo-xrH" firstAttribute="top" secondItem="v2t-pI-iMs" secondAttribute="bottom" constant="8" id="Bhp-Ff-Nqg"/>
+                            <constraint firstItem="PcN-uO-aKf" firstAttribute="centerY" secondItem="IxT-QL-iXB" secondAttribute="centerY" id="TMF-j8-fcW"/>
+                            <constraint firstItem="PcN-uO-aKf" firstAttribute="top" secondItem="ITQ-oo-xrH" secondAttribute="bottom" constant="8" id="Tg3-K4-BDk"/>
                             <constraint firstItem="ITQ-oo-xrH" firstAttribute="centerX" secondItem="IxT-QL-iXB" secondAttribute="centerX" id="nNZ-mj-qE3"/>
                             <constraint firstItem="PcN-uO-aKf" firstAttribute="centerX" secondItem="IxT-QL-iXB" secondAttribute="centerX" id="qn3-5g-uFA"/>
-                            <constraint firstItem="5FR-aN-OqR" firstAttribute="top" secondItem="ITQ-oo-xrH" secondAttribute="bottom" constant="8" id="viG-kn-sHF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ByN-Ry-GLz"/>
                     </view>
                     <connections>
                         <outlet property="cardView" destination="ITQ-oo-xrH" id="GXL-9C-yLO"/>
-                        <outlet property="displayText" destination="5FR-aN-OqR" id="jnI-me-AJK"/>
                         <outlet property="payButton" destination="PcN-uO-aKf" id="DlQ-au-EPX"/>
                         <segue destination="oQY-MH-AY9" kind="presentation" identifier="ThankPage" id="3PO-Ys-DgH"/>
                     </connections>
@@ -1075,6 +1069,6 @@
         <image name="shopping" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ihk-fQ-mAa"/>
+        <segue reference="3PO-Ys-DgH"/>
     </inferredMetricsTieBreakers>
 </document>
