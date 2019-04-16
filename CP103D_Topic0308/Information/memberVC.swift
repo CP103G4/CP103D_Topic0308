@@ -36,7 +36,7 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         let okAction = UIAlertAction(title: "是的", style: .default) { (_) in
             clearUser()
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "Login") as! loginVC
+            let controller = storyboard.instantiateViewController(withIdentifier: "loginNav")
             self.present(controller, animated: true, completion: nil)
         }
         let cancelAction = UIAlertAction(title: "沒有", style: .default) { (_) in

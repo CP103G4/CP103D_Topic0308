@@ -104,6 +104,8 @@ class G87orderViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
         
+        cell.layer.cornerRadius = 20
+        
         // Configure the cell...
         let order = orders[indexPath.row]
         cell.orderid.text = order.id?.description

@@ -94,6 +94,8 @@ class G87orderdetailViewController: UIViewController,UITableViewDelegate,UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderdetailCell", for: indexPath) as! OrderdetailTableViewCell
         
+        cell.layer.cornerRadius = 20
+        
         // 尚未取得圖片，另外開啟task請求
         var requestParam = [String: Any]()
         requestParam["param"] = "getImage"
