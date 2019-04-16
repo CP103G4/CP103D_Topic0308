@@ -533,7 +533,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fbo-mB-qJt"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ShoppingCar" image="shopping" id="YVL-Kd-Jwx"/>
+                    <tabBarItem key="tabBarItem" title="購物車" image="shopping" id="YVL-Kd-Jwx"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="購物車" id="5Ny-dY-rcz"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

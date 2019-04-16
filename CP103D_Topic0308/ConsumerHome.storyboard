@@ -598,7 +598,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H06-ww-Gmi"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="home" id="L0R-6O-fCl"/>
+                    <tabBarItem key="tabBarItem" title="首頁" image="home" id="L0R-6O-fCl"/>
                     <navigationItem key="navigationItem" title="首頁" id="Fwa-17-wT9"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

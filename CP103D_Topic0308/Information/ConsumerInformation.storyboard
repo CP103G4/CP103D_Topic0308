@@ -837,12 +837,13 @@
             </objects>
             <point key="canvasLocation" x="4358" y="2212"/>
         </scene>
-        <!--Information-->
+        <!--資訊-->
         <scene sceneID="Wcw-cu-JsQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Fa-nj-DM7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Information" image="member2" id="6TN-CR-5iR"/>
+                    <tabBarItem key="tabBarItem" title="資訊" image="member2" id="6TN-CR-5iR"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="esW-4K-7Xf">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

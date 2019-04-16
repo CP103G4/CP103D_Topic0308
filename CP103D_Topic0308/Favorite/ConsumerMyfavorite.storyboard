@@ -62,7 +62,7 @@
                             <outlet property="delegate" destination="N6E-hL-C8I" id="xXE-0W-VhV"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Myfavorite" image="Polling-Heart-Large" id="vYe-oV-sv7"/>
+                    <tabBarItem key="tabBarItem" title="我的最愛" image="Polling-Heart-Large" id="vYe-oV-sv7"/>
                     <navigationItem key="navigationItem" title="我的最愛" id="CE2-eu-roV">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="2vo-eR-658"/>
                     </navigationItem>
