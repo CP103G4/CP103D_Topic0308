@@ -63,9 +63,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="我的最愛" image="Polling-Heart-Large" id="vYe-oV-sv7"/>
-                    <navigationItem key="navigationItem" title="我的最愛" id="CE2-eu-roV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="2vo-eR-658"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="我的最愛" id="CE2-eu-roV"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6k-WT-kbp" userLabel="First Responder" sceneMemberID="firstResponder"/>
