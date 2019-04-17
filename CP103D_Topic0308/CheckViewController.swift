@@ -17,7 +17,8 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet var tableViewOrderDetails: UITableView!
     @IBOutlet var labelTotalPrice: UILabel!
-    
+    var requestParam = [String: String]()
+
     var carts = [Cart]()
     var orderdrtails = [Orderdetail]()
     var user : User?
@@ -26,7 +27,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let url_server2 = URL(string: common_url + "OrderServlet")
     let url_server3 = URL(string: common_url + "OrderdetailServlet")
     let url_server_pic = URL(string: common_url + "GoodsServlet1")
-    
+    var address : String?
     override func viewWillAppear(_ animated: Bool) {
         loadData()
         displayTotal()
@@ -143,21 +144,30 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     @IBAction func payNow(_ sender: Any) {
-        let address = tfAddress.text == nil ? "" : tfAddress.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        address = tfAddress.text == nil ? "" : tfAddress.text?.trimmingCharacters(in: .whitespacesAndNewlines)        
+        switch scPayment.selectedSegmentIndex {
+        case 0:
+            saveOrder()
+            self.performSegue(withIdentifier: "Thankyou", sender: self)
+            break
+        case 1:
+            saveRequest(address)
+            self.performSegue(withIdentifier: "payforCard", sender: self)
+            break
+        default:
+            break
+        }
+        
+        
+    }
+    
+    func saveOrder() {
+        address = tfAddress.text == nil ? "" : tfAddress.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         if self.carts.count == 0 || address!.isEmpty {
             showAlertMsg()
             return
         } else {
-            let status = 0
-            let userId = user?.id
-            let payment = scPayment.selectedSegmentIndex
-            //        let totalprice = self.labelTotalPrice.text == nil ? "" : self.labelTotalPrice.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            //新增訂單
-            let order = Order(status, payment, userId!, address!)
-            var requestParam = [String: String]()
-            requestParam["action"] = "orderInsert"
-            requestParam["order"] = try! String(data: JSONEncoder().encode(order), encoding: .utf8)
-            
+            saveRequest(address)
             executeTask(self.url_server2!, requestParam) { (data, response, error) in
                 if error == nil {
                     if data != nil {
@@ -173,8 +183,6 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                         self.delete()
                                         self.showAlertMsgorder()
                                         
-//                                        self.performSegue(withIdentifier: "Thankyou", sender: self)
-
                                     } else {
                                         //                                    self.label.text = "insert fail"
                                     }
@@ -188,19 +196,16 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
         }
-        
-        switch scPayment.selectedSegmentIndex {
-        case 0:
-            self.performSegue(withIdentifier: "Thankyou", sender: self)
-            break
-        case 1:
-            self.performSegue(withIdentifier: "payforCard", sender: self)
-            break
-        default:
-            break
-        }
-        
-        
+    }
+    
+    func saveRequest(_ address: String?) {
+        let address = address
+        let status = 0
+        let userId = user?.id
+        let payment = scPayment.selectedSegmentIndex
+        let order = Order(status, payment, userId!, address!)
+        requestParam["action"] = "orderInsert"
+        requestParam["order"] = try! String(data: JSONEncoder().encode(order), encoding: .utf8)
     }
     
     func showAlertMsg() {
@@ -253,9 +258,6 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    
-    
-    
     @objc func insertOrderdetail() {
         for i in 0...orderdrtails.count-1 {
             let orderdetail = orderdrtails[i]
@@ -303,5 +305,12 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func hideKeyboardByReturn(_ sender: Any) {
         //按下Return收鍵盤
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if scPayment.selectedSegmentIndex == 1 {
+            let payforcardViewController = segue.destination as! PayforcardViewController
+            payforcardViewController.requestParam = requestParam
+        }
+
     }
 }

@@ -16,6 +16,8 @@ class PayforcardViewController: UIViewController {
     @IBOutlet weak var displayText: UITextView!
     var tpdCard : TPDCard!
     var tpdForm : TPDForm!
+    var requestParam : [String: String]!
+    let url_server3 = URL(string: common_url + "OrderdetailServlet")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +79,26 @@ class PayforcardViewController: UIViewController {
                 //                self.displayText.text = payment
                 //                print(payment)
                 
+                executeTask(self.url_server3!, self.requestParam) { (data, response, error) in
+                    if error == nil {
+                        if data != nil {
+                            print("input: \(String(data: data!, encoding: .utf8)!)")
+                            if let result = String(data: data!, encoding: .utf8) {
+                                if let count = Int(result) {
+                                    DispatchQueue.main.async {
+                                        if count != 0 {
+                                            
+                                        } else {
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        print(error!.localizedDescription)
+                    }
+                }
             }
             
             weak var weakSelf = self
