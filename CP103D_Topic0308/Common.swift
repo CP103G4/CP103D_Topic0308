@@ -22,6 +22,7 @@ func executeTask(_ url_server: URL,_ requestParam: [String: Any], completionHand
     request.httpBody = jsonData
     let session = URLSession.shared
     let task = session.dataTask(with: request, completionHandler: completionHandler)
+    
     task.resume()
 }
 

@@ -20,7 +20,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var requestParam = [String: String]()
 
     var carts = [Cart]()
-    var orderdrtails = [Orderdetail]()
+    var orderDetails = [Orderdetail]()
     var user : User?
     
     let url_server1 = URL(string: common_url + "UserServlet")
@@ -254,13 +254,13 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func turnOrderdetail (orderId:Int) {
         for cart in carts {
             let orderdetail = Orderdetail(id: 0, number: cart.quatity, discount: 0, price: cart.price, orderId:orderId, goodsid: cart.id, color: cart.color1, size: cart.size1)
-            orderdrtails.append(orderdetail)
+            orderDetails.append(orderdetail)
         }
     }
     
     @objc func insertOrderdetail() {
-        for i in 0...orderdrtails.count-1 {
-            let orderdetail = orderdrtails[i]
+        for i in 0...orderDetails.count-1 {
+            let orderdetail = orderDetails[i]
             var requestParam = [String: String]()
             requestParam["action"] = "Insert"
             requestParam["orderdetail"] = try! String(data: JSONEncoder().encode(orderdetail), encoding: .utf8)
@@ -290,7 +290,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        orderdrtails.removeAll()
+//        orderDetails.removeAll()
     }
     
     func hideKeyboardByGesture() {
@@ -310,6 +310,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if scPayment.selectedSegmentIndex == 1 {
             let payforcardViewController = segue.destination as! PayforcardViewController
             payforcardViewController.requestParam = requestParam
+            payforcardViewController.carts = carts
         }
 
     }

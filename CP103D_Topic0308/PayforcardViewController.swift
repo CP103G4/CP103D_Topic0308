@@ -17,8 +17,12 @@ class PayforcardViewController: UIViewController {
     var tpdCard : TPDCard!
     var tpdForm : TPDForm!
     var requestParam : [String: String]!
+    let url_server2 = URL(string: common_url + "OrderServlet")
     let url_server3 = URL(string: common_url + "OrderdetailServlet")
+    var orderDetails = [Orderdetail]()
+    var carts : [Cart]!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "信用卡付款"
@@ -29,8 +33,6 @@ class PayforcardViewController: UIViewController {
         tpdForm.setErrorColor(colorWithRGB(rgbString: "D62D20", alpha: 1.0))
         tpdForm.setOkColor(colorWithRGB(rgbString: "008744", alpha: 1.0))
         tpdForm.setNormalColor(colorWithRGB(rgbString: "0F0F0F", alpha: 1.0))
-        
-        
         
         // 3. Setup TPDForm onFormUpdated Callback
         tpdForm.onFormUpdated { (status) in
@@ -79,17 +81,21 @@ class PayforcardViewController: UIViewController {
                 //                self.displayText.text = payment
                 //                print(payment)
                 
-                executeTask(self.url_server3!, self.requestParam) { (data, response, error) in
+                executeTask(self.url_server2!, self.requestParam) { (data, response, error) in
                     if error == nil {
                         if data != nil {
-                            print("input: \(String(data: data!, encoding: .utf8)!)")
+                            print("orderinput: \(String(data: data!, encoding: .utf8)!)")
                             if let result = String(data: data!, encoding: .utf8) {
                                 if let count = Int(result) {
                                     DispatchQueue.main.async {
+                                        // 新增成功則回前頁
                                         if count != 0 {
-                                            
+                                            self.turnOrderdetail(orderId: count)
+
+                                            //新增訂單明細
+                                            self.insertOrderdetail()
                                         } else {
-                                            
+                                            //                                    self.label.text = "insert fail"
                                         }
                                     }
                                 }
@@ -165,5 +171,41 @@ class PayforcardViewController: UIViewController {
         
         return UIColor.init(red: red, green: green, blue: blue, alpha: alpha)
     }
-    
+ 
+    @objc func insertOrderdetail() {
+        for i in 0...orderDetails.count-1 {
+            let orderdetail = orderDetails[i]
+            var requestParam = [String: String]()
+            requestParam["action"] = "Insert"
+            requestParam["orderdetail"] = try! String(data: JSONEncoder().encode(orderdetail), encoding: .utf8)
+            executeTask(url_server3!, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                        print("input: \(String(data: data!, encoding: .utf8)!)")
+                        if let result = String(data: data!, encoding: .utf8) {
+                            if let count = Int(result) {
+                                DispatchQueue.main.async {
+                                    if count != 0 {
+                                        
+                                    } else {
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    print(error!.localizedDescription)
+                }
+            }
+            
+        }
+        print("order detail insert success")
+    }
+    func turnOrderdetail (orderId:Int) {
+        for cart in carts {
+            let orderdetail = Orderdetail(id: 0, number: cart.quatity, discount: 0, price: cart.price, orderId:orderId, goodsid: cart.id, color: cart.color1, size: cart.size1)
+            orderDetails.append(orderdetail)
+        }
+    }
 }
