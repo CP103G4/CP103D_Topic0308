@@ -246,6 +246,16 @@ class loginVC: UIViewController,FBSDKLoginButtonDelegate {
                     if let resultDic = result as? [String : Any]{
                         userName = resultDic["name"] as! String
                         email = resultDic["email"] as! String
+                        
+                        if let picture = resultDic["picture"] as? NSDictionary{
+                            let data = picture["data"] as! NSDictionary
+                            let pictureUrl = data["url"] as! String
+                            let imgData = NSData(contentsOf: URL(string: pictureUrl)!)
+                            DispatchQueue.main.async {
+                                let userImage = imgData! as Data
+                                self.saveImage(userImage)
+                            }
+                        }
                     }
 
                     let user1 = User(email, email)
@@ -285,7 +295,15 @@ class loginVC: UIViewController,FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("登出")
     }
-
     
+    func saveImage(_ image: Data) -> () {
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(image, forKey: "image")
+            userDefaults.synchronize()
+            print("有無存取" + "\(userDefaults.synchronize())")
+        
+    }
+
+
     
 }

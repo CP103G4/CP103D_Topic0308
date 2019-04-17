@@ -771,7 +771,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X725M6FRD5;
+				DEVELOPMENT_TEAM = 4H6W8BS49M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CP103D_Topic0308",
@@ -782,7 +782,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aceg224;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tn00817411;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CP103D_Topic0308/CP103D_Topic0308-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -796,7 +796,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X725M6FRD5;
+				DEVELOPMENT_TEAM = 4H6W8BS49M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CP103D_Topic0308",
@@ -807,7 +807,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aceg224;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tn00817411;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CP103D_Topic0308/CP103D_Topic0308-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;

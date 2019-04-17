@@ -26,6 +26,7 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
         user = loadUser()
         loadData()
+        loadImage()
         
     }
     
@@ -35,6 +36,10 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         let correctAlert = UIAlertController(title: "你正準備登出會員", message: "你確定要登出會員?", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "是的", style: .default) { (_) in
             clearUser()
+            
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(nil, forKey: "image")
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "loginNav")
             self.present(controller, animated: true, completion: nil)
@@ -48,6 +53,8 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         present(correctAlert, animated: true, completion: nil)
         
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         showInfo()
@@ -134,6 +141,15 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
         if let email = userDefaults.string(forKey: "email") {
             emailLabel.text = email
+        }
+    }
+    
+    func loadImage(){
+        let userDefaults = UserDefaults.standard
+        if let imageData = userDefaults.data(forKey: "image") {
+                let pic = UIImage(data: imageData)
+                imageView.image = pic
+            
         }
     }
     
