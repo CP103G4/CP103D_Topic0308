@@ -18,7 +18,7 @@ class FavoriteTVC: UITableViewController {
         super.viewDidLoad()
         
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        navigationItem.rightBarButtonItem = editButtonItem
+//        navigationItem.rightBarButtonItem = editButtonItem
     }
     
     

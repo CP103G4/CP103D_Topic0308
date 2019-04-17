@@ -21,6 +21,7 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var shoppingviewSizeXLBt: UIButton!
     @IBOutlet weak var shoppingviewprice: UILabel!
     @IBOutlet weak var noGoodView: UIView!
+    @IBOutlet weak var shoppingviewImageview: UIImageView!
     
     var totalPrice = 0.0
     var carts = [Cart]()
@@ -203,6 +204,8 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
                 self.shoppingviewSizeXLBt.isSelected = true
             }
             self.shoppingviewprice.text = Int(self.carts[indexPath.row].price).description
+            let cell = tableView.cellForRow(at: indexPath) as! CartCell
+            self.shoppingviewImageview.image = cell.productImage.image
             self.saveData(carts: self.carts)
                     })
         
@@ -214,10 +217,9 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
                 self.saveData(carts: self.carts)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 self.setBadgevalue()
-                if let controller = self.storyboard?.instantiateViewController(withIdentifier: "shoppingcartViewController") {
+                if let controller = self.storyboard?.instantiateViewController(withIdentifier: "shoppingcarNavigation") {
                     self.present(controller, animated: true, completion: nil)
                 }
-
             }
             let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             correctAlert.addAction(okAction)
