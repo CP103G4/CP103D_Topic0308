@@ -214,7 +214,7 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ordersCell", for: indexPath) as! ManagerOrderCell
         
-        cell.layer.cornerRadius = 25
+        cell.layer.cornerRadius = 20
         
         let order = orders[indexPath.row]
         if navigationItem.searchController?.isActive == true {

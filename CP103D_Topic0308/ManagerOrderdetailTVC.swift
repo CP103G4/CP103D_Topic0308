@@ -79,6 +79,9 @@ class ManagerOrderdetailTVC: UITableViewController {
         
         if indexPath.section == 1 {
             let totalCell = tableView.dequeueReusableCell(withIdentifier: "totalPriceCell", for: indexPath) as! TotalPriceCell
+            
+             totalCell.layer.cornerRadius = 20
+            
             var totalPrice = 0.0
             for good in goods{
                 totalPrice += (good.price * Double(good.quatity))
@@ -88,6 +91,8 @@ class ManagerOrderdetailTVC: UITableViewController {
             
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "goodsCell", for: indexPath) as! ManagerOrderdetailCell
+            
+             cell.layer.cornerRadius = 20
             
             // 尚未取得圖片，另外開啟task請求
             var requestParam = [String: Any]()
