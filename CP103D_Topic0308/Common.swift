@@ -3,10 +3,10 @@ import UIKit
 
 // 實機
 // let common_url = "http://192.168.50.140:8080/User_MySQL_Web/"
-// 模擬器
-let common_url = "http://127.0.0.1:8080/User_MySQL_Web/"
+// 模擬器 = "http://127.0.0.1:8080/User_MySQL_Web/"
+let common_url = "http://192.168.50.140:8080/User_MySQL_Web/"
 //let common_url = "http://192.168.50.28:8080/User_MySQL_Web/"
-let wscommon_url = "ws://127.0.0.1:8080/User_MySQL_Web/"
+let wscommon_url = "ws://192.168.50.140:8080/User_MySQL_Web/"
 
 
 
