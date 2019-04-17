@@ -54,13 +54,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="gGP-jZ-o6g">
-                                                    <rect key="frame" x="-59.5" y="0.0" width="533" height="399.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="gGP-jZ-o6g" secondAttribute="height" multiplier="4:3" id="wh5-D7-gmt"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpv-3d-508">
-                                                    <rect key="frame" x="435.5" y="359" width="30" height="30"/>
+                                                    <rect key="frame" x="376" y="359" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="16Q-ub-07e"/>
                                                         <constraint firstAttribute="width" constant="30" id="LGn-6e-2zW"/>
@@ -73,9 +73,9 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="gGP-jZ-o6g" firstAttribute="width" secondItem="vY9-MW-MGp" secondAttribute="width" id="67S-zv-L37"/>
                                                 <constraint firstItem="gGP-jZ-o6g" firstAttribute="centerX" secondItem="vY9-MW-MGp" secondAttribute="centerX" id="ETZ-hp-Z2m"/>
                                                 <constraint firstItem="gGP-jZ-o6g" firstAttribute="trailingMargin" secondItem="Mpv-3d-508" secondAttribute="trailing" id="NKW-rX-jA8"/>
-                                                <constraint firstItem="gGP-jZ-o6g" firstAttribute="height" secondItem="vY9-MW-MGp" secondAttribute="height" id="VKY-nP-wRy"/>
                                                 <constraint firstItem="Mpv-3d-508" firstAttribute="bottom" secondItem="vY9-MW-MGp" secondAttribute="bottomMargin" id="dPH-DB-wc7"/>
                                                 <constraint firstItem="gGP-jZ-o6g" firstAttribute="top" secondItem="vY9-MW-MGp" secondAttribute="top" id="wq8-FX-oEy"/>
                                             </constraints>
