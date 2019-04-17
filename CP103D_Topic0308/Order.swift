@@ -87,9 +87,10 @@ class Order : NSObject, NSSecureCoding, Codable {
     
     var dateStr: String {
         if date != nil {
+            let date_fix = Calendar.current.date(byAdding: .hour, value: -13, to: date!)
             let format = DateFormatter()
             format.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            return format.string(from: date!)
+            return format.string(from: date_fix!)
         } else {
             return ""
         }
