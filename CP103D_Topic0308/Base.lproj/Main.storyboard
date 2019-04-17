@@ -58,7 +58,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="cLD-oU-4uL">
-                                <rect key="frame" x="40" y="435" width="295" height="102"/>
+                                <rect key="frame" x="40" y="395" width="295" height="102"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="帳號" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8It-FE-owq">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
@@ -108,7 +108,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QUl-tY-Fil" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="40" y="557" width="150" height="30"/>
+                                <rect key="frame" x="40" y="517" width="150" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="XEx-Aj-5wl"/>
@@ -116,13 +116,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgS-yF-nXK">
-                                <rect key="frame" x="43.5" y="290" width="197" height="43"/>
+                                <rect key="frame" x="43.5" y="254" width="197" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clo Clo Shopping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff1-Vf-m9b">
-                                <rect key="frame" x="43.5" y="358" width="288.5" height="43"/>
+                                <rect key="frame" x="43.5" y="322" width="288.5" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -143,12 +143,12 @@
                             <constraint firstItem="tgS-yF-nXK" firstAttribute="leading" secondItem="Ff1-Vf-m9b" secondAttribute="leading" id="CXk-SP-Bat"/>
                             <constraint firstItem="Ff1-Vf-m9b" firstAttribute="centerX" secondItem="Cyz-Cs-NhS" secondAttribute="centerX" id="Pft-QV-aVP"/>
                             <constraint firstItem="q9l-Px-jnE" firstAttribute="trailing" secondItem="cLD-oU-4uL" secondAttribute="trailing" constant="40" id="SEA-Mj-o8Q"/>
-                            <constraint firstItem="q9l-Px-jnE" firstAttribute="bottom" secondItem="cLD-oU-4uL" secondAttribute="bottom" constant="130" id="T6k-dM-IqD"/>
                             <constraint firstItem="QUl-tY-Fil" firstAttribute="leading" secondItem="q9l-Px-jnE" secondAttribute="leading" constant="40" id="UuT-ID-hSb"/>
                             <constraint firstItem="Ff1-Vf-m9b" firstAttribute="top" secondItem="tgS-yF-nXK" secondAttribute="bottom" constant="25" id="VT4-Kr-L0f"/>
                             <constraint firstItem="8Ag-F4-MFv" firstAttribute="top" secondItem="q9l-Px-jnE" secondAttribute="top" constant="50" id="YU8-xw-1SV"/>
-                            <constraint firstItem="cLD-oU-4uL" firstAttribute="top" secondItem="Ff1-Vf-m9b" secondAttribute="bottom" constant="34" id="Yuw-6A-N1p"/>
                             <constraint firstItem="cLD-oU-4uL" firstAttribute="leading" secondItem="q9l-Px-jnE" secondAttribute="leading" constant="40" id="bGS-sl-dfd"/>
+                            <constraint firstItem="tgS-yF-nXK" firstAttribute="top" secondItem="8Ag-F4-MFv" secondAttribute="bottom" constant="20" id="nRA-Ey-72F"/>
+                            <constraint firstItem="cLD-oU-4uL" firstAttribute="top" secondItem="Ff1-Vf-m9b" secondAttribute="bottom" constant="30" id="wEL-4V-Ogc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q9l-Px-jnE"/>
                     </view>

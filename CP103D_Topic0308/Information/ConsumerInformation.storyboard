@@ -191,7 +191,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member" translatesAutoresizingMaskIntoConstraints="NO" id="OvY-v0-3Jo">
-                                <rect key="frame" x="112.5" y="70" width="150" height="150"/>
+                                <rect key="frame" x="112.5" y="40" width="150" height="150"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="3kO-uV-6mh"/>
@@ -207,7 +207,7 @@
                                 </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="WQm-fR-vX4">
-                                <rect key="frame" x="40" y="250" width="295" height="214"/>
+                                <rect key="frame" x="40" y="220" width="295" height="214"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mB-1c-a5l">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="24"/>
@@ -248,7 +248,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTH-hT-AkC">
-                                <rect key="frame" x="130" y="479" width="115" height="30"/>
+                                <rect key="frame" x="130" y="444" width="115" height="30"/>
                                 <color key="backgroundColor" red="0.66882138319999995" green="0.66882138319999995" blue="0.66882138319999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="修改會員資料">
@@ -267,9 +267,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SE3-Gd-kKO">
-                                <rect key="frame" x="300" y="187" width="35" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="登出"/>
+                                <rect key="frame" x="130" y="484" width="115" height="30"/>
+                                <color key="backgroundColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="登出">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="logoutClick:" destination="g6r-b5-qIG" eventType="touchUpInside" id="Nc0-WF-fe9"/>
                                 </connections>
@@ -277,15 +280,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OvY-v0-3Jo" firstAttribute="top" secondItem="WkY-6I-RiW" secondAttribute="top" constant="50" id="4cH-O9-HAO"/>
+                            <constraint firstItem="SE3-Gd-kKO" firstAttribute="leading" secondItem="WkY-6I-RiW" secondAttribute="leading" constant="130" id="14w-MX-bGE"/>
+                            <constraint firstItem="OvY-v0-3Jo" firstAttribute="top" secondItem="WkY-6I-RiW" secondAttribute="top" constant="20" id="4cH-O9-HAO"/>
                             <constraint firstItem="WQm-fR-vX4" firstAttribute="leading" secondItem="WkY-6I-RiW" secondAttribute="leading" constant="40" id="7BF-CO-saN"/>
-                            <constraint firstItem="WQm-fR-vX4" firstAttribute="top" secondItem="SE3-Gd-kKO" secondAttribute="bottom" constant="30" id="7gs-pW-5Su"/>
                             <constraint firstItem="OvY-v0-3Jo" firstAttribute="centerX" secondItem="qmr-xo-H5H" secondAttribute="centerX" id="C4q-3p-MmG"/>
                             <constraint firstItem="WkY-6I-RiW" firstAttribute="trailing" secondItem="WQm-fR-vX4" secondAttribute="trailing" constant="40" id="Cdq-HT-Et7"/>
-                            <constraint firstItem="MTH-hT-AkC" firstAttribute="top" secondItem="WQm-fR-vX4" secondAttribute="bottom" constant="15" id="FF7-2Z-o0N"/>
-                            <constraint firstItem="WkY-6I-RiW" firstAttribute="trailing" secondItem="SE3-Gd-kKO" secondAttribute="trailing" constant="40" id="HHQ-EQ-Ocl"/>
+                            <constraint firstItem="MTH-hT-AkC" firstAttribute="top" secondItem="WQm-fR-vX4" secondAttribute="bottom" constant="10" id="FF7-2Z-o0N"/>
                             <constraint firstItem="MTH-hT-AkC" firstAttribute="leading" secondItem="WkY-6I-RiW" secondAttribute="leading" constant="130" id="MuT-RT-hLC"/>
                             <constraint firstItem="WkY-6I-RiW" firstAttribute="trailing" secondItem="MTH-hT-AkC" secondAttribute="trailing" constant="130" id="Ond-mC-PZT"/>
+                            <constraint firstItem="SE3-Gd-kKO" firstAttribute="top" secondItem="MTH-hT-AkC" secondAttribute="bottom" constant="10" id="eTw-o7-7Ue"/>
+                            <constraint firstItem="WkY-6I-RiW" firstAttribute="trailing" secondItem="SE3-Gd-kKO" secondAttribute="trailing" constant="130" id="hYo-e0-5Qy"/>
                             <constraint firstItem="WQm-fR-vX4" firstAttribute="top" secondItem="OvY-v0-3Jo" secondAttribute="bottom" constant="30" id="pjk-dd-vcw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WkY-6I-RiW"/>
