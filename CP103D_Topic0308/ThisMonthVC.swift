@@ -49,7 +49,7 @@ class ThisMonthChartVC: UIViewController, ChartViewDelegate{
             
             let calendar = Calendar.current
             var dateComponents = DateComponents()
-            dateComponents.hour = -8
+            dateComponents.hour = -13
             let date_fix = calendar.date(byAdding: dateComponents, to: now)
             
             let componentSet: Set<Calendar.Component> = [.year, .month, .weekOfYear, .day, .hour, .minute, .second, .nanosecond]

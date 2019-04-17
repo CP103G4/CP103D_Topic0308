@@ -49,7 +49,7 @@ class LastMonthChartVC: UIViewController , ChartViewDelegate {
             
             var dateComponents = DateComponents()
             dateComponents.month = -1
-            dateComponents.hour = -8
+            dateComponents.hour = -13
             
             let date_lastMonth = calendar.date(byAdding: dateComponents, to: now)
             let componentSet: Set<Calendar.Component> = [.year, .month, .weekOfYear, .day, .hour, .minute, .second, .nanosecond]
