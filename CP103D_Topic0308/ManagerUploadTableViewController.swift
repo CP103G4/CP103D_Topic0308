@@ -216,29 +216,9 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
     }
     
     @IBAction func deleteGood(_ sender: Any) {
-        var requestParam = [String: String]()
-        requestParam["param"] = "delete"
-        requestParam["goodId"] = goodDetail!.id.description
-        executeTask(url_server!, requestParam) { (data, response, error) in
-            if error == nil {
-                if data != nil {
-                    if let result = String(data: data!, encoding: .utf8) {
-                        if let count = Int(result) {
-                            DispatchQueue.main.async {
-                                print(count.description)
-                                if count != 0 {
-                                    self.showCorrectAlert("刪除商品：\(self.goodDetail!.name)")
-                                } else {
-                                    self.showErrorAlert()
-                                }
-                            }
-                        }
-                    }
-                }
-            } else {
-                print(error!.localizedDescription)
-            }
-        }
+        showDeleteAlert("刪除商品：\(self.goodDetail!.name)")
+
+ 
     }
     
     
@@ -261,6 +241,40 @@ class ManagerUploadTableViewController: UITableViewController, UIImagePickerCont
             self.next()            
         }
         correctAlert.addAction(okAction)
+        present(correctAlert, animated: true, completion: nil)
+    }
+    
+    func showDeleteAlert(_ correctMessage: String){
+        let correctAlert = UIAlertController(title: correctMessage, message: correctMessage + "成功！", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            var requestParam = [String: String]()
+            requestParam["param"] = "delete"
+            requestParam["goodId"] = self.goodDetail!.id.description
+            executeTask(self.url_server!, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                        if let result = String(data: data!, encoding: .utf8) {
+                            if let count = Int(result) {
+                                DispatchQueue.main.async {
+                                    print(count.description)
+                                    if count != 0 {
+                                        self.next()
+                                    } else {
+                                        self.showErrorAlert()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    print(error!.localizedDescription)
+                }
+            }
+        }
+        correctAlert.addAction(okAction)
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+        }
+        correctAlert.addAction(cancel)
         present(correctAlert, animated: true, completion: nil)
     }
     
