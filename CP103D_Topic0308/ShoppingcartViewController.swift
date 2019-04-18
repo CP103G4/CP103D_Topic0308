@@ -217,9 +217,13 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
                 self.saveData(carts: self.carts)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 self.setBadgevalue()
-                if let controller = self.storyboard?.instantiateViewController(withIdentifier: "shoppingcarNavigation") {
-                    self.present(controller, animated: true, completion: nil)
+                if self.carts.count == 0{
+                    self.noGoodView.isHidden = false
                 }
+
+//                if let controller = self.storyboard?.instantiateViewController(withIdentifier: "shoppingcarNavigation") {
+//                    self.present(controller, animated: true, completion: nil)
+//                }
             }
             let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             correctAlert.addAction(okAction)

@@ -1,11 +1,11 @@
 import Foundation
 import UIKit
 
-//let common_url = "http://127.0.0.1:8080/User_MySQL_Web/"
-//let wscommon_url = "ws://127.0.0.1:8080/User_MySQL_Web/"
+let common_url = "http://127.0.0.1:8080/User_MySQL_Web/"
+let wscommon_url = "ws://127.0.0.1:8080/User_MySQL_Web/"
 
-let common_url = "http://192.168.196.246:8080/User_MySQL_Web/"
-let wscommon_url = "ws://192.168.196.246:8080/User_MySQL_Web/"
+//let common_url = "http://192.168.196.246:8080/User_MySQL_Web/"
+//let wscommon_url = "ws://192.168.196.246:8080/User_MySQL_Web/"
 
 func executeTask(_ url_server: URL,_ requestParam: [String: Any], completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {    
     // requestParam值為Any就必須使用JSONSerialization.data()，而非JSONEncoder.encode()
