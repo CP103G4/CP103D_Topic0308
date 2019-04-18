@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Starscream
 
 class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -16,7 +17,8 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
-    
+    var socket: WebSocket!
+
     
     var user: User?
     let url_server = URL(string: common_url + "UserServlet")
@@ -27,7 +29,11 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         user = loadUser()
         loadData()
         loadImage()
+        let username = user!.userName
         
+        let url_WebSocketserver = URL(string: wscommon_url + "websocketAll/" + username)
+        socket = WebSocket(url: url_WebSocketserver!)
+        socket.delegate = self
     }
     
     
@@ -39,6 +45,8 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             
             let userDefaults = UserDefaults.standard
             userDefaults.set(nil, forKey: "image")
+            
+            self.socket.disconnect()
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "loginNav")
@@ -152,5 +160,24 @@ class memberVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             
         }
     }
+    
+}
+extension memberVC : WebSocketDelegate{
+    func websocketDidConnect(socket: WebSocketClient) {
+        
+    }
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        
+    }
+    
     
 }
