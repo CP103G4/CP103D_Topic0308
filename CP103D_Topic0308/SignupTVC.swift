@@ -46,7 +46,7 @@ class SignupTVC: UITableViewController {
     
     
     @IBAction func registerClick(_ sender: Any) {
-        let username = tfName.text == nil ? "" : tfName.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let username = tfUsername.text == nil ? "" : tfUsername.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = tfPassword.text == nil ? "" : tfPassword.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let name = tfName.text == nil ? "" : tfName.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let phone = tfPhone.text == nil ? "" : tfPhone.text?.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -104,7 +104,15 @@ class SignupTVC: UITableViewController {
     func showCorrectAlert(){
         let correctAlert = UIAlertController(title: "註冊成功!", message: "你現在可以登入並好好享受購物購物的樂趣", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "太棒了!", style: .default) { (_) in
-            self.dismiss(animated: true, completion: nil)
+            
+            let user = User(self.tfUsername.text!, self.tfPassword.text!)
+            if saveUser(user) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "loginNav")
+            self.present(controller, animated: true, completion: nil)
+            } else {
+                return
+            }
         }
         correctAlert.addAction(okAction)
         present(correctAlert, animated: true, completion: nil)
