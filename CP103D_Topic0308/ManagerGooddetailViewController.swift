@@ -21,7 +21,6 @@ class ManagerGooddetailViewController: UIViewController, WebSocketDelegate {
     @IBOutlet weak var color2Label: UILabel!
     @IBOutlet weak var size1Label: UILabel!
     @IBOutlet weak var size2Label: UILabel!
-    @IBOutlet weak var quatityLabel: UILabel!
     @IBOutlet weak var shelfSwitch: UISwitch!
     var socket: WebSocket!
     let tag = "AllChatVC"
@@ -55,7 +54,6 @@ class ManagerGooddetailViewController: UIViewController, WebSocketDelegate {
         color2Label.alpha = (goodDetail!.color2 == "1") ? 1 : 0
         size1Label.alpha = (goodDetail!.size1 == "1") ? 1 : 0.1
         size2Label.alpha = (goodDetail!.size2 == "1") ? 1 : 0.1
-        quatityLabel.text = goodDetail!.quatity.description
         shelfSwitch.isOn = Bool(goodDetail!.shelf)!
         
         let url_WebSocketserver = URL(string: wscommon_url + "websocketAll/" + username)

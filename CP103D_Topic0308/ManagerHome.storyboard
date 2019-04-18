@@ -184,7 +184,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ohF-2C-YNg">
-                                <rect key="frame" x="8" y="340" width="96" height="106"/>
+                                <rect key="frame" x="8" y="368.5" width="96" height="77.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uFZ-iL-BLj">
                                         <rect key="frame" x="0.0" y="0.0" width="96" height="20.5"/>
@@ -253,23 +253,6 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bh4-ly-nJM">
-                                        <rect key="frame" x="0.0" y="85.5" width="96" height="20.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="庫存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLl-aU-DdR">
-                                                <rect key="frame" x="0.0" y="0.0" width="35" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="-1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voa-gT-wdF">
-                                                <rect key="frame" x="43" y="0.0" width="53" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pAb-9a-U62">
@@ -317,7 +300,6 @@
                         <outlet property="color2Label" destination="KQR-UN-SOt" id="EpW-IE-dhZ"/>
                         <outlet property="imageview" destination="3Dz-ab-cPx" id="8ae-cr-8OP"/>
                         <outlet property="priceLabel" destination="z1D-Gg-9E6" id="7PH-OQ-fK7"/>
-                        <outlet property="quatityLabel" destination="voa-gT-wdF" id="P4C-aE-A6g"/>
                         <outlet property="shelfSwitch" destination="JPz-fL-iix" id="foX-vJ-0qw"/>
                         <outlet property="size1Label" destination="EaI-ia-2jm" id="9x2-xY-IAu"/>
                         <outlet property="size2Label" destination="C20-dg-eYv" id="xXD-cI-Eks"/>
