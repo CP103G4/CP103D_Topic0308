@@ -63,6 +63,7 @@ class Order : NSObject, NSSecureCoding, Codable {
         userId = aDecoder.decodeObject(of: NSNumber.self, forKey: "userId") as! Int
     }
     
+    //訂單狀態代碼翻譯
     func statusDescription(stayusCode:Int) -> (String) {
         if stayusCode == 0 {
             return "未出貨"
@@ -75,6 +76,7 @@ class Order : NSObject, NSSecureCoding, Codable {
         }
     }
     
+    //付款方式代碼翻譯
     func paymentDescription(paymentCode:Int) -> (String) {
         if paymentCode == 0 {
             return "貨到付款"
@@ -85,6 +87,7 @@ class Order : NSObject, NSSecureCoding, Codable {
         }
     }
     
+    //日期時間描述修正
     var dateStr: String {
         if date != nil {
             let date_fix = Calendar.current.date(byAdding: .hour, value: -13, to: date!)

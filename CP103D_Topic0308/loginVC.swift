@@ -165,6 +165,7 @@ class loginVC: UIViewController,FBSDKLoginButtonDelegate {
 //        let storyboard = UIStoryboard(name: "ConsumerHome", bundle: nil)
         user = loadUser()
         if user?.userName == "1234"{
+            clearUser()
             if let controller = storyboard?.instantiateViewController(withIdentifier: "managertabbar") {
                 present(controller, animated: true, completion: nil)
             }
@@ -181,10 +182,6 @@ class loginVC: UIViewController,FBSDKLoginButtonDelegate {
     
     @IBAction func clickClear(_ sender: Any) {
         clear()
-    }
-    
-    @IBAction func clickshopping(_ sender: Any) {
-        clearUser()
     }
     
     

@@ -41,6 +41,7 @@ class Good: Codable {
         self.quatity = quatity
     }
     
+    //顏色代碼翻譯
     func colorDescription(colorCode:String) -> (String) {
         if colorCode == "0" {
             return "淺色"
@@ -50,6 +51,7 @@ class Good: Codable {
         return ""
     }
     
+    //尺寸代碼翻譯
     func sizeDescription(sizeCode:String) -> (String) {
         if sizeCode == "0" {
             return "XL"

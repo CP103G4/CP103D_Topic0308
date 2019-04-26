@@ -44,7 +44,7 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    
+    //存檔路徑
     func fileInDocuments(fileName: String) -> URL {
         let fileManager = FileManager()
         let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
@@ -52,6 +52,7 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         return fileUrl
     }
     
+    //購物車存檔
     func saveData(carts:[Cart]) {
         let dataUrl = fileInDocuments(fileName: "cartData")
         let encoder = JSONEncoder()
@@ -65,7 +66,7 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    
+    //購物車讀檔
     func loadData() {
         let fileManager = FileManager()
         let decoder = JSONDecoder()
@@ -107,7 +108,7 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         cell.sizeLabel.text = cart.size1 == "1" ? "L" : "XL"
         cell.quantityLabel.text = cart.quatity.description
         
-        
+        //算價錢、總價
         let item = carts[indexPath.row] // assuming `dataSource` is the data source array
         cell.numberStepper.value = Double(item.quatity)
         cell.quantityLabel.text = "\(item.quatity)"
@@ -126,6 +127,7 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
             self.cartTotalPrice.text = totalprice.description
             self.carts[indexPath.row].quatity = Int(cell.quantityLabel.text!)!
         }
+        
         // 尚未取得圖片，另外開啟task請求
         var requestParam = [String: Any]()
         requestParam["param"] = "getImage"
@@ -149,28 +151,9 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         (cell as! CartCell).observation = nil
-    }
-    
-    func stepperButton(sender: CartCell) {
-        if let indexPath = cartTableView.indexPath(for: sender){
-            print(indexPath)
-            let cart = carts[indexPath.row]
-            cart.quatity = Int(sender.numberStepper.value)
-        }
-    }
-    
-    func statusDescription(stayusCode:Int) -> (String) {
-        if stayusCode == 0 {
-            return "未出貨"
-        } else if stayusCode == 1 {
-            return "已出貨"
-        } else if stayusCode == 2 {
-            return "已退貨"
-        } else {
-            return "已取消"
-        }
     }
     
     //     左滑修改與刪除資料
@@ -276,6 +259,8 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         hideShoppingview()
         clearShoppingview()
     }
+    
+    //隱藏購物視窗
     func hideShoppingview() {
         self.tabBarController?.tabBar.isHidden = false
         self.tabBarController?.tabBar.layer.zPosition = 0
@@ -288,6 +273,8 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
             self.shoppingView.isHidden = true
         }
     }
+    
+    //清除購物視窗
     func clearShoppingview() {
         shoppingviewDeepcolorBt.isSelected = false
         shoppingviewLightBt.isSelected = false
@@ -322,6 +309,7 @@ class ShoppingcartViewController: UIViewController, UITableViewDelegate, UITable
         saveData(carts: carts)
     }
     
+    //紅色徽章提示
     func setBadgevalue() {
         if carts.count == 0 {
             self.tabBarController?.viewControllers?[2].tabBarItem.badgeValue = nil

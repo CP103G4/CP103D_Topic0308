@@ -49,6 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         TPDSetup.shareInstance().setupIDFA(IDFA)
         
         TPDSetup.shareInstance().serverSync()
+        
+        
+        #if DEBUG
+        Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/iOSInjection.bundle")?.load()
+        #endif
 
         return true
     }

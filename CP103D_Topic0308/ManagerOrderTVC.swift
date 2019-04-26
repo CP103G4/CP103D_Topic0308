@@ -42,6 +42,7 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
         self.tableView.refreshControl = refreshControl
     }
     
+    //取得訂單編號的array
     func getAllOrderId() {
         for i in 0...orders.count-1 {
             let orderId = orders[i].id
@@ -49,6 +50,7 @@ class ManagerOrderTVC: UITableViewController , UISearchResultsUpdating {
         }
     }
     
+    //取得搜尋的訂單array
     func getSelectOrders() {
         if searchOrderById.count > 0{
             for i in 0...searchOrderById.count-1 {

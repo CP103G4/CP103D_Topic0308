@@ -43,6 +43,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return fileUrl
     }
     
+    //讀取購物車資料
     func loadData() {
         let fileManager = FileManager()
         let decoder = JSONDecoder()
@@ -59,6 +60,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    //獲得使用者物件
     func getUser(){
         var requestParam = [String: String]()
         requestParam["action"] = "findUserForOrder"
@@ -80,11 +82,12 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    
+    //呈現總價
     func displayTotal() {
         self.labelTotalPrice.text = String(calculateCartTotal())
     }
     
+    //計算總價
     func calculateCartTotal() -> String{
         var total = 0.0
         for cart in carts {
@@ -148,7 +151,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         switch scPayment.selectedSegmentIndex {
         case 0:
             saveOrder()
-            self.performSegue(withIdentifier: "Thankyou", sender: self)
+            self.showAlertMsgorder()
             break
         case 1:
             saveRequest(address)
@@ -181,10 +184,8 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                         //新增訂單明細
                                         self.insertOrderdetail()
                                         self.delete()
-                                        self.showAlertMsgorder()
-                                        
                                     } else {
-                                        //                                    self.label.text = "insert fail"
+                                        
                                     }
                                 }
                             }
@@ -222,28 +223,15 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func showAlertMsgorder() {
         
-        let orderAlert = UIAlertController(title: "訂購完成", message: "你的訂單金額: \(String(describing: labelTotalPrice!.text))", preferredStyle: .alert)
+        let orderAlert = UIAlertController(title: "訂購完成", message: "你的訂單金額: \(labelTotalPrice!.text ?? 0.0.description)元", preferredStyle: .alert)
         //        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
-//            self.performSegue(withIdentifier: "Thankyou", sender: self)
+            self.performSegue(withIdentifier: "Thankyou", sender: self)
         }
         orderAlert.addAction(okAction)
         present(orderAlert, animated: true, completion: nil)
         
     }
-    
-    func showSuccessAlert() {
-        
-        let orderAlert = UIAlertController(title: "感謝您的購買", message: "你的訂單金額: \(String(describing: labelTotalPrice!.text))", preferredStyle: .alert)
-        //        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
-//            self.performSegue(withIdentifier: "Thankyou", sender: self)
-        }
-        orderAlert.addAction(okAction)
-        present(orderAlert, animated: true, completion: nil)
-        
-    }
-    
     
     func delete() {
         //刪除畫面
